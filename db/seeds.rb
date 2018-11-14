@@ -1,8 +1,11 @@
 require 'json'
-require 'open-uri'
 
-response_raw = File.read('catalan_articles.json')
+response_raw = File.read(File.expand_path("db/catalan_articles.json"))
+
 response = JSON.parse(response_raw)
+
+
+array_response = response["articles"]["results"]
 
 
 ARTICLE_IMAGES = [
@@ -42,6 +45,10 @@ FIRST_NAMES.each_with_index do |name, idx|
     puts "User #{user.first_name} created"
 
 end
+
+### Create Topic ####
+
+### Create Event ####
 
 ### Create new publisher using article source ####
 
