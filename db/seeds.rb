@@ -1,3 +1,9 @@
+require 'json'
+require 'open-uri'
+
+response_raw = File.read('catalan_articles.json')
+response = JSON.parse(response_raw)
+
 
 ARTICLE_IMAGES = [
     "https://images.ecosia.org/FY28O5m_ZcGa2lp9BQxtPIpwm5Y=/0x390/smart/http%3A%2F%2Fgocartours.com%2Fwp-content%2Fuploads%2F120912020406-spain-catalonia-protest-story-top.jpg",
