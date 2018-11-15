@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
-gem 'devise'
+
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -11,7 +11,7 @@ gem 'redis'
 
 #### Added gems here ####
 gem 'json'
-
+gem 'devise'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

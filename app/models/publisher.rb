@@ -1,4 +1,4 @@
 class Publisher < ApplicationRecord
-  validates :name, presence: true
-  has_many :articles
+  # validates :name, presence: true
+  # has_many :articles
 end
