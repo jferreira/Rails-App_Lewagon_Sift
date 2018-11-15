@@ -24,22 +24,22 @@ LAST_NAMES = %w[Smith Johnson Williams Brown Davis Miller Wilson Thomas Gonzalez
 TOPICS = ["Catalan Independence", "World War II", "Syrian Civil War", "Woodburn Forest Oil Drill", "Brexit"]
 TOPIC_IMAGES = %w[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg https://scd.france24.com/en/files/imagecache/home_1024/article/image/brexit-drapeau-131118-m.jpg]
 
-EVENTS = %w[
-Spanish president attacks Catalan Referendum
-Catalan President Flees into exile
-Riot police clash with referendum voters
-War is Declared
-Battle of the Bulge
-V-E Day
-President Assad sacks Hama governor,
-Government steps up the Homs bombardment,
-Prime Minister Riad Hijab defects
-Start drilling for oil
-PSNI accused of squandering £1m on policing oil drill protest
-Company behind Woodburn Forest oil drill call off project
-Referendum Called
-Hard or soft brexit
-Brexit deal
+EVENTS = [
+"Spanish president attacks Catalan Referendum",
+"Catalan President Flees into exile",
+"Riot police clash with referendum voters",
+"War is Declared",
+"Battle of the Bulge",
+"V-E Day",
+"President Assad sacks Hama governor",
+"Government steps up the Homs bombardment",
+"Prime Minister Riad Hijab defects",
+"Start drilling for oil",
+"PSNI accused of squandering £1m on policing oil drill protest",
+"Company behind Woodburn Forest oil drill call off project",
+"Referendum Called",
+"Hard or soft brexit",
+"Brexit deal"
 ]
 
 EVENTS_LOCATIONS = ["Barcelona,Spain","Barcelona,Spain","Barcelona,Spain", "Aleppo,Syria","Aleppo,Syria","Aleppo,Syria", "Berlin,Germany","Berlin,Germany","Berlin,Germany", "Woodburn,NorthernIreland","Woodburn,NorthernIreland","Woodburn,NorthernIreland","London,UK","London,UK","London,UK"]
@@ -84,7 +84,7 @@ https://img.rasset.ie/0010ff9e-500.jpg
 
 puts "Seeding started"
 
- ### Create new users ####
+#### Create new users ####
 
 FIRST_NAMES.each_with_index do |name, idx|
 
@@ -100,125 +100,142 @@ FIRST_NAMES.each_with_index do |name, idx|
     user.save!
 
     puts "User #{user.first_name} created"
-
 end
 
-# ### Create Topic ####
-# puts "Creating topics"
+#### Create Topic ####
 
-# TOPICS.each_with_index do |topic, idx|
-#     topic_data = {
-#         name: topic
-#         image_url: TOPIC_IMAGES[idx]
-#     }
+puts "Creating topics"
 
-#     topic = Topic.new(topic_data)
-#     topic.save!
+TOPICS.each_with_index do |topic, idx|
+    topic_data = {
+        name: topic,
+        image_url: TOPIC_IMAGES[idx]
+    }
 
-#     puts "Topics created: #{topic.name}"
-# end
+    topic = Topic.new(topic_data)
+    topic.save!
 
-
-# ### Create Event ####
-
-# puts "Creating Events"
-
-# EVENTS.each_with_index do |event, idx|
-
-#         i = 0
-
-#         case idx
-#           when idx < 3
-#           i = 1
-#           when idx < 6
-#           i = 2
-#           else
-#           i = 3
-#           end
-
-#     event_data = {
-#         name: event
-#         image_url: EVENTS_IMAGES[idx],
-#         date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
-#         location: EVENTS_LOCATIONS[idx],
-#         lat: LAT.sample,
-#         lng: LONG.sample,
-#         topic_id: Topic.find_by(id: i)
-#     }
-
-#     event = Event.new(event_data)
-#     event.save!
-
-#     puts "Event created: #{event.name}"
-# end
+    puts "Topics created: #{topic.name}"
+end
 
 
-# ### Create new publisher using article source ####
+#### Create Event ####
 
-# articles.results.each do |article|
+puts "Creating Events"
 
-#     src = article.source
+EVENTS.each_with_index do |event, idx|
 
-#     publisher_data = {
-#         image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
-#         web_url: src.uri,
-#         name: src.title,
-#         location: EVENTS_LOCATIONS.sample,
-#         lat: LAT.sample,
-#         lng: LONG.sample,
-#         description: src.description,
-#         type: src.dataType
-#     }
+    event_data = {
+        name: event,
+        image_url: EVENTS_IMAGES[idx],
+        date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
+        location: EVENTS_LOCATIONS[idx],
+        lat: LAT.sample,
+        lng: LONG.sample,
+        topic_id: rand(1..3) ### << This is to be fixed
+    }
 
-#     publisher = Publisher.new(publisher_data)
-#     publisher.save!
+    event = Event.new(event_data)
+    event.save!
 
-#     puts "Publisher created: #{publisher_data.title}"
+    puts "Event created: #{event.name}"
+    puts "Topic ID chosen: #{event.topic_id}"
+end
 
-#     ### Create new author
 
-#     article.authors.each do |author|
+#### Create new publisher using article source ####
 
-#         author_data = {
-#             first_name: author.name.split[0],
-#             last_name: author.name.split[1],
-#             twitter_handle: @rogermutt,
-#             location: EVENTS_LOCATIONS.sample,
-#             lat: LAT.sample,
-#             lng: LONG.sample
-#         }
+array_response.each do |article|
 
-#         author = Author.new(author_data)
-#         author.save!
+    src = article["source"]
 
-#         puts "author created: #{author_data.first_name}"
-#     end
+    publisher_data = {
+        image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
+        web_url: src["uri"],
+        name: src["title"],
+        location: EVENTS_LOCATIONS.sample,
+        lat: LAT.sample,
+        lng: LONG.sample,
+        description: src["description"]
+    }
+
+    publisher = Publisher.new(publisher_data)
+    publisher.save!
+
+    puts "Publisher created: #{publisher_data[:name]}"
+end
+
+#### Create new author
+
+array_response.each do |article|
+
+  ## Iterating over "authors" because is an array
+
+  article["authors"].each do |author|
+
+    author_data = {
+        first_name: author["name"].split[0],
+        last_name: author["name"].split[1],
+        twitter_handle: "@RogerPubill",
+        location: EVENTS_LOCATIONS.sample,
+        lat: LAT.sample,
+        lng: LONG.sample
+    }
+
+    author = Author.new(author_data)
+    author.save!
+
+    puts "author created: #{author_data[:first_name]}"
+
+  end
+end
 
 #     ### Create new article
 
+array_response.each do |article|
+
+  a = article
+
+    article_data = {
+        title: a["title"], ### To be changed
+        description: a["title"], ### To be changed
+        body_text: a["body"],
+        image_url: ARTICLE_IMAGES.sample,
+        source_url: a["url"],
+        date_time_published: a["dateTime"],
+        publishing_type: a["dataType"],
+        language: a["lang"],
+        location: EVENTS_LOCATIONS.sample,
+        lat: LAT.sample,
+        lng: LONG.sample,
+        count_views: (200..5000).to_a.sample,
+        average_user_score: (-5..5).to_a.sample,
+        published: true,
+        author_id: Author.all.sample.id,
+        event_id: Event.all.sample.id,
+        publisher_id: Publisher.all.sample.id
+    }
+
+    publisher = Article.new(article_data)
+    publisher.save!
+
+    puts "Article created: #{article_data[:title]}"
+end
+
+#     ### Create new following_item
+
+# puts "Creating following_item"
+
+# array_response.each do |article|
+
+#   a = article
+
 #     article_data = {
-#         name: article.title,
-#         description: article.title, ### To be changed
-#         body_text: article.body,
-#         image_url: ARTICLE_IMAGES.sample,
-#         source_url: url,
-#         dateTime: dateTime,
-#         type: dataType,
-#         language: lang,
-#         location: LOCATIONS.sample,
-#         lat: LAT.sample,
-#         lng: LONG.sample,
-#         count_views: (200..5000).to_a.sample,
-#         average_user_score: (-5..5).to_a.sample,
-#         published: true,
-#         author_id: Author.all.sample,
-#         event_id: Event.all.sample,
-#         publisher_id: Publisher.all.sample
+
 #     }
 
-#     publisher = Publisher.new(publisher_data)
+#     publisher = Publisher.new(article_data)
 #     publisher.save!
 
-#     puts "Article created: #{publisher_data.title}"
-
+#     puts "Article created: #{article_data[:title]}"
 # end
