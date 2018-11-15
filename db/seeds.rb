@@ -24,22 +24,22 @@ LAST_NAMES = %w[Smith Johnson Williams Brown Davis Miller Wilson Thomas Gonzalez
 TOPICS = ["Catalan Independence", "World War II", "Syrian Civil War", "Woodburn Forest Oil Drill", "Brexit"]
 TOPIC_IMAGES = %w[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg https://scd.france24.com/en/files/imagecache/home_1024/article/image/brexit-drapeau-131118-m.jpg]
 
-EVENTS = %w[
-Spanish president attacks Catalan Referendum
-Catalan President Flees into exile
-Riot police clash with referendum voters
-War is Declared
-Battle of the Bulge
-V-E Day
-President Assad sacks Hama governor,
-Government steps up the Homs bombardment,
-Prime Minister Riad Hijab defects
-Start drilling for oil
-PSNI accused of squandering £1m on policing oil drill protest
-Company behind Woodburn Forest oil drill call off project
-Referendum Called
-Hard or soft brexit
-Brexit deal
+EVENTS = [
+"Spanish president attacks Catalan Referendum",
+"Catalan President Flees into exile",
+"Riot police clash with referendum voters",
+"War is Declared",
+"Battle of the Bulge",
+"V-E Day",
+"President Assad sacks Hama governor",
+"Government steps up the Homs bombardment",
+"Prime Minister Riad Hijab defects",
+"Start drilling for oil",
+"PSNI accused of squandering £1m on policing oil drill protest",
+"Company behind Woodburn Forest oil drill call off project",
+"Referendum Called",
+"Hard or soft brexit",
+"Brexit deal"
 ]
 
 EVENTS_LOCATIONS = ["Barcelona,Spain","Barcelona,Spain","Barcelona,Spain", "Aleppo,Syria","Aleppo,Syria","Aleppo,Syria", "Berlin,Germany","Berlin,Germany","Berlin,Germany", "Woodburn,NorthernIreland","Woodburn,NorthernIreland","Woodburn,NorthernIreland","London,UK","London,UK","London,UK"]
@@ -84,141 +84,197 @@ https://img.rasset.ie/0010ff9e-500.jpg
 
 puts "Seeding started"
 
- ### Create new users ####
+#### Create new users ####
 
 FIRST_NAMES.each_with_index do |name, idx|
 
-    user_data = {
-        first_name = name,
-        last_name = LAST_NAMES[idx],
-        email_address = "#{name}@#{name}.com",
-        password = 123456,
-        photo = nil
+    obj_data = {
+        first_name: name,
+        last_name: LAST_NAMES[idx],
+        email: "#{name}@#{name}.com",
+        password: 123456,
+        photo: nil
     }
 
-    user = User.new(user_data)
+    user = User.new(obj_data)
     user.save!
 
     puts "User #{user.first_name} created"
-
 end
 
-### Create Topic ####
+#### Create Topic ####
+
 puts "Creating topics"
 
 TOPICS.each_with_index do |topic, idx|
-    topic_data = {
-        name: topic
+    obj_data = {
+        name: topic,
         image_url: TOPIC_IMAGES[idx]
     }
 
-    topic = Topic.new(topic_data)
+    topic = Topic.new(obj_data)
     topic.save!
 
     puts "Topics created: #{topic.name}"
 end
 
 
-### Create Event ####
+#### Create Event ####
 
 puts "Creating Events"
 
 EVENTS.each_with_index do |event, idx|
 
-        i = 0
-
-        case idx
-          when idx < 3
-          i = 1
-          when idx < 6
-          i = 2
-          else
-          i = 3
-          end
-
-    event_data = {
-        name: event
+    obj_data = {
+        name: event,
         image_url: EVENTS_IMAGES[idx],
         date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
         location: EVENTS_LOCATIONS[idx],
         lat: LAT.sample,
         lng: LONG.sample,
-        topic_id: Topic.find_by(id: i)
+        topic_id: rand(1..3) ### << This is to be fixed
     }
 
-    event = Event.new(event_data)
+    event = Event.new(obj_data)
     event.save!
 
     puts "Event created: #{event.name}"
+    puts "Topic ID chosen: #{event.topic_id}"
 end
 
 
-### Create new publisher using article source ####
+#### Create new publisher using article source ####
 
-articles.results.each do |article|
+array_response.each do |article|
 
-    src = article.source
+    src = article["source"]
 
-    publisher_data = {
+    obj_data = {
         image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
-        web_url: src.uri,
-        name: src.title,
+        web_url: src["uri"],
+        name: src["title"],
         location: EVENTS_LOCATIONS.sample,
         lat: LAT.sample,
         lng: LONG.sample,
-        description: src.description,
-        type: src.dataType
+        description: src["description"]
     }
 
-    publisher = Publisher.new(publisher_data)
+    publisher = Publisher.new(obj_data)
     publisher.save!
 
-    puts "Publisher created: #{publisher_data.title}"
+    puts "Publisher created: #{obj_data[:name]}"
+end
 
-    ### Create new author
+#### Create new author
 
-    article.authors.each do |author|
+array_response.each do |article|
 
-        author_data = {
-            first_name: author.name.split[0],
-            last_name: author.name.split[1],
-            twitter_handle: @rogermutt,
-            location: EVENTS_LOCATIONS.sample,
-            lat: LAT.sample,
-            lng: LONG.sample
-        }
+  ## Iterating over "authors" because is an array
 
-        author = Author.new(author_data)
-        author.save!
+  article["authors"].each do |author|
 
-        puts "author created: #{author_data.first_name}"
-    end
+    obj_data = {
+        first_name: author["name"].split[0],
+        last_name: author["name"].split[1],
+        twitter_handle: "@RogerPubill",
+        location: EVENTS_LOCATIONS.sample,
+        lat: LAT.sample,
+        lng: LONG.sample
+    }
 
-    ### Create new article
+    author = Author.new(obj_data)
+    author.save!
 
-    article_data = {
-        name: article.title,
-        description: article.title, ### To be changed
-        body_text: article.body,
+    puts "author created: #{obj_data[:first_name]}"
+
+  end
+end
+
+#     ### Create new article
+
+array_response.each do |article|
+
+  a = article
+
+    obj_data = {
+        title: a["title"], ### To be changed
+        description: a["title"], ### To be changed
+        body_text: a["body"],
         image_url: ARTICLE_IMAGES.sample,
-        source_url: url,
-        dateTime: dateTime,
-        type: dataType,
-        language: lang,
-        location: LOCATIONS.sample,
+        source_url: a["url"],
+        date_time_published: a["dateTime"],
+        publishing_type: a["dataType"],
+        language: a["lang"],
+        location: EVENTS_LOCATIONS.sample,
         lat: LAT.sample,
         lng: LONG.sample,
         count_views: (200..5000).to_a.sample,
         average_user_score: (-5..5).to_a.sample,
         published: true,
-        author_id: Author.all.sample,
-        event_id: Event.all.sample,
-        publisher_id: Publisher.all.sample
+        author_id: Author.all.sample.id,
+        event_id: Event.all.sample.id,
+        publisher_id: Publisher.all.sample.id
     }
 
-    publisher = Publisher.new(publisher_data)
+    publisher = Article.new(obj_data)
     publisher.save!
 
-    puts "Article created: #{publisher_data.title}"
+    puts "Article created: #{obj_data[:title]}"
+end
 
+#     ### Create new following_item
+
+puts "Creating following_item"
+
+5.times do
+
+  type = %w[Topic Event].sample
+  id = type == 'Topic' ? rand(1..5) : rand(1..10)
+
+    obj_data = {
+      follower_type: type,
+      follower_id: id,
+      user_id: User.all.sample.id
+    }
+
+    following = FollowingItem.new(obj_data)
+    following.save!
+
+    puts "Following Item created: #{obj_data[:follower_type]}"
+end
+
+#     ### Create user scores
+
+puts "Creating user scores"
+
+20.times do
+
+    obj_data = {
+      score: rand(-5..5),
+      article_id: Article.all.sample.id,
+      user_id: User.all.sample.id
+    }
+
+    score = UserScore.new(obj_data)
+    score.save!
+
+    puts "Score Item created: #{obj_data[:score]}"
+end
+
+
+#     ### Create user scores
+
+puts "Creating Save Articles"
+
+20.times do
+
+    obj_data = {
+      article_id: Article.all.sample.id,
+      user_id: User.all.sample.id
+    }
+
+    saveArticle = SaveArticle.new(obj_data)
+    saveArticle.save!
+
+    puts "SaveArticle created"
 end
