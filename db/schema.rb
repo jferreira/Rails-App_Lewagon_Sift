@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_043143) do
+ActiveRecord::Schema.define(version: 2018_11_15_044310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "body_text"
+    t.string "image_url"
+    t.string "source_url"
+    t.string "language"
+    t.string "location"
+    t.decimal "lat"
+    t.decimal "lng"
+    t.string "publishing_type"
+    t.datetime "date_time_published"
+    t.integer "count_views"
+    t.integer "average_user_score"
+    t.boolean "published"
+    t.bigint "publisher_id"
+    t.bigint "author_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["event_id"], name: "index_articles_on_event_id"
+    t.index ["publisher_id"], name: "index_articles_on_publisher_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -58,5 +83,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_043143) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "authors"
+  add_foreign_key "articles", "events"
+  add_foreign_key "articles", "publishers"
   add_foreign_key "events", "topics"
 end
