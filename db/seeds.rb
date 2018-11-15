@@ -89,11 +89,11 @@ puts "Seeding started"
 FIRST_NAMES.each_with_index do |name, idx|
 
     user_data = {
-        first_name = name,
-        last_name = LAST_NAMES[idx],
-        email_address = "#{name}@#{name}.com",
-        password = 123456,
-        photo = nil
+        first_name: name,
+        last_name: LAST_NAMES[idx],
+        email: "#{name}@#{name}.com",
+        password: 123456,
+        photo: nil
     }
 
     user = User.new(user_data)
@@ -103,122 +103,122 @@ FIRST_NAMES.each_with_index do |name, idx|
 
 end
 
-### Create Topic ####
-puts "Creating topics"
+# ### Create Topic ####
+# puts "Creating topics"
 
-TOPICS.each_with_index do |topic, idx|
-    topic_data = {
-        name: topic
-        image_url: TOPIC_IMAGES[idx]
-    }
+# TOPICS.each_with_index do |topic, idx|
+#     topic_data = {
+#         name: topic
+#         image_url: TOPIC_IMAGES[idx]
+#     }
 
-    topic = Topic.new(topic_data)
-    topic.save!
+#     topic = Topic.new(topic_data)
+#     topic.save!
 
-    puts "Topics created: #{topic.name}"
-end
-
-
-### Create Event ####
-
-puts "Creating Events"
-
-EVENTS.each_with_index do |event, idx|
-
-        i = 0
-
-        case idx
-          when idx < 3
-          i = 1
-          when idx < 6
-          i = 2
-          else
-          i = 3
-          end
-
-    event_data = {
-        name: event
-        image_url: EVENTS_IMAGES[idx],
-        date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
-        location: EVENTS_LOCATIONS[idx],
-        lat: LAT.sample,
-        lng: LONG.sample,
-        topic_id: Topic.find_by(id: i)
-    }
-
-    event = Event.new(event_data)
-    event.save!
-
-    puts "Event created: #{event.name}"
-end
+#     puts "Topics created: #{topic.name}"
+# end
 
 
-### Create new publisher using article source ####
+# ### Create Event ####
 
-articles.results.each do |article|
+# puts "Creating Events"
 
-    src = article.source
+# EVENTS.each_with_index do |event, idx|
 
-    publisher_data = {
-        image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
-        web_url: src.uri,
-        name: src.title,
-        location: EVENTS_LOCATIONS.sample,
-        lat: LAT.sample,
-        lng: LONG.sample,
-        description: src.description,
-        type: src.dataType
-    }
+#         i = 0
 
-    publisher = Publisher.new(publisher_data)
-    publisher.save!
+#         case idx
+#           when idx < 3
+#           i = 1
+#           when idx < 6
+#           i = 2
+#           else
+#           i = 3
+#           end
 
-    puts "Publisher created: #{publisher_data.title}"
+#     event_data = {
+#         name: event
+#         image_url: EVENTS_IMAGES[idx],
+#         date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
+#         location: EVENTS_LOCATIONS[idx],
+#         lat: LAT.sample,
+#         lng: LONG.sample,
+#         topic_id: Topic.find_by(id: i)
+#     }
 
-    ### Create new author
+#     event = Event.new(event_data)
+#     event.save!
 
-    article.authors.each do |author|
+#     puts "Event created: #{event.name}"
+# end
 
-        author_data = {
-            first_name: author.name.split[0],
-            last_name: author.name.split[1],
-            twitter_handle: @rogermutt,
-            location: EVENTS_LOCATIONS.sample,
-            lat: LAT.sample,
-            lng: LONG.sample
-        }
 
-        author = Author.new(author_data)
-        author.save!
+# ### Create new publisher using article source ####
 
-        puts "author created: #{author_data.first_name}"
-    end
+# articles.results.each do |article|
 
-    ### Create new article
+#     src = article.source
 
-    article_data = {
-        name: article.title,
-        description: article.title, ### To be changed
-        body_text: article.body,
-        image_url: ARTICLE_IMAGES.sample,
-        source_url: url,
-        dateTime: dateTime,
-        type: dataType,
-        language: lang,
-        location: LOCATIONS.sample,
-        lat: LAT.sample,
-        lng: LONG.sample,
-        count_views: (200..5000).to_a.sample,
-        average_user_score: (-5..5).to_a.sample,
-        published: true,
-        author_id: Author.all.sample,
-        event_id: Event.all.sample,
-        publisher_id: Publisher.all.sample
-    }
+#     publisher_data = {
+#         image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
+#         web_url: src.uri,
+#         name: src.title,
+#         location: EVENTS_LOCATIONS.sample,
+#         lat: LAT.sample,
+#         lng: LONG.sample,
+#         description: src.description,
+#         type: src.dataType
+#     }
 
-    publisher = Publisher.new(publisher_data)
-    publisher.save!
+#     publisher = Publisher.new(publisher_data)
+#     publisher.save!
 
-    puts "Article created: #{publisher_data.title}"
+#     puts "Publisher created: #{publisher_data.title}"
 
-end
+#     ### Create new author
+
+#     article.authors.each do |author|
+
+#         author_data = {
+#             first_name: author.name.split[0],
+#             last_name: author.name.split[1],
+#             twitter_handle: @rogermutt,
+#             location: EVENTS_LOCATIONS.sample,
+#             lat: LAT.sample,
+#             lng: LONG.sample
+#         }
+
+#         author = Author.new(author_data)
+#         author.save!
+
+#         puts "author created: #{author_data.first_name}"
+#     end
+
+#     ### Create new article
+
+#     article_data = {
+#         name: article.title,
+#         description: article.title, ### To be changed
+#         body_text: article.body,
+#         image_url: ARTICLE_IMAGES.sample,
+#         source_url: url,
+#         dateTime: dateTime,
+#         type: dataType,
+#         language: lang,
+#         location: LOCATIONS.sample,
+#         lat: LAT.sample,
+#         lng: LONG.sample,
+#         count_views: (200..5000).to_a.sample,
+#         average_user_score: (-5..5).to_a.sample,
+#         published: true,
+#         author_id: Author.all.sample,
+#         event_id: Event.all.sample,
+#         publisher_id: Publisher.all.sample
+#     }
+
+#     publisher = Publisher.new(publisher_data)
+#     publisher.save!
+
+#     puts "Article created: #{publisher_data.title}"
+
+# end
