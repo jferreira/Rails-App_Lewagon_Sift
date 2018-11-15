@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SavedArticleTest < ActiveSupport::TestCase
+class SaveArticleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

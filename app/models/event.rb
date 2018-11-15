@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
-  belongs_to :topic
+  # belongs_to :topic
   validates :name, presence: true
-  has_many :articles
+  # has_many :articles
 end
 
 
