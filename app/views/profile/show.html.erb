@@ -9,7 +9,9 @@
         <img src='https://images.ecosia.org/AcaxZs81iVoJ7z40B__Ge-4VK18=/0x390/smart/http%3A%2F%2Fwww.pclodge.com%2Fwp-content%2Fuploads%2F2014%2F08%2Fplaceholder.png'
         class="avatar-large"/>
 
-        <%= link_to 'Edit', class: 'btn' %>
+        <%= link_to 'Edit', edit_profile_path(current_user), class: 'btn' %>
+
+        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
 
       </div>
     </div>

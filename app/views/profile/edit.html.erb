@@ -1,0 +1,10 @@
+<p>edit profile</p>
+
+<%= simple_form_for(current_user, :url => profile_path, :method => :patch) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :photo %>
+  <%= f.button :submit %>
+<% end %>
+
