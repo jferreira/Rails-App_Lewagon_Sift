@@ -5,7 +5,7 @@
 
       <div>
           <!-- SEARCH BY ------------------------------- -->
-          <%= form_tag(root_path, method: :get, role: 'form') do %>
+          <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
 
             <div class='row'>
               <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
@@ -35,25 +35,77 @@
   <div class="row">
     <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
-        <%  @events.each do | event | %>
+  <!-- Changed 'documents' to make it more generic  -->
+  <%  @documents.each do | doc | %>
 
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= event.image_url %>);">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-              <ul>
-                <li>
-                  <h2><%= event.name %> </h2>
-                  <%= event.location %>
-                  <%= event.date_time %>
-                  <%= link_to "show event", event_path(event) %>
 
-                </li>
-              </ul>
+        <% if doc.searchable_type === 'Event' %>
+
+        <!-- Part of PGSearch  -->
+        <% document = doc.searchable %>
+
+          <p>EVENT</p>
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= document.image_url %>);">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+                <ul>
+                  <li>
+                    <h2><%= document.name %> </h2>
+                    <%= document.location %>
+                    <%= document.date_time %>
+                    <%= link_to "show event", event_path(document) %>
+
+                  </li>
+                </ul>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        </div>
+
+        <% elsif doc.searchable_type === 'Topic' %>
+
+        <!-- Part of PGSearch  -->
+        <% document = doc.searchable %>
+
+          <p>TOPIC</p>
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= document.image_url %>);">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+                <ul>
+                  <li>
+                    <h2><%= document.name %> </h2>
+                    <%= link_to "show topic", event_path(document) %>
+                  </li>
+                </ul>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          </div>
+
+
+        <% else %>
+
+            <p>ARTICLE</p>
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= doc.searchable.image_url %>);">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+                <ul>
+                  <li>
+                    <h2><%= doc.searchable.title %> </h2>
+                    <%= doc.searchable.location %>
+                    <%= doc.searchable.date_time_published %>
+                    <%= link_to "show article", event_path(doc.searchable) %>
+
+                  </li>
+                </ul>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          </div>
 
         <% end %>
+
+  <% end %>
 
     </div> <!-- col end -->
   </div> <!-- row end -->

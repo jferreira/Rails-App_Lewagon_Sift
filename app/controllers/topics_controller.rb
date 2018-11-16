@@ -2,9 +2,9 @@ class TopicsController < ApplicationController
   def index
     @topic = Topic.third
     if params[:query].present?
-      @events = PgSearch.multisearch(params[:query])
+      @documents = PgSearch.multisearch(params[:query]).limit(10)
     else
-      @events = @topic.events
+      @documents = @topic.events
     end
   end
 
