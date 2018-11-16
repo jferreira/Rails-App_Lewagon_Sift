@@ -1,3 +1,4 @@
+
 class ProfileController < ApplicationController
   def show
     @saved_article_ids = current_user.save_articles.map { |article| article.article_id }

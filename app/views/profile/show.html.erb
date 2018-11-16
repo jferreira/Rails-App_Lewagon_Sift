@@ -17,18 +17,18 @@
 
     <% day_num = article.date_time_published.mday %>
     <% if day_num == 1 %>
-      <% date_sufix = 'st' %>
-    <% elseif day_num == 2 %>
-    <% date_sufix = 'nd' %>
-    <% elseif day_num == 3 %>
-    <% date_sufix = 'rd' %>
-    <% else %>
-    <% date_sufix = 'th' %>
+        <% date_sufix = 'st' %>
+      <% elseif day_num == 2 %>
+        <% date_sufix = 'nd' %>
+      <% elseif day_num == 3 %>
+        <% date_sufix = 'rd' %>
+      <% else %>
+      <% date_sufix = 'th' %>
     <% end %>
 
-    <p><%= article.date_time_published.mday %> <%= date_sufix %> </p>
+    <p><%= article.date_time_published.mday %><%= date_sufix %></p>
     <p><%= article.date_time_published.strftime("%H") %>.00</p>
-    <p>3 min read</p>
+    <p><%= article.body_text.reading_time :format => :approx %> read</p>
 
   </div>
 
