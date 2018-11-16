@@ -3,4 +3,7 @@ class Author < ApplicationRecord
 
   has_many :articles
 
+  include PgSearch
+  multisearchable :against => [:first_name]
+
 end

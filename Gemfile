@@ -13,6 +13,7 @@ gem 'redis'
 gem 'json'
 gem 'devise'
 gem 'readingtime'
+gem 'pg_search'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

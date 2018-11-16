@@ -1,19 +1,35 @@
 <div>
   <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
-    <div class="banner-content">
-      <h1>Search: French Airstrikes</h1>
 
+      <div class="banner-content">
+          <% if params[:query].present? %>
+              <h1>Search: <%= params[:query] %></h1>
+          <% else %>
+              <h1>Read news articles <br />with perspective</h1>
+          <% end %>
       <div>
-          <!-- SEARCH BY ------------------------------- -->
-          <%= form_tag(root_path, method: :get, role: 'form') do %>
+
+          <!-- SEARCH BY --------------------------------->
+          <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
 
             <div class='row'>
               <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
                 <div class="form-group">
-                  <%= text_field_tag :query, nil, placeholder: 'french airstrike', class: 'form-control' %>
-                  <%= submit_tag "Search", class: "btn btn-primary" %>
-<!--                   <%= submit_tag "Reset", class: "btn btn-default", type: 'reset', value: 'Reset' %> -->
+
+                    <%= text_field_tag :query, nil, placeholder: 'french airstrike',
+                      class: 'form-control'
+                    %>
+
+                    <%= submit_tag "Search",
+                      class: "btn btn-primary"
+                    %>
+
+<!-- ******* @JOHN - Check if the below submit tag 'Reset' is being used.
+  I can't see where but thought I'd leave it on for now -->
+
+<!--  <%#= submit_tag "Reset", class: "btn btn-default", type: 'reset', value: 'Reset' %> -->
+
                 </div>
 
                 <p>Topics, Events, Articles, Locations</p>
@@ -35,25 +51,92 @@
   <div class="row">
     <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
-        <%  @events.each do | event | %>
+            <!-- If search done  -->
+            <% if @documents.length.positive? %>
 
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= event.image_url %>);">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-              <ul>
-                <li>
-                  <h2><%= event.name %> </h2>
-                  <%= event.location %>
-                  <%= event.date_time %>
-                  <%= link_to "show event", event_path(event) %>
+              <%  @documents.each do | doc | %>
 
-                </li>
-              </ul>
-          </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        </div>
+                      <!-- If the document retrieved is an Event  -->
+                      <% if doc.searchable_type === 'Event' %>
 
-        <% end %>
+                      <!-- Part of PGSearch  -->
+                      <% document = doc.searchable %>
+
+                        <p>EVENT</p>
+
+                        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= document.image_url %>);">
+                          <div class="card-category">Popular</div>
+                          <div class="card-description">
+                              <ul>
+                                <li>
+                                  <h2><%= document.name %> </h2>
+                                  <%= document.location %>
+                                  <%= document.date_time %>
+                                  <%= link_to "show event", event_path(document) %>
+
+                                </li>
+                              </ul>
+                          </div>
+                          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                        </div>
+
+                      <!-- If the document retrieved is a Topic -->
+                      <% elsif doc.searchable_type === 'Topic' %>
+
+                      <!-- Part of PGSearch  -->
+                      <% document = doc.searchable %>
+
+                        <p>TOPIC</p>
+
+                        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= document.image_url %>);">
+                          <div class="card-category">Popular</div>
+                          <div class="card-description">
+                              <ul>
+                                <li>
+                                  <h2><%= document.name %> </h2>
+                                  <%= link_to "show topic", event_path(document) %>
+                                </li>
+                              </ul>
+                          </div>
+                          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                        </div>
+
+                      <% else %>
+
+                      <!-- If the document retrieved is an article  -->
+
+                      <p>ARTICLE</p>
+
+                        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= doc.searchable.image_url %>);">
+                          <div class="card-category">Popular</div>
+                          <div class="card-description">
+                              <ul>
+                                <li>
+                                  <h2><%= doc.searchable.title %> </h2>
+                                  <%= doc.searchable.location %>
+                                  <%= doc.searchable.date_time_published %>
+                                  <%= link_to "show article", event_path(doc.searchable) %>
+
+                                </li>
+                              </ul>
+                          </div>
+                          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                        </div>
+
+                      <% end %>
+
+              <% end %>
+
+
+          <!-- If no search done  -->
+          <% else %>
+
+              <div class="search-index-div">
+                    <p>Search news by event, topic, article</p>
+                    <p>titles and authors name</p>
+              </div>
+
+          <% end %>
 
     </div> <!-- col end -->
   </div> <!-- row end -->

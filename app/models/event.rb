@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   belongs_to :topic
   has_many :articles
 
+  include PgSearch
+  multisearchable :against => [:name]
 end
 
 
