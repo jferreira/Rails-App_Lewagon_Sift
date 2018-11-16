@@ -1,0 +1,37 @@
+<h1>Profile#show</h1>
+
+<% @articles.each do |article| %>
+
+  <div>
+    <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= article.image_url %>');">
+      <div class="banner-content">
+        <p>Publisher Name Here </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+    <h3><%= article.title %></h3>
+    <p><%= article.description %></p>
+
+    <% day_num = article.date_time_published.mday %>
+    <% if day_num == 1 %>
+      <% date_sufix = 'st' %>
+    <% elseif day_num == 2 %>
+    <% date_sufix = 'nd' %>
+    <% elseif day_num == 3 %>
+    <% date_sufix = 'rd' %>
+    <% else %>
+    <% date_sufix = 'th' %>
+    <% end %>
+
+    <p><%= article.date_time_published.mday %> <%= date_sufix %> </p>
+    <p><%= article.date_time_published.strftime("%H") %>.00</p>
+    <p>3 min read</p>
+
+  </div>
+
+
+
+  <% end %>
