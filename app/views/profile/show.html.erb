@@ -9,8 +9,12 @@
 
       <div class="banner-content">
 
-        <img src='https://images.ecosia.org/AcaxZs81iVoJ7z40B__Ge-4VK18=/0x390/smart/http%3A%2F%2Fwww.pclodge.com%2Fwp-content%2Fuploads%2F2014%2F08%2Fplaceholder.png'
-        class="avatar-large"/>
+        <% if current_user.photo.nil? %>
+          <img src='https://cdn.dribbble.com/users/43342/screenshots/5383946/ezgif.com-optimize_2_.gif'
+          class="img-rnd-large"/>
+        <% else %>
+          <img src= <%= current_user.photo %> class="img-rnd-large"/>
+        <% end %>
 
         <%= link_to 'Edit', edit_profile_path(current_user), class: 'btn' %>
 
