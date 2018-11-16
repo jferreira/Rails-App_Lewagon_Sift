@@ -266,7 +266,7 @@ end
 
 puts "Creating Save Articles"
 
-20.times do
+60.times do
 
     obj_data = {
       article_id: Article.all.sample.id,
