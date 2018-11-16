@@ -16,15 +16,13 @@
     <p><%= article.description %></p>
 
     <% day_num = article.date_time_published.mday %>
-    <% if day_num == 1 %>
-        <% date_sufix = 'st' %>
-      <% elseif day_num == 2 %>
-        <% date_sufix = 'nd' %>
-      <% elseif day_num == 3 %>
-        <% date_sufix = 'rd' %>
-      <% else %>
-      <% date_sufix = 'th' %>
-    <% end %>
+
+        <% case day_num
+           when 1 %><% date_sufix = 'st' %>
+        <% when 2 %><% date_sufix = 'nd' %>
+        <% when 3 %><% date_sufix = 'rd' %>
+        <% else %><% date_sufix = 'th' %>
+        <% end %>
 
     <p><%= article.date_time_published.mday %><%= date_sufix %></p>
     <p><%= article.date_time_published.strftime("%H") %>.00</p>
