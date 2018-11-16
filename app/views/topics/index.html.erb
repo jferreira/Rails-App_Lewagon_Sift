@@ -1,0 +1,74 @@
+<div>
+  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
+    <div class="banner-content">
+      <h1>Search: French Airstrikes</h1>
+
+      <div>
+          <!-- SEARCH BY ------------------------------- -->
+          <%= form_tag(root_path, method: :get, role: 'form') do %>
+
+            <div class='row'>
+              <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+
+                <div class="form-group">
+                  <%= text_field_tag :query, nil, placeholder: 'french airstrike', class: 'form-control' %>
+                  <%= submit_tag "Search", class: "btn btn-primary" %>
+<!--                   <%= submit_tag "Reset", class: "btn btn-default", type: 'reset', value: 'Reset' %> -->
+                </div>
+
+                <p>Topics, Events, Articles, Locations</p>
+
+              </div>
+            </div>
+
+          <% end %>
+      </div>
+
+
+          <!-- LIST ------------------------------- -->
+
+    </div>
+
+  </div>
+
+<div class="container">
+  <div class="row">
+        <%  @events.each do | event | %>
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= event.image_url %>);">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+              <ul>
+                <li><h2>
+                  <%= event.name %> </h2>
+                <%= event.location %>
+                <%= event.date_time %>
+                <%= link_to "show event", event_path(event) %>
+
+                </li>
+              </ul>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        </div>
+
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

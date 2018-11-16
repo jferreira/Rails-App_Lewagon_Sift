@@ -5,7 +5,7 @@
 
       <div>
           <!-- SEARCH BY ------------------------------- -->
-          <%= form_tag(root_path, method: :get, role: 'form') do %>
+<!--           <%= form_tag(root_path, method: :get, role: 'form') do %>
 
             <div class='row'>
               <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
@@ -20,7 +20,12 @@
               </div>
             </div>
 
-          <% end %>
+          <% end %> -->
+
+
+      <%= link_to "Fake search", topics_path, class: "btn btn-primary" %>
+
+
       </div>
 
       <p>Search news by topic,event, author, publisher or by location</p>
