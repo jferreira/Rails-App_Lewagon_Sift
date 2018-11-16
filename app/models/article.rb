@@ -24,4 +24,7 @@ class Article < ApplicationRecord
     self.find(adjacent_id)
   end
 
+  include PgSearch
+  multisearchable :against => [:title]
+
 end
