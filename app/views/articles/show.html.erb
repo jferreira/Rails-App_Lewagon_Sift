@@ -1,30 +1,12 @@
 <div>
-  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
+  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @article.event.image_url %>');">
     <div class="banner-content">
 
       <p>Location: <%= @article.event.location %></p>
       <p>Date: <%= @article.event.date_time %></p>
       <h3>Topic: <%= @article.event.topic.name %></h3>
       <h3>Event: <%= @article.event.name %></h3>
-
-<!--       <p>Description: <%= @article.event.date_time %></p> -->
-
-      <p>Description: The US, UK and France have launched more than 100 missiles against what they say were Syrian chemical weapons facilities in response to a chemical weapons attack in a Damascus suburb a week ago.</p>
-
-<!--     t.string "name"
-    t.string "image_url"
-    t.datetime "date_time"
-    t.string "location"
-    t.decimal "lat"
-    t.decimal "lng"
-    t.bigint "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["topic_id"], name: "index_events_on_topic_id"
- -->
-
-
-
+      <p>Description: <%= @article.event.description %></p>
 
       <%= link_to "Previous Article", article_path(@prev_article), class: "btn btn-success" %>
       <%= link_to "Next Article", article_path(@next_article), class: "btn btn-success" %>
@@ -33,7 +15,8 @@
   </div>
 </div>
 
-      <!-- ARTICLE ------------------------------- -->
+<!-- THE ARTICLE ------------------------------- -->
+
 <div class="container">
   <div class="row">
      <div class="col-xs-6">
