@@ -1,0 +1,81 @@
+/* Your banner CSS file */
+.banner-half {
+  /*TEXT*/
+  color: white;
+  text-align: center;
+
+  /*FLEX*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /*BOX*/
+  padding: 10px;
+  height: calc(60vh - 70px);
+  // background-size: cover !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*BACKGROUND*/
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.8) 0%, rgba(0,36,61,0.8) 50%), url('../../images/background.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+
+.banner{
+  /*TEXT*/
+  color: white;
+  text-align: center;
+
+  /*FLEX*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /*BOX*/
+  padding: 10px;
+  height: calc(100vh - 70px);
+
+  /*BACKGROUND*/
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.8) 0%, rgba(0,36,61,0.8) 50%), url('../../images/background.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+
+.banner-item{
+  display: block;
+  margin: 8px;
+}
+
+// ____________________________
+
+// .banner {
+//   color: white;
+//   text-align: center;
+//   height: calc(100vh - 70px);
+//   background-size: cover !important;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}

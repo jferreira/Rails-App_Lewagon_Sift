@@ -1,0 +1,31 @@
+.flex-box {
+  display: flex;
+}
+
+.flex-item {
+  display: flex;
+  flex: 0 0 20%;
+}
+
+.flex-stretch {
+  display: flex;
+  flex: 1 0 auto;
+}
+s
+.flex-stretch-body-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-logo-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.align-center {
+  display: block;
+  justify-content: space-around;
+  align-items: center;
+}
