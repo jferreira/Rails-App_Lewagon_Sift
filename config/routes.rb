@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show ]
   resources :articles, only: [:index, :show ]
 
-  get 'profile', to: 'profile#show'
+  resources :profile, only: [:edit, :update, :show ]
 
 end

@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_101053) do
     t.bigint "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["topic_id"], name: "index_events_on_topic_id"
   end
 

@@ -82,9 +82,19 @@ https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg
 https://img.rasset.ie/0010ff9e-500.jpg
 ]
 
+EVENTS_DESCRIPTION = [
+"Summary: The story of the controversial test oil drill site in Woodburn Forest in Northern Ireland, UK choosing to cease operations"
+]
+
+
+puts "-------------------------------------------"
 puts "Seeding started"
+puts ""
 
 #### Create new users ####
+puts "-------------------------------------------"
+puts "Seeding Users"
+puts ""
 
 FIRST_NAMES.each_with_index do |name, idx|
 
@@ -102,9 +112,11 @@ FIRST_NAMES.each_with_index do |name, idx|
     puts "User #{user.first_name} created"
 end
 
-#### Create Topic ####
 
-puts "Creating topics"
+puts "-------------------------------------------"
+puts "Seeding TOPICS"
+#### Create Topic ####
+puts ""
 
 TOPICS.each_with_index do |topic, idx|
     obj_data = {
@@ -120,13 +132,15 @@ end
 
 
 #### Create Event ####
-
-puts "Creating Events"
+puts "-------------------------------------------"
+puts "Seeding EVENTS"
+puts ""
 
 EVENTS.each_with_index do |event, idx|
 
     obj_data = {
         name: event,
+        description: EVENTS_DESCRIPTION.sample,
         image_url: EVENTS_IMAGES[idx],
         date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
         location: EVENTS_LOCATIONS[idx],
@@ -144,6 +158,9 @@ end
 
 
 #### Create new publisher using article source ####
+puts "-------------------------------------------"
+puts "Seeding PUBLISHERS"
+puts ""
 
 array_response.each do |article|
 
@@ -166,6 +183,9 @@ array_response.each do |article|
 end
 
 #### Create new author
+puts "-------------------------------------------"
+puts "Seeding AUTHORS"
+puts ""
 
 array_response.each do |article|
 
@@ -191,6 +211,9 @@ array_response.each do |article|
 end
 
 #     ### Create new article
+puts "-------------------------------------------"
+puts "Seeding ARTICLES"
+puts ""
 
 array_response.each do |article|
 
@@ -223,6 +246,9 @@ array_response.each do |article|
 end
 
 #     ### Create new following_item
+puts "-------------------------------------------"
+puts "Seeding FOLLOWED ITEMS"
+puts ""
 
 puts "Creating following_item"
 
@@ -244,6 +270,9 @@ puts "Creating following_item"
 end
 
 #     ### Create user scores
+puts "-------------------------------------------"
+puts "Seeding USER SCORES"
+puts ""
 
 puts "Creating user scores"
 
@@ -262,7 +291,10 @@ puts "Creating user scores"
 end
 
 
-#     ### Create user scores
+#     ### Create saved articles
+puts "-------------------------------------------"
+puts "Seeding SAVED ARTICLES"
+puts ""
 
 puts "Creating Save Articles"
 
@@ -278,3 +310,8 @@ puts "Creating Save Articles"
 
     puts "SaveArticle created"
 end
+
+
+puts "-------------------------------------------"
+puts "BOOM SEEDED"
+puts ""
