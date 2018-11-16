@@ -1,0 +1,96 @@
+<h1>Profile#show</h1>
+
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#saved-articles">Saved Articles</a></li>
+    <li><a data-toggle="tab" href="#followd-lists">Followed Lists</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="saved-articles" class="tab-pane fade in active">
+      <h3>Saved Articles</h3>
+
+
+          <% @articles.each do |article| %>
+
+            <% publisher_id = article.publisher_id %>
+            <% publisher_name = Publisher.find_by(id: publisher_id) %>
+
+            <div>
+                <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= article.image_url %>');">
+                  <div class="banner-content">
+                    <p>Publisher: <%= publisher_name.name %> </p>
+                  </div>
+                </div>
+              </div>
+            <div>
+
+              <h3><%= article.title %></h3>
+              <p><%= article.description %></p>
+
+              <% day_num = article.date_time_published.mday %>
+
+                  <% case day_num
+                     when 1 %><% date_sufix = 'st' %>
+                  <% when 2 %><% date_sufix = 'nd' %>
+                  <% when 3 %><% date_sufix = 'rd' %>
+                  <% else %><% date_sufix = 'th' %>
+                  <% end %>
+
+              <p><%= article.date_time_published.mday %><%= date_sufix %></p>
+              <p><%= article.date_time_published.strftime("%H") %>.00</p>
+
+              <% time_read = article.body_text.reading_time :format => :approx %>
+
+                <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+                <p><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</p>
+            </div>
+
+          <% end %>
+
+
+    </div>
+    <div id="followd-lists" class="tab-pane fade">
+      <h3>Followed Lists</h3>
+
+      <% @following_list.each do |following_item| %>
+
+          <% item_type = following_item.follower_type %>
+
+          <div class="following-item-card">
+
+              <% if item_type == 'Event' %>
+                <!-- This is an event -->
+
+                <p> <%= Topic.find_by(id: following_item.follower.topic_id).name %> </p>
+                <p> <%= following_item.follower.name %> </p>
+                <%=
+                  link_to 'See event', event_path(following_item.follower.id),
+                  class: 'btn btn-primary'
+                 %>
+                <% else %>
+                <!-- This is a topic -->
+
+                <p> <%= following_item.follower.name %> </p>
+                <%=
+                  link_to 'See topic', event_path(following_item.follower.id),
+                  class: 'btn btn-primary'
+                 %>
+
+              <% end %>
+
+          </div>
+
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+

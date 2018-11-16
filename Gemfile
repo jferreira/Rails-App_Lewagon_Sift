@@ -12,6 +12,7 @@ gem 'redis'
 #### Added gems here ####
 gem 'json'
 gem 'devise'
+gem 'readingtime'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
