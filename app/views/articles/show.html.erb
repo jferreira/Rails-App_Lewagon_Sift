@@ -18,8 +18,8 @@
 <!-- THE ARTICLE ------------------------------- -->
 
 <div class="container">
-  <div class="row">
-     <div class="col-xs-6">
+  <div id="article-content" class="row">
+     <div class='offset-xs-0 col-xs-6 offset-md-0 col-md-6'>
 
       <p> Article Title: </p>
       <h1> <%= @article.title %></h1>
@@ -34,12 +34,10 @@
       <p><%= @article.body_text %> </p>
 
       <p> Publisher: </p>
-
       <p><%= @article.publisher.name %> </p>
 
       <p> Author: </p>
       <p><%= @article.author.first_name %> </p>
-
 
       <p> Article Image:</p>
       <p><%= @article.image_url %>
@@ -55,7 +53,42 @@
       <p> Article Views:</p>
       <p> <%= @article.count_views %> </p>
 
+    </div> <!-- col 1 end -->
+  </div> <!-- row 1 end -->
 
-    </div>
-  </div>
-<div>
+
+  <div  id= "article-related-articles" class="row">
+    <div class='offset-xs-0 col-xs-6 offset-md-0 col-md-6'>
+
+      <% @related_articles.each do | article | %>
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
+          <!-- <div class="card-category"><%= article.location %></div> -->
+          <div class="card-description">
+
+              <ul>
+                <li>
+
+                  <h2><%= article.title %></h2>
+                  <p><%= article.publisher.name %></p>
+                  <p><%= article.description %></p>
+                  <p><%= article.date_time_published %></p>
+                  <p><%= link_to "article link", article_path(article) %></p>
+
+                </li>
+              </ul>
+
+          </div>
+
+          <img class="card-user" src="<%= article.publisher.image_url %>">
+
+        </div>
+
+      <% end %> <!-- article loop end -->
+
+    </div> <!-- col 2 end -->
+  </div> <!-- row 2 end -->
+
+
+
+<div> <!-- container end -->

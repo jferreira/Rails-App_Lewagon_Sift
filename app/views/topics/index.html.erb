@@ -33,17 +33,19 @@
 
 <div class="container">
   <div class="row">
+    <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+
         <%  @events.each do | event | %>
 
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= event.image_url %>);">
           <div class="card-category">Popular</div>
           <div class="card-description">
               <ul>
-                <li><h2>
-                  <%= event.name %> </h2>
-                <%= event.location %>
-                <%= event.date_time %>
-                <%= link_to "show event", event_path(event) %>
+                <li>
+                  <h2><%= event.name %> </h2>
+                  <%= event.location %>
+                  <%= event.date_time %>
+                  <%= link_to "show event", event_path(event) %>
 
                 </li>
               </ul>
@@ -52,9 +54,10 @@
         </div>
 
         <% end %>
-    </div>
-  </div>
-</div>
+
+    </div> <!-- col end -->
+  </div> <!-- row end -->
+</div> <!-- container end -->
 
 
 
