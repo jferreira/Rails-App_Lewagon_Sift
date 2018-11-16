@@ -5,12 +5,12 @@
   <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
 
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Saved Articles</a></li>
-    <li><a data-toggle="tab" href="#menu1">Followed Lists</a></li>
+    <li class="active"><a data-toggle="tab" href="#saved-articles">Saved Articles</a></li>
+    <li><a data-toggle="tab" href="#followd-lists">Followed Lists</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+    <div id="saved-articles" class="tab-pane fade in active">
       <h3>Saved Articles</h3>
 
 
@@ -52,11 +52,42 @@
           <% end %>
 
 
-
     </div>
-    <div id="menu1" class="tab-pane fade">
+    <div id="followd-lists" class="tab-pane fade">
       <h3>Followed Lists</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <% @following_list.each do |following_item| %>
+
+          <% item_type = following_item.follower_type %>
+
+          <div class="following-item-card">
+
+              <% if item_type == 'Event' %>
+                <!-- This is an event -->
+
+                <p> <%= Topic.find_by(id: following_item.follower.topic_id).name %> </p>
+                <p> <%= following_item.follower.name %> </p>
+                <%=
+                  link_to 'See event', event_path(following_item.follower.id),
+                  class: 'btn btn-primary'
+                 %>
+                <% else %>
+                <!-- This is a topic -->
+
+                <p> <%= following_item.follower.name %> </p>
+                <%=
+                  link_to 'See topic', event_path(following_item.follower.id),
+                  class: 'btn btn-primary'
+                 %>
+
+              <% end %>
+
+          </div>
+
+
+      <% end %>
+
+
     </div>
   </div>
 </div>
