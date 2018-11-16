@@ -1,10 +1,16 @@
-<div>
+
+<div class="non-flex-container">
+
+  <!-- HEADER ------------------------------- -->
+  <div class="header">
+
   <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @article.event.image_url %>');">
+
     <div class="banner-content">
 
       <p>Location: <%= @article.event.location %></p>
       <p>Date: <%= @article.event.date_time %></p>
-      <h3>Topic: <%= @article.event.topic.name %></h3>
+      <h4>Topic: <%= @article.event.topic.name %></h4>
       <h3>Event: <%= @article.event.name %></h3>
       <p>Description: <%= @article.event.description %></p>
 
@@ -12,69 +18,135 @@
       <%= link_to "Next Article", article_path(@next_article), class: "btn btn-success" %>
 
     </div>
+    <!-- banner-content end -->
   </div>
+  <!-- banner-half end -->
+
 </div>
+<!-- header end -->
 
-<!-- THE ARTICLE ------------------------------- -->
+<ul class="flex-container">
 
-<div class="container">
-  <div id="article-content" class="row">
-     <div class='offset-xs-0 col-xs-6 offset-md-0 col-md-6'>
+  <!-- SIDEBAR 1 - EMPTY ------------------------------- -->
 
-      <p> Article Title: </p>
-      <h1> <%= @article.title %></h1>
+  <li class="flex-item flex-sidebar-left">
+  </li>
 
-      <p> Publishing Time</p>
-      <p> <%= @article.date_time_published %></p>
+  <!-- ARTICLE ------------------------------------------ -->
 
-      <p> Description:</p>
-      <p><%= @article.description %> </p>
+  <li class="flex-item flex-main">
+    <p> Article Title: </p>
+    <h1> <%= @article.title %></h1>
 
-      <p> Article Text:</p>
-      <p><%= @article.body_text %> </p>
+    <p> Publishing Time</p>
+    <p> <%= @article.date_time_published %></p>
 
-      <p> Publisher: </p>
-      <p><%= @article.publisher.name %> </p>
+    <p> Description:</p>
+    <p><%= @article.description %> </p>
 
-      <p> Author: </p>
-      <p><%= @article.author.first_name %> </p>
+    <p> Article Text:</p>
+    <p><%= @article.body_text %> </p>
 
-      <p> Article Image:</p>
-      <p><%= @article.image_url %>
+    <p> Publisher: </p>
+    <p><%= @article.publisher.name %> </p>
 
-      <p> Article Location:</p>
-      <p> <%= @article.location %> </p>
-      <p> <%= @article.lat %> </p>
-      <p> <%= @article.lng %> </p>
+    <p> Author: </p>
+    <p><%= @article.author.first_name %> </p>
 
-      <p> Article Average Score:</p>
-      <p> <%= @article.average_user_score %> </p>
+    <p> Article Image:</p>
+    <p><%= @article.image_url %>
 
-      <p> Article Views:</p>
-      <p> <%= @article.count_views %> </p>
+    <p> Article Location:</p>
+    <p> <%= @article.location %> </p>
+    <p> <%= @article.lat %> </p>
+    <p> <%= @article.lng %> </p>
 
-    </div> <!-- col 1 end -->
-  </div> <!-- row 1 end -->
+    <p> Article Average Score:</p>
+    <p> <%= @article.average_user_score %> </p>
+
+    <p> Article Views:</p>
+    <p> <%= @article.count_views %> </p>
+
+  </li>
+
+  <!-- SIDEBAR 2 - RELATED ARTICLES ------------------------------- -->
+
+  <li class="flex-item flex-sidebar-right">
+
+    <p>Related Articles</p>
+    <p>Location: Distance</p>
+    <p>Popularity: Average Userscore</p>
+    <p>Views: user:Views</p>
 
 
-  <div  id= "article-related-articles" class="row">
-    <div class='offset-xs-0 col-xs-6 offset-md-0 col-md-6'>
+    <p><%= @article.event.topic.name %></p>
+    <h3><%= @article.event.name %></h3>
+
+    <% @related_articles.each do | article | %>
+      <div class="card-article" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
+        <!-- <div class="card-category"><%= article.location %></div> -->
+        <div class="card-description">
+
+            <ul>
+              <li>
+                <p><%= article.title %></p>
+                <p><%= article.publisher.name %></p>
+                <p><%= article.description %></p>
+                <p><%= article.date_time_published %></p>
+                <p><%= link_to "article link", article_path(article) %></p>
+              </li>
+            </ul>
+
+        </div>
+
+        <img class="card-user" src="<%= article.publisher.image_url %>">
+
+      </div>
+    <% end %> <!-- article loop end -->
+
+
+  </li>
+
+  <!-- FOOTER ------------------------------- -->
+  <li class="flex-item flex-footer">
+
+  </li>
+</ul> <!-- flex-container end -->
+
+
+
+
+
+
+
+
+<!--
+<div class="flex-container">
+  <div id="left-bar" class="flex-item">
+  </div>
+
+  <div id="article-body" class="flex-item">
+
+
+
+  </div> card 1 end -->
+<!--
+  <div class="flex-item">
+
+    <div id= "article-related-articles" class="offset-xs-0 col-xs-6 offset-md-0 col-md-6">
 
       <% @related_articles.each do | article | %>
-
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
-          <!-- <div class="card-category"><%= article.location %></div> -->
-          <div class="card-description">
+           <div class="card-category"><%= article.location %></div> -->
+<!--           <div class="card-description">
 
               <ul>
                 <li>
-
-                  <h2><%= article.title %></h2>
+                  <p><%= article.title %></p>
                   <p><%= article.publisher.name %></p>
                   <p><%= article.description %></p>
                   <p><%= article.date_time_published %></p>
                   <p><%= link_to "article link", article_path(article) %></p>
-
                 </li>
               </ul>
 
@@ -83,12 +155,16 @@
           <img class="card-user" src="<%= article.publisher.image_url %>">
 
         </div>
+      <% end %> article loop end -->
 
-      <% end %> <!-- article loop end -->
+    <!-- </div>  -->
+    <!-- col 2 end -->
+  <!-- </div>  -->
+  <!-- row 2 end -->
 
-    </div> <!-- col 2 end -->
-  </div> <!-- row 2 end -->
 
 
+<!-- <div>  -->
+  <!-- container end -->
 
-<div> <!-- container end -->
+

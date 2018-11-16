@@ -16,11 +16,10 @@ class ArticlesController < ApplicationController
 
     # __
     # ALL ARTICLES WITH THE CURRENT EVENT
-    #
     # 1. need to know what is the current article
     # 2. need to know what the event is of the current article
-    @related_articles = events_articles
     # 3. need to find all the articles of that event and display them
+    @related_articles = events_articles
     # 4. need to omit the current article from that list
     # 5. order by average user score
 
