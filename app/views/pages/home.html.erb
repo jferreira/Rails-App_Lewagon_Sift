@@ -1,5 +1,5 @@
 <div>
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://media1.tenor.com/images/36b0dcff2ba58445f891999e3740d9bc/tenor.gif');">
+   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= @articles.last.image_url %>);">
     <div class="banner-content">
       <h2>Read news with perspective</h2>
       <p>Search news by topic,event, author, publisher or by location</p>
@@ -14,9 +14,8 @@
                 <div class="form-group">
                   <%= text_field_tag :query, nil, placeholder: 'Topics, Events, Locations', class: 'form-control' %>
                   <br>
-                  <%= link_to "Fake search", topics_path, class: "btn btn-primary" %>
-                  <%= submit_tag "Search", class: "btn btn-default" %>
-                  <%= submit_tag "Reset", class: "btn btn-default", type: 'reset', value: 'Reset' %>
+                  <%= link_to "Search", topics_path, class: "btn btn-default" %>
+                  <!-- <#%= submit_tag "Search", class: "btn btn-default" %> -->
                 </div>
 
               </div>
