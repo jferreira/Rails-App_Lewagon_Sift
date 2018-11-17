@@ -5,57 +5,46 @@
           <% if params[:query].present? %>
               <h1>Search: <%= params[:query] %></h1>
           <% else %>
-              <h1>Read news articles <br />with perspective</h1>
+              <h1>Topics</h1>
           <% end %>
-      <div>
 
-          <!-- SEARCH BY --------------------------------->
-          <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
+      <!-- SEARCH BY --------------------------------->
 
-            <div class='row'>
-              <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+      <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
+        <div class='row'>
+          <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <%= text_field_tag :query, nil, placeholder: 'french airstrike',
-                      class: 'form-control'
-                    %>
+                <%= text_field_tag :query, nil, placeholder: 'french airstrike',
+                  class: 'form-control'
+                %>
 
-                    <%= submit_tag "Search",
-                      class: "btn btn-primary"
-                    %>
+                <%= submit_tag "Search",
+                  class: "btn btn-primary"
+                %>
 
-    <!--
-    ******* @JOHN - Check if the below submit tag 'Reset' is being used.
-      I can't see where but thought I'd leave it on for now
-    -->
-
-<!--  <%#= submit_tag "Reset", class: "btn btn-default", type: 'reset', value: 'Reset' %> -->
-
-                </div>
-
-                <p>Topics, Events, Articles, Locations</p>
-
-              </div>
             </div>
 
-          <% end %>
-      </div>
-
-
-          <!-- LIST ------------------------------- -->
+          </div>
+        </div>
+      <% end %>
 
     </div>
+    <!-- banner content end -->
 
   </div>
+  <!-- banner half end -->
+
+<!-- LIST SEARCHED ------------------------------- -->
 
 <div class="container">
+
   <div class="row">
     <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
             <!-- If search done  -->
             <% if @documents.length.positive? %>
-
               <%  @documents.each do | doc | %>
 
                       <!-- If the document retrieved is an Event  -->
@@ -133,33 +122,29 @@
           <!-- If no search done  -->
           <% else %>
 
-              <div class="search-index-div">
-                    <p>Search news by event, topic, article</p>
-                    <p>titles and authors name</p>
+              <%  @articles.each do | article | %>
+                <div class="search-index-div">
 
-                    <p>---- no search results</p>
+                  <p>All Articles</p>
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
+                    <div class="card-category">-</div>
+                    <div class="card-description">
+                        <ul>
+                          <li>
+                            <h2><%= article.title %> </h2>
+                            <%= link_to "show topic", article_path(article) %>
+                          </li>
+                        </ul>
+                    </div>
+                    <img class="card-user" src="<%= article.publisher.image_url %>">
+                  </div>
 
-              </div>
+                </div>
+              <% end %>
 
           <% end %>
 
     </div> <!-- col end -->
   </div> <!-- row end -->
+
 </div> <!-- container end -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
