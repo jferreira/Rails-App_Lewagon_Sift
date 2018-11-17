@@ -1,10 +1,6 @@
 require 'json'
 require 'date'
 
-response_raw = File.read(File.expand_path("db/catalan_articles.json"))
-response = JSON.parse(response_raw)
-array_response = response["articles"]["results"]
-
 ARTICLE_IMAGES = [
     "https://images.ecosia.org/FY28O5m_ZcGa2lp9BQxtPIpwm5Y=/0x390/smart/http%3A%2F%2Fgocartours.com%2Fwp-content%2Fuploads%2F120912020406-spain-catalonia-protest-story-top.jpg",
     "https://images.ecosia.org/lw8E1aFKxsN_bxTwL5WXvTXKHn0=/0x390/smart/https%3A%2F%2Fcdn01.theintercept.com%2Fwp-uploads%2Fsites%2F1%2F2017%2F10%2Fcatalonia-referendum-spain-protests-aftermath-robert-mackey-1506976177-article-header.jpg",
@@ -20,69 +16,90 @@ FIRST_NAMES = %w[James Sally Claire Hennery Stine Barry Sophia Ava Jackson Olivi
 LAST_NAMES = %w[Smith Johnson Williams Brown Davis Miller Wilson Thomas Gonzalez Patterson Cox Simmons Bryant]
 
 TOPICS = ["Catalan Independence", "World War II", "Syrian Civil War", "Woodburn Forest Oil Drill", "Brexit"]
-TOPIC_IMAGES = %w[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg https://scd.france24.com/en/files/imagecache/home_1024/article/image/brexit-drapeau-131118-m.jpg]
 
-EVENTS = [
-"Spanish president attacks Catalan Referendum",
-"Catalan President Flees into exile",
-"Riot police clash with referendum voters",
-"War is Declared",
-"Battle of the Bulge",
-"V-E Day",
-"President Assad sacks Hama governor",
-"Government steps up the Homs bombardment",
-"Prime Minister Riad Hijab defects",
-"Start drilling for oil",
-"PSNI accused of squandering £1m on policing oil drill protest",
-"Company behind Woodburn Forest oil drill call off project",
-"Referendum Called",
-"Hard or soft brexit",
-"Brexit deal"
+TOPIC_IMAGES = [
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw",
+  "https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ",
+  "http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg",
+  "https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg https://scd.france24.com/en/files/imagecache/home_1024/article/image/brexit-drapeau-131118-m.jpg"
 ]
 
-EVENTS_LOCATIONS = ["Barcelona,Spain","Barcelona,Spain","Barcelona,Spain", "Aleppo,Syria","Aleppo,Syria","Aleppo,Syria", "Berlin,Germany","Berlin,Germany","Berlin,Germany", "Woodburn,NorthernIreland","Woodburn,NorthernIreland","Woodburn,NorthernIreland","London,UK","London,UK","London,UK"]
+EVENTS = {
+  "Catalan Independence": ["Spanish president attacks Catalan Referendum", "Catalan President Flees into exile", "Riot police clash with referendum voters"],
+  "World War II": ["War is Declared", "Battle of the Bulge", "V-E Day"],
+  "Syrian Civil War": ["President Assad sacks Hama governor", "Government steps up the Homs bombardment", "Prime Minister Riad Hijab defects"],
+  "Woodburn Forest Oil Drill": ["Start drilling for oil", "PSNI accused of squandering £1m on policing oil drill protest", "Company behind Woodburn Forest oil drill call off project"],
+  "Brexit": ["Referendum Called", "Hard or soft brexit", "Brexit deal"]
+}
 
-EVENTS_DATES = [
-  # Catalan
-  [2017,9,22],
-  [2017,10,1],
-  [2018,10,5],
-  # WWII
-  [1917,4,6],
-  [1939,9,1],
-  [1944,12,16],
-  # Syrian
-  [1945,9,2],
-  [2012,2,22],
-  [2012,10,1],
-  # Woodburn
-  [2016,5,18],
-  [2016,6,17],
-  [2016,7,9],
-  # Brexit
-  [2016,1,12],
-  [2016,6,17],
-  [2018,11,14]
-]
+EVENTS_LOCATIONS = {
+  "Catalan Independence": "Barcelona,Spain",
+  "World War II": "Aleppo,Syria",
+  "Syrian Civil War": "Berlin,Germany",
+  "Woodburn Forest Oil Drill": "Woodburn,NorthernIreland",
+  "Brexit": "London,UK"
+}
 
-EVENTS_IMAGES = %w[
-https://images.indianexpress.com/2017/10/mariano-rajoy.jpg
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg
-https://images.indianexpress.com/2017/10/catalonia-7591.jpg
-https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg
-https://news.wttw.com/sites/default/files/field/image/1_1.jpg
-https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg
-http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg
-https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg
-http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA
-https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg
-https://img.rasset.ie/0010ff9e-500.jpg
-]
+EVENTS_DATES = {
+  "Catalan Independence": [[2017,9,22],[2017,10,1],[2018,10,5]],
+  "World War II": [[1917,4,6],[1939,9,1],[1944,12,16]],
+  "Syrian Civil War": [[1945,9,2],[2012,2,22],[2012,10,1]],
+  "Woodburn Forest Oil Drill": [[2016,5,18],[2016,6,17],[2016,7,9]],
+  "Brexit": [[2016,1,12], [2016,6,17], [2018,11,14]]
+}
+
+# EVENTS_DATES = [
+#   # Catalan
+#   [2017,9,22],
+#   [2017,10,1],
+#   [2018,10,5],
+#   # WWII
+#   [1917,4,6],
+#   [1939,9,1],
+#   [1944,12,16],
+#   # Syrian
+#   [1945,9,2],
+#   [2012,2,22],
+#   [2012,10,1],
+#   # Woodburn
+#   [2016,5,18],
+#   [2016,6,17],
+#   [2016,7,9],
+#   # Brexit
+#   [2016,1,12],
+#   [2016,6,17],
+#   [2018,11,14]
+# ]
+
+EVENTS_IMAGES = {
+  "Catalan Independence":
+  ["https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
+  "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"],
+
+  "World War II":
+  ["https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+  "https://news.wttw.com/sites/default/files/field/image/1_1.jpg",
+  "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"],
+
+  "Syrian Civil War":
+  ["http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+  "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+  "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"],
+
+  "Woodburn Forest Oil Drill":
+   ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA",
+    "https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg",
+    "https://img.rasset.ie/0010ff9e-500.jpg"]
+
+}
+
+
 
 EVENTS_DESCRIPTION = [
 "Summary: The story of the controversial test oil drill site in Woodburn Forest in Northern Ireland, UK choosing to cease operations"
 ]
+
 
 puts "-------------------------------------------"
 puts "Removing old data"
@@ -128,12 +145,20 @@ FIRST_NAMES.each_with_index do |name, idx|
 end
 
 
+
+["Catalan Independence", "World War II", "Syrian Civil War"].each_with_index do |topic, idx|
+
+response_raw = File.read(File.expand_path("db/articles_#{idx}.json"))
+response = JSON.parse(response_raw)
+array_response = response["articles"]["results"]
+
+
 puts "-------------------------------------------"
-puts "Seeding TOPICS"
+puts "Seeding #{topic} TOPIC"
 #### Create Topic ####
 puts ""
 
-TOPICS.each_with_index do |topic, idx|
+
     obj_data = {
         name: topic,
         image_url: TOPIC_IMAGES[idx]
@@ -143,7 +168,6 @@ TOPICS.each_with_index do |topic, idx|
     topic.save!
 
     puts "Topics created: #{topic.name}"
-end
 
 
 #### Create Event ####
@@ -151,14 +175,14 @@ puts "-------------------------------------------"
 puts "Seeding EVENTS"
 puts ""
 
-EVENTS.each_with_index do |event, idx|
+EVENTS[topic].each_with_index do |event, idx|
 
     obj_data = {
         name: event,
         description: EVENTS_DESCRIPTION.sample,
         image_url: EVENTS_IMAGES[idx],
-        date_time: Date.new(EVENTS_DATES[idx][0],EVENTS_DATES[idx][1],EVENTS_DATES[idx][2]),
-        location: EVENTS_LOCATIONS[idx],
+        date_time: Date.new(EVENTS_DATES[topic][idx][0],EVENTS_DATES[topic][idx][1],EVENTS_DATES[topic][idx][2]),
+        location: EVENTS_LOCATIONS[topic],
         lat: LAT.sample,
         lng: LONG.sample,
         topic_id: rand(1..3) ### << This is to be fixed
@@ -330,3 +354,8 @@ end
 puts "-------------------------------------------"
 puts "BOOM SEEDED"
 puts ""
+
+
+end
+
+
