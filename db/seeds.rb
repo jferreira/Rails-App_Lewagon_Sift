@@ -2,9 +2,7 @@ require 'json'
 require 'date'
 
 response_raw = File.read(File.expand_path("db/catalan_articles.json"))
-
 response = JSON.parse(response_raw)
-
 array_response = response["articles"]["results"]
 
 ARTICLE_IMAGES = [
@@ -86,6 +84,23 @@ EVENTS_DESCRIPTION = [
 "Summary: The story of the controversial test oil drill site in Woodburn Forest in Northern Ireland, UK choosing to cease operations"
 ]
 
+puts "-------------------------------------------"
+puts "Removing old data"
+puts ""
+
+User.destroy_all
+
+Topic.destroy_all
+Event.destroy_all
+
+Author.destroy_all
+Publisher.destroy_all
+
+Article.destroy_all
+
+SaveArticle.destroy_all
+UserScore.destroy_all
+FollowingItem.destroy_all
 
 puts "-------------------------------------------"
 puts "Seeding started"
