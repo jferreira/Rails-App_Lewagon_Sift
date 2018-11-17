@@ -42,7 +42,7 @@
             <% end %>
           <% end %>
 
-          <p><%= @article.average_user_score %></p>
+          <p><%= @avg_article_score %></p>
 
           <%= form_for([@article, @user_score]) do |f| %>
             <%= f.hidden_field :score, :value => -1 %>
