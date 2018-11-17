@@ -95,7 +95,6 @@ EVENTS_IMAGES = {
 }
 
 
-
 EVENTS_DESCRIPTION = [
 "Summary: The story of the controversial test oil drill site in Woodburn Forest in Northern Ireland, UK choosing to cease operations"
 ]
