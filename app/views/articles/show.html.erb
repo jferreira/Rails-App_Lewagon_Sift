@@ -33,10 +33,21 @@
 
     <!-- USER SCORES ------------------------------------------ -->
 
-    <div class="user-scores-container">
-      <%= link_to 'Up', new_article_userscore_path(@article), class: 'btn btn-primary' %>
-      <p>11</p>
-      <%= link_to 'Down', new_article_userscore_path(@article), class: 'btn btn-primary' %>
+      <div class="user-scores-container">
+
+          <%= form_for([@article, @user_score]) do |f| %>
+            <%= f.hidden_field :score, :value => 1 %>
+            <%= f.submit "Up" %>
+          <% end %>
+
+          <p>11</p>
+
+
+          <%= form_for([@article, @user_score]) do |f| %>
+            <%= f.hidden_field :score, :value => -1 %>
+            <%= f.submit "Down" %>
+          <% end %>
+
     </div>
 
   </li>

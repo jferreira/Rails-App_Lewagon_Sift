@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def show
     # ARTICLE PASSED
     @article = Article.find(params[:id])
-
+    @user_score = UserScore.new
     # FIND EVENT INSTANCE
     event = @article.event
     events_articles = event.articles
