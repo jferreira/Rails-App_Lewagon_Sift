@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:index, :show ]
   resources :events, only: [:index, :show ]
-  resources :articles, only: [:index, :show ]
-
+  resources :articles, only: [:index, :show ] do
+    resources :userscores, only: [:new, :create ]
+  end
   resources :profile, only: [:edit, :update, :show ]
 
 end
