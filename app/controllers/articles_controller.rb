@@ -6,7 +6,10 @@ class ArticlesController < ApplicationController
   def show
     # ARTICLE PASSED
     @article = Article.find(params[:id])
+    @raw_scores = UserScore.all.where(article_id: @article.id).pluck(:id)
+    @avg_article_score = @raw_scores.sum.fdiv(@raw_scores.size).round(0)
 
+    @user_score = UserScore.new
     # FIND EVENT INSTANCE
     event = @article.event
     events_articles = event.articles

@@ -30,6 +30,29 @@
   <!-- SIDEBAR 1 - EMPTY ------------------------------- -->
 
   <li class="flex-item flex-sidebar-left">
+
+    <!-- USER SCORES ------------------------------------------ -->
+
+      <div class="user-scores-container">
+
+          <%= form_for([@article, @user_score]) do |f| %>
+            <%= f.hidden_field :score, :value => 1 %>
+            <%= button_tag type: 'submit' do %>
+                    <i class="fas fa-chevron-up"></i>
+            <% end %>
+          <% end %>
+
+          <p><%= @avg_article_score %></p>
+
+          <%= form_for([@article, @user_score]) do |f| %>
+            <%= f.hidden_field :score, :value => -1 %>
+            <%= button_tag type: 'submit' do %>
+                    <i class="fas fa-chevron-down"></i>
+            <% end %>
+          <% end %>
+
+    </div>
+
   </li>
 
   <!-- ARTICLE ------------------------------------------ -->
