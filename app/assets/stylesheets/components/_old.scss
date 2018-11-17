@@ -1,0 +1,314 @@
+/* Application CSS */
+
+
+/* Navigation menu */
+
+nav#menuBeta {}
+
+span.menu-text {
+  display: block;
+  position: relative;
+  padding: 15px 0px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+span.menu-icon {
+  display: block;
+  position: relative;
+  padding: 10px 0px 0px 0px;
+  line-height: 20px;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.nav.navbar-nav {
+  font-size: 13px;
+}
+
+
+/* Package view */
+
+.table-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-container .table-row {
+  height: 100%;
+  width: 100%;
+  display: table-row;
+}
+
+.table-container .table-row .table-col {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 100%;
+  float: left;
+}
+
+.overlay-pattern:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('../img/_Pattern/white-diagonal-lines.png');
+  opacity: 0.1;
+
+  -webkit-filter: blur(1px) grayscale(0%);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.package-overlay-0:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.8s;
+  opacity: 0.8;
+  background: url("../img/beta/_02_Grad.jpg");
+  background-size: 100% 100%;
+}
+
+.package-overlay-1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.8s;
+  opacity: 0.8;
+  background: url("../img/beta/_03_Grad.jpg");
+  background-size: 100% 100%;
+}
+
+.package-overlay-2:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.8s;
+  opacity: 0.8;
+  background: url("../img/beta/_04_Grad.jpg");
+  background-size: 100% 100%;
+}
+
+.package-container {
+  width: 100%;
+  height: 600px;
+  background-color: #6C96CF;
+}
+
+img.package-image {
+  position: absolute;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.no-spacing {
+  padding: 0;
+  margin: 0;
+}
+
+.package-header {
+  color: #fff;
+}
+
+.package-info {
+  position: relative;
+  z-index: 1;
+  /* Place content on top of gradient overlay */
+  top: 75%;
+  /* Placement of the box from top */
+  transform: translateY(-75%);
+  -webkit-transform: translateY(-75%);
+  -ms-transform: translateY(-75%);
+  overflow: hidden;
+  /* If content goes over height of container, cut it. */
+  padding: 0 0 10px 30px;
+  min-height: 250px;
+  /* Make sure each package is displayed at same height */
+}
+
+.package-info h2.package-title {
+  background: #fff;
+  color: #000;
+  display: inline-block;
+  padding: 3px 12px 5px 15px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+.package-info h4.package-main-theme {
+  background: #fff;
+  color: #000;
+  display: inline-block;
+  padding: 3px 12px 5px 15px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.package-info p.package-summary {
+  margin-top: 10px;
+  font-size: 16px;
+  width: 70%;
+}
+
+div.article-dot-navigation {
+  display: none;
+}
+
+ul.package-articles {
+  list-style-type: circle!important;
+  padding: 0;
+  margin: 0;
+}
+
+ul.package-articles li {
+  color: #fff;
+  display: inline;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+// ------------------------------------------------------
+/* Package article cards overviw */
+
+.package-tiles {
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px 0 15px 0;
+}
+
+.package-curator {
+  background-color: #fff;
+}
+
+.package-curator p {
+  font-weight: bold;
+}
+
+.package-article-amount {
+  background: #483C4D;
+}
+
+.package-navigate {
+  cursor: pointer;
+  padding-top: 40px;
+}
+
+.package-navigate-left {
+  float: right;
+  padding-right: 50px;
+}
+
+.package-navigate-right {
+  padding-left: 50px;
+}
+
+.package-navigate p {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Article card  */
+
+.article-card {}
+
+.get-article {
+  cursor: pointer;
+}
+
+.article-card .article-card-image {
+  height: 350px;
+  width: 100%;
+}
+
+.article-card .article-card-image img {
+  position: absolute;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.article-card .article-card-content {
+  background: #fff;
+  padding: 20px 20px 20px 30px;
+}
+
+.article-card .article-card-content span.share {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background-color: #ddd;
+  padding: 8px 12px 8px 12px;
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.article-card .article-card-content span.share:hover {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+.article-card .article-card-content h4 {
+  margin-bottom: 15px;
+}
+
+.article-card .article-card-content h4.title {
+  color: #373737;
+}
+
+.article-card .article-card-content h4.publisher {
+  color: #C5C5C5;
+}
+
+.article-card .article-card-content p.abstract {
+  color: #000;
+}
+
+.article-card .article-card-content ul {
+  list-style-type: none;
+  width: 80%;
+}
+
+.article-card .article-card-content ul li {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 8px 12px 8px 12px;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin: 0 10px 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
