@@ -1,3 +1,9 @@
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+
 .card-article {
   height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -6,50 +12,82 @@
   color: white;
   position: relative;
   border-radius: 4px;
-  margin: 8px;
   padding: 8px;
+
+  margin: 48px;
+
 }
 
+// ---------------------------------------------
+// THE BOX -------------------------------------
+
+.s-card-text p {
+  margin: 0;
+  padding: 0;
+  font-family: ZillaSlab;
+  font-size: 14px !important;
+  color: grey;
+}
+
+
+.s-card-header-text h3 {
+  margin: 0;
+  padding: 0;
+  font-family: ZillaSlab;
+  font-size: 16 px;
+  color: white;
+}
 
 .s-card-article {
-  // height: 200px;
-  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  // background-size: cover !important;
-  // background-position: center;
   color: white;
   position: relative;
-  border-radius: 4px;
-  // margin: 8px;
-  padding: 8px;
+  border-radius: 8px;
+  background: rgba(45,23,54,1);
 }
 
+
 .s-image-article {
-  height: 300px;
+  padding: 24px;
+
+  height: 240px;
   width: 100%;
-  background: red;
-  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+
+  border-radius: 8px 8px 0px 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  color: white;
-  // position: absolute;
-  border-radius: 4px;
-  margin: 8px;
-  padding: 8px;
+  // background-blend-mode: luminosity;
+
 }
+
 .s-card-publisher {
-  background: red;
+  position: relative;
+  background: rgba(45,23,54,0.5);
   height: 96px;
   width: 100%;
+
+  padding: 24px;
+
 }
+
 .s-image-publisher {
-  // position: absolute;
+  position: absolute;
   right: 10px;
   top: 10px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
+
+  padding: 8px;
 }
+
 .s-card-body {
-  height: 128px;
+  background: white;
+  min-height: 150px;
   width: 100%;
+  color: black;
+
+  border-radius: 0px 0px 8px 8px;
+
+  padding: 24px;
 }
