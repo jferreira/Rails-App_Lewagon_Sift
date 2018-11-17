@@ -37,15 +37,18 @@
 
           <%= form_for([@article, @user_score]) do |f| %>
             <%= f.hidden_field :score, :value => 1 %>
-            <%= f.submit "Up" %>
+            <%= button_tag type: 'submit' do %>
+                    <i class="fas fa-chevron-up"></i>
+            <% end %>
           <% end %>
 
-          <p>11</p>
-
+          <p><%= @article.average_user_score %></p>
 
           <%= form_for([@article, @user_score]) do |f| %>
             <%= f.hidden_field :score, :value => -1 %>
-            <%= f.submit "Down" %>
+            <%= button_tag type: 'submit' do %>
+                    <i class="fas fa-chevron-down"></i>
+            <% end %>
           <% end %>
 
     </div>
