@@ -1,5 +1,5 @@
 <div>
-  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
+  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('@articles.image_url');">
 
       <div class="banner-content">
           <% if params[:query].present? %>
@@ -8,7 +8,7 @@
               <h1>Topics</h1>
           <% end %>
 
-      <!-- SEARCH BY --------------------------------->
+      <!-- SEzARCH BY --------------------------------->
 
       <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
         <div class='row'>
@@ -118,28 +118,32 @@
 
               <% end %>
 
-
           <!-- If no search done  -->
           <% else %>
-
-              <%  @articles.each do | article | %>
-                <div class="search-index-div">
-
                   <p>All Articles</p>
-                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
-                    <div class="card-category">-</div>
-                    <div class="card-description">
-                        <ul>
-                          <li>
-                            <h2><%= article.title %> </h2>
-                            <%= link_to "show topic", article_path(article) %>
-                          </li>
-                        </ul>
-                    </div>
-                    <img class="card-user" src="<%= article.publisher.image_url %>">
+
+              <%  @articles.each_with_index do | article, i | %>
+
+
+                <!-- ---- ARTICLE CARD ----- -->
+                <div class="s-card-article">
+                  <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= article.image_url %>);"><h3>#<%= (i + 1) %></h3>
                   </div>
 
+                  <div class="s-card-publisher">
+                    <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+                    <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+                  </div>
+                  <div class="s-card-body s-card-text" >
+                    <h3><%= article.title %></h3>
+                    <p><%= article.description%></p>
+                    <p><%= article.date_time_published%></p>
+                    <p>reading time</p>
+                    <p><%= link_to "show article", article_path(article) %></p>
+                  </div>
                 </div>
+                <!-- ---- ARTICLE CARD END----- -->
+
               <% end %>
 
           <% end %>
