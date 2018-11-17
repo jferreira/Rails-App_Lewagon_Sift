@@ -88,19 +88,19 @@ puts "-------------------------------------------"
 puts "Removing old data"
 puts ""
 
-User.destroy_all
+# User.destroy_all
 
-Topic.destroy_all
-Event.destroy_all
+# Topic.destroy_all
+# Event.destroy_all
 
-Author.destroy_all
-Publisher.destroy_all
+# Author.destroy_all
+# Publisher.destroy_all
 
-Article.destroy_all
+# Article.destroy_all
 
-SaveArticle.destroy_all
-UserScore.destroy_all
-FollowingItem.destroy_all
+# SaveArticle.destroy_all
+# UserScore.destroy_all
+# FollowingItem.destroy_all
 
 puts "-------------------------------------------"
 puts "Seeding started"
