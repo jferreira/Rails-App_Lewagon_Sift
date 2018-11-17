@@ -38,7 +38,13 @@
     <!-- SAVED ARTICLES -------------------------------------------------------------- -->
     <div id="saved-articles" class="tab-pane fade in active">
 
+
+<br>
+
       <h3>Saved Articles</h3>
+
+<br>
+<br>
 
             <!-- ---- EVENT CARD ----- -->
             <div class="a-card-event-box">
@@ -58,90 +64,61 @@
             </div>
             <!-- ---- EVENT CARD END ----- -->
 
-            <div class="article-card-box">
+<br>
+<br>
 
 
-            </div>
-
-            <!-- ---- ARTICLE CARD ----- -->
-            <div class="s-card-article" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" ");">
-
-              <div class="s-image-article"><p>--</p>
-              </div>
-              <div class="s-card-publisher">
-                <p>publisher name</p>
-                <img class="s-image-publisher" src=" ">
-              </div>
-              <div class="s-card-body">
-                  <ul>
-                    <li>
-                      <p>title</p>
-
-                      <p>description</p>
-                      <p>date time published</p>
-                      <p>reading time</p>
-                    </li>
-                  </ul>
-              </div>
-            </div>
-            <!-- ---- ARTICLE CARD END----- -->
-
-            <!-- ---- EVENT CARD ----- -->
-            <div class="a-card-event-box">
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <span class="blocked-sml">&nbsp &nbsp Woodburn Forest, Northen Ireland  &nbsp &nbsp</span>
-              <span class="blocked-sml">&nbsp &nbsp 3rd Mar 2016  &nbsp &nbsp</span>
-              <p></p>
-              <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp Woodburn Forest Oil Drill &nbsp</span></h2>
-                            <p></p>
-              <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp Stopped Drilling &nbsp</span></h2>
-              <p></p>
-              <p></p>
-              <p>Summary: { 03 } Articles, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of France carring out its first air strikes against Islamic State militants in Syria.</p>
-            </div>
-            <!-- ---- EVENT CARD END ----- -->
-
-
-
-
-
-          <% @articles.each do |article| %>
+          <% @articles.each_with_index do |article, i| %>
 
             <% publisher_id = article.publisher_id %>
             <% publisher_name = Publisher.find_by(id: publisher_id) %>
 
-            <div>
+            <!-- ---- ARTICLE CARD ----- -->
+            <div class="s-card-article">
+              <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= article.image_url %>);"><h3>#<%= (i + 1) %></h3>
+              </div>
+
+              <div class="s-card-publisher">
+                <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+                <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+              </div>
+              <div class="s-card-body s-card-text" >
+                <h3><%= article.title %></h3>
+                <br>
+                <p><%= article.description%></p>
+                <p><%= article.date_time_published%></p>
+                <p><% time_read = article.body_text.reading_time :format => :approx %></p>
+
+
+              <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+
+                <% day_num = article.date_time_published.mday %>
+                    <% case day_num
+                       when 1 %><% date_sufix = 'st' %>
+                    <% when 2 %><% date_sufix = 'nd' %>
+                    <% when 3 %><% date_sufix = 'rd' %>
+                    <% else %><% date_sufix = 'th' %>
+                    <% end %>
+                <p><%= article.date_time_published.mday %><%= date_sufix %></p>
+                <p><%= article.date_time_published.strftime("%H") %>.00</p>
+                <% time_read = article.body_text.reading_time :format => :approx %>
+                  <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+                <br>
+              <p><%= link_to "See Article", article_path(article) %></p>
+
+              </div>
+            </div>
+            <!-- ---- ARTICLE CARD END----- -->
+
+
+         <!--    <div>
                 <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= article.image_url %>');">
                   <div class="banner-content">
                     <p>Publisher: <%= publisher_name.name %> </p>
                   </div>
                 </div>
-              </div>
-            <div>
+              </div> -->
 
-              <h3><%= article.title %></h3>
-              <p><%= article.description %></p>
-
-              <% day_num = article.date_time_published.mday %>
-
-                  <% case day_num
-                     when 1 %><% date_sufix = 'st' %>
-                  <% when 2 %><% date_sufix = 'nd' %>
-                  <% when 3 %><% date_sufix = 'rd' %>
-                  <% else %><% date_sufix = 'th' %>
-                  <% end %>
-
-              <p><%= article.date_time_published.mday %><%= date_sufix %></p>
-              <p><%= article.date_time_published.strftime("%H") %>.00</p>
-
-              <% time_read = article.body_text.reading_time :format => :approx %>
-
-                <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-                <p><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</p>
-            </div>
 
           <% end %>
 
@@ -154,6 +131,9 @@
 
       <h3>Followed Lists</h3>
 
+<br>
+<br>
+
 
             <!-- ---- EVENT CARD ----- -->
             <div class="a-card-event-box">
@@ -172,6 +152,9 @@
               <p>Summary: { 03 } Articles, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of France carring out its first air strikes against Islamic State militants in Syria.</p>
             </div>
             <!-- ---- EVENT CARD END ----- -->
+
+<br>
+<br>
 
             <!-- ---- EVENT CARD ----- -->
             <div class="a-card-event-box">
