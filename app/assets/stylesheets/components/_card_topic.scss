@@ -1,0 +1,61 @@
+
+
+
+// CARD BOX
+.a-card-event-box {
+  // width: 630px;
+  min-height: 400px !important;
+  border-radius: 8px;
+  // height: 200px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  // color: white;
+  position: relative;
+  border-radius: 4px;
+
+  margin: 8px;
+  padding: 32px;
+
+  color: #fff;
+  background-color: #462852;
+
+}
+
+// H2 CLEAR
+.a-card-event-box h2 {
+  margin: 0;
+  padding: 0;
+
+}
+.a-card-event-text  {
+  font-family: ZillaSlab;
+  font-size: 22 px;
+  color: #331c3d;
+
+  // padding: 3px 12px 5px 15px;
+  // border: 1px solid #fff;
+
+}
+
+// INLINE BLOCKING
+
+.blocked {
+  height: 48px;
+  color: #331c3d;
+  display: inline-block;
+  background: #fff;
+  border-radius: 2px;
+  padding: 8;
+  margin: 8;
+}
+
+.blocked-sml {
+  line-height: 2;
+  color: #331c3d;
+  display: inline-block;
+  background: #fff;
+  border-radius: 2px;
+  padding: 8;
+  margin: 8;
+}

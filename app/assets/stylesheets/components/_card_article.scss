@@ -1,6 +1,6 @@
 .card-article {
   height: 200px;
-  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -8,4 +8,48 @@
   border-radius: 4px;
   margin: 8px;
   padding: 8px;
+}
+
+
+.s-card-article {
+  // height: 200px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // background-size: cover !important;
+  // background-position: center;
+  color: white;
+  position: relative;
+  border-radius: 4px;
+  // margin: 8px;
+  padding: 8px;
+}
+
+.s-image-article {
+  height: 300px;
+  width: 100%;
+  background: red;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  // position: absolute;
+  border-radius: 4px;
+  margin: 8px;
+  padding: 8px;
+}
+.s-card-publisher {
+  background: red;
+  height: 96px;
+  width: 100%;
+}
+.s-image-publisher {
+  // position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.s-card-body {
+  height: 128px;
+  width: 100%;
 }
