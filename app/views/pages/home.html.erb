@@ -1,8 +1,11 @@
 <div>
-   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= @articles.last.image_url %>);">
+   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+
+<!-- random_id = @articles.pluck(:id).sample
+    @articles.find(@articles.pluck(:id).sample).image_url -->
     <div class="banner-content">
       <h2>Read news with perspective</h2>
-      <p>Search news by topic,event, author, publisher or by location</p>
+      To get started type in a topic,event, author, publisher or by location</p>
 
       <div>
           <!-- SEARCH BY ------------------------------- -->
@@ -12,9 +15,10 @@
               <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
                 <div class="form-group">
+                  <i class="fas fa-search"></i>
                   <%= text_field_tag :query, nil, placeholder: 'Topics, Events, Locations', class: 'form-control' %>
-                  <br>
-                  <%= link_to "Search", topics_path, class: "btn btn-default" %>
+                  <%= link_to "", topics_path, class: "fas fa-arrow-right btn btn-green" %>
+                  <!-- <i class="fal fa-arrow-right"></i> -->
                   <!-- <#%= submit_tag "Search", class: "btn btn-default" %> -->
                 </div>
 

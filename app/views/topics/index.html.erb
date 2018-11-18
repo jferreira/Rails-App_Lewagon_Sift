@@ -9,31 +9,35 @@
               <h1>Topics</h1>
           <% end %>
 
-      <!-- SEzARCH BY --------------------------------->
+      <!-- SEARCH BY --------------------------------->
 
       <%= form_tag(topics_path, method: :get, role: 'form', name: "query") do %>
+
         <div class='row'>
           <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
             <div class="form-group">
 
-                <%= text_field_tag :query, nil, placeholder: 'french airstrike',
+                <%= text_field_tag :query, nil, placeholder: 'search',
                   class: 'form-control'
                 %>
 
+<!--                <#%= link_to "", topics_path,
+                class: "fas fa-arrow-right btn btn-green" %>
+ -->
                 <%= submit_tag "Search",
-                  class: "btn btn-default"
+                  class: "fas fa-arrow-right btn btn-green"
                 %>
 
             </div>
 
           </div>
+          <!-- col end -->
         </div>
+        <!-- row end -->
       <% end %>
-
     </div>
     <!-- banner content end -->
-
   </div>
   <!-- banner half end -->
 

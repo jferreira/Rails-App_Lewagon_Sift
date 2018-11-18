@@ -1,8 +1,46 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Zilla+Slab:00,400,500,600");
+
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Zilla Slab", "Helvetica", "serif";
+
+/*--------- LINK -------------*/
+
+a:link {
+    text-decoration: none;
+    color: rgba(0,0,0,0.3)
+}
+
+/*--------- TEXT -------------*/
+
+.txt-title h1 {
+    margin:0 ;
+    font-size: 40px;
+}
+
+.txt-heading h2 {
+    margin:0 ;
+    font-size: 30px;
+}
+
+.txt-heading-sub h3 {
+    margin:0 ;
+    font-size: 20px;
+}
+
+.txt-body-copy p {
+    margin:0 ;
+    font-size: 10px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.txt-btn p {
+    margin:0 ;
+    font-size: 10px;
+    font-family: 'Varela Round', sans-serif;
+}
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

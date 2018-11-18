@@ -1,13 +1,16 @@
 // Import your components CSS files here.
-@import "alert";
-@import "navbar";
+@import "nav";
 
 @import "alert";
 @import "avatar";
+
+@import "flex";
+
 @import "banner";
+
 @import "card";
 @import "card_article";
 @import "card_event";
-@import "flex";
+
 @import "image";
-@import "nav";
+@import "btn";
