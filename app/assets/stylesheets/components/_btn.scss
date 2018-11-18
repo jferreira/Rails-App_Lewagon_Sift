@@ -1,3 +1,23 @@
+/*---------------- SEARCH --------------------*/
+
+.btn-search {
+  /*TEXT*/
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+  padding: 16px 24px;
+  border-radius: 8px;
+  min-height: 64px;
+
+  background: $sift-green;
+  transition: background 0.3s ease;
+
+}
+
+/*---------------- GREEN --------------------*/
+
 
 .btn-green {
   /*TEXT*/

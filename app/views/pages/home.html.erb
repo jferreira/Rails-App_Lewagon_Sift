@@ -1,34 +1,57 @@
-<div>
-   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+
+ <div class="banner" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
 
 <!-- random_id = @articles.pluck(:id).sample
-    @articles.find(@articles.pluck(:id).sample).image_url -->
-    <div class="banner-content">
-      <h2>Read news with perspective</h2>
-      To get started type in a topic,event, author, publisher or by location</p>
+  @articles.find(@articles.pluck(:id).sample).image_url -->
+  <div class="banner-content">
 
-      <div>
-          <!-- SEARCH BY ------------------------------- -->
-          <%= form_tag(root_path, method: :get, role: 'form') do %>
+    <!-- <h1 class="txt-title">Sift</h1> -->
+    <h2 class="txt-heading">Read news with perspective</h2>
+    <p class="txt-body-copy">To get started type in a topic,event, author, publisher or by location</p>
 
-            <div class='row'>
-              <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+      <!-- HOME SEARCH ------------------------------- -->
 
-                <div class="form-group">
-                  <i class="fas fa-search"></i>
-                  <%= text_field_tag :query, nil, placeholder: 'Topics, Events, Locations', class: 'form-control' %>
-                  <%= link_to "", topics_path, class: "fas fa-arrow-right btn btn-green" %>
-                  <!-- <i class="fal fa-arrow-right"></i> -->
-                  <!-- <#%= submit_tag "Search", class: "btn btn-default" %> -->
-                </div>
+      <%= form_tag(root_path, method: :get, role: 'form') do %>
+
+        <div class='row'>
+          <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+
+
+            <!-- SEARCH ------------------------------- -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <!-- <%= text_field_tag :query, nil, placeholder: 'Topics, Events, Locations', class: 'form-control form-control-lg' %> -->
+                <input value=""
+                      placeholder="Search: Topics, Events, Locations" class="form-control input-search"
+                      id="query"
+                      pattern=".*\w{3,}.*"
+                      title="Words expected"
+                      type="text"
+                      name="keyword">
+                <span class="input-group-btn"><button name="button" type="submit" class="btn btn-search"><i class="fas fa-arrow-right"></i></button></span>
 
               </div>
+              <!-- input group end -->
             </div>
+            <!-- form group end -->
 
-          <% end %>
+            <!-- SEARCH END------------------------------- -->
 
-      </div>
 
-    </div>
+              <%= link_to "", topics_path,
+              class: "fas fa-arrow-right btn btn-default" %>
+
+          </div>
+          <!-- col end -->
+        </div>
+        <!-- row end -->
+      <% end %>
+      <!-- form tag end -->
+
+
   </div>
+
 </div>

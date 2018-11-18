@@ -16,6 +16,30 @@
         <div class='row'>
           <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
 
+            <!-- SEARCH ------------------------------- -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <!-- <%= text_field_tag :query, nil, placeholder: 'Topics, Events, Locations', class: 'form-control form-control-lg' %> -->
+                <input value=""
+                      placeholder="Topics, Events, Locations" class="form-control input-search"
+                      id="query"
+                      pattern=".*\w{3,}.*"
+                      title="Words expected"
+                      type="text"
+                      name="keyword">
+                <span class="input-group-btn"><button name="button" type="submit" class="btn btn-search"><i class="fas fa-arrow-right"></i></button></span>
+
+              </div>
+              <!-- input group end -->
+            </div>
+            <!-- form group end -->
+
+            <!-- SEARCH END------------------------------- -->
+
+
             <div class="form-group">
 
                 <%= text_field_tag :query, nil, placeholder: 'search',
