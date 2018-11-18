@@ -75,11 +75,12 @@
 
             <!-- If search done  -->
             <% if @documents.length.positive? %>
+                <h3>Results:</h3>
+
               <%  @documents.each_with_index do | doc, i | %>
 
                 <!-- If the document retrieved is an Event  -->
                 <% if doc.searchable_type === 'Event' %>
-
                 <!-- Part of PGSearch  -->
                 <% document = doc.searchable %>
 
@@ -145,7 +146,7 @@
 
                 <br>
                 <p>Result: #<%= (i + 1) %></p>
-                <h3>Article #></h3>
+                <h3>Article</h3>
                 <br>
 
                 <!-- ---- ARTICLE CARD ----- -->
