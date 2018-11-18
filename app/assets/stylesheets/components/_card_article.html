@@ -1,38 +1,38 @@
-<!-- ---- ARTICLE CARD ----- -->
+  <!-- ---- ARTICLE CARD ----- -->
 
-<div class="s-card-article">
-  <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= article.image_url %>);"><h3>#<%= (i + 1) %></h3>
-  </div>
+    <div class="s-card-article">
+      <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= doc.searchable.image_url %>);"><h3>#<%= (i + 1) %></h3>
+      </div>
 
-  <div class="s-card-publisher">
-    <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-    <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
-  </div>
-  <div class="s-card-body s-card-text" >
-    <h3><%= article.title %></h3>
-    <br>
-    <p><%= article.description%></p>
-    <p><%= article.date_time_published%></p>
-    <p><% time_read = article.body_text.reading_time :format => :approx %></p>
+      <div class="s-card-publisher">
+        <h3 class="s-card-header-text"><%= doc.searchable.publisher.name %></h3>
+        <img class="s-image-publisher" src= <%= doc.searchable.publisher.image_url %> >
+      </div>
+      <div class="s-card-body s-card-text" >
+        <h3><%= doc.searchable.title %></h3>
+        <br>
+        <p><%= doc.searchable.description%></p>
+        <p><%= doc.searchable.date_time_published%></p>
+        <p><% time_read = doc.searchable.body_text.reading_time :format => :approx %></p>
 
 
-  <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+      <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
 
-    <% day_num = article.date_time_published.mday %>
-        <% case day_num
-           when 1 %><% date_sufix = 'st' %>
-        <% when 2 %><% date_sufix = 'nd' %>
-        <% when 3 %><% date_sufix = 'rd' %>
-        <% else %><% date_sufix = 'th' %>
-        <% end %>
-    <p><%= article.date_time_published.mday %><%= date_sufix %></p>
-    <p><%= article.date_time_published.strftime("%H") %>.00</p>
-    <% time_read = article.body_text.reading_time :format => :approx %>
-      <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-    <br>
-  <p><%= link_to "See Article", article_path(article) %></p>
+        <% day_num = doc.searchable.date_time_published.mday %>
+            <% case day_num
+               when 1 %><% date_sufix = 'st' %>
+            <% when 2 %><% date_sufix = 'nd' %>
+            <% when 3 %><% date_sufix = 'rd' %>
+            <% else %><% date_sufix = 'th' %>
+            <% end %>
+        <p><%= doc.searchable.date_time_published.mday %><%= date_sufix %></p>
+        <p><%= doc.searchable.date_time_published.strftime("%H") %>.00</p>
+        <% time_read = doc.searchable.body_text.reading_time :format => :approx %>
+          <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+        <br>
+      <p><%= link_to "See Article", event_path(doc.searchable) %></p>
 
-  </div>
-</div>
+      </div>
+    </div>
 
-<!-- ---- ARTICLE CARD END----- -->
+  <!-- ---- ARTICLE CARD END----- -->
