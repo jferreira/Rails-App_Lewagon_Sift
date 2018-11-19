@@ -291,7 +291,7 @@ puts ""
 
 puts "Creating user scores"
 
-20.times do
+200.times do
 
     obj_data = {
       score: rand(-5..5),
