@@ -24,6 +24,11 @@ class Article < ApplicationRecord
     self.find(adjacent_id)
   end
 
+  def average_score
+    scores = self.user_scores
+    scores.length.zero? ? 0 : scores.pluck(:score).reduce(0, :+) / scores.length
+  end
+
   include PgSearch
   multisearchable :against => [:title]
 
