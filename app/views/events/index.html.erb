@@ -2,7 +2,7 @@
 
 <div class="header">
 
-    <div class="banner"
+    <div class="banner-half"
     style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
        url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
 
@@ -31,7 +31,6 @@
 
             <!-- ---- HEADER TITLES CARD ----- -->
 
-
               <!-- TOPIC HEADER -->
               <h2><span
                 class="blocked">&nbsp Events &nbsp
@@ -39,10 +38,10 @@
               <!-- EVENT HEADER -->
               <p></p>
               <p></p>
-              <p>A collection of all the events</p>
+              <p>The collection of all the news events in sift</p>
 
-              <%= link_to "All Articles", Articles_path, class: "btn btn-default" %>
-              <%= link_to "All Topics", topics_path, class: "btn btn-default" %>
+              <%= link_to "News Articles", articles_path, class: "btn btn-default" %>
+              <%= link_to "News Topics", topics_path, class: "btn btn-default" %>
 
             <!-- ---- HEADER CARD END ----- -->
 
@@ -62,3 +61,52 @@
 </div>
 <!-- header end -->
 <!-- PAGE HEADER END------------------------------- -->
+
+
+
+
+<!-- LIST  ------------------------------- -->
+
+<div class="container">
+  <div class="row">
+    <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+
+
+              <p>All news events:</p>
+              <%  @events.each_with_index do | event, i | %>
+
+              <br>
+                <!-- ---- TOPIC CARD ----- -->
+
+                <div class="a-card-event-box"
+                style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%),
+                url(<%= event.image_url %>);">
+                <h3>#<%= (i + 1) %></h3>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
+                  <p></p>
+                    <h2><span class="blocked">&nbsp # &nbsp</span>
+                      <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
+                  <p></p>
+                    <h2><span class="blocked-light">&nbsp # &nbsp</span>
+                      <span class="blocked-light">&nbsp <%= event.name %> &nbsp</span></h2>
+                  <p></p>
+                  <p></p>
+                  <p>Summary: { <%= event.articles.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+                  <p><%= link_to "show event", event_path(event) %></p>
+                  <%= link_to 'See event', event_path(event),
+                        class: 'btn btn-default'%>
+                </div>
+
+                <!-- ---- TOPIC CARD END ----- -->
+
+
+              <% end %>
+
+    </div> <!-- col end -->
+  </div> <!-- row end -->
+</div> <!-- container end -->
