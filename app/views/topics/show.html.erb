@@ -1,8 +1,150 @@
-<div>
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
-    <div class="banner-content">
-      <h1>Topic Show ID:</h1>
+<!-- TOPICS PAGE HEADER ------------------------------- -->
 
-    </div>
+<div class="header">
+
+    <div class="banner-half"
+    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
+       url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+
+        <div class="row">
+
+          <!-- LEFT COL -->
+          <div class="col-xs-3">
+
+            <div class="top-box">
+              <p></p>
+            </div>
+
+            <div class="middle-box">
+              <p></p>
+            </div>
+
+            <div class="bottom-box">
+              <p></p>
+            </div>
+
+          </div>
+          <!-- col one end -->
+
+          <!-- MAIN COL -->
+          <div class="col-xs-9">
+
+            <!-- ---- HEADER TITLES CARD ----- -->
+
+              <!-- TOPIC HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= @topic.name %> &nbsp
+              </span></h2>
+              <!-- EVENT HEADER -->
+              <p></p>
+              <p></p>
+              <p>The collection of all the news topics in sift</p>
+
+            <br>
+            <br>
+
+            <!-- NEW SEARCH ------------------------------- -->
+            <!--
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <input value=""
+                      placeholder="Topics, Events, Locations" class="form-control input-search"
+                      id="query"
+                      pattern=".*\w{3,}.*"
+                      title="Words expected"
+                      type="text"
+                      name="keyword">
+                <span class="input-group-btn"><button name="button" type="submit" class="btn btn-search"><i class="fas fa-arrow-right"></i></button></span>
+
+              </div>
+              -->
+              <!-- input group end -->
+            <!-- </div> -->
+            <!-- form group end -->
+            <!-- NEW SEARCH END------------------------------- -->
+
+            <!-- SEARCH --------------------------------------- -->
+            <div class="form-group">
+
+                <%= text_field_tag :query, nil, placeholder: 'search',
+                  class: 'form-control'
+                %>
+
+<!--                <#%= link_to "", topics_path,
+                class: "fas fa-arrow-right btn btn-green" %>
+ -->
+                <%= submit_tag "Search",
+                  class: "fas fa-arrow-right btn btn-default"
+                %>
+
+            </div>
+            <!-- SEARCH END--------------------------------------- -->
+
+
+
+            <!-- ---- HEADER CARD END ----- -->
+
+          </div>
+          <!-- col two end -->
+
+          <div class="col-0">
+          </div>
+          <!-- col three end -->
+
+        </div>
+        <!-- row end -->
+
   </div>
+  <!-- banner-half end -->
+
 </div>
+<!-- header end -->
+<!-- TOPICS PAGE HEADER END------------------------------- -->
+
+<!-- TOPICS EVENTS LIST  ------------------------------- -->
+
+<div class="container">
+  <div class="row">
+    <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+
+
+              <p>All news events of that topic:</p>
+              <%  @events.each_with_index do | event, i | %>
+
+              <br>
+                <!-- ---- EVENT CARD ----- -->
+
+                <div class="a-card-event-box"
+                style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%),
+                url(<%= event.image_url %>);">
+                <h3>#<%= (i + 1) %></h3>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
+                  <p></p>
+                    <h2><span class="blocked">&nbsp # &nbsp</span>
+                      <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
+                  <p></p>
+                    <h2><span class="blocked-light">&nbsp # &nbsp</span>
+                      <span class="blocked-light">&nbsp <%= event.name %> &nbsp</span></h2>
+                  <p></p>
+                  <p></p>
+                  <p>Summary: { <%= event.articles.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+                  <p><%= link_to "show event", event_path(event) %></p>
+                  <%= link_to 'See event', event_path(event),
+                        class: 'btn btn-default'%>
+                </div>
+
+                <!-- ---- EVENT CARD END ----- -->
+
+
+              <% end %>
+
+    </div> <!-- col end -->
+  </div> <!-- row end -->
+</div> <!-- container end -->

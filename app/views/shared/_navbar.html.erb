@@ -29,11 +29,18 @@
 
               <% if user_signed_in? %>
                 <li><%= link_to 'Profile', profile_path(current_user) %></li>
-
                 <li><%= link_to 'Edit Profile', edit_profile_path(current_user) %></li>
+
+                <li><%= link_to "All Articles", articles_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Topics", topics_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+
                 <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
               <% else %>
+                <li><%= link_to "All Articles", articles_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Topics", topics_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
                 <li><%= link_to "Features", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
                 <li><%= link_to "About us", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
                 <li><%= link_to 'Log In', new_user_session_path %></li>
@@ -74,11 +81,21 @@
               <% if user_signed_in? %>
                 <li><%= link_to 'Profile', profile_path(current_user) %></li>
                 <li><%= link_to 'Edit Profile', edit_profile_path(current_user) %></li>
+
+                <li><%= link_to "All Articles", articles_path, class: "bnavbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Topics", topics_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+
                 <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
               <% else %>
+                <li><%= link_to "All Articles", articles_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Topics", topics_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "News Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+
                 <li><%= link_to "Features", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
                 <li><%= link_to "About us", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+
                 <li><%= link_to 'Log In', new_user_session_path %></li>
                 <% end %>
         </li>

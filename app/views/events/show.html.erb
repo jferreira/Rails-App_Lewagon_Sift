@@ -1,18 +1,81 @@
-<div>
-  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://thumbs.gfycat.com/BelovedPlainEstuarinecrocodile-size_restricted.gif');">
-    <div class="banner-content">
-      <p>Location: Aleppo, Syria</p>
-      <p>Date/Time: 4th feb, 2016</p>
-      <h3>Topic: Syrian Civial War</h3>
-      <h2>Event: French Airstrikes</h2>
-      <p>Description: The US, UK and France have launched more than 100 missiles against what they say were Syrian chemical weapons facilities in response to a chemical weapons attack in a Damascus suburb a week ago.</p>
+<!-- EVENT PAGE HEADER ------------------------------- -->
 
-    </div>
+<div class="header">
+
+    <div class="banner-half"
+    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
+       url(<%= @event.image_url %>);">
+
+        <div class="row">
+
+          <!-- LEFT COL -->
+          <div id="left-col" class="col-xs-3">
+
+            <div class="top-box">
+              <p></p>
+            </div>
+
+            <div class="middle-box">
+              <p></p>
+            </div>
+
+            <div class="bottom-box">
+              <p></p>
+            </div>
+
+          </div>
+          <!-- col one end -->
+
+          <!-- MAIN COL -->
+          <div id="middle-col" class="col-xs-9">
+
+            <!-- ---- HEADER TITLES CARD ----- -->
+
+              <!-- LOCATION TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @event.location %>  &nbsp</span></p>
+              <!-- TIME TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @event.articles.first.date_time_published %>  &nbsp</span></p>
+              <p></p>
+              <!-- TOPIC HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", root_path(" ") %> &nbsp</span><span
+                class="blocked">&nbsp <%= @event.topic.name %> &nbsp
+              </span></h2>
+              <!-- EVENT HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", root_path("") %> &nbsp</span><span
+                class="blocked">&nbsp <%= @event.name %> &nbsp
+              </span></h2>
+              <p></p>
+              <p></p>
+              <p>Description: <%= @event.articles.count %> Articles: <%= @event.description %></p>
+
+              <%= link_to "Previous", event_path(" "), class: "btn btn-default" %>
+              <%= link_to "Next", event_path(" "), class: "btn btn-default" %>
+
+            <br>
+            <br>
+
+            <!-- ---- HEADER CARD END ----- -->
+
+          </div>
+          <!-- col two end -->
+
+          <div id="right-col" class="col-0">
+          </div>
+          <!-- col three end -->
+
+        </div>
+        <!-- row end -->
+
   </div>
+  <!-- banner-half end -->
+
 </div>
+<!-- header end -->
+<!-- EVENT PAGE HEADER END------------------------------- -->
 
-
-<!-- ARTICLES ------------------------------- -->
+<!-- EVENTS ARTICLE LIST ------------------------------- -->
 
 
 <div class="container">

@@ -12,6 +12,10 @@ class TopicsController < ApplicationController
   end
 
   def show
+      @articles = Article.all
+
+      @topic = Topic.find(params[:id])
+      @events = @topic.events
   end
 
 end
