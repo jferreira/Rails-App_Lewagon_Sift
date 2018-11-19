@@ -1,0 +1,78 @@
+
+// CENTER FLEX
+.flex-aligner-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-aligner-right {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.flex-aligner-left {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+}
+
+
+// ITEMS
+
+.aligner-item {
+  max-width: 50%;
+}
+
+.aligner-item-right {
+  align-self: flex-end;
+
+}
+
+.aligner-item-left {
+  max-width: 50%;
+}
+
+.aligner-item-top {
+  align-self: flex-start;
+}
+
+.aligner-item-bottom {
+  align-self: flex-end;
+}
+
+// .text-center {
+//   display: flex;
+//   justify-content: center;
+//   align-items: flex-end;
+// }
+
+
+// TEXT ALIGNMENT  -------------------------
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: right;
+}
+
+
+// SIDE BAR BOX ALIGNMENT -------------------------
+
+
+.top-box {
+  height: 10vh;
+}
+.middle-box {
+  // height: 33%;
+}
+.bottom-box {
+  // height: 33%;
+}

@@ -4,9 +4,8 @@
 @import "alert";
 @import "avatar";
 
-@import "flex";
-
 @import "banner";
+@import "banner_header";
 
 @import "card";
 @import "card_article";
@@ -14,4 +13,10 @@
 
 @import "image";
 @import "btn";
+@import "tag";
 @import "form";
+
+
+// Flex
+@import "flex";
+@import "flex_alignment";
