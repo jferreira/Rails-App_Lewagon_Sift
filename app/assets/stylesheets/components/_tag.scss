@@ -13,21 +13,27 @@
 // INLINE BLOCKING
 
 .blocked {
-  height: 48px;
+  // text
   color: #331c3d;
+  // background
   display: inline-block;
+  height: 48px;
   background: #fff;
   border-radius: 2px;
+
   padding: 8;
   margin: 8;
 }
 
 .blocked-light {
-  height: 48px;
+  // text
   color: #331c3d;
+  // background
   display: inline-block;
+  height: 48px;
   background: rgba(255,255,255,0.3);
   border-radius: 2px;
+
   padding: 8;
   margin: 8;
 }
@@ -38,6 +44,7 @@
   display: inline-block;
   background: #rgba;
   border-radius: 2px;
+
   padding: 8;
   margin: 8;
 }

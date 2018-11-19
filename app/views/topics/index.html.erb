@@ -40,9 +40,6 @@
               <p></p>
               <p>The collection of all the news topics in sift</p>
 
-              <%= link_to "News Articles", articles_path, class: "btn btn-default" %>
-              <%= link_to "News Events", events_path, class: "btn btn-default" %>
-
             <br>
             <br>
 
@@ -261,7 +258,6 @@
                   <p></p>
                   <p></p>
                   <p>Summary: { <%= topic.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                  <p><%= link_to "show topic", topic_path(topic) %></p>
                   <%= link_to 'See topic', topic_path(topic),
                         class: 'btn btn-default'%>
                 </div>
