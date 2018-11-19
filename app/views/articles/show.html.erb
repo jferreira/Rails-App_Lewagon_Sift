@@ -1,33 +1,83 @@
+<!-- PAGE HEADER ------------------------------- -->
 
-<div class="non-flex-container">
+<div class="header">
 
-  <!-- HEADER ------------------------------- -->
-  <div class="header">
+    <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @article.image_url %>');">
 
-  <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @article.image_url %>');">
+        <div class="row">
 
-    <div class="banner-content">
+          <!-- LEFT COL -->
+          <div class="col-xs-3">
 
-      <p>Location: <%= @article.event.location %></p>
-      <p>Date: <%= @article.event.date_time %></p>
-      <h4>Topic: <%= @article.event.topic.name %></h4>
-      <h3>Event: <%= @article.event.name %></h3>
-      <p>Description: <%= @article.event.description %></p>
+            <div class="top-box">
+            </div>
 
-      <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>
-      <%= link_to "Next", article_path(@next_article), class: "btn btn-default" %>
+            <div class="middle-box">
+              <h2 class="text-right">
+                <span
+                class="blocked">&nbsp <%= link_to "+", article_path(@next_article) %> &nbsp
+                </span>
+              </h2>
+            </div>
 
-    </div>
-    <!-- banner-content end -->
+            <div class="bottom-box">
+            </div>
+
+          </div>
+          <!-- col one end -->
+
+          <!-- MAIN COL -->
+          <div class="col-xs-9">
+
+            <!-- ---- HEADER TITLES CARD ----- -->
+
+              <!-- LOCATION TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @article.location %>  &nbsp</span></p>
+              <!-- TIME TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
+              <p></p>
+              <!-- TOPIC HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
+                class="blocked">&nbsp <%= @article.event.topic.name %> &nbsp
+              </span></h2>
+              <!-- EVENT HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
+                class="blocked">&nbsp <%= @article.event.name %> &nbsp
+              </span></h2>
+              <p></p>
+              <p></p>
+              <p>Description: <%= @article.event.description %></p>
+
+              <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>
+              <%= link_to "Next", article_path(@next_article), class: "btn btn-default" %>
+
+            <!-- ---- HEADER CARD END ----- -->
+
+          </div>
+          <!-- col two end -->
+
+          <div class="col-0">
+          </div>
+          <!-- col three end -->
+
+        </div>
+        <!-- row end -->
+
   </div>
   <!-- banner-half end -->
 
 </div>
 <!-- header end -->
+<!-- PAGE HEADER END------------------------------- -->
+
+
 
 <ul class="flex-container">
 
   <!-- SIDEBAR 1 - EMPTY ------------------------------- -->
+
 
   <li class="flex-item flex-sidebar-left">
 
@@ -160,59 +210,3 @@
 
   </li>
 </ul> <!-- flex-container end -->
-
-
-
-
-
-
-
-
-<!--
-<div class="flex-container">
-  <div id="left-bar" class="flex-item">
-  </div>
-
-  <div id="article-body" class="flex-item">
-
-
-
-  </div> card 1 end -->
-<!--
-  <div class="flex-item">
-
-    <div id= "article-related-articles" class="offset-xs-0 col-xs-6 offset-md-0 col-md-6">
-
-      <% @related_articles.each do | article | %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.image_url %>);">
-           <div class="card-category"><%= article.location %></div> -->
-<!--           <div class="card-description">
-
-              <ul>
-                <li>
-                  <p><%= article.title %></p>
-                  <p><%= article.publisher.name %></p>
-                  <p><%= article.description %></p>
-                  <p><%= article.date_time_published %></p>
-                  <p><%= link_to "article link", article_path(article) %></p>
-                </li>
-              </ul>
-
-          </div>
-
-          <img class="card-user" src="<%= article.publisher.image_url %>">
-
-        </div>
-      <% end %> article loop end -->
-
-    <!-- </div>  -->
-    <!-- col 2 end -->
-  <!-- </div>  -->
-  <!-- row 2 end -->
-
-
-
-<!-- <div>  -->
-  <!-- container end -->
-
-

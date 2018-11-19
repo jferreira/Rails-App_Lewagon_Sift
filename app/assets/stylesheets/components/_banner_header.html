@@ -1,0 +1,73 @@
+<!-- PAGE HEADER ------------------------------- -->
+
+<div class="header">
+
+    <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @article.image_url %>');">
+
+        <div class="row">
+
+          <!-- LEFT COL -->
+          <div class="col-xs-3">
+
+            <div class="top-box">
+            </div>
+
+            <div class="middle-box">
+              <h2 class="text-right">
+                <span
+                class="blocked">&nbsp <%= link_to "+", article_path(@next_article) %> &nbsp
+                </span>
+              </h2>
+            </div>
+
+            <div class="bottom-box">
+            </div>
+
+          </div>
+          <!-- col one end -->
+
+          <!-- MAIN COL -->
+          <div class="col-xs-9">
+
+            <!-- ---- HEADER TITLES CARD ----- -->
+
+              <!-- LOCATION TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @article.location %>  &nbsp</span></p>
+              <!-- TIME TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
+              <p></p>
+              <!-- TOPIC HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
+                class="blocked">&nbsp <%= @article.event.topic.name %> &nbsp
+              </span></h2>
+              <!-- EVENT HEADER -->
+              <h2><span
+                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
+                class="blocked">&nbsp <%= @article.event.name %> &nbsp
+              </span></h2>
+              <p></p>
+              <p></p>
+              <p>Description: <%= @article.event.description %></p>
+
+              <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>
+              <%= link_to "Next", article_path(@next_article), class: "btn btn-default" %>
+
+            <!-- ---- HEADER CARD END ----- -->
+
+          </div>
+          <!-- col two end -->
+
+          <div class="col-0">
+          </div>
+          <!-- col three end -->
+
+        </div>
+        <!-- row end -->
+
+  </div>
+  <!-- banner-half end -->
+
+</div>
+<!-- header end -->
+<!-- PAGE HEADER END------------------------------- -->

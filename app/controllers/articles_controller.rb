@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
+    @articles = Article.all
   end
 
   def show
@@ -24,6 +25,5 @@ class ArticlesController < ApplicationController
     @related_articles = events_articles
     # 4. need to omit the current article from that list
     # 5. order by average user score
-
   end
 end
