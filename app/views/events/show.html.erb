@@ -25,19 +25,22 @@
 
       <div class="user-scores-container">
 
-        <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
-          <input value="1" type="hidden" name="user_score[score]" id="user_score_score">
-          <button name="button" type="submit">
-                    <i class="fas fa-chevron-up"></i>
-</button></form>
+          <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
+            <input value="1" type="hidden" name="user_score[score]" id="user_score_score">
+            <button name="button" type="submit">
+                      <i class="fas fa-chevron-up"></i>
+            </button>
+          </form>
 
-        <p class="avg-score">1</p>
+          <p class="avg-score"><%= article.average_score %></p>
 
-        <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
-          <input value="-1" type="hidden" name="user_score[score]" id="user_score_score">
-          <button name="button" type="submit">
-                    <i class="fas fa-chevron-down"></i>
-</button></form>
+          <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
+            <input value="-1" type="hidden" name="user_score[score]" id="user_score_score">
+            <button name="button" type="submit">
+                      <i class="fas fa-chevron-down"></i>
+            </button>
+          </form>
+
       </div>
 
     </div>
