@@ -85,7 +85,6 @@
 
       <div class="user-scores-container">
 
-
         <% if current_user.can_user_vote(@article.id) %>
             <%= form_for([@article, @user_score]) do |f| %>
               <%= f.hidden_field :score, :value => 1 %>
@@ -222,6 +221,3 @@
 
   </li>
 </ul> <!-- flex-container end -->
-
-
-

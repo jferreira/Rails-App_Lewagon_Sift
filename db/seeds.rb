@@ -332,6 +332,7 @@ puts "Creating user scores"
 
       obj_data = {
         score: rand(-5..5),
+        times_voted: 1,
         article_id: Article.all.sample.id,
         user_id: User.all.sample.id
       }
