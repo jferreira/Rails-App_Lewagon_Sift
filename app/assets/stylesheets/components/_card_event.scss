@@ -14,11 +14,11 @@
   position: relative;
   border-radius: 4px;
 
-  margin: 8px;
+  // margin: 8px;
   padding: 32px;
 
   color: #fff;
-  background-color: #462852;
+  background-color: rgba(0,0,0,0.2);
 
 }
 
@@ -50,11 +50,21 @@
   margin: 8;
 }
 
+.blocked-light {
+  height: 48px;
+  color: #331c3d;
+  display: inline-block;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  padding: 8;
+  margin: 8;
+}
+
 .blocked-sml {
   line-height: 2;
   color: #331c3d;
   display: inline-block;
-  background: #fff;
+  background: #rgba;
   border-radius: 2px;
   padding: 8;
   margin: 8;

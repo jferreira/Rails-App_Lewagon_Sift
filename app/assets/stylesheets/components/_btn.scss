@@ -1,0 +1,100 @@
+/*---------------- SEARCH --------------------*/
+
+.btn-search {
+  /*TEXT*/
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+  padding: 16px 24px;
+  border-radius: 8px;
+  min-height: 64px;
+
+  background: $sift-green;
+  transition: background 0.3s ease;
+
+}
+
+/*---------------- GREEN --------------------*/
+
+
+.btn-green {
+  /*TEXT*/
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+/*  margin: 24px;*/
+  padding: 16px 128px;
+  border-radius: 4px;
+
+  background: #6AD58B;
+  transition: background 0.3s ease;
+
+}
+
+.btn-green:hover {
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+
+/*---------------- MEDIUM --------------------*/
+
+.btn-medium {
+    color: #999999;
+    border: 1px solid #999999;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.6;
+}
+
+.btn-medium:hover {
+    color: #999999;
+    border: 1px solid #999999;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 1;
+}
+
+/*---------------- TREEHOUSE --------------------*/
+
+.btn-treehouse {
+  color: white;
+  padding: 15px 25px;
+  background: #6AD58B;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.btn-treehouse:hover {
+  color: white;
+  padding: 15px 25px;
+  background: #6AD58B;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/*---------------- MINE --------------------*/
+
+
+.btn-yours {
+  color: white;
+  padding: 15px 25px;
+  background: blue;
+  font-weight: bold;
+  border-radius: 18px;
+}
+
+.btn-yours:hover {
+  color: white;
+  border-radius: 18px;
+  padding: 15px 25px;
+  background: blue;
+  font-weight: bold;
+}

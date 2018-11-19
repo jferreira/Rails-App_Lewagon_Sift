@@ -1,6 +1,7 @@
 // Define variables for your color scheme
 
 // For example:
+
 $red: #EE5F5B;
 $blue: #469AE0;
 $yellow: #FDB631;
@@ -8,3 +9,23 @@ $orange: #E67E22;
 $green: #32B796;
 $gray: #000000;
 $light-gray: #F4F4F4;
+
+// SIFT BRAND COLOURS
+
+$sift-blue: rgba(15,153,200,1);
+$sift-green: rgba(18,240,181,1);
+$sift-purple: rgba(45,23,54,1);
+
+// GRAD 1
+$purple-grad-1: rgba(45,23,54,0.5);
+$purple-grad-2: rgba(161,90,187,0.3);
+
+// GRAD 2
+// <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= doc.searchable.image_url %>);"><h3>#<%= (i + 1) %></h3>
+$purple-grad-1: rgba(161,90,187,0.6);
+$purple-grad-2: rgba(45,23,54,0.8);
+
+// GRAD 3
+// style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%), url(<%= document.image_url %>)
+$turq-grad-1: rgba(18,240,181,0.6);
+$turq-grad-2: rgba(15,153,200,0.8);
