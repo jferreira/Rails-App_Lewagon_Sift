@@ -20,7 +20,7 @@ function userSuggestsUrl() {
   if (swalButton) {
     swalButton.addEventListener('click', () => {
 
-      let html_block = '<p>Suggest an article about</p>' +
+      let html_block = '<h4>Suggest an article about</h4>' +
         `<input id="swal-input1" class="swal2-input" placeholder="${topic_title}">` +
         `<input id="swal-input1" class="swal2-input" placeholder="${event_description}">` +
         `<input id="swal-input1" class="swal2-input" placeholder="${event_title}">` +
