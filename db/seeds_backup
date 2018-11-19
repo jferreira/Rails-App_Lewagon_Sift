@@ -14,11 +14,11 @@ LONG = %w[115.1301361 115.262720 115.137890 115.161940]
 # USER -----------------------------------------------------------
 
 FIRST_NAMES = %w[James Sally Claire Hennery Stine Barry Sophia Ava Jackson Olivia Aiden Lucas Liam]
-LAST_NAMES = %w[Smith Johnson Williams Brown Davis Miller Wilson Thomas Hoilday Patterson Cox Simmons Bryant]
+LAST_NAMES = %w[Smith Johnson Williams Brown Davis Miller Wilson Thomas Gonzalez Patterson Cox Simmons Bryant]
 
 # TOPIC RELATED -----------------------------------------------------------
 
-TOPIC_NAMES = [
+TOPICS_NAMES = [
   "Syrian Civil War",
   "Catalan Independence",
   "Woodburn Forest Oil Drill",
@@ -37,7 +37,7 @@ TOPIC_IMAGES = {
 # EVENT RELATED -----------------------------------------------------------
 
 
-EVENT_NAMES = {
+EVENTS = {
   "Syrian Civil War": [
     "Civil uprising in Syria - Mar 2011",
     "Russian intervention - Sep 2015",
@@ -65,7 +65,9 @@ EVENT_NAMES = {
   ]
 }
 
-EVENT_DESCRIPTIONS = {
+
+
+EVENTS_DESCRIPTIONS = {
   "Syrian Civil War":[
     "Description: The story of... Syrian Civil War: Event 1: Civil uprising in Syria - Mar 2011",
     "Description: The story of... Syrian Civil War: Event 34: Russian intervention - Sep 2015",
@@ -93,7 +95,7 @@ EVENT_DESCRIPTIONS = {
 }
 
 
-EVENT_IMAGES = {
+EVENTS_IMAGES = {
   "Syrian Civil War":[
     "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
     "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
@@ -121,7 +123,7 @@ EVENT_IMAGES = {
   ]
 }
 
-EVENT_DATES = {
+EVENTS_DATES = {
   "Syrian Civil War": [
     [1945,9,2],
     [2012,2,22],
@@ -149,16 +151,16 @@ EVENT_DATES = {
   ]
 }
 
-EVENT_LOCATIONS = {
+EVENTS_LOCATIONS = {
   "Syrian Civil War": [
-    "Damascus, Syria",
-    "Homs, Syria",
-    "Aleppo, Syria"
+    "Aleppo,Syria",
+    "Aleppo,Syria",
+    "Aleppo,Syria"
   ],
   "Catalan Independence": [
-    "Catalonia Parliament, Spain",
     "Barcelona, Spain",
-    "Spain"
+    "Barcelona, Spain",
+    "Barcelona, Spain"
   ],
   "Woodburn Forest Oil Drill": [
     "Woodburn Forest, Northern Ireland",
@@ -173,35 +175,7 @@ EVENT_LOCATIONS = {
   "World War II": [
     "London, England",
     "The Ardennes: Belgium, Luxembourg, Germany",
-    "Berlin, Germany"
-  ]
-}
-
-EVENT_LAT_LNG = {
-  "Syrian Civil War": [
-    [33.5138073, 36.27652790000002],
-    [34.7324273, 36.71369589999995],
-    [36.2021047, 37.13426030000005]
-  ],
-  "Catalan Independence": [
-    [41.5911589, 1.5208623999999418],
-    [41.5911589, 1.5208623999999418],
-    [40.46366700000001, -3.7492200000000366]
-  ],
-  "Woodburn Forest Oil Drill": [
-    [54.749865,-5.883748800000035],
-    [54.749865,-5.883748800000035],
-    [54.749865,-5.883748800000035]
-  ],
-  "Brexit": [
-    [51.5073509,-0.12775829999998223],
-    [51.5073509,-0.12775829999998223],
-    [51.5073509,-0.12775829999998223],
-  ],
-  "World War II": [
-    [51.5073509,-0.12775829999998223],
-    [50.181616,5.575920799999949],
-    [50.181616,50.181616,5.575920799999949]
+    "Barcelona, Spain"
   ]
 }
 
@@ -249,18 +223,18 @@ puts "--------------------------------------------------------------------------
 puts "Removing all old data"
 puts ""
 
-      Article.destroy_all
-      Event.destroy_all
-      Topic.destroy_all
+Article.destroy_all
+Event.destroy_all
+Topic.destroy_all
 
-      Author.destroy_all
-      Publisher.destroy_all
+Author.destroy_all
+Publisher.destroy_all
 
-      SaveArticle.destroy_all
-      UserScore.destroy_all
-      FollowingItem.destroy_all
+SaveArticle.destroy_all
+UserScore.destroy_all
+FollowingItem.destroy_all
 
-      User.destroy_all
+User.destroy_all
 
 puts "-------------------------------------------"
 puts ""
@@ -268,18 +242,18 @@ puts "Seeding started"
 puts ""
 puts "-------------------------------------------"
 
+#### Create new users ####
+puts "-------------------------------------------"
+puts ""
+puts "Seeding Users"
+puts ""
+puts "-------------------------------------------"
 
-  puts "--------------- [ A ] ---------------------"
-  puts ""
-  puts "Starting to seed USERS"
-  puts ""
-  puts "-------------------------------------------"
-
-  FIRST_NAMES.each_with_index do |name, user_idx|
+  FIRST_NAMES.each_with_index do |name, idx|
 
       obj_data = {
           first_name: name,
-          last_name: LAST_NAMES[user_idx],
+          last_name: LAST_NAMES[idx],
           email: "#{name}@#{name}.com",
           password: 123456,
           photo: nil
@@ -288,60 +262,26 @@ puts "-------------------------------------------"
       user = User.new(obj_data)
       user.save!
 
-      puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
-      puts "email: #{user.email}"
-      puts ""
-  end
-
-  def john
-      obj_data = {
-          first_name: "John",
-          last_name: "Ferreira",
-          email: "johnferreira@gmail.com",
-          password: "password",
-          photo: "https://scontent.fjog1-1.fna.fbcdn.net/v/t1.0-9/s851x315/13939328_10153672228506587_8994048246363071984_n.jpg?_nc_cat=104&_nc_ht=scontent.fjog1-1.fna&oh=627f02b87d09389c5393dfe075cd3914&oe=5C6CAEF0"
-      }
-      user = User.new(obj_data)
-      user.save!
       puts "User #{user.first_name} created"
   end
 
-  john
-
-  def roger
-    obj_data = {
-        first_name: "Rodger",
-        last_name: "Garcia",
-        email: "rodgergarcia@gmail.com",
-        password: "password",
-        photo: "https://avatars0.githubusercontent.com/u/23165579?v=4"
-    }
-    user = User.new(obj_data)
-    user.save!
-    puts "User #{user.first_name} created"
-  end
-
-  roger
-
-  puts ""
-  puts "              USERS DONE"
-  puts ""
-  puts "-------------------------------------------"
-
-
-
-
-
-puts "------------------ [ B ] --------------------"
 puts ""
-puts "         ## Starting to seed TOPICS"
+puts "USERS DONE"
 puts ""
 puts "-------------------------------------------"
 
-# HASH ONE
-TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
-  response_raw = File.read(File.expand_path("db/articles_#{topic_idx}.json"))
+
+puts "-------------------------------------------"
+puts ""
+puts "Seeding TOPIC"
+puts ""
+puts "-------------------------------------------"
+
+
+TOPICS_NAMES.each_with_index do |topic, t_idx|
+
+  response_raw = File.read(File.expand_path("db/articles_#{t_idx}.json"))
   response = JSON.parse(response_raw)
   array_response = response["articles"]["results"]
 
@@ -350,80 +290,65 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
         image_url: TOPIC_IMAGES[topic]
     }
 
-    topic = Topic.new(obj_data)
-    topic.save!
+    new_topic = Topic.new(obj_data)
+    new_topic.save!
 
-    puts "Topic created: ##{topic_idx + 1} #{topic.name}"
+    puts "Topics created: ##{t_idx + 1} #{new_topic.name}"
+    puts "this is the #{topic} "
 
-    puts "-------------------------------------------"
-    puts ""
-    puts "  # Its EVENTS below:"
-    puts ""
-    puts "--- ##{topic_idx + 1} --------------"
+# end
 
-    # HASH TWO
-    topic_key = TOPIC_NAMES[topic_idx]
-    EVENT_NAMES[topic.name.to_sym].each_with_index do |event, event_idx|
+puts ""
+puts "TOPICS DONE"
+puts ""
+puts "-------------------------------------------"
 
-      event_key = topic_key.to_sym
 
-      # EVENT DESCRIPTION
-      event_description_key = EVENT_DESCRIPTIONS[event_key]
 
-      # EVENT IMAGE
-      event_image_key = EVENT_IMAGES[event_key]
+puts "-------------------------------------------"
+puts ""
+puts "Seeding EVENTS"
+puts ""
+puts "-------------------------------------------"
 
-      # EVENT DATE
-      date_array = EVENT_DATES[event_key]
-        event_year = date_array[event_idx][0]
-        event_month = date_array[event_idx][1]
-        event_day = date_array[event_idx][2]
-      event_date = Date.new(event_year, event_month, event_day)
+  EVENTS[:"#{topic}"].each_with_index do |event, idx|
+    puts event
 
-      # EVENT LOCATION
-      event_location = EVENT_LOCATIONS[event_key]
-      lat_lng_array = EVENT_LAT_LNG[event_key]
-      event_lat = lat_lng_array[event_idx][0]
-      event_lng = lat_lng_array[event_idx][1]
-
-      # EVENT LOADED OBJECT
       obj_data = {
-          topic_id: topic_idx + 1,
+          topic_id: t_idx + 1,
           name: event,
-          description: event_description_key[event_idx],
-          image_url: event_image_key[event_idx],
-          date_time: event_date,
-          location: event_location[event_idx],
-          lat: event_lat,
-          lng: event_lng
+          description: EVENTS_DESCRIPTIONS[:"#{event}"][idx],
+          image_url: EVENTS_IMAGES[:"#{event}"][idx],
+          date_time: Date.new(EVENTS_DATES[topic.name.to_sym][idx][0],EVENTS_DATES[topic.name.to_sym][idx][1],EVENTS_DATES[topic.name.to_sym][idx][2]),
+          location: EVENTS_LOCATIONS[:"#{event}"][idx],
+          lat: LAT.sample,
+          lng: LONG.sample,
       }
 
       event = Event.new(obj_data)
       event.save!
 
-      puts "------- ##{topic_idx + 1}.#{event_idx + 1} ----------"
+      puts "-------------------------------------------"
       puts ""
-      puts "Event: ##{topic_idx + 1}.#{event_idx + 1}"
-      puts "Topic: #{event.topic.name}"
-      puts "Event: #{event.name}"
-      puts "Event description: #{event.description}"
-      puts "Event image: #{event.image_url}"
-      puts "Event date: #{event.date_time}"
-      puts "Event location: #{event.location}"
-      puts "Event Lat: #{event.lat}"
-      puts "Event Lng: #{event.lng}"
-      puts ""
+      puts "Topic chosen: #{event.topic.name}"
+      puts "Event created: #{event.name}"
+      puts "Event created: #{event.description}"
+      puts "Event created: #{event.image_url}"
+      puts "Event created: #{event.date_time}"
+      puts "Event created: #{event.location}"
+      puts "Event created: #{event.lat}"
+      puts "Event created: #{event.lng}"
 
-  end # EVENT_NAMES END
+  end
 
-  puts ""
-  puts "     All EVENTS added to this TOPIC"
-  puts ""
-  puts "-------------------------------------------"
-  puts "-------------------------------------------"
+puts ""
+puts "EVENTS DONE"
+puts ""
+puts "-------------------------------------------"
 
-end # TOPIC_NAMES END
 
+
+end
 
 
 
@@ -551,6 +476,7 @@ end # TOPIC_NAMES END
 # puts "Seeding USER SCORES"
 # puts ""
 # puts "-------------------------------------------"
+
 
 #   20.times do
 
