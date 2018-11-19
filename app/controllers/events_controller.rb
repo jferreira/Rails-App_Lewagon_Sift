@@ -8,4 +8,5 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @events = Event.all
   end
+
 end

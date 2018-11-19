@@ -85,26 +85,37 @@
 
       <div class="user-scores-container">
 
-          <%= form_for([@article, @user_score]) do |f| %>
-            <%= f.hidden_field :score, :value => 1 %>
-            <%= button_tag type: 'submit' do %>
-                    <i class="fas fa-chevron-up"></i>
+        <% if current_user.can_user_vote(@article.id) %>
+            <%= form_for([@article, @user_score]) do |f| %>
+              <%= f.hidden_field :score, :value => 1 %>
+              <%= button_tag type: 'submit' do %>
+                      <i class="fas fa-chevron-up"></i>
+              <% end %>
             <% end %>
-          <% end %>
+        <% else %>
+              <%= button_tag type: 'submit', disabled: true do %>
+                      <i class="fas fa-chevron-up"></i>
+              <% end %>
+        <% end %>
 
-
-          <% if @raw_scores.present?  %>
-              <p class="avg-score"><%= @raw_scores %></p>
-            <% else %>
-              <p class="avg-score">0</p>
-          <% end %>
-
-          <%= form_for([@article, @user_score]) do |f| %>
-            <%= f.hidden_field :score, :value => -1 %>
-            <%= button_tag type: 'submit' do %>
-                    <i class="fas fa-chevron-down"></i>
+            <% if @raw_scores.present?  %>
+                <p class="avg-score"><%= @raw_scores %></p>
+              <% else %>
+                <p class="avg-score">0</p>
             <% end %>
-          <% end %>
+
+        <% if current_user.can_user_vote(@article.id) %>
+            <%= form_for([@article, @user_score]) do |f| %>
+              <%= f.hidden_field :score, :value => 1 %>
+              <%= button_tag type: 'submit' do %>
+                  <i class="fas fa-chevron-down"></i>
+              <% end %>
+            <% end %>
+        <% else %>
+              <%= button_tag type: 'submit', disabled: true do %>
+                  <i class="fas fa-chevron-down"></i>
+              <% end %>
+        <% end %>
 
     </div>
 
