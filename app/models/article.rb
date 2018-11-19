@@ -4,8 +4,8 @@ class Article < ApplicationRecord
   belongs_to :author
   belongs_to :publisher
 
-  has_many :user_scores
-  has_many :saved_articles
+  has_many :user_scores, dependent: :destroy
+  has_many :save_articles, dependent: :destroy
 
   validates :title, :description, :body_text, presence: true
   validates :source_url, presence: true, uniqueness: true
