@@ -29,8 +29,6 @@
 
               <% if user_signed_in? %>
                 <li><%= link_to 'Profile', profile_path(current_user) %></li>
-                <li><%= link_to 'Saved Articles', profile_path(current_user) %></li>
-                <li><%= link_to 'Followed List', profile_path(current_user) %></li>
 
                 <li><%= link_to 'Edit Profile', edit_profile_path(current_user) %></li>
                 <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -72,15 +70,21 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Features</a></li>
-        <li><a href="#">About Us</a></li>
+        <li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Profile', profile_path(current_user) %></li>
+                <li><%= link_to 'Edit Profile', edit_profile_path(current_user) %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
-        <li><a href="#">logout</a></li>
+              <% else %>
+                <li><%= link_to "Features", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to "About us", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+                <li><%= link_to 'Log In', new_user_session_path %></li>
+                <% end %>
+        </li>
       </ul>
     </div>
   </div>
-</div>
+
 
 </div> <!-- end - fixed header div (starts in nav) -->
-
-
