@@ -9,37 +9,34 @@ function userSuggestsUrl() {
   if (swalButton) {
     swalButton.addEventListener('click', () => {
 
+      let html_block = '<p>Suggest an article about</p>' +
+        '<input id="swal-input1" class="swal2-input">' +
+        '<input id="swal-input2" class="swal2-input">' +
+        '<input id="swal-input2" class="swal2-input">' +
+        '<input id="swal-input2" class="swal2-input">';
 
-         swal.mixin({
-          input: 'text',
-          confirmButtonText: 'Next &rarr;',
-          showCancelButton: true,
-          progressSteps: ['1', '2', '3']
-        }).queue([
-          {
-            title: 'Question 1',
-            text: 'Chaining swal2 modals is easy'
-          },
-          'Question 2',
-          'Question 3'
-        ]).then((result) => {
-          if (result.value) {
-            swal({
-              title: 'All done!',
-              html:
-                'Your answers: <pre><code>' +
-                  JSON.stringify(result.value) +
-                '</code></pre>',
-              confirmButtonText: 'Lovely!'
-            })
+        const {value: formValues} = swal({
+          title: 'Suggest and article',
+          width: 1000,
+          html: html_block,
+          focusConfirm: false,
+          preConfirm: () => {
+            return [
+              document.getElementById('swal-input1').value,
+              document.getElementById('swal-input2').value
+            ]
           }
         })
 
+        if (formValues) {
+          swal(json.stringify(formValues))
+        }
 
     })
 
 
   }
+
 }
 
 export { userSuggestsUrl };
