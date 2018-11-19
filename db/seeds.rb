@@ -331,7 +331,7 @@ puts "Creating user scores"
   20.times do
 
       obj_data = {
-        score: rand(-5..5),
+        score: 1,
         times_voted: 1,
         article_id: Article.all.sample.id,
         user_id: User.all.sample.id

@@ -98,11 +98,7 @@
               <% end %>
         <% end %>
 
-            <% if @raw_scores.present?  %>
-                <p class="avg-score"><%= @raw_scores %></p>
-              <% else %>
-                <p class="avg-score">0</p>
-            <% end %>
+                <p class="avg-score"><%= @avg_scores %></p>
 
         <% if current_user.can_user_vote(@article.id) %>
             <%= form_for([@article, @user_score]) do |f| %>

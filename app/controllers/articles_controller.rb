@@ -7,7 +7,12 @@ class ArticlesController < ApplicationController
   def show
     # ARTICLE PASSED
     @article = Article.find(params[:id])
-    @raw_scores = @article.average_score
+
+    @scores = @article.user_scores.map { |user_score| user_score.score }
+    @total_score = @scores.reduce(0) { |sum, el| sum + el }
+    @len = @article.user_scores.length
+
+    @avg_scores = @len == 0 ? 0 : @total_score / @len
 
     @user_score = UserScore.new
     # FIND EVENT INSTANCE
@@ -26,4 +31,5 @@ class ArticlesController < ApplicationController
     # 4. need to omit the current article from that list
     # 5. order by average user score
   end
+
 end

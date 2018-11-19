@@ -25,16 +25,7 @@ class Article < ApplicationRecord
   end
 
   def average_score
-    scores = self.user_scores
-
-    scores.distinct
-
-    # if scores.length.zero?
-    #   0
-    #   else
-
-    #    # scores.pluck(:score).reduce(0, :+) / scores.length
-    # end
+    self.user_scores.pluck(:times_voted, :score).map { |x,y| x * y }.sum
   end
 
   include PgSearch
