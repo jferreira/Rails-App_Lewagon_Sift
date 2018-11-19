@@ -25,7 +25,8 @@ class Article < ApplicationRecord
   end
 
   def average_score
-    self.user_scores.pluck(:score).reduce(0, :+) / self.user_scores.length
+    scores = self.user_scores
+    scores.length.zero? ? 0 : scores.pluck(:score).reduce(0, :+) / scores.length
   end
 
   include PgSearch

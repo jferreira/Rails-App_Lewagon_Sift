@@ -42,7 +42,12 @@
             <% end %>
           <% end %>
 
-          <p>2</p>
+
+          <% if @raw_scores.present?  %>
+              <p class="avg-score"><%= @raw_scores %></p>
+            <% else %>
+              <p class="avg-score">0</p>
+          <% end %>
 
           <%= form_for([@article, @user_score]) do |f| %>
             <%= f.hidden_field :score, :value => -1 %>
