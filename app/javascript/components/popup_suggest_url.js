@@ -9,45 +9,37 @@ function userSuggestsUrl() {
   if (swalButton) {
     swalButton.addEventListener('click', () => {
 
-        swal.mixin({
+
+         swal.mixin({
           input: 'text',
           confirmButtonText: 'Next &rarr;',
           showCancelButton: true,
           progressSteps: ['1', '2', '3']
         }).queue([
           {
-            title: 'Suggest an article',
-            text: 'Suggest an article about'
+            title: 'Question 1',
+            text: 'Chaining swal2 modals is easy'
           },
-          'The article URL:'
-              const {value: url} = await swal({
-                input: 'url',
-                inputPlaceholder: 'Enter the URL'
-              })
-
-              if (url) {
-                swal('Entered URL: ' + url)
-              }
-          ,
+          'Question 2',
           'Question 3'
         ]).then((result) => {
           if (result.value) {
             swal({
-              title: 'Sent!',
+              title: 'All done!',
               html:
                 'Your answers: <pre><code>' +
                   JSON.stringify(result.value) +
                 '</code></pre>',
-              confirmButtonText: 'Suggestion Sent! Thanks'
+              confirmButtonText: 'Lovely!'
             })
           }
         })
 
-    });
+
+    })
 
 
   }
-
 }
 
 export { userSuggestsUrl };
