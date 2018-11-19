@@ -1,2 +1,64 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<!-- PAGE HEADER ------------------------------- -->
+
+<div class="header">
+
+    <div class="banner-half"
+    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
+       url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+
+        <div class="row">
+
+          <!-- LEFT COL -->
+          <div class="col-xs-3">
+
+            <div class="top-box">
+              <p></p>
+            </div>
+
+            <div class="middle-box">
+              <p></p>
+            </div>
+
+            <div class="bottom-box">
+              <p></p>
+            </div>
+
+          </div>
+          <!-- col one end -->
+
+          <!-- MAIN COL -->
+          <div class="col-xs-9">
+
+            <!-- ---- HEADER TITLES CARD ----- -->
+
+
+              <!-- TOPIC HEADER -->
+              <h2><span
+                class="blocked">&nbsp Articles &nbsp
+              </span></h2>
+              <!-- EVENT HEADER -->
+              <p></p>
+              <p></p>
+              <p>A collection of all the articles</p>
+
+              <%= link_to "Topics", topics_path, class: "btn btn-default" %>
+              <%= link_to "Events", events_path, class: "btn btn-default" %>
+
+            <!-- ---- HEADER CARD END ----- -->
+
+          </div>
+          <!-- col two end -->
+
+          <div class="col-0">
+          </div>
+          <!-- col three end -->
+
+        </div>
+        <!-- row end -->
+
+  </div>
+  <!-- banner-half end -->
+
+</div>
+<!-- header end -->
+<!-- PAGE HEADER END------------------------------- -->
