@@ -9,25 +9,35 @@
         <div class="row">
 
           <!-- LEFT COL -->
-          <div id="left-col" class="col-xs-3">
+          <div class="col-xs-3">
 
-            <div class="top-box">
-              <p></p>
-            </div>
+            <!-- 1 -->
+              <div class="top-box">
+              </div>
 
-            <div class="middle-box">
-              <p></p>
-            </div>
+            <!-- 2 -->
+              <div class="middle-box">
 
+                <h2 class="text-right">
+
+                  <button>
+                    <span id="user-suggests-url" class="blocked">
+                      &nbsp <i class="fas fa-plus"></i>  &nbsp
+                    </span>
+                  </button>
+
+                </h2>
+              </div>
+
+            <!-- 3 -->
             <div class="bottom-box">
-              <p></p>
             </div>
 
           </div>
-          <!-- col one end -->
+          <!-- LEFT COL END -->
 
           <!-- MAIN COL -->
-          <div id="middle-col" class="col-xs-9">
+          <div class="col-xs-9">
 
             <!-- ---- HEADER TITLES CARD ----- -->
 
@@ -39,7 +49,7 @@
               <!-- TOPIC HEADER -->
               <h2><span
                 class="blocked">&nbsp <%= link_to "#", root_path(" ") %> &nbsp</span><span
-                class="blocked">&nbsp <%= @event.topic.name %> &nbsp
+                class="blocked">&nbsp <%= link_to @event.topic.name, topic_path(@event.topic)%> &nbsp
               </span></h2>
               <!-- EVENT HEADER -->
               <h2><span
