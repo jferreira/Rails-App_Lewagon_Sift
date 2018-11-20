@@ -74,7 +74,7 @@ EVENT_DESCRIPTIONS = {
   "Catalan Independence":[
     "Description: The story of... Catalan Independence: Event 1: Catalan parliament aproves referendum - 6 Sep 2017",
     "Description: The story of... Catalan Independence: Event 15: Independence referendum - 1 Oct 2017",
-    "Description: The story of... Catalan Independence: Event 34: PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
+    "Description: The story of... Catalan Independence: Event 34: Fallout after referendum violence - 9 Jul 2016"
   ],
   "Woodburn Forest Oil Drill":[
     "Description: The story of... Woodburn Forest Oil Drill: Event 1: Start drilling for oil - Mar 11 2016",
@@ -95,19 +95,19 @@ EVENT_DESCRIPTIONS = {
 
 EVENT_IMAGES = {
   "Syrian Civil War":[
-    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
-    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
-    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
+    "https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTSAK8X/lead_720_405.jpg?mod=1533691810",
+    "http://syriauntold.com/wp-content/uploads/2013/08/400316_297144237056064_1491979536_n.jpg",
+    "https://pbs.twimg.com/media/CrTU_9BWcAEEbFh.jpg"
   ],
   "Catalan Independence":[
-    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
-    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"
+    "https://s3.reutersmedia.net/resources/r/?m=02&d=20170906&t=2&i=1200283925&r=LYNXNPED8521P&w=1280",
+    "https://cdn.theatlantic.com/assets/media/img/photo/2017/10/catalonia-tk/c01_AP17275433150843/main_900.jpg?1506971146",
+    "https://cdn.cnn.com/cnnnext/dam/assets/171001210914-spain-catalonia-referendum-vote-riot-police-soares-00023209-full-169.jpg"
   ],
   "Woodburn Forest Oil Drill":[
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA",
-    "https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg",
-    "https://img.rasset.ie/0010ff9e-500.jpg"
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
   ],
   "Brexit":[
     "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
