@@ -40,6 +40,34 @@ TOPIC_IMAGES = {
 
 # EVENT RELATED -----------------------------------------------------------
 
+EVENT_IMAGES = {
+  "Syrian Civil War":[
+    "https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTSAK8X/lead_720_405.jpg?mod=1533691810",
+    "http://syriauntold.com/wp-content/uploads/2013/08/400316_297144237056064_1491979536_n.jpg",
+    "https://pbs.twimg.com/media/CrTU_9BWcAEEbFh.jpg"
+  ],
+  "Catalan Independence":[
+    "https://s3.reutersmedia.net/resources/r/?m=02&d=20170906&t=2&i=1200283925&r=LYNXNPED8521P&w=1280",
+    "https://cdn.theatlantic.com/assets/media/img/photo/2017/10/catalonia-tk/c01_AP17275433150843/main_900.jpg?1506971146",
+    "https://cdn.cnn.com/cnnnext/dam/assets/171001210914-spain-catalonia-referendum-vote-riot-police-soares-00023209-full-169.jpg"
+  ],
+  "Woodburn Forest Oil Drill":[
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
+  ],
+  "Brexit":[
+    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
+    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
+    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
+  ],
+  "World War II":[
+    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
+    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
+  ]
+}
+
 
 EVENT_NAMES = {
   "Syrian Civil War": [
@@ -94,35 +122,6 @@ EVENT_DESCRIPTIONS = {
     "Description: The story of...World War II: Event 1: War is Declared",
     "Description: The story of...World War II: Event 450: Battle of the Bulge",
     "Description: The story of...World War II: Event 900: V-E Day"]
-}
-
-
-EVENT_IMAGES = {
-  "Syrian Civil War":[
-    "https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTSAK8X/lead_720_405.jpg?mod=1533691810",
-    "http://syriauntold.com/wp-content/uploads/2013/08/400316_297144237056064_1491979536_n.jpg",
-    "https://pbs.twimg.com/media/CrTU_9BWcAEEbFh.jpg"
-  ],
-  "Catalan Independence":[
-    "https://s3.reutersmedia.net/resources/r/?m=02&d=20170906&t=2&i=1200283925&r=LYNXNPED8521P&w=1280",
-    "https://cdn.theatlantic.com/assets/media/img/photo/2017/10/catalonia-tk/c01_AP17275433150843/main_900.jpg?1506971146",
-    "https://cdn.cnn.com/cnnnext/dam/assets/171001210914-spain-catalonia-referendum-vote-riot-police-soares-00023209-full-169.jpg"
-  ],
-  "Woodburn Forest Oil Drill":[
-    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
-  ],
-  "Brexit":[
-    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
-    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
-    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
-  ],
-  "World War II":[
-    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
-    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
-    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
-  ]
 }
 
 EVENT_DATES = {
@@ -231,14 +230,14 @@ ARTICLE_IMAGES =
   ],
   "World War II":[
     "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
-    "https://news.wttw.com/sites/default/files/field/image/1_1.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
     "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
   ],
   "Woodburn Forest Oil Drill":[
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA",
-    "https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg",
-    "https://img.rasset.ie/0010ff9e-500.jpg"
-  ]
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
+  ],
 }
 
 
@@ -588,7 +587,7 @@ FIRST_NAMES.each_with_index do |name, user_idx|
         last_name: last_name,
         email: "#{first_name}#{last_name}@user.com",
         password: 123456,
-        photo:Faker::Avatar.image
+        photo: "https://randomuser.me/api/portraits/women/#{user_idx}.jpg"
     }
 
     user_instance = User.new(obj_data)
@@ -596,7 +595,7 @@ FIRST_NAMES.each_with_index do |name, user_idx|
 
     puts "User ##{user_idx} Name: #{user_instance.first_name} #{user_instance.last_name} created"
     puts "email: #{user_instance.email}"
-    puts "email: #{user_instance.photo}"
+    puts "photo: #{user_instance.photo}"
     puts ""
 end
 
