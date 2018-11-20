@@ -1,13 +1,23 @@
 const hideAndDisplayNotif = ()=> {
 
-  const notification = document.querySelector('.list-notification');
+  const button_topic = document.querySelector('.add-item-list-Topic');
+  const button_event = document.querySelector('.add-item-list-Event');
 
-  const button = document.querySelector('.add-item-list');
+  const notification_topic = document.querySelector('.list-notification-topic');
+  const notification_event = document.querySelector('.list-notification-event');
 
-  button.addEventListener('click', el => {
-      if (notification) {
-        notification.classList.add('fade');
-        setTimeout(()=> notification.classList.remove('fade'), 2000);
+
+  button_topic.addEventListener('click', el => {
+      if (notification_topic) {
+        notification_topic.classList.add('fade');
+        setTimeout(()=> notification_topic.classList.remove('fade'), 2000);
+      }
+  });
+
+  button_event.addEventListener('click', el => {
+      if (notification_event) {
+        notification_event.classList.add('fade');
+        setTimeout(()=> notification_event.classList.remove('fade'), 2000);
       }
   });
 

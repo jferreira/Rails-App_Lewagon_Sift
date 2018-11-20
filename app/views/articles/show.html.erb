@@ -60,7 +60,7 @@
               </span>
 
               <span class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp </span>
-              <span class="list-notification"><i class="fas fa-check"></i>  Item Added</span>
+              <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
 
               </h2>
 
@@ -68,7 +68,7 @@
 
               <h2>
 
-              <span class="blocked add-topic-title">
+              <span class="blocked add-event-title">
                   <%= render 'following_items/form',
                     article: @article,
                     following_item: @following_item,
@@ -78,7 +78,7 @@
               </span>
 
               <span class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp </span>
-              <span class="list-notification"><i class="fas fa-check"></i>  Item Added</span>
+              <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
 
               </h2>
 
