@@ -7,6 +7,7 @@ const hideAndDisplayNotif = ()=> {
   const notification_event = document.querySelector('.list-notification-event');
 
 
+
   button_topic.addEventListener('click', el => {
       if (notification_topic) {
         notification_topic.classList.add('fade');

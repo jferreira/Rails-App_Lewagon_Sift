@@ -6,16 +6,16 @@ class FollowingItemsController < ApplicationController
 
     @followable = following_item[:follower_type].constantize.find(following_item[:follower_id])
 
-    @article = Article.find(params[:article_id])
+    # @article = Article.find(params[:article_id])
 
     if @following_item.save
       respond_to do |format|
-        format.html { redirect_to article_path(@article) }
+        format.html { redirect_back(fallback_path: root_path) }
         format.js
       end
     else
       respond_to do |format|
-        format.html { render article_path(@article) } ## ???? can accept article_path a render?
+        format.html { render redirect_back(fallback_path: root_path) } ## ???? can accept article_path a render?
         format.js
       end
     end
