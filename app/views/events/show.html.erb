@@ -115,9 +115,13 @@
 
 <!-- EVENTS ARTICLE LIST ------------------------------- -->
 
-
 <div class="container">
   <div class="row">
+
+    <p>All the articles from this event: <%= @event.name %> :</p>
+
+
+
     <% @event.articles.each_with_index do |article, i| %>
 
         <div class="flex-item flex-sidebar-left">
