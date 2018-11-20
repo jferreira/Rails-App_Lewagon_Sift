@@ -45,16 +45,41 @@
               <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
               <p></p>
               <!-- TOPIC HEADER -->
-              <h2><span
-                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
+              <h2>
+
+                <span class="blocked">
+                  <%= form_for([@article, @followingitem]) do |f| %>
+                    <%= f.hidden_field :follower_type, :value => 'Event' %>
+                    <%= f.hidden_field :follower_id, :value => @event.id %>
+                    <%= f.button '#' %>
+                  <% end %>
+                </span>
+
+              <span
                 class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp
-              </span></h2>
+              </span>
+
+              </h2>
+
               <!-- EVENT HEADER -->
-              <h2><span
-                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span>
+              <h2>
+
+                <span
+                <span class="blocked">
+                  <%= form_for([@article, @followingitem]) do |f| %>
+                    <%= f.hidden_field :follower_type, :value => 'Topic' %>
+                    <%= f.hidden_field :follower_id, :value => @topic.id %>
+                    <%= f.button '#' %>
+                  <% end %>
+                </span>
+
+              </span>
                 <span
                class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp
-              </span></h2>
+              </span>
+
+
+            </h2>
               <p></p>
               <p></p>
               <p class="event-description">Description: <%= @article.event.description %></p>

@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
     @raw_scores = @article.user_scores.pluck(:score)
     @average_score = @raw_scores.sum / @raw_scores.size.to_f
 
+    @followingitem = FollowingItem.new
+    @event = Event.find_by(id: @article.event_id)
+    @topic = Topic.find_by(id: @event.id)
+
     @user_score = UserScore.new
     # FIND EVENT INSTANCE
     event = @article.event
