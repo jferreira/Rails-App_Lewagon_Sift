@@ -4,7 +4,7 @@
 
     <div class="banner-half"
     style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
-       url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+       url(<%= Article.find(@articles.pluck(:id).sample).image_url %>);">
 
         <div class="row">
 
@@ -120,6 +120,7 @@
               <% end %>
 
     </div> <!-- col end -->
+  <%= paginate @articles %>
   </div> <!-- row end -->
 </div> <!-- container end -->
 

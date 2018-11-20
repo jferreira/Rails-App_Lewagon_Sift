@@ -15,6 +15,8 @@ gem 'devise'
 gem 'readingtime'
 gem 'pg_search'
 
+#### pagination ####
+gem 'kaminari'
 gem 'faker'
 
 gem 'autoprefixer-rails'

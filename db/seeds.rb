@@ -120,7 +120,7 @@ EVENT_IMAGES = {
   ],
   "World War II":[
     "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
-    "https://news.wttw.com/sites/default/files/field/image/1_1.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
     "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
   ]
 }
