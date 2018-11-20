@@ -1,0 +1,13 @@
+function refreshForm(innerHTML) {
+  const newSubmitForm = document.getElementById('new_following_item');
+  newSubmitForm.innerHTML = innerHTML;
+}
+
+<% if @following_item.errors.any? %>
+    refreshForm("<%= j render 'following_items/form', article: @article, following_item: @following_item, follower_type: @followable.class.to_s, follower_id: @followable.id %>");
+<% else %>
+    hideAndDisplayNotif();
+    refreshForm("<%= j render 'following_items/form', article: @article, following_item: FollowingItem.new, follower_type: @followable.class.to_s, follower_id: @followable.id %>");
+<% end %>
+
+

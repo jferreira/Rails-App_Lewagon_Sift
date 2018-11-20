@@ -44,44 +44,45 @@
               <!-- TIME TAG -->
               <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
               <p></p>
+
+
+
               <!-- TOPIC HEADER -->
               <h2>
 
-                <span class="blocked">
-                  <%= form_for([@article, @followingitem]) do |f| %>
-                    <%= f.hidden_field :follower_type, :value => 'Event' %>
-                    <%= f.hidden_field :follower_id, :value => @event.id %>
-                    <%= f.button '#' %>
-                  <% end %>
-                </span>
-
-              <span
-                class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp
+              <span class="blocked add-topic-title">
+                  <%= render 'following_items/form',
+                    article: @article,
+                    following_item: @following_item,
+                    follower_type: 'Topic',
+                    follower_id: @topic.id
+                  %>
               </span>
+
+              <span class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp </span>
+              <span class="list-notification"><i class="fas fa-check"></i>  Item Added</span>
 
               </h2>
 
               <!-- EVENT HEADER -->
+
               <h2>
 
-                <span
-                <span class="blocked">
-                  <%= form_for([@article, @followingitem]) do |f| %>
-                    <%= f.hidden_field :follower_type, :value => 'Topic' %>
-                    <%= f.hidden_field :follower_id, :value => @topic.id %>
-                    <%= f.button '#' %>
-                  <% end %>
-                </span>
-
-              </span>
-                <span
-               class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp
+              <span class="blocked add-topic-title">
+                  <%= render 'following_items/form',
+                    article: @article,
+                    following_item: @following_item,
+                    follower_type: 'Event',
+                    follower_id: @event.id
+                  %>
               </span>
 
+              <span class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp </span>
+              <span class="list-notification"><i class="fas fa-check"></i>  Item Added</span>
 
-            </h2>
-              <p></p>
-              <p></p>
+              </h2>
+
+
               <p class="event-description">Description: <%= @article.event.description %></p>
 
               <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>

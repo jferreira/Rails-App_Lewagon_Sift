@@ -1,0 +1,10 @@
+.list-notification {
+  font-size: 24px;
+  padding: 5px;
+  color: orange;
+  opacity: 0;
+}
+
+.list-notification.fade {
+  opacity: 1;
+}

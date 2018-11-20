@@ -14,9 +14,6 @@ function userSuggestsUrl() {
   let event_title = document.querySelector('.event-title').innerText;
   let event_description = document.querySelector('.event-description').innerText;
 
-  console.log(event_description);
-
-
   if (swalButton) {
     swalButton.addEventListener('click', () => {
 
