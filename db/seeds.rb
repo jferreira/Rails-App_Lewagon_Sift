@@ -4,7 +4,7 @@ require 'json'
 require 'date'
 require 'pry'
 
-# ALL -----------------------------------------------------------
+# RANDOM LAT LONG ALL -----------------------------------------------------------
 
 LAT = %w[-8.6594824 -8.678640 -8.649100 -8.697390]
 LONG = %w[115.1301361 115.262720 115.137890 115.161940]
@@ -206,41 +206,41 @@ EVENT_LAT_LNG = {
 }
 
 
-# # ARTICLE RELATED -----------------------------------------------------------
+# ARTICLE RELATED -----------------------------------------------------------
 
-# ARTICLE_IMAGES =
-# {
-#   "Syrian Civil War":[
-#     "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
-#     "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
-#     "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
-#   ],
-#   "Catalan Independence":[
-#     "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
-#     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
-#     "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"
-#   ],
-#   "Brexit":[
-#     "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
-#     "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
-#     "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
-#   ],
-#   "World War II":[
-#     "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
-#     "https://news.wttw.com/sites/default/files/field/image/1_1.jpg",
-#     "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
-#   ],
-#   "Syrian Civil War":[
-#     "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
-#     "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
-#     "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
-#   ],
-#   "Woodburn Forest Oil Drill":[
-#     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA",
-#     "https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg",
-#     "https://img.rasset.ie/0010ff9e-500.jpg"
-#   ]
-# }
+ARTICLE_IMAGES =
+{
+  "Syrian Civil War":[
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
+  ],
+  "Catalan Independence":[
+    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
+    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"
+  ],
+  "Brexit":[
+    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
+    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
+    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
+  ],
+  "World War II":[
+    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+    "https://news.wttw.com/sites/default/files/field/image/1_1.jpg",
+    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
+  ],
+  "Syrian Civil War":[
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
+  ],
+  "Woodburn Forest Oil Drill":[
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FbPGh6Y9CHp5ezoiVXI45-ycLnwAgVsCD7utOJ82awNeIhtZaA",
+    "https://hannahwoodwardwrites.files.wordpress.com/2016/10/hard-or-soft-brexit.jpg",
+    "https://img.rasset.ie/0010ff9e-500.jpg"
+  ]
+}
 
 
 
@@ -264,14 +264,14 @@ puts ""
 
 puts "-------------------------------------------"
 puts ""
-puts "Seeding started"
+puts "             Seeding started"
 puts ""
 puts "-------------------------------------------"
 
 
   puts "--------------- [ A ] ---------------------"
   puts ""
-  puts "Starting to seed USERS"
+  puts "        Starting to seed USERS"
   puts ""
   puts "-------------------------------------------"
 
@@ -361,8 +361,10 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
     puts ""
     puts "--- ##{topic_idx + 1} --------------"
 
+
     # HASH TWO
     topic_key = TOPIC_NAMES[topic_idx]
+
     EVENT_NAMES[topic.name.to_sym].each_with_index do |event, event_idx|
 
       event_key = topic_key.to_sym
@@ -422,44 +424,68 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
   puts "-------------------------------------------"
   puts "-------------------------------------------"
 
+
+
+
+
+  puts "------------------ [ D ] --------------------"
+  puts ""
+  puts "           Seeding PUBLISHERS"
+  puts ""
+  puts "-------------------------------------------"
+
+  array_response.each do |article|
+
+      src = article["source"]
+
+        publisher_name = src["title"]
+        publisher_description = src["description"]
+
+        publisher_image = 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
+        publisher_website = src["uri"]
+
+        publisher_location = EVENT_LOCATIONS[topic.name.to_sym]
+        publisher_lat = LAT.sample.to_i
+        publisher_lng = LONG.sample.to_i
+
+      obj_data = {
+          name: publisher_name,
+          # description: publisher_description,
+          # image_url: publisher_image,
+          # web_url: publisher_website,
+          # location: publisher_location,
+          # lat: publisher_lat,
+          # lng: publisher_lng
+      }
+
+byebug
+
+      publisher = Publisher.new(obj_data)
+      publisher.save!
+
+      puts "Name: #{publisher_name}"
+      # puts "Description: #{publisher_description}"
+      # puts "Image: #{publisher_image}"
+      # puts "Website: #{publisher_website}"
+      # puts "Location: #{publisher_location}"
+      # puts "lat: #{publisher_lat"}"
+      # puts "lng: #{publisher_lng}"
+
+  end
+
+  puts ""
+  puts "            Publishers done"
+  puts ""
+  puts "-------------------------------------------"
+  puts "-------------------------------------------"
+
 end # TOPIC_NAMES END
 
-
-
-
-# #### Create new publisher using article source ####
-# puts "-------------------------------------------"
-# puts ""
-# puts "Seeding PUBLISHERS"
-# puts ""
-# puts "-------------------------------------------"
-
-#   array_response.each do |article|
-
-#       src = article["source"]
-
-#       obj_data = {
-#           image_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
-#           web_url: src["uri"],
-#           name: src["title"],
-#           location: EVENTS_LOCATIONS[topic.name.to_sym],
-#           lat: LAT.sample,
-#           lng: LONG.sample,
-#           description: src["description"]
-#       }
-
-#       publisher = Publisher.new(obj_data)
-#       publisher.save!
-
-#       puts "Publisher created: #{obj_data[:name]}"
-#   end
-
-
-# puts "-------------------------------------------"
-# puts ""
-# puts "Seeding AUTHORS"
-# puts ""
-# puts "-------------------------------------------"
+  # puts "------------------ [ E ] --------------------"
+  # puts ""
+  # puts "           Seeding AUTHORS"
+  # puts ""
+  # puts "-------------------------------------------"
 
 #   array_response.each do |article|
 
@@ -485,26 +511,26 @@ end # TOPIC_NAMES END
 #   end
 
 
-# puts "-------------------------------------------"
-# puts ""
-# puts "Seeding ARTICLES"
-# puts ""
-# puts "-------------------------------------------"
+#   puts "------------------ [ F ] --------------------"
+#   puts ""
+#   puts "           Seeding ARTICLES"
+#   puts ""
+#   puts "-------------------------------------------"
 
 # array_response.each do |article|
 
-#   a = article
+#   # a = article
 
 #     obj_data = {
-#         title: a["title"], ### To be changed
-#         description: a["title"], ### To be changed
-#         body_text: a["body"],
-#         image_url: ARTICLE_IMAGES[topic.name.to_sym],
-#         source_url: a["url"],
-#         date_time_published: a["dateTime"],
-#         publishing_type: a["dataType"],
-#         language: a["lang"],
-#         location: EVENTS_LOCATIONS[topic.name.to_sym],
+#         title: article["title"], ### To be changed
+#         description: article["title"], ### To be changed
+#         body_text: article["body"],
+#         image_url: ARTICLE_IMAGES[topic_key],
+#         source_url: article["url"],
+#         date_time_published: article["dateTime"],
+#         publishing_type: article["dataType"],
+#         language: article["lang"],
+#         location: EVENT_LOCATIONS[topic_key],
 #         lat: LAT.sample,
 #         lng: LONG.sample,
 #         count_views: (200..5000).to_a.sample,
@@ -522,9 +548,17 @@ end # TOPIC_NAMES END
 # end
 
 
+
+#   puts ""
+#   puts "             ARTICLES Seeded"
+#   puts ""
+#   puts "-------------------------------------------"
+#   puts "-------------------------------------------"
+
+
 # puts "-------------------------------------------"
 # puts ""
-# puts "Seeding FOLLOWED ITEMS"
+# puts "         Seeding FOLLOWED ITEMS"
 # puts ""
 # puts "-------------------------------------------"
 
@@ -546,9 +580,19 @@ end # TOPIC_NAMES END
 #       puts "Following Item created: #{obj_data[:follower_type]}"
 #   end
 
+
+
+#   puts ""
+#   puts "         FOLLOWED ITEMS Seeded"
+#   puts ""
+#   puts "-------------------------------------------"
+#   puts "-------------------------------------------"
+
+
+
 # puts "-------------------------------------------"
 # puts ""
-# puts "Seeding USER SCORES"
+# puts "           Seeding USER SCORES"
 # puts ""
 # puts "-------------------------------------------"
 
@@ -566,10 +610,16 @@ end # TOPIC_NAMES END
 #       puts "Score Item created: #{obj_data[:score]}"
 #   end
 
+#   puts ""
+#   puts "         USER SCORE ITEMS Seeded"
+#   puts ""
+#   puts "-------------------------------------------"
+#   puts "-------------------------------------------"
+
 
 # puts "-------------------------------------------"
 # puts ""
-# puts "Seeding SAVED ARTICLES"
+# puts "         Seeding SAVED ARTICLES"
 # puts ""
 # puts "-------------------------------------------"
 
@@ -587,10 +637,17 @@ end # TOPIC_NAMES END
 #       puts "SaveArticle created"
 #   end
 
+#   puts ""
+#   puts "         ASVED ARTICLES Seeded"
+#   puts ""
+#   puts "-------------------------------------------"
+#   puts "-------------------------------------------"
+
+
 
 # puts "-------------------------------------------"
 # puts ""
-# puts "BOOM SEEDED"
+# puts "               BOOM SEEDED"
 # puts ""
 # puts "-------------------------------------------"
 
