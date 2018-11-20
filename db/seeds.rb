@@ -99,29 +99,29 @@ EVENT_NAMES = {
 
 EVENT_DESCRIPTIONS = {
   "Syrian Civil War":[
-    "Description: The story of... Syrian Civil War: Event 1: Civil uprising in Syria - Mar 2011",
-    "Description: The story of... Syrian Civil War: Event 34: Russian intervention - Sep 2015",
-    "Description: The story of... Syrian Civil War: Event 204: Aleppo escalation and Euphrates Shield - Mar 2016"
+    "The story of: Syrian Civil War: Event 1: Civil uprising in Syria - Mar 2011",
+    "The story of: Syrian Civil War: Event 34: Russian intervention - Sep 2015",
+    "The story of: Syrian Civil War: Event 204: Aleppo escalation and Euphrates Shield - Mar 2016"
   ],
   "Catalan Independence":[
-    "Description: The story of... Catalan Independence: Event 1: Catalan parliament aproves referendum - 6 Sep 2017",
-    "Description: The story of... Catalan Independence: Event 15: Independence referendum - 1 Oct 2017",
-    "Description: The story of... Catalan Independence: Event 34: Fallout after referendum violence - 9 Jul 2016"
+    "The story of: Catalan Independence: Event 1: Catalan parliament aproves referendum - 6 Sep 2017",
+    "The story of: Catalan Independence: Event 15: Independence referendum - 1 Oct 2017",
+    "The story of: Catalan Independence: Event 34: Fallout after referendum violence - 9 Jul 2016"
   ],
   "Woodburn Forest Oil Drill":[
-    "Description: The story of... Woodburn Forest Oil Drill: Event 1: Start drilling for oil - Mar 11 2016",
-    "Description: The story of... Woodburn Forest Oil Drill: Event 10: Company behind Woodburn Forest oil drill call off project - Jun 17 2016",
-    "Description: The story of... PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
+    "The story of: Woodburn Forest Oil Drill: Event 1: Start drilling for oil - Mar 11 2016",
+    "The story of: Woodburn Forest Oil Drill: Event 10: Company behind Woodburn Forest oil drill call off project - Jun 17 2016",
+    "The story of: PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
   ],
   "Brexit":[
-    "Description: The story of... Brexit: Event 1: Referendum Called",
-    "Description: The story of... Brexit: Event 54: Hard or soft Brexit",
-    "Description: The story of... Brexit: Event 86: The Brexit deal"
+    "The story of: Brexit: Event 1: Referendum Called",
+    "The story of: Brexit: Event 54: Hard or soft Brexit",
+    "The story of: Brexit: Event 86: The Brexit deal"
   ],
   "World War II":[
-    "Description: The story of...World War II: Event 1: War is Declared",
-    "Description: The story of...World War II: Event 450: Battle of the Bulge",
-    "Description: The story of...World War II: Event 900: V-E Day"]
+    "The story of: World War II: Event 1: War is Declared",
+    "The story of: World War II: Event 450: Battle of the Bulge",
+    "The story of: World War II: Event 900: V-E Day"]
 }
 
 EVENT_DATES = {
