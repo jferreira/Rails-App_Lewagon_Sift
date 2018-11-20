@@ -161,40 +161,10 @@
 
   <!-- ARTICLE ------------------------------------------ -->
 
-  <li class="flex-item flex-main">
-    <p> Article Title: </p>
-    <h1> <%= @article.title %></h1>
+  <%= render 'shared/article_show',
+    article: @article
+  %>
 
-    <p> Publishing Time</p>
-    <p> <%= @article.date_time_published %></p>
-
-    <p> Description:</p>
-    <p><%= @article.description %> </p>
-
-    <p> Article Text:</p>
-    <p><%= @article.body_text %> </p>
-
-    <p> Publisher: </p>
-    <p><%= @article.publisher.name %> </p>
-
-    <p> Author: </p>
-    <p><%= @article.author.first_name %> </p>
-
-    <p> Article Image:</p>
-    <p><%= @article.image_url %>
-
-    <p> Article Location:</p>
-    <p> <%= @article.location %> </p>
-    <p> <%= @article.lat %> </p>
-    <p> <%= @article.lng %> </p>
-
-    <p> Article Average Score:</p>
-    <p> <%= @article.average_user_score %> </p>
-
-    <p> Article Views:</p>
-    <p> <%= @article.count_views %> </p>
-
-  </li>
 
   <!-- SIDEBAR 2 - RELATED ARTICLES ------------------------------- -->
 
