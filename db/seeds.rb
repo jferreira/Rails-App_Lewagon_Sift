@@ -27,11 +27,11 @@ TOPIC_NAMES = [
 ]
 
 TOPIC_IMAGES = {
-  "Syrian Civil War": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw",
-  "Catalan Independence":"https://gdb.voanews.com/9273396B-129E-4820-B0AE-DA98443CA531_cx0_cy10_cw0_w1023_r1_s.jpg",
-  "Woodburn Forest Oil Drill": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw",
+  "Syrian Civil War": "http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg",
+  "Catalan Independence":"https://upload.wikimedia.org/wikipedia/commons/b/b8/Carregues-Referendum-Barcelona-Escola-Ramon_EDIIMA20171002_0741_30.jpg",
+  "Woodburn Forest Oil Drill": "https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg",
   "Brexit":"https://gdb.voanews.com/9273396B-129E-4820-B0AE-DA98443CA531_cx0_cy10_cw0_w1023_r1_s.jpg",
-  "World War II": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Sh9wgqQ9pkZvMYFbo2YoDwp7unpK4lld5ergTX49wUBrkhUUnw"
+  "World War II": "https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ"
 }
 
 # EVENT RELATED -----------------------------------------------------------
@@ -267,49 +267,52 @@ puts "-------------------------------------------"
 
 
 
-puts "------------------ [ A.1 ] --------------------"
+puts "---------------- [ A.1 ] -------------------"
 puts ""
-puts "         ## Starting to seed TOPICS"
+puts "        ## Starting to seed TOPICS"
 puts ""
 puts "-------------------------------------------"
 
 
 
-TOPIC_NAMES.each_with_index do |topic, topic_idx|
+
+TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
+
+    topic_key = topic_name.to_sym
 
     obj_data = {
-        name: topic,
-        image_url: TOPIC_IMAGES[topic]
+        name: topic_name,
+        image_url: TOPIC_IMAGES[topic_key]
     }
 
-    topic = Topic.new(obj_data)
-    topic.save!
+    topic_instance = Topic.new(obj_data)
+    topic_instance.save!
 
     puts "Topic num: ##{topic_idx + 1}"
-    puts "Topic name: #{topic.name}"
-    puts "Topic url: #{topic.image_url}"
+    puts "Topic name: #{topic_instance.name}"
+    puts "Topic image url: #{topic_instance.image_url}"
 
 
 
 
 
 
-    puts "------------- [ A.2 ]-------------------------"
+    puts "------------- [ A.2 ]------------------"
     puts ""
-    puts "  # Its EVENTS below:"
+    puts "  # seeding Its EVENTS below:"
     puts ""
-    puts "--- ##{topic_idx + 1} --------------"
+    puts "------ ##{topic_idx + 1} --------------"
 
 
-    topic_key = TOPIC_NAMES[topic_idx]
 
-    EVENT_NAMES[topic.name.to_sym].each_with_index do |event, event_idx|
+    EVENT_NAMES[topic_key].each_with_index do |event, event_idx|
+    topic_name = TOPIC_NAMES[topic_idx]
 
       event_articles_raw = File.read(File.expand_path("db/event_articles_#{(event_idx + 1)}.json"))
       event_articles_parsed = JSON.parse(event_articles_raw)
       event_articles_file = event_articles_parsed["articles"]["results"]
 
-      event_key = topic_key.to_sym
+      event_key = topic_name.to_sym
 
       # EVENT DESCRIPTION
       event_description_key = EVENT_DESCRIPTIONS[event_key]
@@ -345,22 +348,22 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
           lng: event_lng
       }
 
-      event = Event.new(obj_data)
-      event.save!
+      event_instance = Event.new(obj_data)
+      event_instance.save!
 
 
       puts "------- ##{topic_idx + 1}.#{event_idx + 1} ----------"
       puts ""
       puts ""
-      puts "Event: ##{topic_idx + 1}.#{event_idx + 1}"
-      puts "Topic: #{event.topic.name}"
-      puts "Event: #{event.name}"
-      puts "Event description: #{event.description}"
-      puts "Event image: #{event.image_url}"
-      puts "Event date: #{event.date_time}"
-      puts "Event location: #{event.location}"
-      puts "Event Lat: #{event.lat}"
-      puts "Event Lng: #{event.lng}"
+      puts "Event Number: ##{topic_idx + 1}.#{event_idx + 1}"
+      puts "Event Topic: #{topic_instance.name}"
+      puts "Event: #{event_instance.name}"
+      puts "Event description: #{event_instance.description}"
+      puts "Event image: #{event_instance.image_url}"
+      puts "Event date: #{event_instance.date_time}"
+      puts "Event location: #{event_instance.location}"
+      puts "Event Lat: #{event_instance.lat}"
+      puts "Event Lng: #{event_instance.lng}"
       puts ""
 
 
@@ -375,7 +378,7 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
 
 
-      puts "------------------ [ A.3 ] --------------------"
+      puts "---------------- [ A.3 ] -------------------"
       puts ""
       puts "           Seeding PUBLISHERS"
       puts ""
@@ -393,7 +396,7 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
             publisher_website = publisher["uri"]
 
           # LOCATION
-          publisher_location = EVENT_LOCATIONS[topic.name.to_sym][rand(0..2)]
+          publisher_location = EVENT_LOCATIONS[topic_instance.name.to_sym][rand(0..2)]
               publisher_lat = LAT.sample.to_i
               publisher_lng = LONG.sample.to_i
 
@@ -410,13 +413,13 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
           publisher = Publisher.new(obj_data)
           publisher.save!
 
-          puts "Name: #{publisher_name}"
-          puts "Description: #{publisher_description}"
-          puts "Image: #{publisher_image}"
-          puts "Website: #{publisher_website}"
-          puts "Location: #{publisher_location}"
-          puts "lat: #{publisher_lat}"
-          puts "lng: #{publisher_lng}"
+          # puts "Name: #{publisher_name}"
+          # puts "Description: #{publisher_description}"
+          # puts "Image: #{publisher_image}"
+          # puts "Website: #{publisher_website}"
+          # puts "Location: #{publisher_location}"
+          # puts "lat: #{publisher_lat}"
+          # puts "lng: #{publisher_lng}"
 
       end
       # PUBLISHERS END
@@ -448,7 +451,7 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
           author_last_name = LAST_NAMES[rand(0..12)]
 
           author_twitter = "@#{author_first_name}#{author_last_name}"
-          author_location_array = EVENT_LOCATIONS[topic.name.to_sym]
+          author_location_array = EVENT_LOCATIONS[topic_instance.name.to_sym]
           author_location = author_location_array[rand(0..2)]
 
           author_lat = LAT.sample
@@ -466,12 +469,12 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
           author = Author.new(obj_data)
           author.save!
 
-          puts "author first name: #{author_first_name}"
-          puts "author last name: #{author_last_name}"
-          puts "author twitter: #{author_twitter}"
-          puts "author location: #{author_location}"
-          puts "author lat: #{author_lat}"
-          puts "author lng: #{author_lng}"
+          # puts "author first name: #{author_first_name}"
+          # puts "author last name: #{author_last_name}"
+          # puts "author twitter: #{author_twitter}"
+          # puts "author location: #{author_location}"
+          # puts "author lat: #{author_lat}"
+          # puts "author lng: #{author_lng}"
 
 
         end
@@ -479,90 +482,93 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
 
 
-        # puts "--------------- [ A.4 ] -------------------"
-        # puts ""
-        # puts "       Seeding ARTICLES of the EVENT"
-        # puts ""
-        # puts "-------------------------------------------"
+        puts "--------------- [ A.4 ] -------------------"
+        puts ""
+        puts "       Seeding ARTICLES of the EVENT"
+        puts ""
+        puts "-------------------------------------------"
 
 
-        # event_articles_file.each_with_index do |article, article_idx|
+        event_articles_file.each_with_index do |article, article_idx|
 
-        #     # ARTICLE DETAILS
-        #     article_title = article["title"]
-        #     article_text = article["body"]
-        #     article_description = event_description
-        #     article_image = ARTICLE_IMAGES[topic_key]
-        #     article_url = article["url"]
-        #     article_date_time = article["dateTime"]
-        #     article_type = article["dataType"]
-        #     article_lang = article["lang"]
+            # ARTICLE DETAILS
+              article_title = article["title"]
+              article_text = article["body"]
+              article_description = event_description
+              article_array = ARTICLE_IMAGES[topic_key]
+              article_image = article_array[event_idx]
+              article_url = article["url"]
+              article_date_time = article["dateTime"]
+              article_type = article["dataType"]
+              article_lang = article["lang"]
 
-        #     # LOCATION
-        #     article_location = event_location
-        #     article_lat = event_lat
-        #     article_lng = event_lng
+            # LOCATION
+              article_location = event_location
+              article_lat = event_lat
+              article_lng = event_lng
 
-        #     # AUTHOR PUBLISHER
-        #     # article_publisher = article["title"]
-        #     # article_author = article["title"]
+            # AUTHOR PUBLISHER
+              article_publisher = article["title"]
+              article_author = article["title"]
 
-        #     obj_data = {
-        #         title: article_title,
-        #         description: article_description,
-        #         body_text: article_text,
-        #         image_url: article_image,
-        #         source_url: article_url,
-        #         date_time_published: article_date_time,
-        #         publishing_type: article_type,
-        #         language: article_lang,
-        #         published: true,
+            obj_data = {
+                title: article_title,
+                description: article_description,
+                body_text: article_text,
+                image_url: article_image,
+                source_url: article_url,
+                date_time_published: article_date_time,
+                publishing_type: article_type,
+                language: article_lang,
+                published: true,
 
-        #         event_id: event,
-        #         location: article_location,
-        #         lat: article_lat,
-        #         lng: article_lng,
+                event_id: event_instance.id,
+                location: article_location,
+                lat: article_lat,
+                lng: article_lng,
 
-        #         # count_views: (200..5000).to_a.sample,
-        #         # average_user_score: (-5..5).to_a.sample,
+                # count_views: (200..5000).to_a.sample,
+                # average_user_score: (-5..5).to_a.sample,
 
-        #         # author_id: Author.all.sample.id,
-        #         # publisher_id: Publisher.all.sample.id
+                author_id: Author.all.sample.id,
+                publisher_id: Publisher.all.sample.id
 
-        #     }
+            }
 
-        #     # publisher = Article.new(obj_data)
-        #     # publisher.save!
+            publisher = Article.new(obj_data)
+            publisher.save!
 
-        #     puts "-------------------------------------------"
-        #     puts ""
-        #     puts "---##{topic_idx + 1}.#{event_idx + 1}.#{article_idx + 1} ------"
-        #     puts ""
-        #     puts "Article Number: #{article_idx + 1}"
-        #     puts ""
-        #     puts "Topic: #{topic.name}"
-        #     puts "Event:#{event.name}"
-        #     puts ""
-        #     puts "Article Title: #{article_title}"
-        #     puts "Article Description: #{article_description}"
-        #     puts "Article Image: #{article_image}"
-        #     puts "Article Url: #{article_url}"
-        #     puts "Article Date: #{article_date_time}"
-        #     puts "Article Type: #{article_type}"
-        #     puts "Article Lang: #{article_lang}"
-        #     puts ""
-        # end # ARTICLES END
-
-
-
-        # puts ""
-        # puts "       ARTICLES Seeded of that EVENT "
-        # puts ""
-        # puts "-------------------------------------------"
-        # puts "-------------------------------------------"
+            puts "-------------------------------------------"
+            puts ""
+            puts "---##{topic_idx + 1}.#{event_idx + 1}.#{article_idx + 1} ------"
+            puts ""
+            puts "Article Number: #{event_idx + 1}"
+            puts ""
+            puts "Topic: #{topic_instance.name}"
+            puts "Event:#{event_instance.name}"
+            puts ""
+            puts "Article Title: #{article_title}"
+            puts "Article Description: #{article_description}"
+            puts "Article Image: #{article_image}"
+            puts "Article Url: #{article_url}"
+            puts "Article Date: #{article_date_time}"
+            puts "Article Type: #{article_type}"
+            puts "Article Lang: #{article_lang}"
+            puts ""
+        end # ARTICLES END
 
 
 
+        puts ""
+        puts "       ARTICLES Seeded of that EVENT "
+        puts ""
+        puts "-------------------------------------------"
+        puts "-------------------------------------------"
+
+
+  end # EVENT_NAMES END
+
+end # TOPIC_NAMES END
 
 
 

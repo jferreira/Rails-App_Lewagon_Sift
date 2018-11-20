@@ -1,8 +1,8 @@
 // TOPIC #5
 // TOPIC: World War II
 
-// EVENT #3
-// EVENT: Victory in Europe Day - 8 May 1945
+// EVENT #2
+// EVENT: Battle of the Bulge - 16 Dec 1944
 
 {
   "articles": {
@@ -15,9 +15,9 @@
       "dateTime": "2018-11-13T16:54:00Z",
       "dataType": "news",
       "sim": 0.7843137383460999,
-      "url": "https:\/\/www..com",
-      "title": "Victory in Europe Day - 8 May 1945",
-      "body": "The day to celebrate the end of the war",
+      "url": "https:\/\/www.Battle\/of\/the Bulge\/-\/16\/Dec\/1944.com",
+      "title": "Battle of the Bulge - 16 Dec 1944",
+      "body": "Battle of the Bulge - 16 Dec 1944",
       "source": {
         "uri": "euronews.com",
         "dataType": "news",
