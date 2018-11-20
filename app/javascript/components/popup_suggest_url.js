@@ -48,8 +48,8 @@ function userSuggestsUrl() {
     })
 
 
-  }
 
+  }
 }
 
 export { userSuggestsUrl };

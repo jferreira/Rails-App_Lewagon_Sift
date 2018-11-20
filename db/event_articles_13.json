@@ -1,0 +1,40 @@
+// TOPIC #5
+// TOPIC: World War II
+
+// EVENT #2
+// EVENT: Battle of the Bulge - 16 Dec 1944
+
+{
+  "articles": {
+    "results": [{
+      "uri": "993542144",
+      "lang": "eng",
+      "isDuplicate": false,
+      "date": "2016-03-15",
+      "time": "16:54:00",
+      "dateTime": "2018-11-13T16:54:00Z",
+      "dataType": "news",
+      "sim": 0.7843137383460999,
+      "url": "https:\/\/www..com",
+      "title": "Battle of the Bulge - 16 Dec 1944",
+      "body": "Ferce warfare at the Battle of the Bulge",
+      "source": {
+        "uri": "euronews.com",
+        "dataType": "news",
+        "title": "Euronews English"
+      },
+      "authors": [{
+        "uri": "alice_cuddy@euronews.com",
+        "name": "Alice Cuddy",
+        "type": "author",
+        "isAgency": false
+      }],
+      "eventUri": "eng-4419655",
+      "wgt": 279824040
+    }],
+    "totalResults": 164,
+    "page": 1,
+    "count": 100,
+    "pages": 2
+  }
+}

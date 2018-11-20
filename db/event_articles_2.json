@@ -1,0 +1,40 @@
+// TOPIC #1
+// TOPIC: Syrian Civil War
+
+// EVENT #2
+// EVENT: Russian intervention - Sep 2015
+
+{
+  "articles": {
+    "results": [{
+      "uri": "993542144",
+      "lang": "eng",
+      "isDuplicate": false,
+      "date": "2018-11-13",
+      "time": "16:54:00",
+      "dateTime": "2018-11-13T16:54:00Z",
+      "dataType": "news",
+      "sim": 0.7843137383460999,
+      "url": "https:\/\/www.euronews.com\/russianintervention\/Sep\/2015",
+      "title": "Russian intervention - Sep 2015",
+      "body": "Russian intervention in the Syrian Civil War",
+      "source": {
+        "uri": "euronews.com",
+        "dataType": "news",
+        "title": "Euronews English"
+      },
+      "authors": [{
+        "uri": "alice_cuddy@euronews.com",
+        "name": "Alice Cuddy",
+        "type": "author",
+        "isAgency": false
+      }],
+      "eventUri": "eng-4419655",
+      "wgt": 279824040
+    }],
+    "totalResults": 164,
+    "page": 1,
+    "count": 100,
+    "pages": 2
+  }
+}

@@ -8,8 +8,8 @@ class Article < ApplicationRecord
   has_many :save_articles, dependent: :destroy
 
   validates :title, :description, :body_text, presence: true
-  validates :source_url, presence: true, uniqueness: true
-
+  validates :source_url, presence: true
+  # validates :source_url, uniqueness: true
 
   def self.adjacent(collection, current_id, direction)
     # Taking an array of id's, from collection(articles)

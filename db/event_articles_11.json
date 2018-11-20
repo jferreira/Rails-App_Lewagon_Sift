@@ -1,29 +1,12 @@
+// TOPIC #4
+// TOPIC: Brexit
+
+// EVENT #3
+// EVENT: The Brexit deal - 19 Nov 2018
+
 {
   "articles": {
-    "page": 1,
-    "totalResults": 70658,
-    "pages": 1414,
     "results": [{
-      "uri": "997755978",
-      "lang": "rus",
-      "isDuplicate": false,
-      "date": "2018-11-19",
-      "time": "01:31:00",
-      "dateTime": "2018-11-19T01:31:00Z",
-      "dataType": "news",
-      "sim": 0.6549019813537598,
-      "url": "https://ura.news/news/1052359845",
-      "title": "Британия готовит военную операцию на случай срыва соглашения по Brexit",
-      "body": "Министерство обороны Великобритании готовит план на тот случай, если действующее соглашение по Brexit будет сорвано. Разработкой операции по выходу страны из ЕС без сделки, как стало известно журналистам, занимаются офицеры, которые выводят солдат на улицы в случае терактов.\n\nВ план, как пишет издание Sunday Times, входит усиление полицейских патрулей военными для предотвращения нарушения общественного порядка. При \"неблагоприятном развитии ситуации\", они будут обеспечивать больницы лекарствами.\n\nКак предполагается, в первые сутки военное ведомство способно вывести на улицы порядка 1200 солдат, и со временем увеличить это число до десяти тысяч. Особое внимание будет уделено графству Кент, откуда британцы могут попасть в Евросоюз. Ранее, как напоминает RT, британское правительство утвердило проект соглашения с Европейским союзом об условиях Brexit. Королевству придется заплатить за выход из Евросоюза около £39 млрд.",
-      "source": {
-        "uri": "ura.news",
-        "dataType": "news",
-        "title": "ura.news"
-      },
-      "authors": [],
-      "eventUri": "eng-4431030",
-      "wgt": 280287060
-    }, {
       "uri": "997755792",
       "lang": "eng",
       "isDuplicate": true,
@@ -33,7 +16,7 @@
       "dataType": "news",
       "sim": 0,
       "url": "https://www.straitstimes.com/world/europe/macron-says-strong-europe-needed-to-prevent-global-chaos",
-      "title": "Macron says strong Europe needed to prevent global 'chaos', Europe",
+      "title": "Hard or soft Brexit - 25 Jun 2018",
       "body": "BERLIN (AFP) - French President Emmanuel Macron on Sunday (Nov 18) urged a Franco-German push to make Europe a stronger and more confident global player that could prevent \"chaos\" on the world stage.\n\nMacron and German Chancellor Angela Merkel have used a series of war anniversaries to project unity as they push back against populist and nationalist forces in Europe and Trump's isolationist \"America First\" stance.\n\nWith half a year until European Parliament elections in which far-right forces look to make gains, Macron made a passionate plea for stronger backing from Merkel on a range of reforms to strengthen Europe.\n\n\"Europe, and within it the Franco-German couple, have the obligation not to let the world slip into chaos and to guide it on the road to peace,\" Macron told the German Parliament.\n\n\"That's why Europe must be stronger... and win more sovereignty,\" he said at a ceremony to honour the victims of past wars and dictatorships.\n\nMacron said it was Europe that had led the drive for green energy and against climate change and was now most strongly pushing multilateral approaches to trade, security, migration and environmental policy.\n\nThe first French president to address the Bundestag in 18 years, Macron called for greater European unity in order for the bloc to meet future challenges in an uncertain world.\n\nHe said Europe must not \"become a plaything of great powers, must assume greater responsibility for its security and its defence, and must not accept a subordinate role in world politics\".\n\n'AT CROSSROADS'\n\nMerkel said she agreed with Macron's assessment that Europe stands \"at a crossroads\", before the two headed into a meeting to discuss a range of policy challenges - from a joint eurozone budget to migration policy and taxing Internet giants.\n\nThe German leader reiterated that she backed Macron's proposal for a future European army as a symbol of a united continent - an idea that has raised Trump's hackles.\n\nLast week the American president mocked the plan by tweeting that \"it was Germany in World Wars One & Two - How did that work out for France?\" But German Defence Minister Ursula von der Leyen insisted Sunday that a joint military force would need not just common equipment and training but also \"the political will to resolutely defend European interests when a conflict breaks out\".\n\nAnd France's Minister for European Affairs, Nathalie Loiseau, told the Journal du Dimanche \"it is not a question of being against the United States but of taking our destiny into our own hands to no longer count on others\".\n\nWEAKER LEADERS\n\nMacron's Berlin visit came a week after world leaders met in Paris to commemorate the end of World War I a century ago.\n\nMacron has repeatedly invoked the war's horrors to drive home the message that rising nationalism is again destabilising the world.\n\nIn a Berlin meeting with youths, Macron warned that forgetting history means \"to repeat the mistakes of the past\".\n\nWhile strong on symbolism, the Franco-German partnership and European reform push have been plagued by policy differences and the domestic troubles of the two leaders.\n\nSince a Franco-German joint Cabinet meeting on Europe in June, challenges have piled up with Brexit nearing and a budget conflict escalating between Brussels and Italy.\n\nMacron also addressed German hesitation on major reforms such as a large common budget for the euro zone, saying that \"this new stage is scary\".\n\nHe said it would require giving up some decision-making powers and pooling funds but asked pointedly, \"is it better to remain locked in standstill?\"\n\nThe meeting came as both leaders are politically weakened, reducing the traditional driving power at the heart of the bloc.\n\nAs Trump gleefully tweeted days ago, Macron's once stellar approval ratings have dropped off into the mid-twenties.\n\nHe now faces a wave of protests over high fuel prices by so-called \"yellow vest\" demonstrators who charge that Macron, a former investment banker, is neglecting the lower and middle classes.\n\nAnd Merkel, after 13 years in power, recently announced the beginning of the end of her reign by declining to stand again as leader of her centre-right Christian Democrats (CDU).\n\nShe has vowed to serve out her fourth term, which runs until 2021, but many observers expect Merkel could be brought down earlier by infighting within the CDU or the unhappy three-party coalition she leads.",
       "source": {
         "uri": "straitstimes.com",
@@ -42,26 +25,6 @@
       },
       "authors": [],
       "eventUri": null,
-      "wgt": 280287000
-    }, {
-      "uri": "997755631",
-      "lang": "zho",
-      "isDuplicate": false,
-      "date": "2018-11-19",
-      "time": "01:30:00",
-      "dateTime": "2018-11-19T01:30:00Z",
-      "dataType": "news",
-      "sim": 0.8196078538894653,
-      "url": "http://news.cri.cn/20181119/7ed65202-2e5b-c776-6721-594d6b076cda.html",
-      "title": "陷执政危机 英首相将赴布鲁塞尔与欧盟商讨脱欧协议",
-      "body": "中新网11月19日电 据香港《文汇报》报道，英国首相特蕾莎·梅18日接访访问时表示，她本周将前往比利时布鲁塞尔，与欧盟商讨英国脱欧后的双方未来关系，强调英方对未来关系协议感到满意，才会签署脱欧协议草案，两者不可分割。\n\n特蕾莎·梅还指出，相信强硬脱欧派仍未送出48封信件至\"1922委员会\"，未能启动针对她的不信任动议，她强调现在更换领导层，无助与欧盟的谈判。\n\n英国前脱欧事务大臣戴维斯受访时，批评首相特蕾莎·梅的脱欧协议草案。他表示，英国不能被欧盟欺凌，呼吁政府应作好准备，在必要时离开谈判桌。\n\n特蕾莎·梅日前还在英国《太阳报》撰文，重申目前的方案是唯一可行的脱欧协议草案。\n\n但戴维斯表示，若无法达成合理的方案，英国政府不应让国家被贿赂、勒索或欺凌，而应适时退出谈判。他形容目前英国看来\"胆小怕事\"，批评政府欠缺政治意愿和决心，更质疑英国的要求从未真正转达给欧盟。\n\n（原标题：陷执政危机 英首相将赴布鲁塞尔与欧盟商讨脱欧协议）",
-      "source": {
-        "uri": "news.cri.cn",
-        "dataType": "news",
-        "title": "news.cri.cn"
-      },
-      "authors": [],
-      "eventUri": "zho-465365",
       "wgt": 280287000
     }, {
       "uri": "997755428",
