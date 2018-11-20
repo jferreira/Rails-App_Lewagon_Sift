@@ -40,40 +40,11 @@ TOPIC_IMAGES = {
 
 # EVENT RELATED -----------------------------------------------------------
 
-EVENT_IMAGES = {
-  "Syrian Civil War":[
-    "https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTSAK8X/lead_720_405.jpg?mod=1533691810",
-    "http://syriauntold.com/wp-content/uploads/2013/08/400316_297144237056064_1491979536_n.jpg",
-    "https://pbs.twimg.com/media/CrTU_9BWcAEEbFh.jpg"
-  ],
-  "Catalan Independence":[
-    "https://s3.reutersmedia.net/resources/r/?m=02&d=20170906&t=2&i=1200283925&r=LYNXNPED8521P&w=1280",
-    "https://cdn.theatlantic.com/assets/media/img/photo/2017/10/catalonia-tk/c01_AP17275433150843/main_900.jpg?1506971146",
-    "https://cdn.cnn.com/cnnnext/dam/assets/171001210914-spain-catalonia-referendum-vote-riot-police-soares-00023209-full-169.jpg"
-  ],
-  "Woodburn Forest Oil Drill":[
-    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
-  ],
-  "Brexit":[
-    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
-    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
-    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
-  ],
-  "World War II":[
-    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
-    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
-    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
-  ]
-}
-
-
 EVENT_NAMES = {
   "Syrian Civil War": [
     "Civil uprising in Syria - Mar 2011",
     "Russian intervention - Sep 2015",
-    "Aleppo escalation and Euphrates Shield - Mar 2016"
+    "Operation Euphrates Shield - Mar 2016"
   ],
   "Catalan Independence": [
     "Catalan parliament aproves referendum - 6 Sep 2017",
@@ -99,29 +70,29 @@ EVENT_NAMES = {
 
 EVENT_DESCRIPTIONS = {
   "Syrian Civil War":[
-    "Description: The story of... Syrian Civil War: Event 1: Civil uprising in Syria - Mar 2011",
-    "Description: The story of... Syrian Civil War: Event 34: Russian intervention - Sep 2015",
-    "Description: The story of... Syrian Civil War: Event 204: Aleppo escalation and Euphrates Shield - Mar 2016"
+    "The story of: Syrian Civil War: Event 1: Civil uprising in Syria - Mar 2011",
+    "The story of: Syrian Civil War: Event 34: Russian intervention - Sep 2015",
+    "The story of: Syrian Civil War: Event 204: Aleppo escalation and Euphrates Shield - Mar 2016"
   ],
   "Catalan Independence":[
-    "Description: The story of... Catalan Independence: Event 1: Catalan parliament aproves referendum - 6 Sep 2017",
-    "Description: The story of... Catalan Independence: Event 15: Independence referendum - 1 Oct 2017",
-    "Description: The story of... Catalan Independence: Event 34: Fallout after referendum violence - 9 Jul 2016"
+    "The story of: Catalan Independence: Event 1: Catalan parliament aproves referendum - 6 Sep 2017",
+    "The story of: Catalan Independence: Event 15: Independence referendum - 1 Oct 2017",
+    "The story of: Catalan Independence: Event 34: Fallout after referendum violence - 9 Jul 2016"
   ],
   "Woodburn Forest Oil Drill":[
-    "Description: The story of... Woodburn Forest Oil Drill: Event 1: Start drilling for oil - Mar 11 2016",
-    "Description: The story of... Woodburn Forest Oil Drill: Event 10: Company behind Woodburn Forest oil drill call off project - Jun 17 2016",
-    "Description: The story of... PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
+    "The story of: Woodburn Forest Oil Drill: Event 1: Start drilling for oil - Mar 11 2016",
+    "The story of: Woodburn Forest Oil Drill: Event 10: Company behind Woodburn Forest oil drill call off project - Jun 17 2016",
+    "The story of: PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
   ],
   "Brexit":[
-    "Description: The story of... Brexit: Event 1: Referendum Called",
-    "Description: The story of... Brexit: Event 54: Hard or soft Brexit",
-    "Description: The story of... Brexit: Event 86: The Brexit deal"
+    "The story of: Brexit: Event 1: Referendum Called",
+    "The story of: Brexit: Event 54: Hard or soft Brexit",
+    "The story of: Brexit: Event 86: The Brexit deal"
   ],
   "World War II":[
-    "Description: The story of...World War II: Event 1: War is Declared",
-    "Description: The story of...World War II: Event 450: Battle of the Bulge",
-    "Description: The story of...World War II: Event 900: V-E Day"]
+    "The story of: World War II: Event 1: War is Declared",
+    "The story of: World War II: Event 450: Battle of the Bulge",
+    "The story of: World War II: Event 900: V-E Day"]
 }
 
 EVENT_DATES = {
@@ -208,20 +179,21 @@ EVENT_LAT_LNG = {
   ]
 }
 
-
-# ARTICLE RELATED -----------------------------------------------------------
-
-ARTICLE_IMAGES =
-{
+EVENT_IMAGES = {
   "Syrian Civil War":[
-    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
-    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
-    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
+    "https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTSAK8X/lead_720_405.jpg?mod=1533691810",
+    "http://syriauntold.com/wp-content/uploads/2013/08/400316_297144237056064_1491979536_n.jpg",
+    "https://pbs.twimg.com/media/CrTU_9BWcAEEbFh.jpg"
   ],
   "Catalan Independence":[
-    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
-    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"
+    "https://s3.reutersmedia.net/resources/r/?m=02&d=20170906&t=2&i=1200283925&r=LYNXNPED8521P&w=1280",
+    "https://cdn.theatlantic.com/assets/media/img/photo/2017/10/catalonia-tk/c01_AP17275433150843/main_900.jpg?1506971146",
+    "https://cdn.cnn.com/cnnnext/dam/assets/171001210914-spain-catalonia-referendum-vote-riot-police-soares-00023209-full-169.jpg"
+  ],
+  "Woodburn Forest Oil Drill":[
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
   ],
   "Brexit":[
     "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
@@ -232,8 +204,63 @@ ARTICLE_IMAGES =
     "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
     "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
     "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
+  ]
+}
+
+# ARTICLE RELATED -----------------------------------------------------------
+
+ARTICLE_IMAGES = {
+  "Syrian Civil War":[
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/05/17/172606801-83dc0b18-72cb-4002-82d7-703142bf54ca.jpg",
+    "https://cdn-01.belfasttelegraph.co.uk/news/northern-ireland/article34847449.ece/ed28c/AUTOCROP/w620h342/2016-07-01_new_22448590_I1.jpg",
+    "http://www.irishnews.com/picturesarchive/irishnews/irishnews/2016/06/16/190106194-34f2c7b8-d29f-458d-8ad1-d69524b8dc1f.jpg"
+  ],
+  "Catalan Independence":[
+    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
+    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg",
+    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
+    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg",
+    "https://images.indianexpress.com/2017/10/mariano-rajoy.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUUWO3Fd22RhWF6FyxCh7hFzB8puX4lBZ16AotKJQLQuAXvrVwRg",
+    "https://images.indianexpress.com/2017/10/catalonia-7591.jpg"
+  ],
+  "Brexit":[
+    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
+    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
+    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452",
+    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
+    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
+    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452",
+    "https://cdn.newsapi.com.au/image/v1/944db993e767e5f692c418a11ffe6bc2",
+    "https://cdn2.i-scmp.com/sites/default/files/styles/landscape/public/images/methode/2016/09/14/e5f952ec-799d-11e6-aba3-c12eb464ff87_1280x720.JPG?itok=uWtw4q87",
+    "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/15/105575963-1542269439054gettyimages-1061486868.530x298.jpeg?v=1542269452"
+  ],
+  "World War II":[
+    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
+    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg",
+    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
+    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg",
+    "https://bloximages.newyork1.vip.townnews.com/hickoryrecord.com/content/tncms/assets/v3/editorial/7/31/7312bc52-e393-11e8-adc1-6f492aca5b0d/5be49a127e60f.image.jpg",
+    "https://www.culture24.org.uk/asset_arena/7/62/56/465267/v0_master.jpg",
+    "https://www.readex.com/sites/default/files/Omaha%20World%20Herald%20%2005-07-1945.jpg"
   ],
   "Woodburn Forest Oil Drill":[
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ",
+    "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ",
     "https://cdn-04.belfasttelegraph.co.uk/news/northern-ireland/article34759250.ece/5bc58/AUTOCROP/w620h342/2016-05-31_new_21528170_I1.JPG",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-mKARRTy67rn8UGpRLL1Ol-kuunOICniF6YeifvVIeRb1tyE8",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uEfBWP2fZXLnxrqEkw2NStqA49Rl4ek9Xz-emfy5dBPPmOiTwQ"
@@ -483,6 +510,12 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
         end
       end
 
+
+
+
+
+
+
         puts "--------------- [ A.4 ] -------------------"
         puts ""
         puts "       Seeding ARTICLES of the EVENT"
@@ -496,9 +529,11 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
               article_title = article["title"]
               article_text = article["body"]
               article_description = event_description
-              article_array = ARTICLE_IMAGES[topic_key]
-              article_image = article_array[event_idx]
+              # article_image_array = ARTICLE_IMAGES[topic_key]
+              # article_image = article_image_array[article_idx]
+              article_image = article["image_url"]
               article_url = article["url"]
+
               article_date_time = article["dateTime"]
               article_type = article["dataType"]
               article_lang = article["lang"]
@@ -567,8 +602,6 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
     end # ARTICLES END
   end # EVENT_NAMES END
 end # TOPIC_NAMES END
-
-
 
 
 puts "--------------- [ B.1 ] ---------------------"

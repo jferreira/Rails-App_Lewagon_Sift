@@ -3,13 +3,17 @@
 <div class="header">
 
     <div class="banner-half"
-    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
-       url(<%= @topic.image_url %>);">
+
+     style="background-image:
+        linear-gradient(-225deg,
+        rgba(18,240,181,0.6) 0%,
+        rgba(15,153,200,0.8) 50%),
+        url(<%= @topic.image_url %>);">
 
         <div class="row">
 
           <!-- LEFT COL -->
-          <div class="col-xs-3">
+          <div class="col-xs-4">
 
             <div class="top-box">
               <p></p>
@@ -27,7 +31,7 @@
           <!-- col one end -->
 
           <!-- MAIN COL -->
-          <div class="col-xs-9">
+          <div class="col-xs-8">
 
             <!-- ---- HEADER TITLES CARD ----- -->
 
@@ -75,27 +79,19 @@
 <!--                <#%= link_to "", topics_path,
                 class: "fas fa-arrow-right btn btn-green" %>
  -->
-                <%= submit_tag "Search",
+                <%= submit_tag "[ Search ]",
                   class: "fas fa-arrow-right btn btn-default"
                 %>
 
             </div>
             <!-- SEARCH END--------------------------------------- -->
 
-
-
             <!-- ---- HEADER CARD END ----- -->
 
           </div>
           <!-- col two end -->
-
-          <div class="col-0">
-          </div>
-          <!-- col three end -->
-
         </div>
         <!-- row end -->
-
   </div>
   <!-- banner-half end -->
 
@@ -103,7 +99,7 @@
 <!-- header end -->
 <!-- TOPICS PAGE HEADER END------------------------------- -->
 
-<!-- TOPICS EVENTS LIST  ------------------------------- -->
+<!-- [ TOPICS EVENTS LIST ]  ------------------------------- -->
 
 <div class="container">
   <div class="row">
@@ -117,7 +113,10 @@
                 <!-- ---- EVENT CARD ----- -->
 
                 <div class="a-card-event-box"
-                style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%),
+                style="background-image:
+                  linear-gradient(-225deg,
+                  rgba(150,10,115,0.8) 0%,
+                  rgba(255,77,0,0.4) 50%),
                 url(<%= event.image_url %>);">
                 <h3>#<%= (i + 1) %></h3>
                   <p></p>
@@ -130,18 +129,16 @@
                     <h2><span class="blocked">&nbsp # &nbsp</span>
                       <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
                   <p></p>
-                    <h2><span class="blocked-light">&nbsp # &nbsp</span>
-                      <span class="blocked-light">&nbsp <%= event.name %> &nbsp</span></h2>
+                    <h2><span class="blocked">&nbsp # &nbsp</span>
+                      <span class="blocked">&nbsp <%= event.name %> &nbsp</span></h2>
                   <p></p>
                   <p></p>
-                  <p>Summary: { <%= event.articles.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                  <p><%= link_to "show event", event_path(event) %></p>
-                  <%= link_to 'See event', event_path(event),
+                  <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
+                  <%= link_to 'See Event', event_path(event),
                         class: 'btn btn-default'%>
                 </div>
 
                 <!-- ---- EVENT CARD END ----- -->
-
 
               <% end %>
 

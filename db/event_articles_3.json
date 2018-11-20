@@ -10,21 +10,74 @@
       "uri": "993542144",
       "lang": "eng",
       "isDuplicate": false,
-      "date": "2016-03-15",
+      "date": "2015-10-01",
+      "time": "16:54:00",
+      "dateTime": "2018-11-13T16:54:00Z",
+      "dataType": "News",
+      "sim": 0.7843137383460999,
+      "url": "https://www.bbc.com/news/world-middle-east-34416519",
+      "image_url": "https://ichef.bbci.co.uk/news/834/cpsprodpb/90D3/production/_85857073_d6257564-1c2d-440e-8547-5350b591d489.jpg",
+      "title": "E3:A1 - Russia joins war in Syria: Five key points",
+      "body": "On 30 September, Russia's parliament approved a request by President Vladimir Putin to launch air strikes in Syria. Within hours, the country's first intervention in the Middle East in decades began.  Mr Putin said Russia was acting preventatively, to fight and destroy militants and terrorists on the territories that they already occupy, not wait for them to come to our house.  The Russian defence ministry initially said the first wave of strikes targeted only the jihadist group, Islamic State (IS), which controls large parts of Syria and is fighting both government and rebel forces.  The following day, Russian Foreign Minister Sergei Lavrov clarified that the air campaign was targeting all terrorists in Syria, and not just IS. His ministry said a report by the Syrian Civil Defence rescue organisation of 33 civilian deaths on the first day of the air strikes was false.",
+      "source": {
+        "uri": "www.bbc.com",
+        "dataType": "News",
+        "title": "BBC"
+      },
+      "authors": [{
+        "uri": "alice_cuddy@euronews.com",
+        "name": "Alice Cuddy",
+        "type": "author",
+        "isAgency": false
+      }],
+      "eventUri": "eng-4419655",
+      "wgt": 279824040
+    }, {
+      "uri": "993542144",
+      "lang": "eng",
+      "isDuplicate": false,
+      "date": "2018-11-13",
       "time": "16:54:00",
       "dateTime": "2018-11-13T16:54:00Z",
       "dataType": "news",
       "sim": 0.7843137383460999,
-      "url": "https:\/\/www.euronews.com\/Aleppo\/escalation\/and\/Euphrates\/Shield\/Mar\/2016",
-      "title": "Aleppo escalation and Euphrates Shield - Mar 2016",
-      "body": "body",
-      "source": {
-        "uri": "euronews.com",
+      "url": "https://www.aljazeera.com/indepth/features/2017/02/al-bab-operation-euphrates-shield-isil-170215103720562.html",
+      "image_url": "https://i.guim.co.uk/img/media/5b75e499382bfcc87d099cbfad5cf599a4fde2e1/0_556_4007_2410/master/4007.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=0aee3df371ef91101b98b0c2ac371617",
+      "title": "E3:A2 - Al Bab: 'When the tide is turning, ISIL go apocalyptic'",
+      "body": "In recent weeks, the Turkish-led Operation Euphrates Shield has made significant progress against ISIL around the city of Al Bab in northern Syria. Russia, a key ally during the operation, has provided Turkey with military and diplomatic support. The takeover of Al Bab would effectively prevent Kurdish forces from establishing a land corridor between the two territories they control in northern Syria - one of the main goals of Turkey's military operation. It would also provide Turkey with an important strategic advantage in possible operations against the ISIL, the Islamic State of Iraq and the Levant, which is also known as ISIS, and Kurdish forces. But analysts say that Ankara's plans to push further east and south might face serious diplomatic challenges. On Sunday during a press conference, President Recep Tayyip Erdogan announced that Turkish troops had entered Al Bab's city centre and that it was only a matter of time before they took it over completely.",
+     "source": {
+        "uri": "www.aljazeera.com",
         "dataType": "news",
-        "title": "Euronews English"
+        "title": "Aljazeera"
       },
       "authors": [{
-        "uri": "alice_cuddy@euronews.com",
+        "uri": "alice_cuddy@theguardian.com",
+        "name": "Alice Cuddy",
+        "type": "author",
+        "isAgency": false
+      }],
+      "eventUri": "eng-4419655",
+      "wgt": 279824040
+    }, {
+      "uri": "993542144",
+      "lang": "eng",
+      "isDuplicate": false,
+      "date": "2018-11-13",
+      "time": "16:54:00",
+      "dateTime": "2018-11-13T16:54:00Z",
+      "dataType": "news",
+      "sim": 0.7843137383460999,
+      "url": "https://www.rt.com/trends/russia-syria-op",
+      "image_url": "https://cdni.rt.com/files/2018.04/original/5adf4b49dda4c8dd788b4596.jpg",
+      "title": "E3:A3 - Russian operation in Syria",
+      "body": "Find the news and articles on the Russian operation in Syria. Following an official request from the Syrian government, Russia intervened in the Syrian civil war in September 2015, successfully aiding the Assad regime in its power-shift from defense to offense. Follow RT to get the news and details of the course of the operation launched by Russian government. Russian military forces’ main targets were rebel and jihadist groups, including Islamic State (IS, formerly ISIS) and the National Coalition for Syrian Revolution and Opposition Forces, Al-Nusra Front and the Army of Conquest. Follow RT for the news stories on the terrorist and militant groups prevailing in Syria. The major advantages of the operation carried out by Russia were recapturing Palmyra, retaking the city of Aleppo, breaking the three-year-long siege of Deir ez-Zor, and establishing full control there by the end of 2017. Visit RT.com to read the information about these and other successful actions taken by Russian troops. ",
+      "source": {
+        "uri": "www.rt.com",
+        "dataType": "news",
+        "title": "Russia Today"
+      },
+      "authors": [{
+        "uri": "alice_cuddy@theguardian.com",
         "name": "Alice Cuddy",
         "type": "author",
         "isAgency": false
