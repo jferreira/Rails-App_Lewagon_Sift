@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
     @following_list = current_user.following_items
   end
 
-  def edit
+  def editdebugging
     @user = current_user
   end
 
