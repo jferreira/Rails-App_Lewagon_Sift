@@ -417,13 +417,13 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
           publisher = Publisher.new(obj_data)
           publisher.save!
 
-          # puts "Name: #{publisher_name}"
-          # puts "Description: #{publisher_description}"
-          # puts "Image: #{publisher_image}"
-          # puts "Website: #{publisher_website}"
-          # puts "Location: #{publisher_location}"
-          # puts "lat: #{publisher_lat}"
-          # puts "lng: #{publisher_lng}"
+          puts "Name: #{publisher_name}"
+          puts "Description: #{publisher_description}"
+          puts "Image: #{publisher_image}"
+          puts "Website: #{publisher_website}"
+          puts "Location: #{publisher_location}"
+          puts "lat: #{publisher_lat}"
+          puts "lng: #{publisher_lng}"
 
       end
       # PUBLISHERS END
@@ -473,26 +473,16 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
           author = Author.new(obj_data)
           author.save!
 
-          # puts "author first name: #{author_first_name}"
-          # puts "author last name: #{author_last_name}"
-          # puts "author twitter: #{author_twitter}"
-          # puts "author location: #{author_location}"
-          # puts "author lat: #{author_lat}"
-          # puts "author lng: #{author_lng}"
+          puts "author first name: #{author_first_name}"
+          puts "author last name: #{author_last_name}"
+          puts "author twitter: #{author_twitter}"
+          puts "author location: #{author_location}"
+          puts "author lat: #{author_lat}"
+          puts "author lng: #{author_lng}"
 
 
         end
       end
-
-
-
-      obj_data = {
-        score: rand(-5..5),
-        times_voted: 1,
-        article_id: Article.all.sample.id,
-        user_id: User.all.sample.id
-      }
-
 
         puts "--------------- [ A.4 ] -------------------"
         puts ""
@@ -567,9 +557,6 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
             puts "Article Type: #{article_type}"
             puts "Article Lang: #{article_lang}"
             puts ""
-        end # ARTICLES END
-
-
 
         puts ""
         puts "       ARTICLES Seeded of that EVENT "
@@ -577,168 +564,190 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
         puts "-------------------------------------------"
         puts "-------------------------------------------"
 
-
+    end # ARTICLES END
   end # EVENT_NAMES END
-
 end # TOPIC_NAMES END
 
 
 
 
-          # puts "--------------- [ B.1 ] ---------------------"
-          # puts ""
-          # puts "        Starting to seed USERS"
-          # puts ""
-          # puts "-------------------------------------------"
+puts "--------------- [ B.1 ] ---------------------"
+puts ""
+puts "        Starting to seed USERS"
+puts ""
+puts "-------------------------------------------"
 
-          # FIRST_NAMES.each_with_index do |name, user_idx|
+FIRST_NAMES.each_with_index do |name, user_idx|
 
-          #     obj_data = {
-          #         first_name: name,
-          #         last_name: LAST_NAMES[user_idx],
-          #         email: "#{name}@#{name}.com",
-          #         password: 123456,
-          #         photo: nil
-          #     }
+    first_name = name
+    last_name = LAST_NAMES[user_idx]
 
-          #     user = User.new(obj_data)
-          #     user.save!
+    obj_data = {
+        first_name: first_name,
+        last_name: last_name,
+        email: "#{first_name}#{last_name}@user.com",
+        password: 123456,
+        photo: nil
+    }
 
-          #     puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
-          #     puts "email: #{user.email}"
-          #     puts ""
-          # end
+    user = User.new(obj_data)
+    user.save!
 
-          # def john
-          #     obj_data = {
-          #         first_name: "John",
-          #         last_name: "Ferreira",
-          #         email: "john@gmail.com",
-          #         password: "password",
-          #         photo: "https://scontent.fjog1-1.fna.fbcdn.net/v/t1.0-9/s851x315/13939328_10153672228506587_8994048246363071984_n.jpg?_nc_cat=104&_nc_ht=scontent.fjog1-1.fna&oh=627f02b87d09389c5393dfe075cd3914&oe=5C6CAEF0"
-          #     }
-          #     user = User.new(obj_data)
-          #     user.save!
-          #     puts "User #{user.first_name} created"
-          # end
-          # john
+    puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
+    puts "email: #{user.email}"
+    puts ""
+end
 
-
-          # def roger
-          #   obj_data = {
-          #       first_name: "Rodger",
-          #       last_name: "Garcia",
-          #       email: "roger@gmail.com",
-          #       password: "password",
-          #       photo: "https://avatars0.githubusercontent.com/u/23165579?v=4"
-          #   }
-          #   user = User.new(obj_data)
-          #   user.save!
-          #   puts "User #{user.first_name} created"
-          # end
-          # roger
+def john
+    obj_data = {
+        first_name: "John",
+        last_name: "Ferreira",
+        email: "johnferreira@gmail.com",
+        password: "123456",
+        photo: "https://scontent.fjog1-1.fna.fbcdn.net/v/t1.0-9/s851x315/13939328_10153672228506587_8994048246363071984_n.jpg?_nc_cat=104&_nc_ht=scontent.fjog1-1.fna&oh=627f02b87d09389c5393dfe075cd3914&oe=5C6CAEF0"
+    }
+    user = User.new(obj_data)
+    user.save!
+    puts "User #{user.first_name} created"
+end
+john
 
 
-          # puts ""
-          # puts "              USERS DONE"
-          # puts ""
-          # puts "-------------------------------------------"
+def roger
+  obj_data = {
+      first_name: "Rodger",
+      last_name: "Garcia",
+      email: "rodger@gmail.com",
+      password: "123456",
+      photo: "https://avatars0.githubusercontent.com/u/23165579?v=4"
+  }
+  user = User.new(obj_data)
+  user.save!
+  puts "User #{user.first_name} created"
+end
+roger
 
 
-
-
-
+puts ""
+puts "              USERS DONE"
+puts ""
+puts "-------------------------------------------"
 
 
 
-    # puts "--------------- [ B.2 ] ---------------------"
-    # puts ""
-    # puts "         Seeding FOLLOWED ITEMS"
-    # puts ""
-    # puts "-------------------------------------------"
+
+puts "--------------- [ B.2 ] ---------------------"
+puts ""
+puts "         Seeding FOLLOWED ITEMS"
+puts ""
+puts "-------------------------------------------"
+
+        i = 1
+        50.times do
+
+          type = %w[Topic Event].sample
+          id = type == 'Topic' ? rand(1..1) : rand(1..3)
+
+            obj_data = {
+              follower_type: type,
+              follower_id: id,
+              user_id: User.all.sample.id
+            }
+            # binding.pry
+            following_instance = FollowingItem.new(obj_data)
+            following_instance.save!
+
+            type_followed = following_instance.follower_type
+            item_name = following_instance.follower
+            user_name = following_instance.user
+
+            puts "-----------[ ##{i} ]----------------"
+            puts ""
+            puts "type_followed: #{type_followed}"
+            puts "item_name: #{item_name.name}"
+            puts "user_name: #{user_name.email}"
+            puts ""
+
+          i  = i + 1
+        end
+
+  puts ""
+  puts "         FOLLOWED ITEMS Seeded"
+  puts ""
+  puts "-------------------------------------------"
+  puts "-------------------------------------------"
 
 
-    #   10.times do
 
-    #     type = %w[Topic Event].sample
-    #     id = type == 'Topic' ? rand(1..1) : rand(1..3)
+  puts "--------------- [ B.3 ] ---------------------"
+  puts ""
+  puts "           Seeding USER SCORES"
+  puts ""
+  puts "-------------------------------------------"
 
-    #       obj_data = {
-    #         follower_type: type,
-    #         follower_id: id,
-    #         user_id: User.all.sample.id
-    #       }
-    #       # binding.pry
-    #       following = FollowingItem.new(obj_data)
-    #       following.save!
+    i = 1
+    50.times do
 
-    #       puts "Following Item created: #{obj_data[:follower_type]}"
-    #   end
+        obj_data = {
+          score: rand(-5..5),
+          article_id: Article.all.sample.id,
+          user_id: User.all.sample.id
+        }
 
+        score_instance = UserScore.new(obj_data)
+        score_instance.save!
 
+        puts "-----------[ ##{i} ]----------------"
+        puts ""
+        puts "Score: [ #{score_instance.score} ]"
+        puts "Scored article ID: #{score_instance.article.id}"
+        puts "Scored article Title: #{score_instance.article.title}"
+        puts "User Email: #{score_instance.user.email}"
+        puts ""
 
-    #   puts ""
-    #   puts "         FOLLOWED ITEMS Seeded"
-    #   puts ""
-    #   puts "-------------------------------------------"
-    #   puts "-------------------------------------------"
+        i  = i + 1
+    end
 
-
-
-    # puts "--------------- [ B.3 ] ---------------------"
-    # puts ""
-    # puts "           Seeding USER SCORES"
-    # puts ""
-    # puts "-------------------------------------------"
-
-    #   20.times do
-
-    #       obj_data = {
-    #         score: rand(-5..5),
-    #         article_id: Article.all.sample.id,
-    #         user_id: User.all.sample.id
-    #       }
-
-    #       score = UserScore.new(obj_data)
-    #       score.save!
-
-    #       puts "Score Item created: #{obj_data[:score]}"
-    #   end
-
-    #   puts ""
-    #   puts "         USER SCORE ITEMS Seeded"
-    #   puts ""
-    #   puts "-------------------------------------------"
-    #   puts "-------------------------------------------"
+    puts ""
+    puts "         USER SCORE ITEMS Seeded"
+    puts ""
+    puts "-------------------------------------------"
+    puts "-------------------------------------------"
 
 
-    # puts "--------------- [ B.4 ] ---------------------"
-    # puts ""
-    # puts "         Seeding SAVED ARTICLES"
-    # puts ""
-    # puts "-------------------------------------------"
+    puts "--------------- [ B.4 ] ---------------------"
+    puts ""
+    puts "         Seeding SAVED ARTICLES"
+    puts ""
+    puts "-------------------------------------------"
 
+    i = 1
+    60.times do
 
-    #   60.times do
+          obj_data = {
+            article_id: Article.all.sample.id,
+            user_id: User.all.sample.id
+          }
 
-    #       obj_data = {
-    #         article_id: Article.all.sample.id,
-    #         user_id: User.all.sample.id
-    #       }
+          save_article_instance = SaveArticle.new(obj_data)
+          save_article_instance.save!
 
-    #       saveArticle = SaveArticle.new(obj_data)
-    #       saveArticle.save!
+        puts "-----------[ ##{i} ]----------------"
+        puts ""
+        puts "Saved article ID: #{save_article_instance.article.id}"
+        puts "Saved article Title: #{save_article_instance.article.title}"
+        puts "User Email: #{save_article_instance.user.email}"
+        puts ""
 
-    #       puts "SaveArticle created"
-    #   end
+      i  = i + 1
+    end
 
-    #   puts ""
-    #   puts "         ASVED ARTICLES Seeded"
-    #   puts ""
-    #   puts "-------------------------------------------"
-    #   puts "-------------------------------------------"
-
-
+    puts ""
+    puts "         ASVED ARTICLES Seeded"
+    puts ""
+    puts "-------------------------------------------"
+    puts "-------------------------------------------"
+    #
 
 puts "-------------------------------------------"
 puts ""
