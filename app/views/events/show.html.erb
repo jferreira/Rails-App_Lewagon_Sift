@@ -46,18 +46,43 @@
               <!-- TIME TAG -->
               <p><span class="blocked-tag">&nbsp <%= @event.articles.first.date_time_published %>  &nbsp</span></p>
               <p></p>
+
               <!-- TOPIC HEADER -->
-              <h2><span
-                class="blocked">&nbsp <%= link_to "#", root_path(" ") %> &nbsp</span><span
-                class="blocked">&nbsp <%= link_to @event.topic.name, topic_path(@event.topic)%> &nbsp
-              </span></h2>
+
+              <h2>
+
+              <span class="blocked add-topic-title">
+                  <%= render 'following_items/form',
+                    following_item: @following_item,
+                    follower_type: 'Topic',
+                    follower_id: @topic.id
+                  %>
+              </span>
+
+              <span class="blocked topic-title">&nbsp <%= @event.topic.name %> &nbsp </span>
+              <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
+
+              </h2>
+
+
               <!-- EVENT HEADER -->
-              <h2><span
-                class="blocked">&nbsp <%= link_to "#", root_path("") %> &nbsp</span><span
-                class="blocked">&nbsp <%= @event.name %> &nbsp
-              </span></h2>
-              <p></p>
-              <p></p>
+
+              <h2>
+
+              <span class="blocked add-event-title">
+                  <%= render 'following_items/form',
+                    # article: @article,
+                    following_item: @following_item,
+                    follower_type: 'Event',
+                    follower_id: @event.id
+                  %>
+              </span>
+
+              <span class="blocked event-title">&nbsp <%= @event.name %> &nbsp </span>
+              <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
+
+              </h2>
+
               <p>Description: <%= @event.articles.count %> Articles: <%= @event.description %></p>
 
               <%= link_to "Previous", event_path(" "), class: "btn btn-default" %>
