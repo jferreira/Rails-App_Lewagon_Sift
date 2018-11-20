@@ -264,70 +264,10 @@ puts ""
 puts "-------------------------------------------"
 
 
-  puts "--------------- [ A ] ---------------------"
-  puts ""
-  puts "        Starting to seed USERS"
-  puts ""
-  puts "-------------------------------------------"
-
-  FIRST_NAMES.each_with_index do |name, user_idx|
-
-      obj_data = {
-          first_name: name,
-          last_name: LAST_NAMES[user_idx],
-          email: "#{name}@#{name}.com",
-          password: 123456,
-          photo: nil
-      }
-
-      user = User.new(obj_data)
-      user.save!
-
-      puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
-      puts "email: #{user.email}"
-      puts ""
-  end
-
-  def john
-      obj_data = {
-          first_name: "John",
-          last_name: "Ferreira",
-          email: "john@gmail.com",
-          password: "password",
-          photo: "https://scontent.fjog1-1.fna.fbcdn.net/v/t1.0-9/s851x315/13939328_10153672228506587_8994048246363071984_n.jpg?_nc_cat=104&_nc_ht=scontent.fjog1-1.fna&oh=627f02b87d09389c5393dfe075cd3914&oe=5C6CAEF0"
-      }
-      user = User.new(obj_data)
-      user.save!
-      puts "User #{user.first_name} created"
-  end
-  john
-
-
-  def roger
-    obj_data = {
-        first_name: "Rodger",
-        last_name: "Garcia",
-        email: "roger@gmail.com",
-        password: "password",
-        photo: "https://avatars0.githubusercontent.com/u/23165579?v=4"
-    }
-    user = User.new(obj_data)
-    user.save!
-    puts "User #{user.first_name} created"
-  end
-  roger
-
-
-  puts ""
-  puts "              USERS DONE"
-  puts ""
-  puts "-------------------------------------------"
 
 
 
-
-
-puts "------------------ [ B ] --------------------"
+puts "------------------ [ A.1 ] --------------------"
 puts ""
 puts "         ## Starting to seed TOPICS"
 puts ""
@@ -345,14 +285,16 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
     topic = Topic.new(obj_data)
     topic.save!
 
-    puts "Topic created: ##{topic_idx + 1} #{topic.name}"
+    puts "Topic num: ##{topic_idx + 1}"
+    puts "Topic name: #{topic.name}"
+    puts "Topic url: #{topic.image_url}"
 
 
 
 
 
 
-    puts "-------------------------------------------"
+    puts "------------- [ A.2 ]-------------------------"
     puts ""
     puts "  # Its EVENTS below:"
     puts ""
@@ -363,7 +305,7 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
     EVENT_NAMES[topic.name.to_sym].each_with_index do |event, event_idx|
 
-      event_articles_raw = File.read(File.expand_path("db/event_articles_#{event_idx}.json"))
+      event_articles_raw = File.read(File.expand_path("db/event_articles_#{(event_idx + 1)}.json"))
       event_articles_parsed = JSON.parse(event_articles_raw)
       event_articles_file = event_articles_parsed["articles"]["results"]
 
@@ -379,18 +321,17 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
       # EVENT DATE
       date_array = EVENT_DATES[event_key]
-        event_year = date_array[event_idx][0]
-        event_month = date_array[event_idx][1]
-        event_day = date_array[event_idx][2]
+          event_year = date_array[event_idx][0]
+          event_month = date_array[event_idx][1]
+          event_day = date_array[event_idx][2]
       event_date = Date.new(event_year, event_month, event_day)
 
       # EVENT LOCATION
       event_location_array = EVENT_LOCATIONS[event_key]
       event_location = event_location_array[event_idx]
-
-      lat_lng_array = EVENT_LAT_LNG[event_key]
-      event_lat = lat_lng_array[event_idx][0]
-      event_lng = lat_lng_array[event_idx][1]
+          lat_lng_array = EVENT_LAT_LNG[event_key]
+              event_lat = lat_lng_array[event_idx][0]
+              event_lng = lat_lng_array[event_idx][1]
 
       # EVENT LOADED OBJECT
       obj_data = {
@@ -407,7 +348,9 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
       event = Event.new(obj_data)
       event.save!
 
+
       puts "------- ##{topic_idx + 1}.#{event_idx + 1} ----------"
+      puts ""
       puts ""
       puts "Event: ##{topic_idx + 1}.#{event_idx + 1}"
       puts "Topic: #{event.topic.name}"
@@ -432,268 +375,357 @@ TOPIC_NAMES.each_with_index do |topic, topic_idx|
 
 
 
+      puts "------------------ [ A.3 ] --------------------"
+      puts ""
+      puts "           Seeding PUBLISHERS"
+      puts ""
+      puts "-------------------------------------------"
 
-        puts "------------------ [ C ] --------------------"
-        puts ""
-        puts "       Seeding ARTICLES of the EVENT"
-        puts ""
-        puts "-------------------------------------------"
+      event_articles_file.each do |article_publisher|
+
+          # SOURCE
+          publisher = article_publisher["source"]
+
+          # DETAILS
+          publisher_name = publisher["title"]
+            publisher_description = publisher["title"]
+            publisher_image = 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
+            publisher_website = publisher["uri"]
+
+          # LOCATION
+          publisher_location = EVENT_LOCATIONS[topic.name.to_sym][rand(0..2)]
+              publisher_lat = LAT.sample.to_i
+              publisher_lng = LONG.sample.to_i
+
+          obj_data = {
+              name: publisher_name,
+              description: publisher_description,
+              image_url: publisher_image,
+              web_url: publisher_website,
+              location: publisher_location,
+              lat: publisher_lat,
+              lng: publisher_lng
+          }
+
+          publisher = Publisher.new(obj_data)
+          publisher.save!
+
+          puts "Name: #{publisher_name}"
+          puts "Description: #{publisher_description}"
+          puts "Image: #{publisher_image}"
+          puts "Website: #{publisher_website}"
+          puts "Location: #{publisher_location}"
+          puts "lat: #{publisher_lat}"
+          puts "lng: #{publisher_lng}"
+
+      end
+      # PUBLISHERS END
 
 
-        event_articles_file.each_with_index do |article, article_idx|
+      puts ""
+      puts "            Publishers done"
+      puts ""
+      puts "-------------------------------------------"
+      puts "-------------------------------------------"
 
-            # ARTICLE DETAILS
-            article_title = article["title"]
-            article_text = article["body"]
-            article_description = event_description
-            article_image = ARTICLE_IMAGES[topic_key]
-            article_url = article["url"]
-            article_date_time = article["dateTime"]
-            article_type = article["dataType"]
-            article_lang = article["lang"]
 
-            # LOCATION
-            article_location = event_location
-            article_lat = event_lat
-            article_lng = event_lng
+      puts "--------------- [ A.4 ] --------------------"
+      puts ""
+      puts "           Seeding AUTHORS"
+      puts ""
+      puts "-------------------------------------------"
 
-            # AUTHOR PUBLISHER
-            # article_publisher = article["title"]
-            # article_author = article["title"]
+      event_articles_file.each do |article_author|
 
-            obj_data = {
-                title: article_title,
-                description: article_description,
-                body_text: article_text,
-                image_url: article_image,
-                source_url: article_url,
-                date_time_published: article_date_time,
-                publishing_type: article_type,
-                language: article_lang,
-                published: true,
+        article_author["authors"].each do |author|
 
-                event_id: event,
-                location: article_location,
-                lat: article_lat,
-                lng: article_lng,
+          # SCRAPE
+          # author_first_name = author["name"].split[0]
+          # author_last_name = author["name"].split[1]
 
-                # count_views: (200..5000).to_a.sample,
-                # average_user_score: (-5..5).to_a.sample,
+          # RANDOM
+          author_first_name = FIRST_NAMES[rand(0..12)]
+          author_last_name = LAST_NAMES[rand(0..12)]
 
-                # author_id: Author.all.sample.id,
-                # publisher_id: Publisher.all.sample.id
-            }
+          author_twitter = "@#{author_first_name}#{author_last_name}"
+          author_location_array = EVENT_LOCATIONS[topic.name.to_sym]
+          author_location = author_location_array[rand(0..2)]
 
-            # publisher = Article.new(obj_data)
-            # publisher.save!
+          author_lat = LAT.sample
+          author_lng = LONG.sample
 
-            puts "-------------------------------------------"
-            puts ""
-            puts "---##{topic_idx + 1}.#{event_idx + 1}.#{article_idx + 1} ------"
-            puts ""
-            puts "Article Number: #{article_idx + 1}"
-            puts ""
-            puts "Topic: #{topic.name}"
-            puts "Event:#{event.name}"
-            puts ""
-            puts "Article Title: #{article_title}"
-            puts "Article Description: #{article_description}"
-            puts "Article Image: #{article_image}"
-            puts "Article Url: #{article_url}"
-            puts "Article Date: #{article_date_time}"
-            puts "Article Type: #{article_type}"
-            puts "Article Lang: #{article_lang}"
-            puts ""
+          obj_data = {
+              first_name: author_first_name,
+              last_name: author_last_name,
+              twitter_handle: author_twitter,
+              location: author_location,
+              lat: author_lat,
+              lng: author_lng
+          }
+
+          author = Author.new(obj_data)
+          author.save!
+
+          puts "author first name: #{author_first_name}"
+          puts "author last name: #{author_last_name}"
+          puts "author twitter: #{author_twitter}"
+          puts "author location: #{author_location}"
+          puts "author lat: #{author_lat}"
+          puts "author lng: #{author_lng}"
+
+
         end
+      end
 
 
 
-        puts ""
-        puts "             ARTICLES Seeded"
-        puts ""
-        puts "-------------------------------------------"
-        puts "-------------------------------------------"
+        # puts "--------------- [ A.4 ] -------------------"
+        # puts ""
+        # puts "       Seeding ARTICLES of the EVENT"
+        # puts ""
+        # puts "-------------------------------------------"
 
 
-  end # EVENT_NAMES END
+        # event_articles_file.each_with_index do |article, article_idx|
 
-end # TOPIC_NAMES END
+        #     # ARTICLE DETAILS
+        #     article_title = article["title"]
+        #     article_text = article["body"]
+        #     article_description = event_description
+        #     article_image = ARTICLE_IMAGES[topic_key]
+        #     article_url = article["url"]
+        #     article_date_time = article["dateTime"]
+        #     article_type = article["dataType"]
+        #     article_lang = article["lang"]
 
+        #     # LOCATION
+        #     article_location = event_location
+        #     article_lat = event_lat
+        #     article_lng = event_lng
 
-  # puts "------------------ [ D ] --------------------"
-  # puts ""
-  # puts "           Seeding PUBLISHERS"
-  # puts ""
-  # puts "-------------------------------------------"
+        #     # AUTHOR PUBLISHER
+        #     # article_publisher = article["title"]
+        #     # article_author = article["title"]
 
-  # event_articles_file.each do |article|
+        #     obj_data = {
+        #         title: article_title,
+        #         description: article_description,
+        #         body_text: article_text,
+        #         image_url: article_image,
+        #         source_url: article_url,
+        #         date_time_published: article_date_time,
+        #         publishing_type: article_type,
+        #         language: article_lang,
+        #         published: true,
 
-  #     src = article["source"]
+        #         event_id: event,
+        #         location: article_location,
+        #         lat: article_lat,
+        #         lng: article_lng,
 
-  #       publisher_name = src["title"]
-  #       publisher_description = src["description"]
+        #         # count_views: (200..5000).to_a.sample,
+        #         # average_user_score: (-5..5).to_a.sample,
 
-  #       # publisher_image = 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
-  #       # publisher_website = src["uri"]
+        #         # author_id: Author.all.sample.id,
+        #         # publisher_id: Publisher.all.sample.id
 
-  #       # publisher_location = EVENT_LOCATIONS[topic.name.to_sym]
-  #       # publisher_lat = LAT.sample.to_i
-  #       # publisher_lng = LONG.sample.to_i
+        #     }
 
-  #     obj_data = {
-  #         name: publisher_name,
-  #         description: publisher_description,
-  #         # image_url: publisher_image,
-  #         # web_url: publisher_website,
-  #         # location: publisher_location,
-  #         # lat: publisher_lat,
-  #         # lng: publisher_lng
-  #     }
+        #     # publisher = Article.new(obj_data)
+        #     # publisher.save!
 
-  #     publisher = Publisher.new(obj_data)
-  #     publisher.save!
-
-  #     puts "Name: #{publisher_name}"
-  #     # puts "Description: #{publisher_description}"
-  #     # puts "Image: #{publisher_image}"
-  #     # puts "Website: #{publisher_website}"
-  #     # puts "Location: #{publisher_location}"
-  #     # puts "lat: #{publisher_lat"}"
-  #     # puts "lng: #{publisher_lng}"
-
-  # end
-
-  # puts ""
-  # puts "            Publishers done"
-  # puts ""
-  # puts "-------------------------------------------"
-  # puts "-------------------------------------------"
-
-
-
-  # puts "------------------ [ E ] --------------------"
-  # puts ""
-  # puts "           Seeding AUTHORS"
-  # puts ""
-  # puts "-------------------------------------------"
-
-#   event_articles_file.each do |article|
-
-#     ## Iterating over "authors" because is an array
-
-#     article["authors"].each do |author|
-
-#       obj_data = {
-#           first_name: author["name"].split[0],
-#           last_name: author["name"].split[1],
-#           twitter_handle: "@RogerPubill",
-#           location: EVENTS_LOCATIONS[topic.name.to_sym],
-#           lat: LAT.sample,
-#           lng: LONG.sample
-#       }
-
-#       author = Author.new(obj_data)
-#       author.save!
-
-#       puts "author created: #{obj_data[:first_name]}"
-
-#     end
-#   end
-
-
-# puts "-------------------------------------------"
-# puts ""
-# puts "         Seeding FOLLOWED ITEMS"
-# puts ""
-# puts "-------------------------------------------"
-
-
-#   10.times do
-
-#     type = %w[Topic Event].sample
-#     id = type == 'Topic' ? rand(1..1) : rand(1..3)
-
-#       obj_data = {
-#         follower_type: type,
-#         follower_id: id,
-#         user_id: User.all.sample.id
-#       }
-#       # binding.pry
-#       following = FollowingItem.new(obj_data)
-#       following.save!
-
-#       puts "Following Item created: #{obj_data[:follower_type]}"
-#   end
+        #     puts "-------------------------------------------"
+        #     puts ""
+        #     puts "---##{topic_idx + 1}.#{event_idx + 1}.#{article_idx + 1} ------"
+        #     puts ""
+        #     puts "Article Number: #{article_idx + 1}"
+        #     puts ""
+        #     puts "Topic: #{topic.name}"
+        #     puts "Event:#{event.name}"
+        #     puts ""
+        #     puts "Article Title: #{article_title}"
+        #     puts "Article Description: #{article_description}"
+        #     puts "Article Image: #{article_image}"
+        #     puts "Article Url: #{article_url}"
+        #     puts "Article Date: #{article_date_time}"
+        #     puts "Article Type: #{article_type}"
+        #     puts "Article Lang: #{article_lang}"
+        #     puts ""
+        # end # ARTICLES END
 
 
 
-#   puts ""
-#   puts "         FOLLOWED ITEMS Seeded"
-#   puts ""
-#   puts "-------------------------------------------"
-#   puts "-------------------------------------------"
+        # puts ""
+        # puts "       ARTICLES Seeded of that EVENT "
+        # puts ""
+        # puts "-------------------------------------------"
+        # puts "-------------------------------------------"
 
 
 
-# puts "-------------------------------------------"
-# puts ""
-# puts "           Seeding USER SCORES"
-# puts ""
-# puts "-------------------------------------------"
-
-#   20.times do
-
-#       obj_data = {
-#         score: rand(-5..5),
-#         article_id: Article.all.sample.id,
-#         user_id: User.all.sample.id
-#       }
-
-#       score = UserScore.new(obj_data)
-#       score.save!
-
-#       puts "Score Item created: #{obj_data[:score]}"
-#   end
-
-#   puts ""
-#   puts "         USER SCORE ITEMS Seeded"
-#   puts ""
-#   puts "-------------------------------------------"
-#   puts "-------------------------------------------"
-
-
-# puts "-------------------------------------------"
-# puts ""
-# puts "         Seeding SAVED ARTICLES"
-# puts ""
-# puts "-------------------------------------------"
-
-
-#   60.times do
-
-#       obj_data = {
-#         article_id: Article.all.sample.id,
-#         user_id: User.all.sample.id
-#       }
-
-#       saveArticle = SaveArticle.new(obj_data)
-#       saveArticle.save!
-
-#       puts "SaveArticle created"
-#   end
-
-#   puts ""
-#   puts "         ASVED ARTICLES Seeded"
-#   puts ""
-#   puts "-------------------------------------------"
-#   puts "-------------------------------------------"
 
 
 
-# puts "-------------------------------------------"
-# puts ""
-# puts "               BOOM SEEDED"
-# puts ""
-# puts "-------------------------------------------"
 
-# end
+          # puts "--------------- [ B.1 ] ---------------------"
+          # puts ""
+          # puts "        Starting to seed USERS"
+          # puts ""
+          # puts "-------------------------------------------"
+
+          # FIRST_NAMES.each_with_index do |name, user_idx|
+
+          #     obj_data = {
+          #         first_name: name,
+          #         last_name: LAST_NAMES[user_idx],
+          #         email: "#{name}@#{name}.com",
+          #         password: 123456,
+          #         photo: nil
+          #     }
+
+          #     user = User.new(obj_data)
+          #     user.save!
+
+          #     puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
+          #     puts "email: #{user.email}"
+          #     puts ""
+          # end
+
+          # def john
+          #     obj_data = {
+          #         first_name: "John",
+          #         last_name: "Ferreira",
+          #         email: "john@gmail.com",
+          #         password: "password",
+          #         photo: "https://scontent.fjog1-1.fna.fbcdn.net/v/t1.0-9/s851x315/13939328_10153672228506587_8994048246363071984_n.jpg?_nc_cat=104&_nc_ht=scontent.fjog1-1.fna&oh=627f02b87d09389c5393dfe075cd3914&oe=5C6CAEF0"
+          #     }
+          #     user = User.new(obj_data)
+          #     user.save!
+          #     puts "User #{user.first_name} created"
+          # end
+          # john
+
+
+          # def roger
+          #   obj_data = {
+          #       first_name: "Rodger",
+          #       last_name: "Garcia",
+          #       email: "roger@gmail.com",
+          #       password: "password",
+          #       photo: "https://avatars0.githubusercontent.com/u/23165579?v=4"
+          #   }
+          #   user = User.new(obj_data)
+          #   user.save!
+          #   puts "User #{user.first_name} created"
+          # end
+          # roger
+
+
+          # puts ""
+          # puts "              USERS DONE"
+          # puts ""
+          # puts "-------------------------------------------"
+
+
+
+
+
+
+
+
+    # puts "--------------- [ B.2 ] ---------------------"
+    # puts ""
+    # puts "         Seeding FOLLOWED ITEMS"
+    # puts ""
+    # puts "-------------------------------------------"
+
+
+    #   10.times do
+
+    #     type = %w[Topic Event].sample
+    #     id = type == 'Topic' ? rand(1..1) : rand(1..3)
+
+    #       obj_data = {
+    #         follower_type: type,
+    #         follower_id: id,
+    #         user_id: User.all.sample.id
+    #       }
+    #       # binding.pry
+    #       following = FollowingItem.new(obj_data)
+    #       following.save!
+
+    #       puts "Following Item created: #{obj_data[:follower_type]}"
+    #   end
+
+
+
+    #   puts ""
+    #   puts "         FOLLOWED ITEMS Seeded"
+    #   puts ""
+    #   puts "-------------------------------------------"
+    #   puts "-------------------------------------------"
+
+
+
+    # puts "--------------- [ B.3 ] ---------------------"
+    # puts ""
+    # puts "           Seeding USER SCORES"
+    # puts ""
+    # puts "-------------------------------------------"
+
+    #   20.times do
+
+    #       obj_data = {
+    #         score: rand(-5..5),
+    #         article_id: Article.all.sample.id,
+    #         user_id: User.all.sample.id
+    #       }
+
+    #       score = UserScore.new(obj_data)
+    #       score.save!
+
+    #       puts "Score Item created: #{obj_data[:score]}"
+    #   end
+
+    #   puts ""
+    #   puts "         USER SCORE ITEMS Seeded"
+    #   puts ""
+    #   puts "-------------------------------------------"
+    #   puts "-------------------------------------------"
+
+
+    # puts "--------------- [ B.4 ] ---------------------"
+    # puts ""
+    # puts "         Seeding SAVED ARTICLES"
+    # puts ""
+    # puts "-------------------------------------------"
+
+
+    #   60.times do
+
+    #       obj_data = {
+    #         article_id: Article.all.sample.id,
+    #         user_id: User.all.sample.id
+    #       }
+
+    #       saveArticle = SaveArticle.new(obj_data)
+    #       saveArticle.save!
+
+    #       puts "SaveArticle created"
+    #   end
+
+    #   puts ""
+    #   puts "         ASVED ARTICLES Seeded"
+    #   puts ""
+    #   puts "-------------------------------------------"
+    #   puts "-------------------------------------------"
+
+
+
+puts "-------------------------------------------"
+puts ""
+puts "               BOOM SEEDED"
+puts ""
+puts "-------------------------------------------"
+
+# end # TOPIC_NAMES END

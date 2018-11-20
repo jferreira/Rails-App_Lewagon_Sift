@@ -1,8 +1,8 @@
 // TOPIC #5
 // TOPIC: World War II
 
-// EVENT #2
-// EVENT: Battle of the Bulge - 16 Dec 1944
+// EVENT #1
+// EVENT: War is Declared - 1 Sep 1939
 
 {
   "articles": {
@@ -16,8 +16,8 @@
       "dataType": "news",
       "sim": 0.7843137383460999,
       "url": "https:\/\/www..com",
-      "title": "Battle of the Bulge - 16 Dec 1944",
-      "body": "Ferce warfare at the Battle of the Bulge",
+      "title": "War is Declared - 1 Sep 1939",
+      "body": "war has been declared with germany",
       "source": {
         "uri": "euronews.com",
         "dataType": "news",
