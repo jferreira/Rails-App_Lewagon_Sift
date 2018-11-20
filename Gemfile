@@ -15,11 +15,9 @@ gem 'devise'
 gem 'readingtime'
 gem 'pg_search'
 
-<<<<<<< HEAD
+#### pagination ####
 gem 'kaminari'
-=======
 gem 'faker'
->>>>>>> 41c4b98ea9fde98832411babfd6f1ebee9f013bf
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
