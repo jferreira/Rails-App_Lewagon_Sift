@@ -17,6 +17,8 @@ function suggestAnArticle() {
     });
   }
 
+
+
 }
 
 export { suggestAnArticle };

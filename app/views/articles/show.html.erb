@@ -40,23 +40,24 @@
             <!-- ---- HEADER TITLES CARD ----- -->
 
               <!-- LOCATION TAG -->
-              <p><span class="blocked-tag">&nbsp <%= @article.location %>  &nbsp</span></p>
+              <p><span class="blocked-tag article-location">&nbsp <%= @article.location %>  &nbsp</span></p>
               <!-- TIME TAG -->
-              <p><span class="blocked-tag">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
+              <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
               <p></p>
               <!-- TOPIC HEADER -->
               <h2><span
                 class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
-                class="blocked">&nbsp <%= @article.event.topic.name %> &nbsp
+                class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp
               </span></h2>
               <!-- EVENT HEADER -->
               <h2><span
-                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span><span
-                class="blocked">&nbsp <%= @article.event.name %> &nbsp
+                class="blocked">&nbsp <%= link_to "#", article_path(@next_article) %> &nbsp</span>
+                <span
+               class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp
               </span></h2>
               <p></p>
               <p></p>
-              <p>Description: <%= @article.event.description %></p>
+              <p class="event-description">Description: <%= @article.event.description %></p>
 
               <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>
               <%= link_to "Next", article_path(@next_article), class: "btn btn-default" %>
@@ -93,26 +94,40 @@
 
       <div class="user-scores-container">
 
-          <%= form_for([@article, @user_score]) do |f| %>
-            <%= f.hidden_field :score, :value => 1 %>
-            <%= button_tag type: 'submit' do %>
-                    <i class="fas fa-chevron-up"></i>
+        <% if current_user.can_user_vote(@article.id) %>
+            <%= form_for([@article, @user_score]) do |f| %>
+              <%= f.hidden_field :score, :value => 1 %>
+              <%= button_tag type: 'submit' do %>
+                      <i class="fas fa-chevron-up"></i>
+              <% end %>
             <% end %>
-          <% end %>
+        <% else %>
+              <%= button_tag type: 'submit', disabled: true do %>
+                      <i class="fas fa-chevron-up"></i>
+              <% end %>
+        <% end %>
+
+            <% if @raw_scores.present?  %>
+
+                      <p class="avg-score"><%= @average_score %></p>
 
 
-          <% if @raw_scores.present?  %>
-              <p class="avg-score"><%= @raw_scores %></p>
-            <% else %>
-              <p class="avg-score">0</p>
-          <% end %>
-
-          <%= form_for([@article, @user_score]) do |f| %>
-            <%= f.hidden_field :score, :value => -1 %>
-            <%= button_tag type: 'submit' do %>
-                    <i class="fas fa-chevron-down"></i>
+              <% else %>
+                <p class="avg-score">0</p>
             <% end %>
-          <% end %>
+
+        <% if current_user.can_user_vote(@article.id) %>
+            <%= form_for([@article, @user_score]) do |f| %>
+              <%= f.hidden_field :score, :value => -1 %>
+              <%= button_tag type: 'submit' do %>
+                  <i class="fas fa-chevron-down"></i>
+              <% end %>
+            <% end %>
+        <% else %>
+              <%= button_tag type: 'submit', disabled: true do %>
+                  <i class="fas fa-chevron-down"></i>
+              <% end %>
+        <% end %>
 
     </div>
 

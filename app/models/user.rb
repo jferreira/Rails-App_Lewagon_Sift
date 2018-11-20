@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :save_articles, dependent: :destroy
   has_many :user_scores, dependent: :destroy
 
+  def can_user_vote(article_id)
+    result = self.user_scores.find_by(article_id: article_id)
+    result.nil? ? true : result.times_voted <= 4
+  end
+
 end

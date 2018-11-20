@@ -8,7 +8,8 @@ class ArticlesController < ApplicationController
   def show
     # ARTICLE PASSED
     @article = Article.find(params[:id])
-    @raw_scores = @article.average_score
+    @raw_scores = @article.user_scores.pluck(:score)
+    @average_score = @raw_scores.sum / @raw_scores.size.to_f
 
     @user_score = UserScore.new
     # FIND EVENT INSTANCE
@@ -17,6 +18,7 @@ class ArticlesController < ApplicationController
     # DEFINE NEXT ARTICLE
     @next_article = Article.adjacent(events_articles, @article.id, :+)
     @prev_article = Article.adjacent(events_articles, @article.id, :-)
+
 
     # __
     # ALL ARTICLES WITH THE CURRENT EVENT

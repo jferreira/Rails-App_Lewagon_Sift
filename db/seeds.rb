@@ -4,7 +4,9 @@ require 'json'
 require 'date'
 require 'pry'
 
+
 # RANDOM LAT LONG ALL -----------------------------------------------------------
+
 
 LAT = %w[-8.6594824 -8.678640 -8.649100 -8.697390]
 LONG = %w[115.1301361 115.262720 115.137890 115.161940]
@@ -27,11 +29,13 @@ TOPIC_NAMES = [
 ]
 
 TOPIC_IMAGES = {
+
   "Syrian Civil War": "http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/145931894.jpg",
   "Catalan Independence":"https://upload.wikimedia.org/wikipedia/commons/b/b8/Carregues-Referendum-Barcelona-Escola-Ramon_EDIIMA20171002_0741_30.jpg",
   "Woodburn Forest Oil Drill": "https://i.ytimg.com/vi/IIXyTevovgQ/maxresdefault.jpg",
   "Brexit":"https://gdb.voanews.com/9273396B-129E-4820-B0AE-DA98443CA531_cx0_cy10_cw0_w1023_r1_s.jpg",
   "World War II": "https://nationalinterest.org/sites/default/files/styles/desktop__1486_x_614/public/main_images/image-2018-08-03%20%282%29.jpg?itok=A5yxqLOJ"
+
 }
 
 # EVENT RELATED -----------------------------------------------------------
@@ -482,6 +486,14 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
 
 
 
+      obj_data = {
+        score: rand(-5..5),
+        times_voted: 1,
+        article_id: Article.all.sample.id,
+        user_id: User.all.sample.id
+      }
+
+
         puts "--------------- [ A.4 ] -------------------"
         puts ""
         puts "       Seeding ARTICLES of the EVENT"
@@ -733,5 +745,6 @@ puts ""
 puts "               BOOM SEEDED"
 puts ""
 puts "-------------------------------------------"
+
 
 # end # TOPIC_NAMES END

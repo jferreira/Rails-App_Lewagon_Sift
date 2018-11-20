@@ -6,50 +6,50 @@ function userSuggestsUrl() {
 
   const swalButton = document.getElementById('user-suggests-url');
 
+  let h2 = document.querySelector('h2 > span');
+
+  let location = document.querySelector('.article-location').innerText;
+  let time = document.querySelector('.article-time').innerText;
+  let topic_title = document.querySelector('.topic-title').innerText;
+  let event_title = document.querySelector('.event-title').innerText;
+  let event_description = document.querySelector('.event-description').innerText;
+
+  console.log(event_description);
+
+
   if (swalButton) {
     swalButton.addEventListener('click', () => {
 
-    // ASK FOR URL
-    const {value: url} = await swal({
-      input: 'url',
-      inputPlaceholder: 'Enter the URL'
+      let html_block = '<h4>Suggest an article about</h4>' +
+        `<input id="swal-input1" class="swal2-input" placeholder="${topic_title}">` +
+        `<input id="swal-input1" class="swal2-input" placeholder="${event_description}">` +
+        `<input id="swal-input1" class="swal2-input" placeholder="${event_title}">` +
+        `<input id="swal-input1" class="swal2-input" placeholder="${location}">` +
+        `<input id="swal-input1" class="swal2-input" placeholder="${time}">`;
+
+        const {value: formValues} = swal({
+          title: '<h2>Suggest and article</h2>',
+          width: 1000,
+          showCloseButton: true,
+          html: html_block,
+          focusConfirm: false,
+          preConfirm: () => {
+            return [
+              document.getElementById('swal-input1').value,
+              document.getElementById('swal-input2').value
+            ]
+          }
+        })
+
+        if (formValues) {
+          swal(json.stringify(formValues))
+        }
+
     })
 
-    if (url) {
-      swal('Entered URL: ' + url)
-    }
-
-    // 3 STEP PROCESS
-    //     swal.mixin({
-    //       input: 'text',
-    //       confirmButtonText: 'Next &rarr;',
-    //       showCancelButton: true,
-    //       progressSteps: ['1', '2', '3']
-    //     }).queue([
-    //       {
-    //         title: 'Suggest an article',
-    //         text: 'Suggest an article about'
-    //       },
-    //       'Question 3'
-    //     ]).then((result) => {
-    //       if (result.value) {
-    //         swal({
-    //           title: 'Sent!',
-    //           html:
-    //             'Your answers: <pre><code>' +
-    //               JSON.stringify(result.value) +
-    //             '</code></pre>',
-    //           confirmButtonText: 'Suggestion Sent! Thanks'
-    //         })
-    //       }
-    //     })
-
-    // });
 
 
   }
 }
 
 export { userSuggestsUrl };
-
-
