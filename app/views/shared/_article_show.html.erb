@@ -1,34 +1,31 @@
-  <li class="flex-item flex-main">
-    <p> Article Title: </p>
+<!--     <p><strong> Article Title: </strong></p> -->
     <h1> <%= article.title %></h1>
-
-    <p> Publishing Time</p>
+    <br>
+    <p><strong>Publishing Time</strong></p>
     <p> <%= article.date_time_published %></p>
 
-    <p> Description:</p>
+    <p><strong>Description:</strong></p>
     <p><%= article.description %> </p>
 
-    <p> Article Text:</p>
+    <p><strong>Article Text:</strong></p>
     <p><%= article.body_text %> </p>
 
-    <p> Publisher: </p>
+    <p><strong>Publisher:</strong></p>
     <p><%= article.publisher.name %> </p>
 
-    <p> Author: </p>
+    <p><strong>Author:</strong></p>
     <p><%= article.author.first_name %> </p>
 
-    <p> Article Image:</p>
+    <p><strong>Article Image:</strong></p>
     <p><%= article.image_url %>
 
-    <p> Article Location:</p>
+    <p><strong>Article Location:</strong></p>
     <p> <%= article.location %> </p>
     <p> <%= article.lat %> </p>
     <p> <%= article.lng %> </p>
 
-    <p> Article Average Score:</p>
+    <p><strong>Article Average Score:</strong></p>
     <p> <%= article.average_user_score %> </p>
 
-    <p> Article Views:</p>
+    <p><strong>Article Views:</strong></p>
     <p> <%= article.count_views %> </p>
-
-  </li>

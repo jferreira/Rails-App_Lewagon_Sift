@@ -1,231 +1,269 @@
-<!-- PAGE HEADER ------------------------------- -->
-
+<!-- [ PAGE HEADER ]-------------------------------- START -------------- -->
 <div class="header">
 
     <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @article.image_url %>);">
 
         <div class="row">
 
-          <!-- LEFT COL -->
-          <div class="col-xs-3">
 
-            <!-- 1 -->
-              <div class="top-box">
-              </div>
+          <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
+          <!-- [ ACTION BAR ] -->
+          <div class="col-xs-2">
 
-            <!-- 2 -->
-              <div class="middle-box">
+            <div class="top-box">
+            </div>
 
-                <h2 class="text-right">
+            <div class="middle-box">
+              <p class="text-right">
+                <button id="user-suggests-url" class="blocked">
+                &nbsp + &nbsp
+                </button>
+              </p>
+            </div>
 
-                  <button>
-                    <span id="user-suggests-url" class="blocked">
-                      &nbsp - &nbsp
-                    </span>
-                  </button>
-
-                </h2>
-              </div>
-
-            <!-- 3 -->
             <div class="bottom-box">
             </div>
 
-          </div>
-          <!-- LEFT COL END -->
+            </div>
+          <!-- [ HEADER ][ COL-1 - LEFT ] ------------- END ---------------- -->
 
-          <!-- MAIN COL -->
-          <div class="col-xs-9">
+
+          <!-- [ HEADER ][ COL-2 - MIDDLE ] -------------------------------- -->
+          <!-- [ TITLE ] -->
+
+          <div class="col-xs-10">
 
             <!-- ---- HEADER TITLES CARD ----- -->
 
               <!-- LOCATION TAG -->
-              <p><span class="blocked-tag article-location">&nbsp <%= @article.location %>  &nbsp</span></p>
+              <p><span class="blocked-tag article-location">
+                &nbsp <%= @article.location %>  &nbsp</span></p>
               <!-- TIME TAG -->
               <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
               <p></p>
 
-
-
               <!-- TOPIC HEADER -->
               <h2>
+                <span class="blocked add-topic-title">
+                    <%= render 'following_items/form',
+                      # article: @article,
+                      following_item: @following_item,
+                      follower_type: 'Topic',
+                      follower_id: @topic.id
+                    %>
+                </span>
 
-              <span class="blocked add-topic-title">
-                  <%= render 'following_items/form',
-                    # article: @article,
-                    following_item: @following_item,
-                    follower_type: 'Topic',
-                    follower_id: @topic.id
-                  %>
-              </span>
-
-              <span class="blocked topic-title">&nbsp <%= @article.event.topic.name %> &nbsp </span>
-              <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
-
+                <span class="blocked topic-title">
+                  &nbsp <%= @article.event.topic.name %> &nbsp
+                </span>
+                <span class="list-notification-topic">
+                  <i class="fas fa-check">
+                  </i>  Item Added</span>
               </h2>
 
               <!-- EVENT HEADER -->
-
               <h2>
+                <span class="blocked add-event-title">
+                    <%= render 'following_items/form',
+                      # article: @article,
+                      following_item: @following_item,
+                      follower_type: 'Event',
+                      follower_id: @event.id
+                    %>
+                </span>
+                <span class="blocked event-title">
+                  &nbsp <%= @article.event.name %> &nbsp
+                </span>
 
-              <span class="blocked add-event-title">
-                  <%= render 'following_items/form',
-                    # article: @article,
-                    following_item: @following_item,
-                    follower_type: 'Event',
-                    follower_id: @event.id
-                  %>
-              </span>
-
-              <span class="blocked event-title">&nbsp <%= @article.event.name %> &nbsp </span>
-              <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
+                <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
 
               </h2>
 
-
               <p class="event-description">Description: <%= @article.event.description %></p>
 
-              <%= link_to "Previous", article_path(@prev_article), class: "btn btn-default" %>
-              <%= link_to "Next", article_path(@next_article), class: "btn btn-default" %>
+<!--               <#%= if @article.event.articles = 1 %>
+              <#% else %> -->
+
+                <span><%= link_to "[ Previous ]", article_path(@prev_in_event), class: "btn btn-default" %></span>
+                <span><%= link_to "[ Next ]", article_path(@next_in_event), class: "btn btn-default" %></span>
+              <!-- <#% end %> -->
 
             <!-- ---- HEADER CARD END ----- -->
-
           </div>
-          <!-- col two end -->
+          <!-- [ HEADER ][ COL-2 - MIDDLE ] ------------- END ------------- -->
 
+          <!-- [ HEADER ][ COL-3 - RIGHT ] -------------------------------- -->
+          <!-- [ -- ] -->
           <div class="col-0">
           </div>
-          <!-- col three end -->
+          <!-- [ HEADER ][ COL-3 - RIGHT ] ------------- END -------------- -->
 
         </div>
         <!-- row end -->
-
   </div>
   <!-- banner-half end -->
-
 </div>
 <!-- header end -->
-<!-- PAGE HEADER END------------------------------- -->
+
+<!-- [ PAGE HEADER ]-------------------------------- END -------------- -->
 
 
 
-<ul class="flex-container">
 
-  <!-- SIDEBAR 1 - EMPTY ------------------------------- -->
+<!-- [ PAGE BODY ]-------------------------------- START -------------- -->
 
+<div class="container">
+<div class="row">
 
-  <li class="flex-item flex-sidebar-left">
+  <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
+  <!-- [ ARTICLE ACTION BAR ] -->
+  <div class="col-xs-3">
+
+  <div style= "width: 24px">
+      <span style="width: 24px">
+         <p class="btn btn-default">[&nbsp save &nbsp]</p>
+      </span>
+  </div>
 
     <!-- USER SCORES ------------------------------------------ -->
+  <br>
+  <div class="text-center" style= "width: 24px">
+      <span>
+       <p class="btn btn-default">
+          &nbsp&nbsp&nbsp&nbsp
+            <i class="fas fa-angle-up"></i>
+          &nbsp&nbsp&nbsp&nbsp
+        </p>
+      </span>
+      <span>
+         <p class="btn btn-default">
+          &nbsp&nbsp&nbsp&nbsp
+            0
+          &nbsp&nbsp&nbsp&nbsp
+        </p>
+      </span>
+      <span>
+       <p class="btn btn-default">
+          &nbsp&nbsp&nbsp&nbsp
+            <i class="fas fa-angle-down"></i>
+          &nbsp&nbsp&nbsp&nbsp
+        </p>
+      </span>
+  </div>
 
-      <div class="user-scores-container">
-
-        <% if current_user.can_user_vote(@article.id) %>
-            <%= form_for([@article, @user_score]) do |f| %>
-              <%= f.hidden_field :score, :value => 1 %>
-              <%= button_tag type: 'submit' do %>
+<!--         <#% if current_user.can_user_vote(@article.id) %>
+            <#%= form_for([@article, @user_score]) do |f| %>
+              <#%= f.hidden_field :score, :value => 1 %>
+              <#%= button_tag type: 'submit' do %>
                       <i class="fas fa-chevron-up"></i>
-              <% end %>
-            <% end %>
-        <% else %>
-              <%= button_tag type: 'submit', disabled: true do %>
+              <#% end %>
+            <#% end %>
+        <#% else %>
+              <#%= button_tag type: 'submit', disabled: true do %>
                       <i class="fas fa-chevron-up"></i>
-              <% end %>
-        <% end %>
+              <#% end %>
+        <#% end %>
 
-            <% if @raw_scores.present?  %>
+            <#% if @raw_scores.present?  %>
 
                       <p class="avg-score"><%= @average_score %></p>
 
-
-              <% else %>
+              <#% else %>
                 <p class="avg-score">0</p>
-            <% end %>
+            <#% end %>
 
-        <% if current_user.can_user_vote(@article.id) %>
-            <%= form_for([@article, @user_score]) do |f| %>
-              <%= f.hidden_field :score, :value => -1 %>
-              <%= button_tag type: 'submit' do %>
+        <#% if current_user.can_user_vote(@article.id) %>
+            <#%= form_for([@article, @user_score]) do |f| %>
+              <#%= f.hidden_field :score, :value => -1 %>
+              <#%= button_tag type: 'submit' do %>
                   <i class="fas fa-chevron-down"></i>
-              <% end %>
-            <% end %>
-        <% else %>
-              <%= button_tag type: 'submit', disabled: true do %>
+              <#% end %>
+            <#% end %>
+        <#% else %>
+              <#%= button_tag type: 'submit', disabled: true do %>
                   <i class="fas fa-chevron-down"></i>
-              <% end %>
-        <% end %>
+              <#% end %>
+        <#% end %> -->
 
-    </div>
+  </div>
 
-  </li>
+  <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] -------------------------------- -->
+  <!-- [ ARTICLE ] -->
+  <div class="col-xs-6">
+    <%= render 'shared/article_show',
+      article: @article
+    %>
+  </div>
 
-  <!-- ARTICLE ------------------------------------------ -->
+  <!-- [ MAIN BODY ][ COL-3 - RIGHT ] -------------------------------- -->
+  <!-- [ RELATED ARTICLES ] -->
+  <div class="col-xs-3">
 
-  <%= render 'shared/article_show',
-    article: @article
-  %>
-
-
-  <!-- SIDEBAR 2 - RELATED ARTICLES ------------------------------- -->
-
-  <li class="flex-item flex-sidebar-right">
-
-    <h3>Related Articles by event</h3>
-<!--     <p>Location: Distance</p>
-    <p>Popularity: Average Userscore</p>
-    <p>Views: user:Views</p> -->
-
+    <br>
+    <h3>Related Articles:</h3>
+    <br>
+    <p><strong>Topic:</strong></p>
     <p><%= @article.event.topic.name %></p>
+    <p><strong>Event:</strong></p>
     <p><%= @article.event.name %></p>
 
     <% @related_articles.each_with_index do | article, i| %>
 
-<!-- ---- ARTICLE CARD ----- -->
+    <!-- ---- [ ARTICLE CARD ]----- -->
 
-    <div class="s-card-article">
-      <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= article.image_url %>);"><h3>#<%= (i + 1) %></h3>
-      </div>
+        <div class="s-card-article">
+          <div class="s-image-article"
+          style="background-image:
+            linear-gradient(-225deg,
+            rgba(161,90,187,0.6) 0%,
+            rgba(45,23,54,0.8) 50%),
+          url(<%= article.image_url %>);">
+            <h3>
+              #<%= (i + 1) %>
+            </h3>
+          </div>
 
-      <div class="s-card-publisher">
-        <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-        <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
-      </div>
-      <div class="s-card-body s-card-text" >
-        <h3><%= article.title %></h3>
-        <br>
-        <p><%= article.description%></p>
-        <p><%= article.date_time_published%></p>
-        <p><% time_read = article.body_text.reading_time :format => :approx %></p>
+          <div class="s-card-publisher">
+            <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+            <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+          </div>
 
+          <div class="s-card-body s-card-text" >
+            <h3><%= article.title %></h3>
+            <br>
+            <p><%= article.description%></p>
+            <p><%= article.date_time_published%></p>
+            <p><% time_read = article.body_text.reading_time :format => :approx %></p>
 
-      <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+          <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
 
-        <% day_num = article.date_time_published.mday %>
-            <% case day_num
-               when 1 %><% date_sufix = 'st' %>
-            <% when 2 %><% date_sufix = 'nd' %>
-            <% when 3 %><% date_sufix = 'rd' %>
-            <% else %><% date_sufix = 'th' %>
-            <% end %>
-        <p><%= article.date_time_published.mday %><%= date_sufix %></p>
-        <p><%= article.date_time_published.strftime("%H") %>.00</p>
-        <% time_read = article.body_text.reading_time :format => :approx %>
-          <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-        <br>
-      <p><%= link_to "See Article", article_path(article) %></p>
+            <% day_num = article.date_time_published.mday %>
+                <% case day_num
+                   when 1 %><% date_sufix = 'st' %>
+                <% when 2 %><% date_sufix = 'nd' %>
+                <% when 3 %><% date_sufix = 'rd' %>
+                <% else %><% date_sufix = 'th' %>
+                <% end %>
+            <p><%= article.date_time_published.mday %><%= date_sufix %></p>
+            <p><%= article.date_time_published.strftime("%H") %>.00</p>
+            <% time_read = article.body_text.reading_time :format => :approx %>
+              <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+          <br>
+          <p><%= link_to "See Article", article_path(article) %></p>
 
-      </div>
-    </div>
+          </div>
+        </div>
 
-<!-- ---- ARTICLE CARD END----- -->
-<br>
+         <br>
 
-    <% end %> <!-- article loop end -->
+    <!-- ----[ ARTICLE CARD END ]----- -->
 
-  </li>
+    <% end %>
+  </div>
+  <!-- COL END -->
+</div>
+<!-- ROW END -->
+</div>
+<!-- CONTAINER END -->
 
-  <!-- FOOTER ------------------------------- -->
-  <li class="flex-item flex-footer">
-
-  </li>
-</ul> <!-- flex-container end -->
+<!-- [ PAGE BODY ]-------------------------------- END -------------- -->
