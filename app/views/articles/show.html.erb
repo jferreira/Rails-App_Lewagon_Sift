@@ -108,7 +108,12 @@
         <% end %>
 
             <% if @raw_scores.present?  %>
-                <p class="avg-score"><%= @raw_scores %></p>
+                  <% if @average_score < 0 %>
+                      <p class="avg-score">-<%= @average_score %></p>
+                  <% else %>
+                      <p class="avg-score"><%= @average_score %></p>
+                  <% end %>
+
               <% else %>
                 <p class="avg-score">0</p>
             <% end %>

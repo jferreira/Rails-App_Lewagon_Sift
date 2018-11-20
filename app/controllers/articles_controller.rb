@@ -7,9 +7,8 @@ class ArticlesController < ApplicationController
   def show
     # ARTICLE PASSED
     @article = Article.find(params[:id])
-    @raw_scores = @article.user_scores
-
-
+    @raw_scores = @article.user_scores.pluck(:score)
+    @average_score = @raw_scores.sum / @raw_scores.size.to_f
 
     @user_score = UserScore.new
     # FIND EVENT INSTANCE
