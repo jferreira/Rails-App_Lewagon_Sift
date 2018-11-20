@@ -1,0 +1,10 @@
+.list-notification-topic, .list-notification-event {
+  font-size: 24px;
+  padding: 5px;
+  color: orange;
+  opacity: 0;
+}
+
+.list-notification-topic.fade, .list-notification-event.fade {
+  opacity: 1;
+}

@@ -1,0 +1,5 @@
+<%= form_for([article, following_item], remote: true) do |f| %>
+  <%= f.hidden_field :follower_type, :value => follower_type %>
+  <%= f.hidden_field :follower_id, :value => follower_id %>
+  <%= f.button '#', :class => "add-item-list-#{follower_type} " %>
+<% end %>
