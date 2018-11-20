@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = Article.page(params[:page])
   end
 
   def show
