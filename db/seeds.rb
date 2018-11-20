@@ -523,7 +523,8 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
                 publishing_type: article_type,
                 language: article_lang,
                 published: true,
-
+                count_views: rand(0..2000),
+                average_user_score:rand(-5..5),
                 event_id: event_instance.id,
                 location: article_location,
                 lat: article_lat,
@@ -587,14 +588,15 @@ FIRST_NAMES.each_with_index do |name, user_idx|
         last_name: last_name,
         email: "#{first_name}#{last_name}@user.com",
         password: 123456,
-        photo: nil
+        photo:Faker::Avatar.image
     }
 
-    user = User.new(obj_data)
-    user.save!
+    user_instance = User.new(obj_data)
+    user_instance.save!
 
-    puts "User ##{user_idx} Name: #{user.first_name} #{user.last_name} created"
-    puts "email: #{user.email}"
+    puts "User ##{user_idx} Name: #{user_instance.first_name} #{user_instance.last_name} created"
+    puts "email: #{user_instance.email}"
+    puts "email: #{user_instance.photo}"
     puts ""
 end
 
@@ -691,7 +693,7 @@ puts "-------------------------------------------"
         obj_data = {
           score: rand(-5..5),
           article_id: Article.all.sample.id,
-          user_id: User.all.sample.id
+          user_id: User.all.sample.id,
         }
 
         score_instance = UserScore.new(obj_data)
@@ -709,7 +711,7 @@ puts "-------------------------------------------"
     end
 
     puts ""
-    puts "         USER SCORE ITEMS Seeded"
+    puts "         USER SCORES Seeded"
     puts ""
     puts "-------------------------------------------"
     puts "-------------------------------------------"
@@ -743,7 +745,7 @@ puts "-------------------------------------------"
     end
 
     puts ""
-    puts "         ASVED ARTICLES Seeded"
+    puts "         SAVED ARTICLES Seeded"
     puts ""
     puts "-------------------------------------------"
     puts "-------------------------------------------"
