@@ -1,0 +1,37 @@
+event_articles// TOPIC:
+// EVENT:
+
+{
+  "articles": {
+    "results": [{
+      "uri": "993542144",
+      "lang": "eng",
+      "isDuplicate": false,
+      "date": "2018-11-13",
+      "time": "16:54:00",
+      "dateTime": "2018-11-13T16:54:00Z",
+      "dataType": "news",
+      "sim": 0.7843137383460999,
+      "url": "https:\/\/www.euronews.com\/2018\/11\/13\/former-catalan-leaders-ordered-to-pay-4-9-million-over-independence-vote?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%253a%2Beuronews%252fen%252fnews%2B%28euronews%2B-%2Bnews%2B-%2Ben%29&utm_content=FeedBurner",
+      "title": "Articles_10 - Article 1",
+      "body": "Spanish auditors have ordered former Catalan leader Artur Mas and nine others to repay \u20ac4.9 million of public money spent on a non-binding independence vote in 2014.\n\nThe 2014 vote was a symbolic ballot by pro-independence campaigners, and was declared illegal by Spain's Constitutional Court.\n\nHeld after efforts to hold a formal vote were blocked by the government, it saw 80% of 2.2 million voters back secession.\n\nThe Court of Auditors cited Mas as being the main responsible party for repaying the fine.\n\nMas was barred from public office for two years in Mach 2017 over the informal referendum. However, he has continued to be vocal about his hopes for Catalan independence.\n\nCarles Puigdemont, who succeeded Mas, condemned the decision to fine the former leader.\n\nTaking to Twitter, he described the order as \"an abuse and an unworthy arbitrary act\".\n\nPuigdemont held his own referendum last October, before declaring independence for the wealthy northwestern region.\n\nThe declaration prompted Madrid to take control of Catalonia, while arrest warrants were issued for many of the organisers.\n\nPuigdemont fled the country amid the efforts to arrest him, and currently lives in self-imposed exile in Brussels.",
+      "source": {
+        "uri": "euronews.com",
+        "dataType": "news",
+        "title": "Euronews English"
+      },
+      "authors": [{
+        "uri": "alice_cuddy@euronews.com",
+        "name": "Alice Cuddy",
+        "type": "author",
+        "isAgency": false
+      }],
+      "eventUri": "eng-4419655",
+      "wgt": 279824040
+    }],
+    "totalResults": 164,
+    "page": 1,
+    "count": 100,
+    "pages": 2
+  }
+}
