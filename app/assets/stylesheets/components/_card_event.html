@@ -1,21 +1,35 @@
-<!-- ---- EVENT CARD HTML ----- -->
+  <p>All news events of that topic:</p>
+  <%  @events.each_with_index do | event, i | %>
 
-<div class="a-card-event-box" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= document.image_url %>);">
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <span class="blocked-sml">&nbsp &nbsp <%= document.location %>  &nbsp &nbsp</span>
-  <span class="blocked-sml">&nbsp &nbsp <%= document.date_time %>  &nbsp &nbsp</span>
-  <p></p>
-  <h2><span class="blocked-light">&nbsp # &nbsp</span> <span class="blocked-light">&nbsp Syrian Civial War &nbsp</span></h2>
-                <p></p>
-  <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-  <p></p>
-  <p></p>
-  <p>Summary: { <%= document.articles.count %> Articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= document.description %></p>
-  <p><%= link_to "show event", event_path(document) %></p>
+  <br>
+    <!-- ---- EVENT CARD ----- -->
 
-</div>
+    <div class="a-card-event-box"
+    style="background-image:
+      linear-gradient(-225deg,
+      rgba(150,10,115,0.8) 0%,
+      rgba(255,77,0,0.4) 50%),
+    url(<%= event.image_url %>);">
+    <h3>#<%= (i + 1) %></h3>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+        <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
+        <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
+      <p></p>
+        <h2><span class="blocked">&nbsp # &nbsp</span>
+          <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
+      <p></p>
+        <h2><span class="blocked">&nbsp # &nbsp</span>
+          <span class="blocked">&nbsp <%= event.name %> &nbsp</span></h2>
+      <p></p>
+      <p></p>
+      <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
+      <%= link_to 'See Event', event_path(event),
+            class: 'btn btn-default'%>
+    </div>
 
-<!-- ---- EVENT CARD END ----- -->
+    <!-- ---- EVENT CARD END ----- -->
+
+  <% end %>

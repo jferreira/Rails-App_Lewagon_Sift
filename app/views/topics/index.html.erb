@@ -3,8 +3,11 @@
 <div class="header">
 
     <div class="banner-half"
-    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
-       url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+     style="background-image:
+        linear-gradient(-225deg,
+        rgba(18,240,181,0.6) 0%,
+        rgba(15,153,200,0.8) 50%),
+        url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
 
         <div class="row">
 
@@ -95,7 +98,6 @@
 
         </div>
         <!-- row end -->
-
   </div>
   <!-- banner-half end -->
 
@@ -242,8 +244,11 @@
                 <!-- ---- TOPIC CARD ----- -->
 
                 <div class="a-card-event-box"
-                style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%),
-                url(<%= topic.image_url %>);">
+                style="background-image:
+                  linear-gradient(-225deg,
+                  rgba(18,240,181,0.6) 0%,
+                  rgba(15,153,200,0.8) 50%),
+                  url(<%= topic.image_url %>);">
                 <h3>#<%= (i + 1) %></h3>
                   <p></p>
                   <p></p>
@@ -254,10 +259,10 @@
                   <p></p>
                     <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.name %> &nbsp</span></h2>
                   <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp all &nbsp</span></h2>
+                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.events.count %> events &nbsp</span></h2>
                   <p></p>
                   <p></p>
-                  <p>Summary: { <%= topic.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+                  <p>Summary: { <%= topic.events.count %> }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
                   <%= link_to 'See topic', topic_path(topic),
                         class: 'btn btn-default'%>
                 </div>
