@@ -7,11 +7,14 @@
     <br>
     <p><strong>Publisher:</strong></p>
     <p><%= article.publisher.name %> </p>
+    <a href= "<%= article.publisher.web_url %>" >Publisher link</a>
+    <br>
+    <br>
 
-    <p><strong>Publishing Time</strong></p>
+    <p><strong>Article Publishing Time</strong></p>
     <p> <%= article.date_time_published %></p>
 
-    <p><strong>Description:</strong></p>
+    <p><strong>Article Description:</strong></p>
     <p><%= article.description %> </p>
 
     <p><strong>Article Text:</strong></p>

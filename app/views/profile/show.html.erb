@@ -92,78 +92,76 @@
     <!-- FOLLOWED ITEMS SECTION ------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <div id="followd-lists" class="tab-pane fade">
-<br>
+    <br>
       <h3>Followed Topic and Events</h3>
-
+    <br>
       <% @following_list.each_with_index do | following_item, i | %>
 
           <% item_type = following_item.follower_type %>
 
           <div class="following-item-card">
-
               <% if item_type == 'Event' %>
-                  <!-- This is an EVENT -->
 
-                  <!-- ---- EVENT CARD ----- -->
+                  <!-- ---- [ EVENT CARD ] [ START ] ----- -->
+
                   <div class="a-card-event-box"
                   style="background-image:
-                  linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(");">
-
+                    linear-gradient(-225deg,
+                    rgba(150,10,115,0.8) 0%,
+                    rgba(255,77,0,0.4) 50%),
+                  url(<%= following_item.follower.image_url %>);">
+                  <h3>#<%= (i + 1) %></h3>
                     <p></p>
                     <p></p>
                     <p></p>
                     <p></p>
-                    <span class="blocked-sml">&nbsp &nbsp location  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp date time  &nbsp &nbsp</span>
+                      <span class="blocked-sml">&nbsp &nbsp <%#= following_item.following_items.first.location %>  &nbsp &nbsp</span>
+                      <span class="blocked-sml">&nbsp &nbsp <%#= following_item.following_items.first.date_time %>  &nbsp &nbsp</span>
                     <p></p>
-                    <h2><span class="blocked-light">&nbsp # &nbsp</span> <span class="blocked-light">&nbsp Syrian Civial War &nbsp</span></h2>
-                                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp name &nbsp</span></h2>
+                      <h2><span class="blocked">&nbsp # &nbsp</span>
+                        <span class="blocked">&nbsp <%= following_item.follower.topic.name %> &nbsp</span></h2>
+                    <p></p>
+                      <h2><span class="blocked">&nbsp # &nbsp</span>
+                        <span class="blocked">&nbsp <%= following_item.follower.name %> &nbsp</span></h2>
                     <p></p>
                     <p></p>
-                    <p>Summary: { count }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: description</p>
-                    <p><%= link_to "show event", event_path(following_item) %></p>
-
+                    <p>Summary: { <%= following_item.follower.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= following_item.follower.description %></p>
+                    <%= link_to 'See event', event_path(following_item.follower),
+                          class: 'btn btn-default'%>
                   </div>
-                  <br>
 
-                  <!-- ---- EVENT CARD END ----- -->
-
-
-                <p> <%= Topic.find_by(id: following_item.follower.topic_id).name %> </p>
-                <p> <%= following_item.follower.name %> </p>
-                <%=
-                  link_to 'See event', event_path(following_item.follower.id),
-                  class: 'btn btn-primary'
-                 %>
+                  <!-- ---- [ EVENT CARD ] [ END ] ----- -->
 
                 <% else %>
-                  <!-- This is a TOPIC -->
 
-                  <!-- ---- TOPIC CARD ----- -->
+                <!-- ---- [ TOPIC CARD ] [ START ] ----- -->
 
-                  <div class="a-card-event-box"
-                    style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%),
-                    url(" ");">
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                        <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.location %>  &nbsp &nbsp</span>
-                        <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.date_time %>  &nbsp &nbsp</span>
-                      <p></p>
-                        <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= following_item.follower.name %> &nbsp</span></h2>
-                      <p></p>
-                        <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp -- &nbsp</span></h2>
-                      <p></p>
-                      <p></p>
-                      <!-- <p>Summary: { <#%= following_item.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p> -->
-                      <%= link_to 'See topic', topic_path(following_item),
-                        class: 'btn btn-default'
-                       %>
-                  </div>
+                <div class="a-card-event-box"
+                style="background-image:
+                  linear-gradient(-225deg,
+                  rgba(18,240,181,0.6) 0%,
+                  rgba(15,153,200,0.8) 50%),
+                  url(<%= following_item.follower.image_url %>);">
+                <h3>#<%= (i + 1) %></h3>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.location %>  &nbsp &nbsp</span>
+                    <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.date_time %>  &nbsp &nbsp</span>
+                  <p></p>
+                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= following_item.follower.name %> &nbsp</span></h2>
+                  <p></p>
+                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= following_item.follower.events.count %> events &nbsp</span></h2>
+                  <p></p>
+                  <p></p>
+                  <p>Summary: { <%= following_item.follower.events.count %> }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+                  <%= link_to 'See topic', topic_path(following_item.follower),
+                        class: 'btn btn-default'%>
+                </div>
 
-                  <!-- ---- TOPIC CARD END ----- -->
+                <!-- ---- [ TOPIC CARD ] [ END ] ----- -->
+
               <% end %>
 
           </div>
