@@ -181,13 +181,27 @@
 
   </div>
 
-
   <br>
-  <div style= "width: 24px">
-      <span style="width: 24px">
-         <p class="btn btn-default">&nbsp save &nbsp</p>
-      </span>
-  </div>
+
+      <% saved_article = current_user.article_saved?(@article.id) %>
+      <% if saved_article %>
+
+          <%= link_to "remove",
+          article_save_article_path(@article, saved_article),
+          class: 'btn btn-default remove-saved-article',
+          method: :delete
+          %>
+
+      <% else %>
+
+          <%= render 'articles/shared/add_article',
+          article: @article,
+          save_article: @save_article,
+          text: 'save'
+          %>
+
+      <% end %>
+
   <br>
 
   <div>

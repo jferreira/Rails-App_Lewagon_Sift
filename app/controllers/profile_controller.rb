@@ -1,4 +1,3 @@
-
 class ProfileController < ApplicationController
   def show
     # Saved Articles
