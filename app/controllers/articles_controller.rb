@@ -35,3 +35,5 @@ class ArticlesController < ApplicationController
     # 5. order by average user score
   end
 end
+
+# 908908

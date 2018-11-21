@@ -21,7 +21,6 @@ class FollowingItemsController < ApplicationController
     end
   end
 
-
   private
 
   def following_item

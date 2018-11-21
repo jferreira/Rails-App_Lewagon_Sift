@@ -368,7 +368,7 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
 
       # EVENT LOADED OBJECT
       obj_data = {
-          topic_id: topic_idx + 1,
+          topic_id: topic_instance.id,
           name: event,
           description: event_description,
           image_url: event_image,
@@ -418,7 +418,7 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
 
           # SOURCE
           publisher = article_publisher["source"]
-
+          # binding.pry
           # DETAILS
           publisher_name = publisher["title"]
             publisher_description = publisher["title"]
