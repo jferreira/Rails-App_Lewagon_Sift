@@ -183,11 +183,18 @@
 
 
   <br>
+
+
   <div style= "width: 24px">
-      <span style="width: 24px">
-         <p class="btn btn-default">&nbsp save &nbsp</p>
-      </span>
+      <%= form_for([@article, @save_article]) do |f| %>
+        <%= button_tag type: 'submit', class: 'submit-score-btn' do %>
+            <span>&nbsp save &nbsp</span>
+        <% end %>
+      <% end %>
   </div>
+
+
+
   <br>
 
   <div>

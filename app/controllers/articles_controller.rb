@@ -18,6 +18,8 @@ class ArticlesController < ApplicationController
     @topic = Topic.find_by(id: @event.topic_id)
     @user_score = UserScore.new
 
+    @save_article = SaveArticle.new
+
     # FIND EVENT INSTANCE
     event = @article.event
     events_articles = event.articles

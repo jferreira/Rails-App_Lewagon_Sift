@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show ]
   resources :articles, only: [:index, :show ] do
     resources :user_scores, only: [:create ]
+    resources :save_articles, only: [:create]
   end
   resources :profile, only: [:edit, :update, :show ]
   resources :following_items, only: [:create]
