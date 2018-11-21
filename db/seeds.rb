@@ -547,6 +547,15 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
               article_publisher = article["title"]
               article_author = article["title"]
 
+            publisher = article["source"]
+          # binding.pry
+          # DETAILS
+          publisher_name = publisher["title"]
+
+          publisher = Publisher.find_by(name: publisher_name)
+
+          publisher = publisher ? publisher : Publisher.all.sample
+
             obj_data = {
                 title: article_title,
                 description: article_description,
@@ -568,7 +577,7 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
                 # average_user_score: (-5..5).to_a.sample,
 
                 author_id: Author.all.sample.id,
-                publisher_id: Publisher.all.sample.id
+                publisher_id: publisher.id
 
             }
 
