@@ -172,40 +172,50 @@
       </span>
   </div>
 
+          <% if current_user.nil? %>
 
-<!--         <#% if current_user.can_user_vote(@article.id) %>
-            <#%= form_for([@article, @user_score]) do |f| %>
-              <#%= f.hidden_field :score, :value => 1 %>
-              <#%= button_tag type: 'submit' do %>
-                      <i class="fas fa-chevron-up"></i>
-              <#% end %>
-            <#% end %>
-        <#% else %>
-              <#%= button_tag type: 'submit', disabled: true do %>
-                      <i class="fas fa-chevron-up"></i>
-              <#% end %>
-        <#% end %>
+                    <%= link_to new_user_session_path do %>
+                            <i class="fas fa-chevron-up"></i>
+                    <% end %>
 
-            <#% if @raw_scores.present?  %>
+                    <p class="avg-score"> <%= @raw_scores.present? ? @average_score : 0 %></p>
 
-                      <p class="avg-score"><%= @average_score %></p>
+                    <%= link_to new_user_session_path do %>
+                            <i class="fas fa-chevron-down"></i>
+                    <% end %>
 
-              <#% else %>
-                <p class="avg-score">0</p>
-            <#% end %>
+          <% else %>
 
-        <#% if current_user.can_user_vote(@article.id) %>
-            <#%= form_for([@article, @user_score]) do |f| %>
-              <#%= f.hidden_field :score, :value => -1 %>
-              <#%= button_tag type: 'submit' do %>
-                  <i class="fas fa-chevron-down"></i>
-              <#% end %>
-            <#% end %>
-        <#% else %>
-              <#%= button_tag type: 'submit', disabled: true do %>
-                  <i class="fas fa-chevron-down"></i>
-              <#% end %>
-        <#% end %> -->
+                    <% if current_user.can_user_vote(@article.id) %>
+                        <%= form_for([@article, @user_score]) do |f| %>
+                          <%= f.hidden_field :score, :value => 1 %>
+                          <%= button_tag type: 'submit' do %>
+                                  <i class="fas fa-chevron-up"></i>
+                          <% end %>
+                        <% end %>
+                    <% else %>
+                          <%= button_tag type: 'submit', disabled: true do %>
+                                  <i class="fas fa-chevron-up"></i>
+                          <% end %>
+                    <% end %>
+
+                    <p class="avg-score"> <%= @raw_scores.present? ? @average_score : 0 %></p>
+
+                    <% if current_user.can_user_vote(@article.id) %>
+                        <%= form_for([@article, @user_score]) do |f| %>
+                          <%= f.hidden_field :score, :value => -1 %>
+                          <%= button_tag type: 'submit' do %>
+                              <i class="fas fa-chevron-down"></i>
+                          <% end %>
+                        <% end %>
+                    <% else %>
+                          <%= button_tag type: 'submit', disabled: true do %>
+                              <i class="fas fa-chevron-down"></i>
+                          <% end %>
+                    <% end %>
+
+          <% end %>
+
 
   </div>
 
