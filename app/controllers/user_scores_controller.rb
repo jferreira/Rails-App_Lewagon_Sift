@@ -6,8 +6,10 @@ class UserScoresController < ApplicationController
     @user_score.score = @user_score.score.to_i + score_params[:score].to_i
     @user_score.times_voted += 1
 
-    @user_score.save!
-    redirect_to article_path(@article)
+    if @user_score.save
+      flash[:notice] = "Thanks for your vote"
+      redirect_to article_path(@article)
+    end
   end
 
   private
