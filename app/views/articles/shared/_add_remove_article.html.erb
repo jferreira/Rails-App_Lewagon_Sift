@@ -1,7 +1,8 @@
 <div style= "width: 24px">
     <%= form_for([article, save_article]) do |f| %>
       <%= button_tag type: 'submit', class: 'submit-score-btn' do %>
-          <span>&nbsp save &nbsp</span>
+          <span>&nbsp <%= text %> &nbsp</span>
       <% end %>
     <% end %>
 </div>
+

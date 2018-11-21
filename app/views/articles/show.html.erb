@@ -181,32 +181,26 @@
 
   </div>
 
-
   <br>
 
-  <% if current_user.article_saved?(@article.id) %>
+      <% saved_article = current_user.article_saved?(@article.id) %>
 
+      <% if saved_article %>
 
-                <%= render 'articles/shared/add_remove_article',
-                article: @article,
-                save_article: @save_article
-                %>
+          <%= link_to "remove",
+          article_save_article_path(@article, saved_article),
+          method: :delete
+          %>
 
+      <% else %>
 
+          <%= render 'articles/shared/add_remove_article',
+          article: @article,
+          save_article: @save_article,
+          text: 'save'
+          %>
 
-  <% else %>
-
-                <%= render 'articles/shared/add_remove_article',
-                article: @article,
-                save_article: @save_article
-                %>
-
-  <% end %>
-
-
-
-
-
+      <% end %>
 
   <br>
 

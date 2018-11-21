@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def article_saved?(article_id)
-    save_articles.select(Article.find_by(id:article_id)).empty?
+    save_articles.find_by(article_id: article_id)
   end
 
 end
