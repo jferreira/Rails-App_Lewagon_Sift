@@ -172,7 +172,7 @@
       </span>
   </div>
 
-          <% if current_user.nil? %>
+                <% if current_user.nil? %>
 
                     <%= link_to new_user_session_path do %>
                             <i class="fas fa-chevron-up"></i>
@@ -184,37 +184,44 @@
                             <i class="fas fa-chevron-down"></i>
                     <% end %>
 
-          <% else %>
+                <% else %>
 
-                    <% if current_user.can_user_vote(@article.id) %>
-                        <%= form_for([@article, @user_score]) do |f| %>
-                          <%= f.hidden_field :score, :value => 1 %>
-                          <%= button_tag type: 'submit' do %>
-                                  <i class="fas fa-chevron-up"></i>
-                          <% end %>
+                        <% if current_user.can_user_vote(@article.id) %>
+
+                            <%= render 'articles/shared/new_score',
+                                article: @article,
+                                user_score: @user_score,
+                                value: 1,
+                                icon: 'up'
+                            %>
+
+                        <% else %>
+
+                              <%= button_tag type: 'submit', disabled: true do %>
+                                      <i class="fas fa-chevron-up"></i>
+                              <% end %>
+
                         <% end %>
-                    <% else %>
-                          <%= button_tag type: 'submit', disabled: true do %>
-                                  <i class="fas fa-chevron-up"></i>
-                          <% end %>
-                    <% end %>
 
                     <p class="avg-score"> <%= @raw_scores.present? ? @average_score : 0 %></p>
 
-                    <% if current_user.can_user_vote(@article.id) %>
-                        <%= form_for([@article, @user_score]) do |f| %>
-                          <%= f.hidden_field :score, :value => -1 %>
-                          <%= button_tag type: 'submit' do %>
-                              <i class="fas fa-chevron-down"></i>
-                          <% end %>
-                        <% end %>
-                    <% else %>
-                          <%= button_tag type: 'submit', disabled: true do %>
-                              <i class="fas fa-chevron-down"></i>
-                          <% end %>
-                    <% end %>
+                        <% if current_user.can_user_vote(@article.id) %>
 
-          <% end %>
+                        <%= render 'articles/shared/new_score',
+                            article: @article,
+                            user_score: @user_score,
+                            value: -1,
+                            icon: 'down'
+                        %>
+
+                        <% else %>
+
+                              <%= button_tag type: 'submit', disabled: true do %>
+                                  <i class="fas fa-chevron-down"></i>
+                              <% end %>
+                        <% end %>
+
+                <% end %>
 
 
   </div>

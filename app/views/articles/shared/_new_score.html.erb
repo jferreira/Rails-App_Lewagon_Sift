@@ -1,0 +1,10 @@
+<%= form_for([article, user_score]) do |f| %>
+  <%= f.hidden_field :score, :value => value %>
+  <%= button_tag type: 'submit' do %>
+      <% if icon == 'up' %>
+          <i class="fas fa-chevron-up"></i>
+      <% else %>
+          <i class="fas fa-chevron-down"></i>
+      <% end %>
+  <% end %>
+<% end %>
