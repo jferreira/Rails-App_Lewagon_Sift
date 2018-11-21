@@ -7,16 +7,19 @@ class SaveArticlesController < ApplicationController
     @saved_article.article_id = @article.id.to_i
     @saved_article.user_id = current_user.id
 
-    @saved_article.save!
-    redirect_to article_path(@article)
+    if @saved_article.save
+      flash[:notice] = "Article saved in your list"
+      redirect_to article_path(@article)
+    end
   end
 
   def destroy
-
     @saved_article = SaveArticle.find_by(id: params[:id])
-    @saved_article.destroy!
 
-    redirect_to article_path(@article)
+    if @saved_article.destroy
+      flash[:notice] = "Article removed from your list"
+      redirect_to article_path(@article)
+    end
   end
 
   private
