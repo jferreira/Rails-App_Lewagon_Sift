@@ -1,6 +1,10 @@
 /* Your banner CSS file */
+// ----------------------------------------------------------------------
+.banner {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 
-.banner{
   /*TEXT*/
   color: white;
   text-align: center;
@@ -25,34 +29,7 @@
 }
 
 
-.banner-half {
-  /*TEXT*/
-  color: white;
-  // text-align: center;
-
-  /*FLEX*/
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  // flex-direction: column;
-
-  /*BOX*/
-  padding: 10px;
-  // height: calc(60vh - 70px);
-  // background-size: cover !important;
-  height: 70vh !important;
-
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-
-  /*BACKGROUND*/
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.8) 0%, rgba(0,36,61,0.8) 50%), url('../../images/background.jpg');
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-
-}
+// ----------------------------------------------------------------------
 
 .banner-item{
   display: block;
