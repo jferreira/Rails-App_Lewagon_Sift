@@ -7,8 +7,11 @@ class SaveArticlesController < ApplicationController
     @saved_article.article_id = @article.id.to_i
     @saved_article.user_id = current_user.id
 
-    @saved_article.save!
-    redirect_to article_path(@article)
+    if @saved_article.save
+      flash[:notice] = "Article saved"
+      redirect_to article_path(@article)
+    end
+
   end
 
   def destroy
