@@ -12,34 +12,6 @@
 
         <div class="row">
 
-          <!-- LEFT COL -->
-          <div class="col-xs-3">
-
-            <!-- 1 -->
-              <div class="top-box">
-              </div>
-
-            <!-- 2 -->
-              <div class="middle-box">
-
-                <h2 class="text-right">
-
-     <!--              <button>
-                    <span id="user-suggests-url" class="blocked">
-                      &nbsp + &nbsp
-                    </span>
-                  </button> -->
-
-                </h2>
-              </div>
-
-            <!-- 3 -->
-            <div class="bottom-box">
-            </div>
-
-          </div>
-          <!-- LEFT COL END -->
-
           <!-- MAIN COL -->
           <div class="col-xs-9">
 
@@ -89,8 +61,22 @@
 
               <p>Description: <%= @event.articles.count %> Articles: <%= @event.description %></p>
 
-              <%= link_to "Previous", event_path(" "), class: "btn btn-default" %>
-              <%= link_to "Next", event_path(" "), class: "btn btn-default" %>
+                <!-- [ NEXT EVENT ] -------- START -------------->
+
+                <span><%=
+                  link_to "[ Previous E ]",
+                  event_path(@prev_event),
+                  class: "btn btn-default" %>
+                </span>
+
+                <span><%=
+                  link_to "[ Next E ]",
+                  event_path(@next_event),
+                  class: "btn btn-default" %>
+                </span>
+
+                <!-- [ NEXT EVENT ] -------- END -------------->
+
 
             <br>
             <br>

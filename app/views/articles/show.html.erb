@@ -92,20 +92,21 @@
               <#% else %> -->
 
 
-                <!-- NEXT EVENT INDEX -->
+                <!-- [ NEXT EVENT ] -------- START -------------->
 
                 <span><%=
-                  link_to "[ Previous E-I ]",
+                  link_to "[ Previous E ]",
                   article_path(@prev_event.articles.last),
                   class: "btn btn-default" %>
                 </span>
 
                 <span><%=
-                  link_to "[ Next E-I ]",
+                  link_to "[ Next E ]",
                   article_path(@next_event.articles.first),
                   class: "btn btn-default" %>
                 </span>
 
+                <!-- [ NEXT EVENT ] -------- END -------------->
 
                 <!-- NEXT EVENT SHOW -->
                 <!-- <span><#%= link_to "[ Previous E-S ]", event_path(@prev_event), class: "btn btn-default" %></span> -->
