@@ -2,20 +2,26 @@
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
   <p class="navbar-wagon-link">Sift</p>
+    <!-- <#%= image_tag "logo.png", height: 50 %> -->
+  <% end %>
 
   <div>
     <%= link_to "Topics", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Articles", articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <span style="color: rgba(0,0,0,0.2)">|</span>
-    <%= link_to "Features", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "About us", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
   </div>
-    <!-- <#%= image_tag "logo.png", height: 50 %> -->
-  <% end %>
+
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+  <div>
+<!--     <span style="color: rgba(0,0,0,0.2)">|</span> -->
+    <%= link_to "Features", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "About us", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  </div>
+
 
     <% if user_signed_in? %>
       <div>

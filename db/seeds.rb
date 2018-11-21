@@ -2,8 +2,6 @@
 
 require 'json'
 require 'date'
-require 'pry'
-
 
 # RANDOM LAT LONG ALL -----------------------------------------------------------
 

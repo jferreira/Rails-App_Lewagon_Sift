@@ -91,9 +91,26 @@
 <!--               <#%= if @article.event.articles = 1 %>
               <#% else %> -->
 
-                <span><%= link_to "[ Previous ]", article_path(@prev_in_event), class: "btn btn-default" %></span>
-                <span><%= link_to "[ Next ]", article_path(@next_in_event), class: "btn btn-default" %></span>
-              <!-- <#% end %> -->
+
+                <!-- NEXT EVENT INDEX -->
+
+                <span><%=
+                  link_to "[ Previous E-I ]",
+                  article_path(@prev_event.articles.last),
+                  class: "btn btn-default" %>
+                </span>
+
+                <span><%=
+                  link_to "[ Next E-I ]",
+                  article_path(@next_event.articles.first),
+                  class: "btn btn-default" %>
+                </span>
+
+
+                <!-- NEXT EVENT SHOW -->
+                <!-- <span><#%= link_to "[ Previous E-S ]", event_path(@prev_event), class: "btn btn-default" %></span> -->
+                <!-- <span><#<%  %>%= link_to "[ Next E-S ]", event_path(@next_event), class: "btn btn-default" %></span> -->
+
 
             <!-- ---- HEADER CARD END ----- -->
           </div>
@@ -235,6 +252,11 @@
   <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] -------------------------------- -->
   <!-- [ ARTICLE ] -->
   <div class="col-xs-6">
+
+    <!-- NEXT ARTICLE IN EVENT -->
+    <span><%= link_to "[ Previous A ]", article_path(@prev_in_event), class: "btn btn-default" %></span>
+    <span><%= link_to "[ Next A ]", article_path(@next_in_event), class: "btn btn-default" %></span>
+
     <%= render 'articles/shared/article_show',
       article: @article
     %>
