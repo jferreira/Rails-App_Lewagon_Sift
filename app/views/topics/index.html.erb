@@ -1,38 +1,34 @@
-<!-- PAGE HEADER ------------------------------- -->
+<!-- [ TOPICS INDEX ]  ------------------------------------- -->
+
+<!-- [ PAGE HEADER ]  ---------------- START --------------- -->
+
 
 <div class="header">
 
     <div class="banner-half"
+
      style="background-image:
         linear-gradient(-225deg,
         rgba(18,240,181,0.6) 0%,
         rgba(15,153,200,0.8) 50%),
         url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
 
-        <div class="row">
+        <!-- [ PAGE HEADER ][ COL-1 - LEFT ] ----------- START --------------- -->
+        <!-- [           LEFT            ] -->
 
-          <!-- LEFT COL -->
-          <div class="col-xs-3">
+          <div class="flex-header-1">
+          <div>
+          <!-- LEFT END -->
 
-            <div class="top-box">
-              <p></p>
-            </div>
+        <!-- [           LEFT            ] -->
+       <!-- [ PAGE HEADER ][ COL-1 - LEFT ] -------------- END --------------- -->
 
-            <div class="middle-box">
-              <p></p>
-            </div>
+      <!-- ------------------------------------------------------------------- -->
 
-            <div class="bottom-box">
-              <p></p>
-            </div>
+       <!-- [ PAGE HEADER ][ COL-2 - MIDDLE ] ----------- START -------------- -->
+        <!-- [        TITLES           ] -->
 
-          </div>
-          <!-- col one end -->
-
-          <!-- MAIN COL -->
-          <div class="col-xs-9">
-
-            <!-- ---- HEADER TITLES CARD ----- -->
+          <div class="flex-header-2 text-center">
 
               <!-- TOPIC HEADER -->
               <h2><span
@@ -43,8 +39,17 @@
               <p></p>
               <p>The collection of all the news topics in sift</p>
 
-            <br>
-            <br>
+          </div>
+            <!-- TITLE END -->
+
+          </div>
+          <!-- BANNER HALF -->
+      </div>
+      <!-- HEADER -->
+
+        <!-- [        TITLES           ] -->
+       <!-- [ PAGE HEADER ][ COL-2 - MIDDLE ] ----------- END --------------- -->
+
 
             <!-- NEW SEARCH ------------------------------- -->
             <!--
@@ -69,212 +74,233 @@
             <!-- NEW SEARCH END------------------------------- -->
 
             <!-- SEARCH --------------------------------------- -->
-            <div class="form-group">
+<!--             <div class="form-group">
 
-                <%= text_field_tag :query, nil, placeholder: 'search',
+                <#%= text_field_tag :query, nil, placeholder: 'search',
                   class: 'form-control'
                 %>
 
-<!--                <#%= link_to "", topics_path,
+               <#%= link_to "", topics_path,
                 class: "fas fa-arrow-right btn btn-green" %>
- -->
-                <%= submit_tag "Search",
+
+                <#%= submit_tag "Search",
                   class: "fas fa-arrow-right btn btn-default"
                 %>
 
-            </div>
+            </div> -->
             <!-- SEARCH END--------------------------------------- -->
 
 
 
             <!-- ---- HEADER CARD END ----- -->
 
-          </div>
-          <!-- col two end -->
-
-          <div class="col-0">
-          </div>
-          <!-- col three end -->
-
-        </div>
-        <!-- row end -->
-  </div>
-  <!-- banner-half end -->
-
 </div>
-<!-- header end -->
-<!-- PAGE HEADER END------------------------------- -->
+<!-- [ PAGE HEADER ]  ---------------- END ----------------------------- -->
 
+<!-- ------------------------------------------------------------------- -->
 
-<!-- LIST SEARCHED ------------------------------- -->
+<!-- [ PAGE BODY ]  ----------------- START ---------------------------- -->
 
 <div class="container">
+<div class="row">
 
-  <div class="row">
-    <div class='offset-xs-0 col-xs-12 offset-md-0 col-md-12'>
+  <!-- [ PAGE BODY ][ COL-1 - LEFT ] ----------- START --------------- -->
+  <!-- [           LEFT            ] -->
 
-            <!-- If search done  -->
-            <% if @documents.length.positive? %>
-              <%  @documents.each_with_index do | doc, i | %>
+  <div id="col-1-left" class="
+    col-xs-0
+    col-xs-offset-0
+    col-sm-0
+    col-xs-offset-0
+    col-md-0
+    col-md-offset-0
+    col-lg-0
+    col-lg-offset-0">
+    <!-- STUFF HERE-->
+  <div>
 
-                <!-- If the document retrieved is an Event  -->
-                <% if doc.searchable_type === 'Event' %>
+  <!-- [ PAGE BODY ][ COL-2 - MIDDLE ] ----------- START --------------- -->
+  <!-- [        CONTENT           ] -->
+  <!-- [       QUERY LIST         ] ---------------------------------- -->
 
-                <!-- Part of PGSearch  -->
-                <% document = doc.searchable %>
+  <div id="col-2-content" class="
+    col-xs-12
+    col-xs-offset-0
+    col-sm-12
+    col-xs-offset-0
+    col-md-12
+    col-md-offset-0
+    col-lg-12
+    col-lg-offset-0">
 
-                <br>
-                  <p>Result: #<%= (i + 1) %></p>
-                  <h3>Event</h3>
-                <br>
-                  <!-- ---- EVENT CARD ----- -->
-                  <div class="a-card-event-box" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= document.image_url %>);">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <span class="blocked-sml">&nbsp &nbsp <%= document.location %>  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp <%= document.date_time %>  &nbsp &nbsp</span>
-                    <p></p>
-                    <h2><span class="blocked-light">&nbsp # &nbsp</span> <span class="blocked-light">&nbsp Syrian Civial War &nbsp</span></h2>
-                                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-                    <p></p>
-                    <p></p>
-                    <p>Summary: { <%= document.articles.count %> Articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= document.description %></p>
-                    <p><%= link_to "show event", event_path(document) %></p>
+    <!-- IF SEARCH -->
+    <% if @documents.length.positive? %>
+      <%  @documents.each_with_index do | doc, i | %>
 
-                  </div>
-                  <!-- ---- EVENT CARD END ----- -->
+        <!-- If the document retrieved RETURNS [ EVENT ]  ------------------------->
+        <% if doc.searchable_type === 'Event' %>
+        <% document = doc.searchable %>
 
-                <!-- If the document retrieved is a Topic -->
-                <% elsif doc.searchable_type === 'Topic' %>
-                <!-- Part of PGSearch  -->
-                <% document = doc.searchable %>
+        <br>
+          <p>Result: #<%= (i + 1) %></p>
+          <h3>Event</h3>
+        <br>
+          <!-- ---- [ EVENT CARD ]  ----- -->
 
-                <br>
-                <p>Result: #<%= (i + 1) %></p>
-                <h3>Topic</h3>
-                <br>
+          <div class="a-card-event-box" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= document.image_url %>);">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <span class="blocked-sml">&nbsp &nbsp <%= document.location %>  &nbsp &nbsp</span>
+            <span class="blocked-sml">&nbsp &nbsp <%= document.date_time %>  &nbsp &nbsp</span>
+            <p></p>
+            <h2><span class="blocked-light">&nbsp # &nbsp</span> <span class="blocked-light">&nbsp Syrian Civial War &nbsp</span></h2>
+                          <p></p>
+            <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
+            <p></p>
+            <p></p>
+            <p>Summary: { <%= document.articles.count %> Articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= document.description %></p>
+            <p><%= link_to "show event", event_path(document) %></p>
 
-                  <!-- ---- TOPIC CARD ----- -->
-                  <div class="a-card-event-box" style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%), url(<%= document.image_url %>);">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+          </div>
+          <!-- ---- [ EVENT CARD ] END ----- -->
+
+
+        <!-- If the document retrieved RETURNS [ TOPIC ]  ------------------------->
+        <% elsif doc.searchable_type === 'Topic' %>
+        <% document = doc.searchable %>
+
+          <br>
+          <p>Result: #<%= (i + 1) %></p>
+          <h3>Topic</h3>
+          <br>
+
+          <!-- ---- [ TOPIC CARD ]  ---------- START ------- -->
+
+          <div class="a-card-event-box" style="background-image: linear-gradient(-225deg, rgba(18,240,181,0.6) 0%, rgba(15,153,200,0.8) 50%), url(<%= document.image_url %>);">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
 <!--                           <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.location %>  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.date_time %>  &nbsp &nbsp</span> -->
-                    <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-                                  <p></p>
+            <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.date_time %>  &nbsp &nbsp</span> -->
+            <p></p>
+            <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
+                          <p></p>
 <!--                           <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp all &nbsp</span></h2>
 -->                          <p></p>
-                    <p></p>
-                    <p>Summary: { <%= document.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                    <p><%= link_to "show topic", topic_path(document) %></p>
-                  </div>
+            <p></p>
+            <p>Summary: { <%= document.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+            <p><%= link_to "show topic", topic_path(document) %></p>
+          </div>
 
-                  <!-- ---- TOPIC CARD END ----- -->
+          <!-- ---- [ TOPIC CARD ]  ---------- END ------- -->
 
-                <% else %>
-                <!-- If the document retrieved is an article  -->
+        <!-- If the document retrieved RETURNS [ ARTICLE ]  ------------------------->
+        <% else %>
+        <% document = doc.searchable %>
 
-                <!-- Part of PGSearch  -->
-                <% document = doc.searchable %>
+          <br>
+          <p>Result: #<%= (i + 1) %></p>
+          <h3>Article #></h3>
+          <br>
 
-                <br>
-                <p>Result: #<%= (i + 1) %></p>
-                <h3>Article #></h3>
-                <br>
+          <!-- ---- [ ARTICLE CARD ]  ---------- START ------- -->
 
-                <!-- ---- ARTICLE CARD ----- -->
+          <div class="s-card-article">
+            <div class="s-image-article"
+            style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
+            url(<%= doc.searchable.image_url %>);">
+            <h3>#<%= (i + 1) %></h3>
+            </div>
 
-                  <div class="s-card-article">
-                    <div class="s-image-article"
-                    style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%),
-                    url(<%= doc.searchable.image_url %>);">
-                    <h3>#<%= (i + 1) %></h3>
-                    </div>
-
-                    <div class="s-card-publisher">
-                      <h3 class="s-card-header-text"><%= doc.searchable.publisher.name %></h3>
-                      <img class="s-image-publisher" src= <%= doc.searchable.publisher.image_url %> >
-                    </div>
-                    <div class="s-card-body s-card-text" >
-                      <h3><%= doc.searchable.title %></h3>
-                      <br>
-                      <p><%= doc.searchable.description%></p>
-                      <p><%= doc.searchable.date_time_published%></p>
-                      <p><% time_read = doc.searchable.body_text.reading_time :format => :approx %></p>
-
-
-                    <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
-
-                      <% day_num = doc.searchable.date_time_published.mday %>
-                          <% case day_num
-                             when 1 %><% date_sufix = 'st' %>
-                          <% when 2 %><% date_sufix = 'nd' %>
-                          <% when 3 %><% date_sufix = 'rd' %>
-                          <% else %><% date_sufix = 'th' %>
-                          <% end %>
-                      <p><%= doc.searchable.date_time_published.mday %><%= date_sufix %></p>
-                      <p><%= doc.searchable.date_time_published.strftime("%H") %>.00</p>
-                      <% time_read = doc.searchable.body_text.reading_time :format => :approx %>
-                        <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-                      <br>
-                    <p><%= link_to "See Article", event_path(doc.searchable) %></p>
-
-                    </div>
-                  </div>
-
-                <!-- ---- ARTICLE CARD END----- -->
-
-                <% end %>
-
-              <% end %>
-
-          <!-- If no search done  -->
-          <% else %>
-
-              <p>All Topics within sift:</p>
-              <%  @topics.each_with_index do | topic, i | %>
-
+            <div class="s-card-publisher">
+              <h3 class="s-card-header-text"><%= doc.searchable.publisher.name %></h3>
+              <img class="s-image-publisher" src= <%= doc.searchable.publisher.image_url %> >
+            </div>
+            <div class="s-card-body s-card-text" >
+              <h3><%= doc.searchable.title %></h3>
               <br>
-                <!-- ---- TOPIC CARD ----- -->
-
-                <div class="a-card-event-box"
-                style="background-image:
-                  linear-gradient(-225deg,
-                  rgba(18,240,181,0.6) 0%,
-                  rgba(15,153,200,0.8) 50%),
-                  url(<%= topic.image_url %>);">
-                <h3>#<%= (i + 1) %></h3>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.location %>  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.date_time %>  &nbsp &nbsp</span>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.name %> &nbsp</span></h2>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.events.count %> events &nbsp</span></h2>
-                  <p></p>
-                  <p></p>
-                  <p>Summary: { <%= topic.events.count %> }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                  <%= link_to 'See topic', topic_path(topic),
-                        class: 'btn btn-default'%>
-                </div>
-
-                <!-- ---- TOPIC CARD END ----- -->
+              <p><%= doc.searchable.description%></p>
+              <p><%= doc.searchable.date_time_published%></p>
+              <p><% time_read = doc.searchable.body_text.reading_time :format => :approx %></p>
 
 
-              <% end %>
+            <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
 
-          <% end %>
+              <% day_num = doc.searchable.date_time_published.mday %>
+                  <% case day_num
+                     when 1 %><% date_sufix = 'st' %>
+                  <% when 2 %><% date_sufix = 'nd' %>
+                  <% when 3 %><% date_sufix = 'rd' %>
+                  <% else %><% date_sufix = 'th' %>
+                  <% end %>
+              <p><%= doc.searchable.date_time_published.mday %><%= date_sufix %></p>
+              <p><%= doc.searchable.date_time_published.strftime("%H") %>.00</p>
+              <% time_read = doc.searchable.body_text.reading_time :format => :approx %>
+                <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+              <br>
+            <p><%= link_to "See Article", event_path(doc.searchable) %></p>
 
-    </div> <!-- col end -->
-  </div> <!-- row end -->
+            </div>
+          </div>
 
-</div> <!-- container end -->
+          <!-- ---- [ ARTICLE CARD ]  ---------- END ------- -->
+
+        <% end %>
+
+      <% end %>
+
+
+  <!--------------------------------------------------------------------------------------->
+  <!-- [ ALL TOPICS ]  -------------------------------------------------------------------->
+
+  <% else %>
+
+      <p>All Topics within sift:</p>
+      <%  @topics.each_with_index do | topic, i | %>
+
+      <br>
+
+      <!-- ---- TOPIC CARD ----- -->
+
+      <div class="a-card-event-box"
+      style="background-image:
+        linear-gradient(-225deg,
+        rgba(18,240,181,0.6) 0%,
+        rgba(15,153,200,0.8) 50%),
+        url(<%= topic.image_url %>);">
+      <h3>#<%= (i + 1) %></h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+          <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.location %>  &nbsp &nbsp</span>
+          <span class="blocked-sml">&nbsp &nbsp <%#= topic.events.first.date_time %>  &nbsp &nbsp</span>
+        <p></p>
+          <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.name %> &nbsp</span></h2>
+        <p></p>
+          <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= topic.events.count %> events &nbsp</span></h2>
+        <p></p>
+        <p></p>
+        <p>Summary: { <%= topic.events.count %> }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
+        <%= link_to 'See topic', topic_path(topic),
+              class: 'btn btn-default'%>
+      </div>
+
+      <!-- ---- TOPIC CARD END ----- -->
+
+      <% end %>
+
+  <% end %>
+
+
+    </div>
+    <!-- [ PAGE BODY ][ COL-2 - MIDDLE ] ----------- END --------------- -->
+  </div>
+  <!-- [ ROW ][ END ] -->
+</div>
+<!-- [ CONTAINER ][ END ] -->
+
+<!-- [ PAGE BODY ]  ----------------- END -------------- -->

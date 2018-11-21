@@ -1,4 +1,7 @@
-<!-- TOPICS PAGE HEADER ------------------------------- -->
+<!-- [ TOPICS INDEX ]  ------------------------------------- -->
+
+<!-- [ PAGE HEADER ]  ---------------- START --------------- -->
+
 
 <div class="header">
 
@@ -10,94 +13,42 @@
         rgba(15,153,200,0.8) 50%),
         url(<%= @topic.image_url %>);">
 
-        <div class="row">
+        <!-- [ PAGE HEADER ][ COL-1 - LEFT ] ----------- START --------------- -->
+        <!-- [           LEFT            ] -->
 
-          <!-- LEFT COL -->
-          <div class="col-xs-4">
+          <div class="flex-header-1">
+          <div>
+          <!-- LEFT END -->
 
-            <div class="top-box">
-              <p></p>
-            </div>
+        <!-- [           LEFT            ] -->
+       <!-- [ PAGE HEADER ][ COL-1 - LEFT ] -------------- END --------------- -->
 
-            <div class="middle-box">
-              <p></p>
-            </div>
+      <!-- ------------------------------------------------------------------- -->
 
-            <div class="bottom-box">
-              <p></p>
-            </div>
+       <!-- [ PAGE HEADER ][ COL-2 - MIDDLE ] ----------- START -------------- -->
+        <!-- [        TITLES           ] -->
 
-          </div>
-          <!-- col one end -->
-
-          <!-- MAIN COL -->
-          <div class="col-xs-8">
-
-            <!-- ---- HEADER TITLES CARD ----- -->
+          <div class="flex-header-2 text-center">
 
               <!-- TOPIC HEADER -->
               <h2><span
-                class="blocked">&nbsp <%= @topic.name %> &nbsp
+                class="blocked">&nbsp News Topics &nbsp
               </span></h2>
               <!-- EVENT HEADER -->
               <p></p>
               <p></p>
               <p>The collection of all the news topics in sift</p>
 
-            <br>
-            <br>
-
-            <!-- NEW SEARCH ------------------------------- -->
-            <!--
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <input value=""
-                      placeholder="Topics, Events, Locations" class="form-control input-search"
-                      id="query"
-                      pattern=".*\w{3,}.*"
-                      title="Words expected"
-                      type="text"
-                      name="keyword">
-                <span class="input-group-btn"><button name="button" type="submit" class="btn btn-search"><i class="fas fa-arrow-right"></i></button></span>
-
-              </div>
-              -->
-              <!-- input group end -->
-            <!-- </div> -->
-            <!-- form group end -->
-            <!-- NEW SEARCH END------------------------------- -->
-
-            <!-- SEARCH --------------------------------------- -->
-            <div class="form-group">
-
-                <%= text_field_tag :query, nil, placeholder: 'search',
-                  class: 'form-control'
-                %>
-
-<!--                <#%= link_to "", topics_path,
-                class: "fas fa-arrow-right btn btn-green" %>
- -->
-                <%= submit_tag "[ Search ]",
-                  class: "fas fa-arrow-right btn btn-default"
-                %>
-
-            </div>
-            <!-- SEARCH END--------------------------------------- -->
-
-            <!-- ---- HEADER CARD END ----- -->
+          </div>
+            <!-- TITLE END -->
 
           </div>
-          <!-- col two end -->
-        </div>
-        <!-- row end -->
-  </div>
-  <!-- banner-half end -->
+          <!-- BANNER HALF -->
+      </div>
+      <!-- HEADER -->
 
 </div>
-<!-- header end -->
-<!-- TOPICS PAGE HEADER END------------------------------- -->
+<!-- [ PAGE HEADER ]  ---------------- END ----------------------------- -->
 
 <!-- [ TOPICS EVENTS LIST ]  ------------------------------- -->
 
