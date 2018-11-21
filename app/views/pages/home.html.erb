@@ -1,3 +1,4 @@
+<!-- [ HOME INDEX]  ----------------------------------------------------------- -->
 
  <div
    class="banner"
@@ -14,7 +15,7 @@
     <h2 class="txt-heading">Read news with perspective</h2>
     <p class="txt-body-copy">To get started type in a topic,event, author, publisher or by location</p>
 
-      <!-- HOME SEARCH ------------------------------- -->
+      <!-- [ HOME SEARCH ] ------------------------------- -->
 
       <%= form_tag(root_path, method: :get, role: 'form') do %>
 
@@ -42,6 +43,61 @@
               <!-- input group end -->
             </div>
             <!-- form group end -->
+
+
+
+            <!-- NEW SEARCH ------------------------------- -->
+            <!--
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <input value=""
+                      placeholder="Topics, Events, Locations" class="form-control input-search"
+                      id="query"
+                      pattern=".*\w{3,}.*"
+                      title="Words expected"
+                      type="text"
+                      name="keyword">
+                <span class="input-group-btn"><button name="button" type="submit" class="btn btn-search"><i class="fas fa-arrow-right"></i></button></span>
+
+              </div>
+              -->
+              <!-- input group end -->
+            <!-- </div> -->
+            <!-- form group end -->
+            <!-- NEW SEARCH END------------------------------- -->
+
+            <!-- SEARCH --------------------------------------- -->
+<!--             <div class="form-group">
+
+                <#%= text_field_tag :query, nil, placeholder: 'search',
+                  class: 'form-control'
+                %>
+
+               <#%= link_to "", topics_path,
+                class: "fas fa-arrow-right btn btn-green" %>
+
+                <#%= submit_tag "Search",
+                  class: "fas fa-arrow-right btn btn-default"
+                %>
+
+            </div> -->
+            <!-- SEARCH END--------------------------------------- -->
+
+
+
+            <!-- ---- HEADER CARD END ----- -->
+
+
+
+
+
+
+
+
+
+
 
             <!-- SEARCH END------------------------------- -->
 
