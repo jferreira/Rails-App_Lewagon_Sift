@@ -129,28 +129,58 @@
     <!-- USER SCORES ------------------------------------------ -->
   <br>
   <div class="text-center" style= "width: 24px">
-      <span>
-       <p class="btn btn-default">
-          &nbsp&nbsp&nbsp&nbsp
-            <i class="fas fa-angle-up"></i>
-          &nbsp&nbsp&nbsp&nbsp
-        </p>
-      </span>
-      <span>
-         <p class="btn btn-default">
-          &nbsp&nbsp&nbsp&nbsp
-            0
-          &nbsp&nbsp&nbsp&nbsp
-        </p>
-      </span>
-      <span>
-       <p class="btn btn-default">
-          &nbsp&nbsp&nbsp&nbsp
-            <i class="fas fa-angle-down"></i>
-          &nbsp&nbsp&nbsp&nbsp
-        </p>
-      </span>
+
+          <% if current_user.nil? %>
+
+                <%= render 'articles/shared/new_session_btn', icon: 'up' %>
+
+                <%= render 'articles/shared/user_score_section',
+                raw_scores: @raw_scores,
+                average_score: @average_score
+                %>
+
+                <%= render 'articles/shared/new_session_btn', icon: 'down' %>
+
+          <% else %>
+
+              <% if current_user.can_user_vote(@article.id) %>
+
+                  <%= render 'articles/shared/new_score',
+                      article: @article,
+                      user_score: @user_score,
+                      value: 1,
+                      icon: 'up'
+                  %>
+
+                <%= render 'articles/shared/user_score_section',
+                raw_scores: @raw_scores,
+                average_score: @average_score
+                %>
+
+                  <%= render 'articles/shared/new_score',
+                      article: @article,
+                      user_score: @user_score,
+                      value: -1,
+                      icon: 'down'
+                  %>
+
+              <% else %>
+
+            <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
+
+                <%= render 'articles/shared/user_score_section',
+                raw_scores: @raw_scores,
+                average_score: @average_score
+                %>
+
+            <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
+
+            <% end %>
+
+        <% end %>
+
   </div>
+
 
   <br>
   <div style= "width: 24px">
@@ -180,39 +210,7 @@
   </div>
 
 
-<!--         <#% if current_user.can_user_vote(@article.id) %>
-            <#%= form_for([@article, @user_score]) do |f| %>
-              <#%= f.hidden_field :score, :value => 1 %>
-              <#%= button_tag type: 'submit' do %>
-                      <i class="fas fa-chevron-up"></i>
-              <#% end %>
-            <#% end %>
-        <#% else %>
-              <#%= button_tag type: 'submit', disabled: true do %>
-                      <i class="fas fa-chevron-up"></i>
-              <#% end %>
-        <#% end %>
 
-            <#% if @raw_scores.present?  %>
-
-                      <p class="avg-score"><%= @average_score %></p>
-
-              <#% else %>
-                <p class="avg-score">0</p>
-            <#% end %>
-
-        <#% if current_user.can_user_vote(@article.id) %>
-            <#%= form_for([@article, @user_score]) do |f| %>
-              <#%= f.hidden_field :score, :value => -1 %>
-              <#%= button_tag type: 'submit' do %>
-                  <i class="fas fa-chevron-down"></i>
-              <#% end %>
-            <#% end %>
-        <#% else %>
-              <#%= button_tag type: 'submit', disabled: true do %>
-                  <i class="fas fa-chevron-down"></i>
-              <#% end %>
-        <#% end %> -->
 
   </div>
 
