@@ -17,4 +17,7 @@ class User < ApplicationRecord
     save_articles.find_by(article_id: article_id)
   end
 
+  def return_unique_items
+    following_items.uniq { |m| "#{ m[:follower_type] }-#{ m[:follower_id] }" }
+  end
 end
