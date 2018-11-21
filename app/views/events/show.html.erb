@@ -1,5 +1,5 @@
-<!-- [ EVENT SHOW  :ID ] ------------------------------- -->
-<!-- [ HEADER ] ----------------------------------------- -->
+<!-- [ EVENT SHOW  :ID ] --------------------------------------- -->
+<!-- [ HEADER ] ------------------- START ---------------------- -->
 
 <div class="header">
 
@@ -15,7 +15,7 @@
           <!-- MAIN COL -->
           <div class="col-xs-9">
 
-            <!-- ---- HEADER TITLES CARD ----- -->
+            <!-- ---- [ HEADER TITLES CARD ] ------ START --------- -->
 
               <!-- LOCATION TAG -->
               <p><span class="blocked-tag">&nbsp <%= @event.location %>  &nbsp</span></p>
@@ -27,21 +27,21 @@
 
               <h2>
 
-              <span class="blocked add-topic-title">
+                <span class="blocked add-topic-title">
                   <%= render 'following_items/form',
                     following_item: @following_item,
                     follower_type: 'Topic',
                     follower_id: @topic.id
                   %>
-              </span>
+                </span>
 
-              <span class="blocked topic-title">&nbsp <%= @event.topic.name %> &nbsp </span>
-              <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
+                <span class="blocked topic-title">&nbsp <%= @event.topic.name %> &nbsp </span>
+                <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
 
               </h2>
 
 
-              <!-- EVENT HEADER -->
+            <!-- ---- [ HEADER TITLES CARD ] ------ END --------- -->
 
               <h2>
 
@@ -77,16 +77,8 @@
 
                 <!-- [ NEXT EVENT ] -------- END -------------->
 
-
-            <br>
-            <br>
-
             <!-- ---- HEADER CARD END ----- -->
 
-          </div>
-          <!-- col two end -->
-
-          <div id="right-col" class="col-0">
           </div>
           <!-- col three end -->
 
