@@ -95,7 +95,7 @@
     <br>
       <h3>Followed Topic and Events</h3>
     <br>
-      <% @following_list.each_with_index do | following_item, i | %>
+      <% current_user.return_unique_items.each_with_index do | following_item, i | %>
 
           <% item_type = following_item.follower_type %>
 
