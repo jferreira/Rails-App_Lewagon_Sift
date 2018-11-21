@@ -184,14 +184,27 @@
 
   <br>
 
+  <% if current_user.article_saved?(@article.id) %>
 
-  <div style= "width: 24px">
-      <%= form_for([@article, @save_article]) do |f| %>
-        <%= button_tag type: 'submit', class: 'submit-score-btn' do %>
-            <span>&nbsp save &nbsp</span>
-        <% end %>
-      <% end %>
-  </div>
+
+                <%= render 'articles/shared/add_remove_article',
+                article: @article,
+                save_article: @save_article
+                %>
+
+
+
+  <% else %>
+
+                <%= render 'articles/shared/add_remove_article',
+                article: @article,
+                save_article: @save_article
+                %>
+
+  <% end %>
+
+
+
 
 
 

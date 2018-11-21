@@ -13,4 +13,8 @@ class User < ApplicationRecord
     result.nil? ? true : result.times_voted <= 4
   end
 
+  def article_saved?(article_id)
+    save_articles.select(Article.find_by(id:article_id)).empty?
+  end
+
 end
