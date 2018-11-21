@@ -30,14 +30,19 @@
 
           <div class="flex-header-2 text-center">
 
-              <!-- TOPIC HEADER -->
-              <h2><span
-                class="blocked">&nbsp News Topics &nbsp
-              </span></h2>
-              <!-- EVENT HEADER -->
+            <!-- ---- [ HEADER TITLES CARD ] ------ START --------- -->
+
+              <!-- LOCATION TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @topic.events.first.location %>  &nbsp</span></p>
+              <!-- TIME TAG -->
+              <p><span class="blocked-tag">&nbsp <%= @topic.events.first.articles.first.date_time_published %>  &nbsp</span></p>
               <p></p>
-              <p></p>
-              <p>The collection of all the news topics in sift</p>
+
+              <h2><span class="blocked topic-title">&nbsp <%= @topic.name %> &nbsp </span></h2>
+              <p>Description:<%= @topic.events.first.description %></p>
+                           <p> With <%= @topic.events.count %> Events</p>
+
+            <!-- ---- [ HEADER TITLES CARD ] ------ END --------- -->
 
           </div>
             <!-- TITLE END -->
