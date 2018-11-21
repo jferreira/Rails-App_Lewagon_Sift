@@ -119,12 +119,38 @@
 <!-- [ BODY ] ----------------------- [ START ] ------------------ -->
 
 <div class="container">
+
   <div class="row">
 
     <p>All the articles from this event: <%= @event.name %> :</p>
-    <% @event.articles.each_with_index do |article, i| %>
+    <br>
 
-      <br>
+    <p><strong>Article Filter:</strong></p>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filtered: User Score
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button">Filtered by: User Weighting</button>
+          <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button">Filtered by: Time</button>
+          <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button">Filtered by: Publisher Distance</button>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Order: Ascending
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button">Order: Ascending</button>
+        <button class="dropdown-item" type="button">Order: Descending</button>
+      </div>
+    </div>
+
+    <br>
+    <% @event.articles.each_with_index do |article, i| %>
 
       <div id="votes-event-list" class='offset-xs-0 col-xs-2 offset-md-0 col-md-2'>
 
