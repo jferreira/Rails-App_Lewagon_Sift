@@ -27,7 +27,6 @@ class Article < ApplicationRecord
 
   def average_score
     scores = self.user_scores
-
     scores.distinct
 
     # if scores.length.zero?
