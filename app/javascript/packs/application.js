@@ -1,5 +1,9 @@
 import "bootstrap";
 
+// ANIMATE SCORE
+import { animate_score}  from '../components/score_animation';
+animate_score();
+
 // SUGGEST URL
 import { userSuggestsUrl } from '../components/popup_suggest_url';
 userSuggestsUrl();

@@ -168,11 +168,11 @@
             </button>
           </form>
 
-            <% if @raw_scores.present?  %>
-                <p class="avg-score"><%= @raw_scores %></p>
-              <% else %>
+            <#% if @raw_scores.present?  %>
+                <p class="avg-score"><#%= @raw_scores %></p>
+              <#% else %>
                 <p class="avg-score">0</p>
-            <% end %>
+            <#% end %>
 
           <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
             <input value="-1" type="hidden" name="user_score[score]" id="user_score_score">

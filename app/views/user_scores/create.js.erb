@@ -1,0 +1,11 @@
+function refreshScore(innerHTML) {
+  const average_score_div = document.querySelector('.article-score');
+  average_score_div.innerHTML = innerHTML;
+}
+
+if (document.querySelector('.article-score')) {
+  refreshScore("<%= @article_avg.round(1) %>")
+}
+
+
+
