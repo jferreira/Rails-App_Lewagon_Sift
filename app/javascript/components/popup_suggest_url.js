@@ -27,6 +27,7 @@ function userSuggestsUrl() {
         const {value: formValues} = swal({
           title: '<h2>Suggest and article</h2>',
           width: 1000,
+          background: 'background-color: rgba(255, 255, 255, 0.3);',
           showCloseButton: true,
           html: html_block,
           focusConfirm: false,
