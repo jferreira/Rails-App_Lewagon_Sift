@@ -13,8 +13,8 @@
   var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/jferreira/cihciq2h400c5jnkxve6bdliv',
-  center: [0.000000, 0.000000],
-  zoom: 0.0
+  center: [-17, 37.8], // starting position
+  zoom: 4.0
   });
 </script>
 
@@ -25,3 +25,118 @@
 </style>
 
 <!-- [ MAP ]  -------------------------- END --------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- FLYING TO EVENT ----------------------------------->
+
+<button id='fly'>Event Location</button>
+
+<style>
+    #fly {
+        top: 90vh;
+        display: block;
+        position: relative;
+        margin: 0px auto;
+        width: 25%;
+        height: 40px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        color: black;
+        background: white;
+    }
+</style>
+
+<script>
+document.getElementById('fly').addEventListener('click', function () {
+    map.flyTo({
+        center: [
+            -74.50 + (Math.random() - 0.5) * 10,
+            40 + (Math.random() - 0.5) * 10]
+    });
+});
+</script>
+
+<!-- FLYING TO YOU ----------------------------------->
+<!--   GEO LOCATION TO MAP ---------------------------- -->
+<script>
+
+    map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MARKER -->
+<script>
+  var ll = new mapboxgl.LngLat(-73.9749, 40.7736);
+  var marker = new mapboxgl.Marker()
+    .setLngLat([30.5, 50.5])
+    .addTo(map);
+</script>
+
+
