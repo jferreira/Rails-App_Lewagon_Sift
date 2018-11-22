@@ -1,0 +1,35 @@
+<br>
+<h3>Event</h3>
+<br>
+
+<!-- ---- [ EVENT  CARD ]  ----------------------------------- START ------------------------ -->
+
+<% index_num = @index %>
+
+  <div class="a-card-event-box"
+  style="background-image:
+    linear-gradient(-225deg,
+    rgba(150,10,115,0.8) 0%,
+    rgba(255,77,0,0.4) 50%),
+  url(<%= @document.image_url %>);">
+  <h3>#<%= (index_num + 1) %></h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+      <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
+      <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
+    <p></p>
+      <h2><span class="blocked">&nbsp # &nbsp</span>
+        <span class="blocked">&nbsp <%= @document.topic.name %> &nbsp</span></h2>
+    <p></p>
+      <h2><span class="blocked">&nbsp # &nbsp</span>
+        <span class="blocked">&nbsp <%= @document.name %> &nbsp</span></h2>
+    <p></p>
+    <p></p>
+    <p>Summary: { <%= @document.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= @document.description %></p>
+    <%= link_to 'See Event', event_path(@document),
+          class: 'btn btn-default'%>
+  </div>
+
+<!-- ---- [ EVENT CARD ]  ----------------------------------- END ------------------------ -->
