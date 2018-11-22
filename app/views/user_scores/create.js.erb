@@ -1,0 +1,23 @@
+function refreshButton(innerHTML) {
+  const newSubmitButton = document.querySelector('.new_user_score');
+  newSubmitButton.innerHTML = innerHTML;
+}
+
+function refreshScore(innerHTML) {
+  const average_score_div = document.querySelector('.article-score');
+  average_score_div.innerHTML = innerHTML;
+}
+
+
+<% if @user_score.errors.any? %>
+    refreshButton("<%= j render 'articles/shared/new_score', class_name: 'submit-score-btn down', article: @article, user_score: @user_score, value: 1, icon: 'up' %>");
+<% else %>
+    refreshButton("<%= j render 'articles/shared/new_score', class_name: 'submit-score-btn down', article: @article, user_score: UserScore.new, value: 1, icon: 'up' %>");
+    refreshScore("<%= j render 'articles/shared/user_score_section', class_name:'text-center article-score', raw_scores: @raw_scores, average_score: @average_score %>");
+<% end %>
+
+
+// global.animate_score('')
+// const header = document.querySelector('#fixed-header');
+
+// const element = "<div class=\"alert alert-info alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>Changes Saved Successfully</div>";

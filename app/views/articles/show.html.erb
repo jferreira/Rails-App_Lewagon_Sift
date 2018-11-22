@@ -166,6 +166,7 @@
                   <%= render 'articles/shared/new_score',
                       article: @article,
                       user_score: @user_score,
+                      class_name: 'submit-score-btn up',
                       value: 1,
                       icon: 'up'
                   %>
@@ -178,6 +179,7 @@
                   <%= render 'articles/shared/new_score',
                       article: @article,
                       user_score: @user_score,
+                      class_name: 'submit-score-btn down',
                       value: -1,
                       icon: 'down'
                   %>
