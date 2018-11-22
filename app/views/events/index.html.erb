@@ -7,7 +7,7 @@
       linear-gradient(-225deg,
       rgba(150,10,115,0.8) 0%,
       rgba(255,77,0,0.4) 50%),
-    url(<%= @articles.find(@articles.pluck(:id).sample).image_url %>);">
+    url(<%= @events.all.sample.image_url %>);">
 
         <!-- ---- HEADER TITLES CARD ----- -->
         <div class="text-center">

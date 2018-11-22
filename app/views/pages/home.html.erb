@@ -76,6 +76,15 @@
   </div>
 </div>
 
+
+<!-- [ PAGE HEADER ]  ------------------------------ END ----------------------------- -->
+
+<!--------------------------------------------------------------------------------------->
+
+<!-- [ PAGE BODY ]  ------------------------------ START ----------------------------- -->
+
+
+
 <!-- SEARCH RESULTS -------------------------[ START ]----------------------->
 
 <div class="container">
@@ -96,7 +105,9 @@
                       <br>
                         <h3>Event</h3>
                       <br>
-                        <!-- ---- EVENT CARD ----- -->
+
+                    <!-- ---- [ EVENT  CARD ]  ----------------------------------- START ------------------------ -->
+
                         <div class="a-card-event-box"
                         style="background-image:
                         linear-gradient(-225deg, rgba(161,90,187,0.6) 0%,
@@ -118,48 +129,36 @@
                           <p><%= link_to "show event", event_path(document) %></p>
 
                         </div>
-                        <!-- ---- EVENT CARD END ----- -->
+
+                    <!-- ---- [ EVENT CARD ]  ----------------------------------- END ------------------------ -->
+
 
                       <!-- If the document retrieved is a Topic -->
                       <% elsif doc.searchable_type === 'Topic' %>
                       <!-- Part of PGSearch  -->
-                      <% document = doc.searchable %>
+                      <% @document = doc.searchable %>
 
                       <br>
                       <h3>Topic</h3>
                       <br>
 
-                        <!-- ---- [ TOPIC CARD ] ------------------------------------------------ -->
 
-                        <div class="a-card-event-box"
-                        style="background-image:
-                        linear-gradient(-225deg,
-                        rgba(18,240,181,0.6) 0%,
-                        rgba(15,153,200,0.8) 50%),
-                        url(<%= document.image_url %>);">
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-<!--                           <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.location %>  &nbsp &nbsp</span>
-                          <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.date_time %>  &nbsp &nbsp</span> -->
-                          <p></p>
-                          <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-                                        <p></p>
-<!--                           <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp all &nbsp</span></h2>
- -->                          <p></p>
-                          <p></p>
-                          <p>Summary: { <%= document.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                          <p><%= link_to "show topic", topic_path(document) %></p>
-                        </div>
+                    <!-- ---- [ TOPIC CARD ]  ----------------------------------- START ------------------------ -->
 
-                        <!-- ---- TOPIC CARD END ----- -->
+                      <% @index = i %>
+
+                      <%= render 'pages/_shared/searched_topic_card',
+                        article: document
+                      %>
+
+                    <!-- ---- [ TOPIC CARD ] ----------------------------------- END ------------------------ -->
+
 
                       <% else %>
                       <!-- If the document retrieved is an article  -->
 
                       <!-- Part of PGSearch  -->
-                      <% document = doc.searchable %>
+                      <% @document = doc.searchable %>
 
                       <br>
                       <h3>Article</h3>
