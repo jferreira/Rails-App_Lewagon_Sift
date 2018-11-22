@@ -1,5 +1,4 @@
 class UserScoresController < ApplicationController
-
   def create
     # binding.pry
     @article = Article.find(params[:article_id])
@@ -28,5 +27,4 @@ class UserScoresController < ApplicationController
     params.require(:user_score).permit(:score)
   end
 end
-
 

@@ -10,8 +10,7 @@ class ArticlesController < ApplicationController
     # ARTICLE PASSED
     @article = Article.find(params[:id])
 
-    @raw_scores = @article.user_scores.pluck(:score)
-    @average_score = @raw_scores.sum / @raw_scores.size.to_f
+    @average_score = @article.average_score
 
     @following_item = FollowingItem.new
     @event = Event.find_by(id: @article.event_id)
