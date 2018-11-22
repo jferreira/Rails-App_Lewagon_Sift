@@ -69,13 +69,16 @@
                 <span class="blocked topic-title">
                   &nbsp <%= @article.event.topic.name %> &nbsp
                 </span>
-                <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
+
+                <!-- HTML NOTIFICATION -->
+      <!--
+  <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
 
               </h2>
 
               <h2>
                 <!--[      EVENT      ]----------------------------------------------------------------->
-                <!--[ TOPIC BOOKMARK ]-->
+                <!--[ EVENT BOOKMARK  ]-->
 
                 <span id="bookmarked-event" class="blocked add-event-title">
 
@@ -96,10 +99,6 @@
               </h2>
 
               <p class="event-description">Description: <%= @article.event.description %></p>
-
-<!--               <#%= if @article.event.articles = 1 %>
-              <#% else %> -->
-
 
                 <!-- [ NEXT EVENT ] -------- START -------------->
 

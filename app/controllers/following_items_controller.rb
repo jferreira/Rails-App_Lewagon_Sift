@@ -21,17 +21,18 @@ class FollowingItemsController < ApplicationController
 
   end
 
+
   def destroy
     @following_item = FollowingItem.find_by(id: params[:id])
     if @following_item.destory
-      # flash[:notice] = "Article removed from your list"
+      # flash[:notice] = "Item removed from your list"
       redirect_to article_path(@article)
     end
   end
 
-raise
 
   private
+
 
   def following_item
     params.require(:following_item).permit(:follower_type, :follower_id)

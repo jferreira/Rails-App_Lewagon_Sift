@@ -1,17 +1,27 @@
 
-<!-- [ BOOKMARK & FOLLOW ] BUTTON -->
+<!-- [ BOOKMARK & FOLLOW ] BUTTON ----------------------- START ---------------------------->
 
 <%= form_for(following_item, remote: true) do |item| %>
 
-  <%= item.hidden_field :follower_type, :value => follower_type %>
-  <%= item.hidden_field :follower_id, :value => follower_id %>
+  <%= item.hidden_field
+    :follower_type,
+    :value => follower_type %>
+  <%= item.hidden_field
+    :follower_id,
+    :value => follower_id %>
 
-  <% if following_item.follower %>
-    <%= item.button '-', :class => "add-item-list-#{follower_type} btn btn-default" %>
+  <% if following_item.follower.nil? %>
+    <%= item.button '+',
+    :class => "add-item-list-#{follower_type}
+    btn btn-default" %>
 
   <% else %>
-    <%= item.button '+', :class => "add-item-list-#{follower_type} btn btn-default" %>
+    <%= item.button '-',
+    :class => "delete-item-list-#{follower_type}
+    btn btn-default" %>
 
   <% end %>
 
 <% end %>
+
+<!-- [ BOOKMARK & FOLLOW ] BUTTON ----------------------- END ---------------------------->
