@@ -55,15 +55,17 @@
                 <!--[      TOPIC      ]----------------------------------------------------------------->
                  <!--[ TOPIC BOOKMARK ]-->
 
-                <span id="bookmarked-topic" class="blocked add-topic-title">
-
+                <!-- ADD -->
+                <span id="follow-topic" class="blocked add-topic-title">
                   <%= render 'following_items/form',
                     following_item: @following_item,
                     follower_type: 'Topic',
                     follower_id: @topic.id
                   %>
-
                 </span>
+
+                <!-- DESTROY -->
+
 
                 <!--[ TOPIC TITLE ]-->
                 <span class="blocked topic-title">
@@ -71,8 +73,7 @@
                 </span>
 
                 <!-- HTML NOTIFICATION -->
-      <!--
-  <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
+                <!-- <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
 
               </h2>
 
@@ -80,7 +81,7 @@
                 <!--[      EVENT      ]----------------------------------------------------------------->
                 <!--[ EVENT BOOKMARK  ]-->
 
-                <span id="bookmarked-event" class="blocked add-event-title">
+                <span id="follow-event" class="blocked add-event-title">
 
                     <%= render 'following_items/form',
                       following_item: @following_item,
@@ -94,7 +95,9 @@
                 <span class="blocked event-title">
                   &nbsp <%= @article.event.name %> &nbsp
                 </span>
-                <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
+
+                <!-- HTML NOTIFICATION -->
+                <!-- <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span> -->
 
               </h2>
 

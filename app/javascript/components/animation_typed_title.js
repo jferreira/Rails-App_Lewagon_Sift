@@ -5,9 +5,9 @@ import Typed from 'typed.js';
 
 function typedOutTitle() {
 
-  const selected = document.getElementById("txt-heading")
+  const txtHeading = document.getElementById("txt-heading")
 
-  if (selected) {
+  if (txtHeading) {
 
     var typed = new Typed('#txt-heading', {
       strings: [
@@ -23,13 +23,14 @@ function typedOutTitle() {
       loop: true,
       loopCount: Infinity,
     });
+
   }
+
 }
 
 // [ TYPE OUT A TITLE ] ---------------- EXPORTED -----------------
 
 export { typedOutTitle };
-
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   var typed = new Typed('#typed', {

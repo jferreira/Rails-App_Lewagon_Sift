@@ -3,14 +3,13 @@ import swal from 'sweetalert2';
 
 // BOOKMARK A TOPIC ---------------------------------
 
-function bookmarkTopic() {
+function topicFollowed() {
 
-  const selected = document.getElementById('bookmarked-topic');
+  const followTopic = document.getElementById('follow-topic');
 
-  if (selected) {
+  if (followTopic) {
 
-    // bookmarkedTopicButton.addEventListener('click', () => {
-      selected.addEventListener("click", () => {
+    followTopic.addEventListener("click", () => {
 
       const toast = swal.mixin({
         toast: true,
@@ -21,15 +20,14 @@ function bookmarkTopic() {
 
       toast({
         type: 'success',
-        title: 'Topic added to your bookmarks!'
+        title: 'Topic Followed!'
       })
 
     })
 
-    // }
   }
 }
 
 // EXPORT ---------------------------------
 
-export { bookmarkTopic };
+export { topicFollowed };

@@ -1,10 +1,9 @@
 // NOTIFICATION FOR BOOK MARK
 
-const hideAndDisplayNotif = () => {
+const popUpFollowed = () => {
 
   const button_topic = document.querySelector('.add-item-list-Topic');
   const button_event = document.querySelector('.add-item-list-Event');
-
   const notification_topic = document.querySelector('.list-notification-topic');
   const notification_event = document.querySelector('.list-notification-event');
 
@@ -23,8 +22,9 @@ const hideAndDisplayNotif = () => {
         setTimeout(()=> notification_event.classList.remove('fade'), 2000);
       }
     });
+
   }
 
 }
 
-export { hideAndDisplayNotif };
+export { popUpFollowed };
