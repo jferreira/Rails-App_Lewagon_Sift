@@ -1,0 +1,27 @@
+<!-- [ MAP ]  -------------------------- START --------------------------------- -->
+
+<!-- <div id="background-mapbox"><div> -->
+
+<div id='map' style='height: 100vh;'>
+</div>
+
+
+<!-- MAP JAVASCRIPT -->
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamZlcnJlaXJhIiwiYSI6IkZaNkFxZTgifQ.MiR5H09LvIWoa2DH2BRxuA';
+  var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/jferreira/cihciq2h400c5jnkxve6bdliv',
+  center: [0.000000, 0.000000],
+  zoom: 0.0
+  });
+</script>
+
+<!-- MAP STYLE -->
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+<!-- [ MAP ]  -------------------------- END --------------------------------- -->

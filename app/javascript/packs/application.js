@@ -11,3 +11,7 @@ hideAndDisplayNotif();
 // TYPED OUT TITLE
 import { typedOutTitle } from '../components/typed_title';
 typedOutTitle();
+
+// MAPBOX - MAIN MAP
+// import { mapBoxMap } from '../components/map';
+// mapBoxMap();
