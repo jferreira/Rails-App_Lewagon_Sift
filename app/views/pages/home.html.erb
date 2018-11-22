@@ -170,3 +170,16 @@
     </div>
   </div>
 </div>
+
+
+<style>
+  html {
+  scroll-behavior: smooth;
+}
+</style>
+
+<script>
+    <% if params[:query].present? %>
+      window.scrollBy(0, 600);
+    <% end %>
+</script>
