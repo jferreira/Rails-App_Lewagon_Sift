@@ -420,7 +420,7 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
           # DETAILS
           publisher_name = publisher["title"]
             publisher_description = publisher["title"]
-            publisher_image = 'https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1280px-BBC_News.svg.png',
+            publisher_image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/NYTimes-Page1-11-11-1918.jpg/220px-NYTimes-Page1-11-11-1918.jpg',
             publisher_website = publisher["uri"]
 
           # LOCATION
@@ -431,7 +431,7 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
           obj_data = {
               name: publisher_name,
               description: publisher_description,
-              image_url: publisher_image,
+              image_url: publisher_image[0],
               web_url: publisher_website,
               location: publisher_location,
               lat: publisher_lat,

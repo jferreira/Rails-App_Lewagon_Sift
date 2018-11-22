@@ -6,15 +6,18 @@ function userSuggestsUrl() {
 
   const swalButton = document.getElementById('user-suggests-url');
 
-  let h2 = document.querySelector('h2 > span');
-
-  let location = document.querySelector('.article-location').innerText;
-  let time = document.querySelector('.article-time').innerText;
-  let topic_title = document.querySelector('.topic-title').innerText;
-  let event_title = document.querySelector('.event-title').innerText;
-  let event_description = document.querySelector('.event-description').innerText;
-
   if (swalButton) {
+
+    let h2 = document.querySelector('h2 > span');
+
+    let location = document.querySelector('.article-location').innerText;
+
+    let time = document.querySelector('.article-time').innerText;
+    let topic_title = document.querySelector('.topic-title').innerText;
+    let event_title = document.querySelector('.event-title').innerText;
+    let event_description = document.querySelector('.event-description').innerText;
+
+
     swalButton.addEventListener('click', () => {
 
       let html_block = '<h4>Suggest an article about</h4>' +
@@ -45,9 +48,9 @@ function userSuggestsUrl() {
 
     })
 
-
-
   }
+
+
 }
 
 export { userSuggestsUrl };

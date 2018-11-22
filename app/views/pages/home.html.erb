@@ -10,8 +10,7 @@
    ;">
 
   <div class="banner-content">
-
-    <h2 class="txt-heading">Read news with perspective</h2>
+    <h2>News Articles... <span id="txt-heading"></span></h2>
     <p class="txt-body-copy">To get started type in a topic,event, author, publisher or by location</p>
 
       <!-- [ HOME SEARCH ] ------------------------------- -->
@@ -57,7 +56,7 @@
 
             <div class="form-group">
 
-              <%= text_field_tag :query, nil, placeholder: 'search', class: 'form-control'%>
+              <%= text_field_tag :query, nil, placeholder: "Search: Topics, Events, Locations", class: 'form-control'%>
 <!--               <%= link_to "", topics_path, class: "fas fa-arrow-right btn btn-green" %> -->
               <%= submit_tag "Search", class: "fas fa-arrow-right btn btn-default" %>
 
@@ -77,6 +76,15 @@
   </div>
 </div>
 
+
+<!-- [ PAGE HEADER ]  ------------------------------ END ----------------------------- -->
+
+<!--------------------------------------------------------------------------------------->
+
+<!-- [ PAGE BODY ]  ------------------------------ START ----------------------------- -->
+
+
+
 <!-- SEARCH RESULTS -------------------------[ START ]----------------------->
 
 <div class="container">
@@ -87,133 +95,37 @@
             <!-- If search done  -->
             <% if @documents.length.positive? %>
               <%  @documents.each_with_index do | doc, i | %>
+                    <% @document = doc.searchable %>
+                    <% @index = i %>
 
-                      <!-- If the document retrieved is an Event  -->
-                      <% if doc.searchable_type === 'Event' %>
+                    <!-- ---- [ EVENT  CARD ]  ----------------------------------- START ------------------------ -->
 
-                      <!-- Part of PGSearch  -->
-                      <% document = doc.searchable %>
+                    <% if doc.searchable_type === 'Event' %>
+                      <%= render 'pages/_shared/searched_event_card',
+                        article: @document
+                      %>
 
-                      <br>
-                        <h3>Event</h3>
-                      <br>
-                        <!-- ---- EVENT CARD ----- -->
-                        <div class="a-card-event-box"
-                        style="background-image:
-                        linear-gradient(-225deg, rgba(161,90,187,0.6) 0%,
-                        rgba(45,23,54,0.8) 50%),
-                        url(<%= document.image_url %>);">
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <span class="blocked-sml">&nbsp &nbsp <%= document.location %>  &nbsp &nbsp</span>
-                          <span class="blocked-sml">&nbsp &nbsp <%= document.date_time %>  &nbsp &nbsp</span>
-                          <p></p>
-                          <h2><span class="blocked-light">&nbsp # &nbsp</span> <span class="blocked-light">&nbsp Syrian Civial War &nbsp</span></h2>
-                                        <p></p>
-                          <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-                          <p></p>
-                          <p></p>
-                          <p>Summary: { <%= document.articles.count %> Articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= document.description %></p>
-                          <p><%= link_to "show event", event_path(document) %></p>
+                    <!-- ---- [ EVENT CARD ]  ----------------------------------- END ------------------------ -->
 
-                        </div>
-                        <!-- ---- EVENT CARD END ----- -->
+                    <!-- ---- [ TOPIC CARD ]  ----------------------------------- START ------------------------ -->
 
-                      <!-- If the document retrieved is a Topic -->
-                      <% elsif doc.searchable_type === 'Topic' %>
-                      <!-- Part of PGSearch  -->
-                      <% document = doc.searchable %>
+                    <% elsif doc.searchable_type === 'Topic' %>
+                      <%= render 'pages/_shared/searched_topic_card',
+                        article: @document
+                      %>
 
-                      <br>
-                      <h3>Topic</h3>
-                      <br>
+                    <!-- ---- [ TOPIC CARD ] ----------------------------------- END ------------------------ -->
 
-                        <!-- ---- [ TOPIC CARD ] ------------------------------------------------ -->
+                    <!-- ---- [ ARTICLE CARD ] ------------------------ START ------------------------- -->
 
-                        <div class="a-card-event-box"
-                        style="background-image:
-                        linear-gradient(-225deg,
-                        rgba(18,240,181,0.6) 0%,
-                        rgba(15,153,200,0.8) 50%),
-                        url(<%= document.image_url %>);">
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-<!--                           <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.location %>  &nbsp &nbsp</span>
-                          <span class="blocked-sml">&nbsp &nbsp <%#= document.events.first.date_time %>  &nbsp &nbsp</span> -->
-                          <p></p>
-                          <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp <%= document.name %> &nbsp</span></h2>
-                                        <p></p>
-<!--                           <h2><span class="blocked">&nbsp # &nbsp</span> <span class="blocked">&nbsp all &nbsp</span></h2>
- -->                          <p></p>
-                          <p></p>
-                          <p>Summary: { <%= document.events.count %> Events }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: ...</p>
-                          <p><%= link_to "show topic", topic_path(document) %></p>
-                        </div>
+                    <% else %>
+                      <%= render 'pages/_shared/searched_article_card',
+                        article: @document
+                      %>
 
-                        <!-- ---- TOPIC CARD END ----- -->
+                    <!-- ---- [ ARTICLE CARD ] ------------------------- END ----------------------------- -->
 
-                      <% else %>
-                      <!-- If the document retrieved is an article  -->
-
-                      <!-- Part of PGSearch  -->
-                      <% document = doc.searchable %>
-
-                      <br>
-                      <h3>Article</h3>
-                      <br>
-
-                      <!-- ---- [ ARTICLE CARD ] ------------------------ START ------------------------- -->
-
-                        <div class="s-card-article">
-                          <div class="s-image-article"
-                          style="background-image:
-                          linear-gradient(-225deg,
-                          rgba(161,90,187,0.6) 0%,
-                          rgba(45,23,54,0.8) 50%),
-                          url(<%= doc.searchable.image_url %>);">
-                          <h3>
-                            #<%= (i + 1) %>
-                          </h3>
-                          </div>
-
-                          <div class="s-card-publisher">
-                            <h3 class="s-card-header-text"><%= doc.searchable.publisher.name %></h3>
-                            <img class="s-image-publisher" src= <%= doc.searchable.publisher.image_url %> >
-                          </div>
-                          <div class="s-card-body s-card-text" >
-                            <h3><%= doc.searchable.title %></h3>
-                            <br>
-                            <p><%= doc.searchable.description%></p>
-                            <p><%= doc.searchable.date_time_published%></p>
-                            <p><% time_read = doc.searchable.body_text.reading_time :format => :approx %></p>
-
-
-                          <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
-
-                            <% day_num = doc.searchable.date_time_published.mday %>
-                                <% case day_num
-                                   when 1 %><% date_sufix = 'st' %>
-                                <% when 2 %><% date_sufix = 'nd' %>
-                                <% when 3 %><% date_sufix = 'rd' %>
-                                <% else %><% date_sufix = 'th' %>
-                                <% end %>
-                            <p><%= doc.searchable.date_time_published.mday %><%= date_sufix %></p>
-                            <p><%= doc.searchable.date_time_published.strftime("%H") %>.00</p>
-                            <% time_read = doc.searchable.body_text.reading_time :format => :approx %>
-                              <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-                            <br>
-                          <p><%= link_to "See Article", event_path(doc.searchable) %></p>
-
-                          </div>
-                        </div>
-
-                      <!-- ---- [ ARTICLE CARD ] ------------------------- END ----------------------------- -->
-
-                      <% end %>
+                    <% end %>
 
               <% end %>
 

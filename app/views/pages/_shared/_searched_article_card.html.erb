@@ -1,0 +1,52 @@
+<br>
+<h3>Article</h3>
+<br>
+
+<!-- ---- [ ARTICLE CARD ] ------------------------ START ------------------------- -->
+
+  <% index_num = @index %>
+
+  <div class="s-card-article">
+    <div class="s-image-article"
+    style="background-image:
+    linear-gradient(-225deg,
+    rgba(161,90,187,0.6) 0%,
+    rgba(45,23,54,0.8) 50%),
+    url(<%= @document.image_url %>);">
+    <h3>
+      #<%= (index_num + 1) %>
+    </h3>
+    </div>
+
+    <div class="s-card-publisher">
+      <h3 class="s-card-header-text"><%= @document.publisher.name %></h3>
+      <img class="s-image-publisher" src= <%= @document.publisher.image_url %> >
+    </div>
+    <div class="s-card-body s-card-text" >
+      <h3><%= @document.title %></h3>
+      <br>
+      <p><%= @document.description%></p>
+      <p><%= @document.date_time_published%></p>
+      <p><% time_read = @document.body_text.reading_time :format => :approx %></p>
+
+
+    <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+
+      <% day_num = @document.date_time_published.mday %>
+          <% case day_num
+             when 1 %><% date_sufix = 'st' %>
+          <% when 2 %><% date_sufix = 'nd' %>
+          <% when 3 %><% date_sufix = 'rd' %>
+          <% else %><% date_sufix = 'th' %>
+          <% end %>
+      <p><%= @document.date_time_published.mday %><%= date_sufix %></p>
+      <p><%= @document.date_time_published.strftime("%H") %>.00</p>
+      <% time_read = @document.body_text.reading_time :format => :approx %>
+        <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+      <br>
+    <p><%= link_to "See Article", event_path(@document) %></p>
+
+    </div>
+  </div>
+
+<!-- ---- [ ARTICLE CARD ] ------------------------- END ----------------------------- -->

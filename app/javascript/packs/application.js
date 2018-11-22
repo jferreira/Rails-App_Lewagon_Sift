@@ -1,17 +1,21 @@
 import "bootstrap";
 
-import { suggestAnArticle}  from '../components/popup_add_article';
-suggestAnArticle();
-
-import { userSuggestsUrl } from '../components/popup_suggest_url';
-userSuggestsUrl();
-
+// ANIMATE SCORE
 import { animate_score}  from '../components/score_animation';
 animate_score();
 
-import { hideAndDisplayNotif } from '../components/notifyer';
+// SUGGEST URL
+import { userSuggestsUrl } from '../components/popup_suggest_url';
+userSuggestsUrl();
 
+// HTML NOTIFICATION
+import { hideAndDisplayNotif } from '../components/notifyer';
 hideAndDisplayNotif();
 
+// TYPED OUT TITLE
+import { typedOutTitle } from '../components/typed_title';
+typedOutTitle();
 
-
+// MAPBOX - MAIN MAP
+// import { mapBoxMap } from '../components/map';
+// mapBoxMap();
