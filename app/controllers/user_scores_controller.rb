@@ -1,6 +1,7 @@
 class UserScoresController < ApplicationController
 
   def create
+    # binding.pry
     @article = Article.find(params[:article_id])
     @user_score = UserScore.find_or_create(@article.id, current_user.id)
     @user_score.score = @user_score.score.to_i + score_params[:score].to_i
@@ -27,3 +28,5 @@ class UserScoresController < ApplicationController
     params.require(:user_score).permit(:score)
   end
 end
+
+

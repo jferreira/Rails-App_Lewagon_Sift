@@ -1,4 +1,4 @@
-<div>
+<div id="jsBtnUp">
 <%= form_for([article, user_score], remote: true) do |f| %>
   <%= f.hidden_field :score, :value => value %>
   <%= button_tag type: 'submit', class: class_name do %>

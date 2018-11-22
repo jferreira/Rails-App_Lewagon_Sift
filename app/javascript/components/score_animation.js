@@ -2,13 +2,13 @@ import { easing, tween, styler } from 'popmotion';
 
 const score_box = styler(document.querySelector('.article-score'));
 
-function animate_score(x) {
+function animate_score() {
 
   const buttons = document.getElementsByClassName("submit-score-btn");
 
-  [...buttons].forEach( buttonList =>{
+  [...buttons].forEach( buttonList => {
 
-    buttonList .addEventListener('click', button => {
+    buttonList.addEventListener('click', button => {
 
         let direction = button.target.classList.contains("up") ? -5 : 5;
 
@@ -27,7 +27,5 @@ function animate_score(x) {
   })
 
 }
-
-global.animate_score = animate_score
 
 export { animate_score };

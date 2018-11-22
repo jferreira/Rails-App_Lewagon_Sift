@@ -152,10 +152,11 @@
 
                 <%= render 'articles/shared/new_session_btn', icon: 'up' %>
 
+
                 <%= render 'articles/shared/user_score_section',
-                raw_scores: @raw_scores,
                 average_score: @average_score
                 %>
+
 
                 <%= render 'articles/shared/new_session_btn', icon: 'down' %>
 
@@ -170,11 +171,9 @@
                       value: 1,
                       icon: 'up'
                   %>
-
-                <%= render 'articles/shared/user_score_section',
-                raw_scores: @raw_scores,
-                average_score: @average_score
-                %>
+                    <%= render 'articles/shared/user_score_section',
+                    average_score: @average_score
+                    %>
 
                   <%= render 'articles/shared/new_score',
                       article: @article,
@@ -189,7 +188,6 @@
             <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
 
                 <%= render 'articles/shared/user_score_section',
-                raw_scores: @raw_scores,
                 average_score: @average_score
                 %>
 
