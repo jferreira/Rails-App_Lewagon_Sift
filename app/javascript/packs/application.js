@@ -1,15 +1,13 @@
 import "bootstrap";
 
-import { suggestAnArticle}  from '../components/popup_add_article';
-suggestAnArticle();
-
-
+// SUGGEST URL
 import { userSuggestsUrl } from '../components/popup_suggest_url';
 userSuggestsUrl();
 
+// HTML NOTIFICATION
 import { hideAndDisplayNotif } from '../components/notifyer';
-
 hideAndDisplayNotif();
 
-
-
+// TYPED OUT TITLE
+import { typedOutTitle } from '../components/typed_title';
+typedOutTitle();
