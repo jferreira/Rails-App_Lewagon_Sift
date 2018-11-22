@@ -1,12 +1,13 @@
+// SWEETALERT2
 import swal from 'sweetalert2';
 
-// SUGGEST A URL ---------------------------------
+// [SUGGEST A URL ---------------------------------
 
 function userSuggestsUrl() {
 
-  const swalButton = document.getElementById('user-suggests-url');
+  const selected = document.getElementById('user-suggests-url');
 
-  if (swalButton) {
+  if (selected) {
 
     let h2 = document.querySelector('h2 > span');
 
@@ -18,7 +19,7 @@ function userSuggestsUrl() {
     let event_description = document.querySelector('.event-description').innerText;
 
 
-    swalButton.addEventListener('click', () => {
+    selected.addEventListener('click', () => {
 
       let html_block = '<h4>Suggest an article about</h4>' +
         `<input id="swal-input1" class="swal2-input" placeholder="${topic_title}">` +
@@ -27,30 +28,26 @@ function userSuggestsUrl() {
         `<input id="swal-input1" class="swal2-input" placeholder="${location}">` +
         `<input id="swal-input1" class="swal2-input" placeholder="${time}">`;
 
-        const {value: formValues} = swal({
-          title: '<h2>Suggest and article</h2>',
-          width: 1000,
-          background: 'background-color: rgba(255, 255, 255, 0.3);',
-          showCloseButton: true,
-          html: html_block,
-          focusConfirm: false,
-          preConfirm: () => {
-            return [
-              document.getElementById('swal-input1').value,
-              document.getElementById('swal-input2').value
-            ]
-          }
-        })
-
-        if (formValues) {
-          swal(json.stringify(formValues))
+      const {value: formValues} = swal({
+        title: '<h2>Suggest and article</h2>',
+        width: 1000,
+        background: 'background-color: rgba(255, 255, 255, 0.3);',
+        showCloseButton: true,
+        html: html_block,
+        focusConfirm: false,
+        preConfirm: () => {
+          return [ document.getElementById('swal-input1').value, document.getElementById('swal-input2').value]
         }
+      })
+
+      if (formValues) {
+        swal(json.stringify(formValues))
+      }
 
     })
-
   }
-
-
 }
+
+// EXPORT ---------------------------------
 
 export { userSuggestsUrl };

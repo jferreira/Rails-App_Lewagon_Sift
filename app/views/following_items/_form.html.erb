@@ -1,5 +1,17 @@
-<%= form_for(following_item, remote: true) do |f| %>
-  <%= f.hidden_field :follower_type, :value => follower_type %>
-  <%= f.hidden_field :follower_id, :value => follower_id %>
-  <%= f.button '#', :class => "add-item-list-#{follower_type} " %>
+
+<!-- [ BOOKMARK & FOLLOW ] BUTTON -->
+
+<%= form_for(following_item, remote: true) do |item| %>
+
+  <%= item.hidden_field :follower_type, :value => follower_type %>
+  <%= item.hidden_field :follower_id, :value => follower_id %>
+
+  <% if following_item.follower %>
+    <%= item.button '-', :class => "add-item-list-#{follower_type} btn btn-default" %>
+
+  <% else %>
+    <%= item.button '+', :class => "add-item-list-#{follower_type} btn btn-default" %>
+
+  <% end %>
+
 <% end %>

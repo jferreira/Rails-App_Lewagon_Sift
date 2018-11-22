@@ -1,4 +1,7 @@
+// POPMOTION
 import { easing, tween, styler } from 'popmotion';
+
+// ANIMATION - SCORE ---------------------------------
 
 const score_box = styler(document.querySelector('.article-score'));
 
@@ -27,5 +30,7 @@ function animate_score() {
   })
 
 }
+
+// EXPORT -----------------------------------------
 
 export { animate_score };

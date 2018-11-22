@@ -11,18 +11,31 @@ class FollowingItemsController < ApplicationController
         format.html { redirect_back(fallback_path: root_path) }
         format.js
       end
+
     else
       respond_to do |format|
         format.html { render redirect_back(fallback_path: root_path) }
         format.js
       end
     end
+
   end
+
+  def destroy
+    @following_item = FollowingItem.find_by(id: params[:id])
+    if @following_item.destory
+      # flash[:notice] = "Article removed from your list"
+      redirect_to article_path(@article)
+    end
+  end
+
+raise
 
   private
 
   def following_item
     params.require(:following_item).permit(:follower_type, :follower_id)
   end
+
 end
 

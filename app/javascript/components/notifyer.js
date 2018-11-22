@@ -1,3 +1,5 @@
+// NOTIFICATION FOR BOOK MARK
+
 const hideAndDisplayNotif = () => {
 
   const button_topic = document.querySelector('.add-item-list-Topic');
@@ -9,17 +11,17 @@ const hideAndDisplayNotif = () => {
   if (button_topic == 8) {
 
     button_topic.addEventListener('click', el => {
-        if (notification_topic) {
-          notification_topic.classList.add('fade');
-          setTimeout(()=> notification_topic.classList.remove('fade'), 2000);
-        }
+      if (notification_topic) {
+        notification_topic.classList.add('fade');
+        setTimeout(()=> notification_topic.classList.remove('fade'), 2000);
+      }
     });
 
     button_event.addEventListener('click', el => {
-        if (notification_event) {
-          notification_event.classList.add('fade');
-          setTimeout(()=> notification_event.classList.remove('fade'), 2000);
-        }
+      if (notification_event) {
+        notification_event.classList.add('fade');
+        setTimeout(()=> notification_event.classList.remove('fade'), 2000);
+      }
     });
   }
 

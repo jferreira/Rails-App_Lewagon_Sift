@@ -18,11 +18,15 @@
   });
 </script>
 
+
+
 <!-- MAP STYLE -->
-<style>
+<!-- <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+</style> -->
+
+
 
 <!-- [ MAP ]  -------------------------- END --------------------------------- -->
 
@@ -39,6 +43,8 @@
 <!-- FLYING TO EVENT ----------------------------------->
 
 <button id='fly'>Event Location</button>
+
+
 
 <style>
     #fly {
@@ -58,6 +64,8 @@
     }
 </style>
 
+
+
 <script>
 document.getElementById('fly').addEventListener('click', function () {
     map.flyTo({
@@ -68,7 +76,14 @@ document.getElementById('fly').addEventListener('click', function () {
 });
 </script>
 
+
+
+
+
+
+
 <!-- FLYING TO YOU ----------------------------------->
+
 <!--   GEO LOCATION TO MAP ---------------------------- -->
 <script>
 
@@ -86,57 +101,14 @@ document.getElementById('fly').addEventListener('click', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- MARKER -->
 <script>
   var ll = new mapboxgl.LngLat(-73.9749, 40.7736);
+
   var marker = new mapboxgl.Marker()
     .setLngLat([30.5, 50.5])
     .addTo(map);
+
 </script>
 
 
