@@ -7,10 +7,10 @@
   <%= item.hidden_field :follower_id, :value => follower_id %>
 
   <% if following_item.follower.nil? %>
-    <%= item.button '+', :class => "add-item-list-#{follower_type} btn btn-default" %>
+    <%= item.button '+', :class => "add-item-list-#{follower_type} btn btn-empty" %>
 
   <% else %>
-    <%= item.button '-', :class => "delete-item-list-#{follower_type} btn btn-default" %>
+    <%= item.button '-', :class => "delete-item-list-#{follower_type} btn btn-empty" %>
 
   <% end %>
 
