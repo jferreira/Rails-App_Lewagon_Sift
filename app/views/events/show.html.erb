@@ -146,7 +146,11 @@
             <span>
                <p class="btn btn-default">
                 &nbsp&nbsp&nbsp&nbsp
-                  0
+                  <% if article.average_score.present? %>
+                    <%= article.average_score %>
+                  <% else %>
+                    0
+                  <% end %>
                 &nbsp&nbsp&nbsp&nbsp
               </p>
             </span>
