@@ -32,33 +32,8 @@
 
 
 
-    <style>
-      .event-header {
-        display: flex;
-       }
-
-      .event-icon-boxes {
-        display: flex;
-        width: 35%;
-
-      }
-
-       .event-index {
-        flex: 0 0 50%;
-       }
-       .event-location, .event-date {
-          flex: 0 0 50%;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-       }
-
-       .event-num-articles  {
-        flex: 0 0 50%;
-       }
 
 
-    </style>
 
 
 <!-- LIST  ------------------------------- -->
@@ -70,7 +45,6 @@
 
               <p>All news events within Sift:</p>
               <%  @events.each_with_index do | event, i | %>
-
               <br>
 
                 <div class="a-card-event-box"
@@ -101,24 +75,18 @@
                     </div>
 
                     <div class="event-topic">
-                        <span class="blocked-sml">
-                          &nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp
-                        </span>
+
                         <h2>
                           <span class="blocked">
                             &nbsp # &nbsp
                           </span>
-                          <span class="blocked">&nbsp <%= event.topic.name %>
-                            &nbsp
+                          <span class="blocked"><%= event.topic.name %>
+
                           </span>
                         </h2>
                     </div>
 
-                    <div class="event-tite">
-                        <span class="blocked-sml">
-                          &nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp
-                        </span>
-
+                    <div class="event-title">
                         <h2>
                           <span class="blocked">
                             &nbsp # &nbsp
@@ -129,8 +97,8 @@
                         </h2>
                     </div>
 
-                    <div class="event-summary">
-                      <p>Summary: <%= event.description %></p>
+                    <div class="event-summary-container">
+                      <p class="event-summary">Summary: <%= event.description %></p>
                     </div>
 
                     <div class="event-footer">
