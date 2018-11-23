@@ -42,9 +42,8 @@
 
           <!-- ---- EVENT HEADER TITLES CARD ----- -->
 
-          <p><span class="btn-outline-white article-location">
+          <p><span class="article-location">
             &nbsp <%= @article.location %>  &nbsp</span></p>
-            <p><span class="btn-outline-white article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
             <p></p>
 
 
@@ -63,14 +62,10 @@
 
               <!-- DESTROY -->
 
-
               <!--[ TOPIC TITLE ]-->
               <span class="blocked topic-title">
                 &nbsp <%= @article.event.topic.name %> &nbsp
               </span>
-
-              <!-- HTML NOTIFICATION -->
-              <!-- <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
 
             </h2>
 
@@ -78,7 +73,7 @@
               <!--[      EVENT      ]----------------------------------------------------------------->
               <!--[ EVENT BOOKMARK  ]-->
 
-              <span id="follow-event"
+            <span id="follow-event"
               class="blocked add-event-title">
 
               <%= render 'following_items/form',
@@ -94,12 +89,9 @@
               &nbsp <%= @article.event.name %> &nbsp
             </span>
 
-            <!-- HTML NOTIFICATION -->
-            <!-- <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span> -->
-
           </h2>
 
-          <p class="event-description">Description: <%= @article.event.description %></p>
+          <p class="event-description"><%= @article.event.description %></p>
 
           <!-- [ NEXT EVENT ] -------- START -------------->
 
@@ -153,20 +145,18 @@
         <br>
         <div id="article-side-items">
 
+
+
+
           <% if current_user.nil? %>
 
             <%= render 'articles/shared/new_session_btn', icon: 'up' %>
-
-
-          <div class="article-score text-center">
-            <%= @average_score.present? ? @average_score.round(1) : 0 %>
-          </div>
-
-
+            <div class="article-score text-center txt-clear">
+              <%= @average_score.present? ? @average_score.round(1) : 0 %>
+            </div>
             <%= render 'articles/shared/new_session_btn', icon: 'down' %>
 
           <% else %>
-
           <% if current_user.can_user_vote(@article.id) %>
 
             <%= render 'articles/shared/new_score',
@@ -176,30 +166,28 @@
             value: 1,
             icon: 'up'
             %>
+              <div class="article-score txt-clear text-center">
+                <%= @average_score.present? ? @average_score.round(1) : 0 %>
+              </div>
 
-
-
-          <div class="article-score btn-clear text-center">
-            <%= @average_score.present? ? @average_score.round(1) : 0 %>
-          </div>
-
-
-
-          <%= render 'articles/shared/new_score',
-          article: @article,
-          user_score: @user_score,
-          class_name: 'submit-score-btn down btn-clear',
-          value: -1,
-          icon: 'down'
-          %>
+            <%= render 'articles/shared/new_score',
+            article: @article,
+            user_score: @user_score,
+            class_name: 'submit-score-btn down btn-clear',
+            value: -1,
+            icon: 'down'
+            %>
 
           <% else %>
 
+
+
+
           <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
 
-          <div class="article-score btn-clear text-center">
-            <%= @average_score.present? ? @average_score.round(1) : 0 %>
-          </div>
+            <div class="article-score txt-clear">
+              <%= @average_score.present? ? @average_score.round(1) : 0 %>
+            </div>
 
           <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
 
@@ -208,12 +196,13 @@
           <% end %>
 
 
+<!-- END OF VOTING -->
+
 
           <br>
 
           <% if !current_user.nil? %>
-
-          <% saved_article = current_user.article_saved?(@article.id) %>
+            <% saved_article = current_user.article_saved?(@article.id) %>
 
           <!-- SAVE -->
           <% if saved_article.nil? %>
@@ -341,7 +330,7 @@
              <% time_read = article.body_text.reading_time :format => :approx %>
              <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
              <br>
-             <p><%= link_to "See Article", article_path(article) %></p>
+             <p><%= link_to "See Article", article_path(article), class:"btn btn-outline-grey" %></p>
 
            </div>
          </div>

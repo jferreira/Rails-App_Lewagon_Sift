@@ -64,15 +64,15 @@
                 <!-- [ NEXT EVENT ] -------- START -------------->
 
                 <span><%=
-                  link_to "[ Previous E ]",
+                  link_to "Previous Event",
                   event_path(@prev_event),
-                  class: "btn btn-default" %>
+                  class: "btn btn-outline-purple" %>
                 </span>
 
                 <span><%=
-                  link_to "[ Next E ]",
+                  link_to "Next Event",
                   event_path(@next_event),
-                  class: "btn btn-default" %>
+                  class: "btn btn-outline-purple" %>
                 </span>
 
                 <!-- [ NEXT EVENT ] -------- END -------------->
@@ -138,14 +138,14 @@
 
         <div style= "width: 24px">
             <span>
-             <p class="btn btn-default">
+             <p class="btn btn-clear">
                 &nbsp&nbsp&nbsp&nbsp
                   <i class="fas fa-angle-up"></i>
                 &nbsp&nbsp&nbsp&nbsp
               </p>
             </span>
             <span>
-               <p class="btn btn-default score-container">
+               <p class="btn txt-clear">
                 &nbsp&nbsp&nbsp&nbsp
                   <% if article.average_score %>
                     <%= article.average_score %>
@@ -156,7 +156,7 @@
               </p>
             </span>
             <span>
-             <p class="btn btn-default">
+             <p class="btn btn-clear">
                 &nbsp&nbsp&nbsp&nbsp
                   <i class="fas fa-angle-down"></i>
                 &nbsp&nbsp&nbsp&nbsp
@@ -225,7 +225,7 @@
           <% time_read = article.body_text.reading_time :format => :approx %>
             <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
           <br>
-          <p><%= link_to "See Article", article_path(article) %></p>
+          <p><%= link_to "See Article", article_path(article), class:"btn btn-outline-grey" %></p>
 
           </div>
         </div>
