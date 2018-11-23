@@ -215,21 +215,32 @@
   <% if !current_user.nil? %>
 
       <% saved_article = current_user.article_saved?(@article.id) %>
-      <% if saved_article %>
 
-          <%= link_to "remove",
-          article_save_article_path(@article, saved_article),
-          class: 'btn btn-default remove-saved-article',
-          method: :delete
-          %>
+      <!-- SAVE -->
+      <% if saved_article.nil? %>
 
-      <% else %>
+        <!-- <div id="js-save-article"> -->
 
-          <%= render 'articles/shared/add_article',
+          <%= render 'articles/shared/article_save',
           article: @article,
           save_article: @save_article,
           text: 'save'
           %>
+
+        <!-- </div> -->
+
+      <!-- UNSAVE -->
+      <% else %>
+
+        <div id="js-unsave-article">
+
+            <%= link_to "unsave",
+            article_save_article_path(@article, saved_article),
+            class: 'btn btn-default remove-saved-article',
+            method: :delete
+            %>
+
+        </div>
 
       <% end %>
 

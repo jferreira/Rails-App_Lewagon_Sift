@@ -8,7 +8,7 @@ class SaveArticlesController < ApplicationController
     @saved_article.user_id = current_user.id
 
     if @saved_article.save
-      flash[:notice] = "Article saved in your list"
+      # flash[:notice] = "Article saved in your list"
       redirect_to article_path(@article)
     end
   end
@@ -17,7 +17,7 @@ class SaveArticlesController < ApplicationController
     @saved_article = SaveArticle.find_by(id: params[:id])
 
     if @saved_article.destroy
-      flash[:notice] = "Article removed from your list"
+      # flash[:notice] = "Article removed from your list"
       redirect_to article_path(@article)
     end
   end
