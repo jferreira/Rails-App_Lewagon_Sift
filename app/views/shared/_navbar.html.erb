@@ -7,15 +7,13 @@
 
   <div>
     <%= link_to "Home", root_path,
-    class: "navbar-wagon-item navbar-wagon-link" %>
+    class: "navbar-wagon-item txt-link" %>
     <%= link_to "Topics", topics_path,
-    class: "navbar-wagon-item navbar-wagon-link" %>
+    class: "navbar-wagon-item txt-link" %>
     <%= link_to "Events", events_path,
-    class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Articles", articles_path,
-    class: "navbar-wagon-item navbar-wagon-link" %>
+    class: "navbar-wagon-item txt-link" %>
     <%= link_to "Map", map_path,
-    class: "navbar-wagon-item navbar-wagon-link" %>
+    class: "navbar-wagon-item txt-link" %>
   </div>
 
 
@@ -23,11 +21,6 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-  <div>
-<!--     <span style="color: rgba(0,0,0,0.2)">|</span> -->
-    <%= link_to "Features", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "About us", topics_path, class: "navbar-wagon-item navbar-wagon-link" %>
-  </div>
 
 
     <% if user_signed_in? %>

@@ -1,29 +1,27 @@
 <!--     <p><strong> Article Title: </strong></p> -->
     <h1> <%= article.title %></h1>
     <br>
-    <p><strong>Link:</strong></p>
-    <a href= "<%= article.source_url %>" >Article link</a>
-    <br>
-    <br>
-    <p><strong>Publisher:</strong></p>
-    <p><%= article.publisher.name %> </p>
-    <a href= "<%= article.publisher.web_url %>" >Publisher link</a>
-    <br>
-    <br>
+<div>
+    <!-- NEXT ARTICLE IN EVENT -->
+    <span><%= link_to "Previous Article", article_path(prev_in_event), class: "btn btn-outline-grey" %></span>
 
-    <p><strong>Article Publishing Time</strong></p>
-    <p> <%= article.date_time_published %></p>
+    <span><%= link_to "Next Article", article_path(next_in_event), class: "btn btn-outline-grey" %></span>
+</div>
 
-    <p><strong>Article Description:</strong></p>
-    <p><%= article.description %> </p>
-
-    <p><strong>Article Text:</strong></p>
+<div class="txt">
+    <br>
     <p><%= article.body_text %> </p>
 
     <p><strong>Author:</strong></p>
     <p>Name: <%= article.author.first_name %>
       <%= article.author.last_name %>    <br>
       Twitter: <%= article.author.twitter_handle %> </p>
+
+    <br>
+    <p><strong>Article external Link:</strong></p>
+    <a href= "<%= article.source_url %>" >Article link</a>
+    <br>
+        <br>
 
     <p><strong>Article Image:</strong></p>
     <a href= "<%= article.image_url %>" > Image Link</a>
@@ -40,3 +38,18 @@
 
     <p><strong>Article Views:</strong></p>
     <p> <%= article.count_views %> views</p>
+
+
+
+    <p><strong>Publisher:</strong></p>
+    <p><%= article.publisher.name %> </p>
+    <a href= "<%= article.publisher.web_url %>" >Publisher link</a>
+    <br>
+    <br>
+
+    <p><strong>Article Publishing Time</strong></p>
+    <p> <%= article.date_time_published %></p>
+
+    <p><strong>Article Description:</strong></p>
+    <p><%= article.description %> </p>
+</div>

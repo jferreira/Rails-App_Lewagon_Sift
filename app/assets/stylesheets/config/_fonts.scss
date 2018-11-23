@@ -1,9 +1,11 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Zilla+Slab:00,400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,400|Zilla+Slab:00,400,500,600");
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Zilla Slab", "Helvetica", "serif";
+
+$text: "Merriweather", "Helvetica", "sans-serif";
+
 
 /*--------- LINK -------------*/
 
@@ -29,16 +31,24 @@ a:link {
     font-size: 16px;
 }
 
-.txt-body-copy p {
-    margin:0 ;
-    font-size: 8px;
-    font-family: 'Varela Round', sans-serif;
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Merriweather', sans-serif;
+}
+
+.txt p {
+    color: rgba(0,0,0,0.8);
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Merriweather', sans-serif;
 }
 
 .txt-btn p {
+
     margin:0 ;
     font-size: 10px;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Merriweather', sans-serif;
 }
 
 
