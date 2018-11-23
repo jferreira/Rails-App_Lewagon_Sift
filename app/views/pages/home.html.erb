@@ -153,45 +153,35 @@
                     <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
                   </div>
                   <div class="s-card-body s-card-text" >
-                    <h3><%= article.title %></h3>
-                    <h5><%= article.description%></h5>
-                    <h5><%= article.date_time_published%></h5>
+                    <h3 class="article-title"><%= article.title %></h3>
+                    <h5 class="article-description"><%= article.description%></h5>
 
-                    <style>
-
-                    .article-card-footer {
-                      display: flex;
-                    }
-
-                    .article-date {
-                      flex: 0 0 10%;
-                      border: 1px solid;
-                      padding: 0px 10px 0px 10px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-around;
-                    }
-                    .article-hour {
-                      flex: 0 0 10%;
-                      border: 1px solid;
-                      padding: 0px 10px 0px 10px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-around;
-                    }
-                    .article-read-minutes {
-                      flex: 0 0 80%;
-                      padding: 10px;
-                    }
-
-
-                    </style>
+                      <% day_num = article.date_time_published.strftime("%l").to_i %>
+                          <% case day_num
+                             when 1 %><% date_sufix = 'st' %>
+                          <% when 2 %><% date_sufix = 'nd' %>
+                          <% when 3 %><% date_sufix = 'rd' %>
+                          <% else %><% date_sufix = 'th' %>
+                          <% end %>
 
                     <div class="article-card-footer">
-                      <div class="article-date text-center">16th</div>
-                      <div class="article-hour text-center">6.00</div>
-                      <div class="article-read-minutes text-center">12 min read</div>
+                        <div class="article-date text-center">
+                          <i class="far fa-calendar"></i>
+                           <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
+                        </div>
+                        <div class="article-hour text-center">
+                          <i class="far fa-clock"></i>
+                          <%= article.date_time_published.strftime("%l")%>.00
+                        </div>
+
+                        <div class="article-read-minutes text-center">
+                          <%=
+                          (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute'
+
+                           %>
+                        </div>
                     </div>
+
                       <h5><%= link_to "show article", article_path(article) %></h5>
 
                   </div>
