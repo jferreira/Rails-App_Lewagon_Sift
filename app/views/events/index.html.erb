@@ -45,32 +45,55 @@
 
               <br>
 
-                <!-- ---- [ EVENT CARD ]--------------------------------------------------- START ----- -->
-
                 <div class="a-card-event-box"
                 style="background-image:
                   linear-gradient(-225deg,
                   rgba(150,10,115,0.8) 0%,
                   rgba(255,77,0,0.4) 50%),
                 url(<%= event.image_url %>);">
-                <h3>#<%= (i + 1) %></h3>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.name %> &nbsp</span></h2>
-                  <p></p>
-                  <p></p>
-                  <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
-                  <%= link_to 'See Event', event_path(event),
-                        class: 'btn btn-default'%>
+
+
+                    <div class="event-index">
+                      <h3>#<%= (i + 1) %></h3>
+                    </div>
+
+                    <div class="event-topic">
+                        <span class="blocked-sml">
+                          &nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp
+                        </span>
+                        <h2>
+                          <span class="blocked">
+                            &nbsp # &nbsp
+                          </span>
+                          <span class="blocked">&nbsp <%= event.topic.name %>
+                            &nbsp
+                          </span>
+                        </h2>
+                    </div>
+
+                    <div class="event-tite">
+                        <span class="blocked-sml">
+                          &nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp
+                        </span>
+
+                        <h2>
+                          <span class="blocked">
+                            &nbsp # &nbsp
+                          </span>
+                          <span class="blocked">&nbsp <%= event.name %>
+                            &nbsp
+                          </span>
+                        </h2>
+                    </div>
+
+                    <div class="event-summary">
+                      <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
+                    </div>
+
+                    <div class="event-footer">
+                      <%= link_to 'See Event', event_path(event), class: 'btn btn-default'%>
+                    </div>
+
                 </div>
 
 
@@ -78,6 +101,7 @@
 
 
               <% end %>
+      }
 
     </div> <!-- col end -->
   </div> <!-- row end -->
