@@ -40,29 +40,29 @@ TOPIC_IMAGES = {
 
 EVENT_NAMES = {
   "Syrian Civil War": [
-    "Civil uprising in Syria - Mar 2011",
-    "Russian intervention - Sep 2015",
-    "Operation Euphrates Shield - Mar 2016"
+    "Civil uprising in Syria",
+    "Russian intervention",
+    "Operation Euphrates Shield"
   ],
   "Catalan Independence": [
-    "Catalan parliament aproves referendum - 6 Sep 2017",
-    "Independence referendum - 1 Oct 2017",
-    "Post referendum fallout - 20 Oct 2017"
+    "Parliament aproves referendum",
+    "Independence referendum",
+    "Post referendum fallout"
   ],
   "Woodburn Forest Oil Drill": [
-    "Start drilling for oil - Mar 11 2016",
-    "Company behind Woodburn Forest oil drill call off project - Jun 17 2016",
-    "PSNI accused of squandering £1m on policing oil drill protest - 9 Jul 2016"
+    "Start drilling for oil",
+    "Company call off project",
+    "PSNI squandering £1m on policing"
   ],
   "Brexit": [
-    "European Union Referendum Act 2015 - 17 Dec 2015",
-    "Hard or soft Brexit - 25 Jun 2018",
-    "The Brexit deal - 19 Nov 2018"
+    "European Union Referendum Act",
+    "Hard or soft Brexit",
+    "The Brexit deal"
   ],
   "World War II": [
-    "War is Declared - 1 Sep 1939",
-    "Battle of the Bulge - 16 Dec 1944",
-    "Victory in Europe Day - 8 May 1945"
+    "War is Declared",
+    "Battle of the Bulge",
+    "Victory in Europe Day"
   ]
 }
 

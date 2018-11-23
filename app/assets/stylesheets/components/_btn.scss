@@ -1,5 +1,143 @@
 /*---------------- BTN - OUTLINED - WHITE --------------------*/
 
+.btn-empty {
+  // FONT
+  color: $sift-purple !important;
+  font-size: 24px;
+  // font-weight: lighter;
+
+  // BOX
+  // min-width: 158px !important;
+  // border: 1px solid rgba(255,255,255,0.4);
+  background: rbga(0,0,0,0) !important;
+  // opacity: 0.2;
+
+  // SPACING
+  padding: 6px 16px;
+
+  //BLUR
+  // filter: blur(2px);
+  // -webkit-filter: blur(2px);
+
+  // ANIMATION
+  transition: background 0.2s ease;
+}
+
+
+
+.btn-empty:hover {
+  // FONT
+  color: white !important;
+  font-size: 24px;
+  // font-weight: lighter;
+
+  // BOX
+  // min-width: 158px !important;
+  // border: 1px solid rgba(255,255,255,0.4);
+  color: $sift-purple !important;
+  // opacity: 0.2;
+
+  // SPACING
+  padding: 6px 16px;
+
+  //BLUR
+  // filter: blur(2px);
+  // -webkit-filter: blur(2px);
+
+  // ANIMATION
+  transition: background 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------- BTN - OUTLINED - WHITE --------------------*/
+
+.btn-outline-purple {
+  // FONT
+  color: white !important;
+  font-size: 14px;
+  // font-weight: lighter;
+
+  // BOX
+  min-width: 158px !important;
+  // border: 1px solid rgba(255,255,255,0.4);
+  // background: $sift-purple !important;
+  border-radius: 4px;
+  // opacity: 0.2;
+
+  // SPACING
+  padding: 8px 25px;
+
+  //BLUR
+  // filter: blur(2px);
+  // -webkit-filter: blur(2px);
+
+  // ANIMATION
+  transition: background 0.2s ease;
+}
+
+
+.btn-outline-purple:hover {
+  // FONT
+  color: rgba(0,0,0,0.6) !important;
+  font-size: 14px;
+  // font-weight: lighter;
+
+  // BOX
+  min-width: 158px !important;
+  // border: 1px solid rgba(255,255,255,1);
+  background: white !important;
+  border-radius: 4px;
+  // opacity: 0.6;
+
+  // SPACING
+  padding: 8px 32px;
+
+  // ANIMATION
+  transition: background 0.6s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------- BTN - OUTLINED - WHITE --------------------*/
+
 .btn-outline-white {
   // FONT
   color: white !important;
