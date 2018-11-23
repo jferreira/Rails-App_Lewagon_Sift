@@ -1,4 +1,4 @@
-/*---------------- BTN - OUTLINED - WHITE --------------------*/
+/*---------------- [ EMPTY ] --------------------*/
 
 .btn-empty {
   // FONT
@@ -65,12 +65,7 @@
 
 
 
-
-
-
-
-
-/*---------------- BTN - OUTLINED - WHITE --------------------*/
+/*---------------- [ PURPLE] --------------------*/
 
 .btn-outline-purple {
   // FONT
@@ -81,7 +76,7 @@
   // BOX
   min-width: 158px !important;
   // border: 1px solid rgba(255,255,255,0.4);
-  // background: $sift-purple !important;
+  background: $sift-purple-50 !important;
   border-radius: 4px;
   // opacity: 0.2;
 
@@ -289,7 +284,7 @@
   // font-weight: lighter;
 
   // BOX
-  // min-width: 96px !important;
+  min-width: 96px !important;
   border: 1px solid rgba(255,255,255,0.4) !important;
   background: white !important;
   max-width: 96px !important;
@@ -298,7 +293,7 @@
 
   // SPACING
   text-align: center;
-  padding: 8px 8px 8px 8px;
+  padding: 24px 8px 24px 8px;
 
   //BLUR
   // filter: blur(2px);
