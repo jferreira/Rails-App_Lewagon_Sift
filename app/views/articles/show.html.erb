@@ -42,9 +42,9 @@
 
           <!-- ---- EVENT HEADER TITLES CARD ----- -->
 
-          <p><span class="blocked-tag article-location">
+          <p><span class="btn-outline-white article-location">
             &nbsp <%= @article.location %>  &nbsp</span></p>
-            <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
+            <p><span class="btn-outline-white article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
             <p></p>
 
 
@@ -106,13 +106,13 @@
           <span><%=
           link_to "Previous Event",
           article_path(@prev_event.articles.last),
-          class: "btn btn-outline-white" %>
+          class: "btn btn-outline-grey" %>
         </span>
 
         <span><%=
         link_to "Next Event",
         article_path(@next_event.articles.first),
-        class: "btn btn-outline-white" %>
+        class: "btn btn-outline-grey" %>
       </span>
 
       <!-- [ NEXT EVENT ] -------- END -------------->
