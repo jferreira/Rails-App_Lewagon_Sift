@@ -54,11 +54,24 @@
 
             <!-- [ OLD SEARCH ] -----------------------------------  START --------------------------------------- -->
 
-            <div class="form-group">
 
-              <%= text_field_tag :query, nil, placeholder: "Search: Topics, Events, Locations", class: 'form-control'%>
-<!--               <%= link_to "", topics_path, class: "fas fa-arrow-right btn btn-green" %> -->
-              <%= submit_tag "Search", class: "fas fa-arrow-right btn btn-default" %>
+            <style>
+
+            .form-group-landing {
+              display: flex;
+              padding: 20px;
+            }
+
+            </style>
+
+            <div class="form-group form-group-landing">
+
+
+              <%= text_field_tag :query, nil, placeholder: "Search: Topics, Events, Locations", class: 'form-control input-search'%>
+
+              <%= button_tag(type: "submit", class: "btn btn-search") do %>
+                  Search <i class="fas fa-arrow-right"></i>
+              <% end %>
 
             </div>
 
