@@ -105,15 +105,15 @@
 
           <span><%=
           link_to "Previous Event",
-          article_path(@prev_event.articles.last),
-          class: "btn btn-outline-grey" %>
-        </span>
+            article_path(@prev_event.articles.last),
+            class: "btn btn-outline-purple" %>
+          </span>
 
         <span><%=
         link_to "Next Event",
-        article_path(@next_event.articles.first),
-        class: "btn btn-outline-grey" %>
-      </span>
+          article_path(@next_event.articles.first),
+          class: "btn btn-outline-purple" %>
+        </span>
 
       <!-- [ NEXT EVENT ] -------- END -------------->
 
@@ -155,27 +155,27 @@
 
           <% if current_user.nil? %>
 
-          <%= render 'articles/shared/new_session_btn', icon: 'up' %>
+            <%= render 'articles/shared/new_session_btn', icon: 'up' %>
 
 
-          <div class="article-score btn-clear text-center">
+          <div class="article-score text-center">
             <%= @average_score.present? ? @average_score.round(1) : 0 %>
           </div>
 
 
-          <%= render 'articles/shared/new_session_btn', icon: 'down' %>
+            <%= render 'articles/shared/new_session_btn', icon: 'down' %>
 
           <% else %>
 
           <% if current_user.can_user_vote(@article.id) %>
 
-          <%= render 'articles/shared/new_score',
-          article: @article,
-          user_score: @user_score,
-          class_name: 'submit-score-btn up btn-clear',
-          value: 1,
-          icon: 'up'
-          %>
+            <%= render 'articles/shared/new_score',
+            article: @article,
+            user_score: @user_score,
+            class_name: 'submit-score-btn up btn-clear',
+            value: 1,
+            icon: 'up'
+            %>
 
 
 
