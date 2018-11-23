@@ -32,6 +32,34 @@
 
 
 
+    <style>
+      .event-header {
+        display: flex;
+       }
+
+      .event-icon-boxes {
+        display: flex;
+        width: 35%;
+
+      }
+
+       .event-index {
+        flex: 0 0 50%;
+       }
+       .event-location, .event-date {
+          flex: 0 0 50%;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+       }
+
+       .event-num-articles  {
+        flex: 0 0 50%;
+       }
+
+
+    </style>
+
 
 <!-- LIST  ------------------------------- -->
 
@@ -52,17 +80,23 @@
                   rgba(255,77,0,0.4) 50%),
                 url(<%= event.image_url %>);">
 
+                    <div class="event-header">
+                      <div class="event-index">
+                        <h3>#<%= (i + 1) %></h3>
+                      </div>
 
-                    <div class="event-index">
-                      <h3>#<%= (i + 1) %></h3>
+                      <div class="event-num-articles text-right">
+                         <h4><%= event.articles.count %> articles</h4>
+                      </div>
                     </div>
 
                     <div class="event-icon-boxes">
                       <div class="event-location">
-                        Aleppo, Syria
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        <span>Aleppo, Syria</span>
                       </div>
-                      <div class="event-location">
-                        3rd April 2016
+                      <div class="event-date">
+                        <span>3rd April 2016</span>
                       </div>
                     </div>
 
@@ -96,7 +130,7 @@
                     </div>
 
                     <div class="event-summary">
-                      <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
+                      <p>Summary: <%= event.description %></p>
                     </div>
 
                     <div class="event-footer">
