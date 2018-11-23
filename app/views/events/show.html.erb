@@ -135,6 +135,7 @@
       <!-- [ EVENT CARD ] [ COL 1 ]----------------------------------------- -->
       <!-- USER SCORES ------------------------------------------ -->
 
+
         <div style= "width: 24px">
             <span>
              <p class="btn btn-default">
@@ -144,9 +145,9 @@
               </p>
             </span>
             <span>
-               <p class="btn btn-default">
+               <p class="btn btn-default score-container">
                 &nbsp&nbsp&nbsp&nbsp
-                  <% if article.average_score.present? %>
+                  <% if article.average_score %>
                     <%= article.average_score %>
                   <% else %>
                     0
