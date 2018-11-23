@@ -11,7 +11,7 @@ function userSuggestsUrl() {
 
     let h2 = document.querySelector('h2 > span');
     let location = document.querySelector('.article-location').innerText;
-    let time = document.querySelector('.article-time').innerText;
+
     let topic_title = document.querySelector('.topic-title').innerText;
     let event_title = document.querySelector('.event-title').innerText;
     let event_description = document.querySelector('.event-description').innerText;
@@ -22,8 +22,7 @@ function userSuggestsUrl() {
         `<input id="swal-input1" class="swal2-input" placeholder="${topic_title}">` +
         `<input id="swal-input1" class="swal2-input" placeholder="${event_description}">` +
         `<input id="swal-input1" class="swal2-input" placeholder="${event_title}">` +
-        `<input id="swal-input1" class="swal2-input" placeholder="${location}">` +
-        `<input id="swal-input1" class="swal2-input" placeholder="${time}">`;
+        `<input id="swal-input1" class="swal2-input" placeholder="${location}">`;
 
       const {value: formValues} = swal({
         title: '<h2>Suggest and article</h2>',

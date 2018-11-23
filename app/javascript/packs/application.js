@@ -5,8 +5,8 @@ import { typedOutTitle } from '../components/animation_typed_title';
 typedOutTitle();
 
 // HTML NOTIFICATION
-import { popUpFollowed } from '../components/popup_html_notifyer';
-popUpFollowed();
+// import { popUpFollowed } from '../components/popup_html_notifyer';
+// popUpFollowed();
 
 // // // ANIMATE SCORE
 // import { animate_score }  from '../components/animation_user_score';
