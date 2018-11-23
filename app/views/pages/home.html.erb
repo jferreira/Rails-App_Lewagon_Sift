@@ -147,16 +147,53 @@
                   url(<%= article.image_url %>);">
                   </div>
 
+
                   <div class="s-card-publisher">
                     <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
                     <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
                   </div>
                   <div class="s-card-body s-card-text" >
                     <h3><%= article.title %></h3>
-                    <p><%= article.description%></p>
-                    <p><%= article.date_time_published%></p>
-                    <p>reading time</p>
-                    <p><%= link_to "show article", article_path(article) %></p>
+                    <h5><%= article.description%></h5>
+                    <h5><%= article.date_time_published%></h5>
+
+                    <style>
+
+                    .article-card-footer {
+                      display: flex;
+                    }
+
+                    .article-date {
+                      flex: 0 0 10%;
+                      border: 1px solid;
+                      padding: 0px 10px 0px 10px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-around;
+                    }
+                    .article-hour {
+                      flex: 0 0 10%;
+                      border: 1px solid;
+                      padding: 0px 10px 0px 10px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-around;
+                    }
+                    .article-read-minutes {
+                      flex: 0 0 80%;
+                      padding: 10px;
+                    }
+
+
+                    </style>
+
+                    <div class="article-card-footer">
+                      <div class="article-date text-center">16th</div>
+                      <div class="article-hour text-center">6.00</div>
+                      <div class="article-read-minutes text-center">12 min read</div>
+                    </div>
+                      <h5><%= link_to "show article", article_path(article) %></h5>
+
                   </div>
                 </div>
 
