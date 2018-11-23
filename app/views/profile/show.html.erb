@@ -48,42 +48,54 @@
             <% publisher_id = article.publisher_id %>
             <% publisher_name = Publisher.find_by(id: publisher_id) %>
 
-            <!-- ---- ARTICLE CARD ----- -->
-            <div class="s-card-article">
-              <div class="s-image-article" style="background-image: linear-gradient(-225deg, rgba(161,90,187,0.6) 0%, rgba(45,23,54,0.8) 50%), url(<%= article.image_url %>);"><h3>#<%= (i + 1) %></h3>
-              </div>
-
-              <div class="s-card-publisher">
-                <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-                <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
-              </div>
-              <div class="s-card-body s-card-text" >
-                <h3><%= article.title %></h3>
-                <br>
-                <p><%= article.description%></p>
-                <p><%= article.date_time_published%></p>
-                <p><% time_read = article.body_text.reading_time :format => :approx %></p>
+                <div class="s-card-article">
+                  <div class="s-image-article"
+                  style="background-image:
+                  linear-gradient(-225deg,
+                  rgba(161,90,187,0.6) 0%,
+                  rgba(45,23,54,0.8) 50%),
+                  url(<%= article.image_url %>);">
+                  </div>
 
 
-              <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+                  <div class="s-card-publisher">
+                    <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+                    <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+                  </div>
+                  <div class="s-card-body s-card-text" >
+                    <h3 class="article-title"><%= article.title %></h3>
+                    <h5 class="article-description"><%= article.description%></h5>
 
-                <% day_num = article.date_time_published.mday %>
-                    <% case day_num
-                       when 1 %><% date_sufix = 'st' %>
-                    <% when 2 %><% date_sufix = 'nd' %>
-                    <% when 3 %><% date_sufix = 'rd' %>
-                    <% else %><% date_sufix = 'th' %>
-                    <% end %>
-                <p><%= article.date_time_published.mday %><%= date_sufix %></p>
-                <p><%= article.date_time_published.strftime("%H") %>.00</p>
-                <% time_read = article.body_text.reading_time :format => :approx %>
-                  <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-                <br>
-              <p><%= link_to "See Article", article_path(article) %></p>
+                      <% day_num = article.date_time_published.strftime("%l").to_i %>
+                          <% case day_num
+                             when 1 %><% date_sufix = 'st' %>
+                          <% when 2 %><% date_sufix = 'nd' %>
+                          <% when 3 %><% date_sufix = 'rd' %>
+                          <% else %><% date_sufix = 'th' %>
+                          <% end %>
 
-              </div>
-            </div>
-            <!-- ---- ARTICLE CARD END----- -->
+                    <div class="article-card-footer">
+                        <div class="article-date text-center">
+                          <i class="far fa-calendar"></i>
+                           <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
+                        </div>
+                        <div class="article-hour text-center">
+                          <i class="far fa-clock"></i>
+                          <%= article.date_time_published.strftime("%l")%>.00
+                        </div>
+
+                        <div class="article-read-minutes text-center">
+                          <%=
+                          (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute'
+
+                           %>
+                        </div>
+                    </div>
+
+                      <h5><%= link_to "show article", article_path(article) %></h5>
+
+                  </div>
+                </div>
 
           <% end %>
 
