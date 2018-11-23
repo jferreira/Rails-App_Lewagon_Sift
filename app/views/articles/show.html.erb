@@ -1,4 +1,4 @@
-<!-- [ ARTICLES SHOW ]--------------------------------------------------- -->
+<!-- [ ARTICLE SHOW ]--------------------------------------------------- -->
 <!-- [ PAGE HEADER ]-------------------------------- START -------------- -->
 
 <div class="header">
@@ -14,7 +14,8 @@
 
 
           <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
-          <!-- [ ACTION BAR ] -->
+          <!-- [ SIDE BAR ] -->
+
           <div class="col-xs-2">
 
             <div class="top-box">
@@ -32,6 +33,8 @@
             </div>
 
             </div>
+
+          <!-- [ SIDE BAR ] -->
           <!-- [ HEADER ][ COL-1 - LEFT ] ------------- END ---------------- -->
 
 
@@ -40,57 +43,65 @@
 
           <div class="col-xs-10">
 
-            <!-- ---- HEADER TITLES CARD ----- -->
+            <!-- ---- EVENT HEADER TITLES CARD ----- -->
 
-              <!-- LOCATION TAG -->
               <p><span class="blocked-tag article-location">
                 &nbsp <%= @article.location %>  &nbsp</span></p>
-              <!-- TIME TAG -->
               <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
               <p></p>
 
-              <!-- TOPIC HEADER -->
+
               <h2>
-                <span class="blocked add-topic-title">
-                    <%= render 'following_items/form',
-                      # article: @article,
-                      following_item: @following_item,
-                      follower_type: 'Topic',
-                      follower_id: @topic.id
-                    %>
+                <!--[      TOPIC      ]----------------------------------------------------------------->
+                 <!--[ TOPIC BOOKMARK ]-->
+
+                <!-- ADD -->
+                <span id="follow-topic" class="blocked add-topic-title">
+                  <%= render 'following_items/form',
+                    following_item: @following_item,
+                    follower_type: 'Topic',
+                    follower_id: @topic.id
+                  %>
                 </span>
 
+                <!-- DESTROY -->
+
+
+                <!--[ TOPIC TITLE ]-->
                 <span class="blocked topic-title">
                   &nbsp <%= @article.event.topic.name %> &nbsp
                 </span>
-                <span class="list-notification-topic">
-                  <i class="fas fa-check">
-                  </i>  Item Added</span>
+
+                <!-- HTML NOTIFICATION -->
+                <!-- <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
+
               </h2>
 
-              <!-- EVENT HEADER -->
               <h2>
-                <span class="blocked add-event-title">
+                <!--[      EVENT      ]----------------------------------------------------------------->
+                <!--[ EVENT BOOKMARK  ]-->
+
+                <span id="follow-event" class="blocked add-event-title">
+
                     <%= render 'following_items/form',
-                      # article: @article,
                       following_item: @following_item,
                       follower_type: 'Event',
                       follower_id: @event.id
                     %>
+
                 </span>
+
+                <!-- [ EVENT TITLE ] -->
                 <span class="blocked event-title">
                   &nbsp <%= @article.event.name %> &nbsp
                 </span>
 
-                <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
+                <!-- HTML NOTIFICATION -->
+                <!-- <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span> -->
 
               </h2>
 
               <p class="event-description">Description: <%= @article.event.description %></p>
-
-<!--               <#%= if @article.event.articles = 1 %>
-              <#% else %> -->
-
 
                 <!-- [ NEXT EVENT ] -------- START -------------->
 

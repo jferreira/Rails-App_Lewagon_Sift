@@ -1,8 +1,13 @@
+// TYPED.JS
 import Typed from 'typed.js';
 
 // [ TYPE OUT A TITLE ] ---------------------------------
 
 function typedOutTitle() {
+
+  const txtHeading = document.getElementById("txt-heading")
+
+  if (txtHeading) {
 
     var typed = new Typed('#txt-heading', {
       strings: [
@@ -19,15 +24,13 @@ function typedOutTitle() {
       loopCount: Infinity,
     });
 
+  }
+
 }
 
 // [ TYPE OUT A TITLE ] ---------------- EXPORTED -----------------
 
 export { typedOutTitle };
-
-
-
-
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   var typed = new Typed('#typed', {

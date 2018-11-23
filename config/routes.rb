@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :profile, only: [:edit, :update, :show ]
-  resources :following_items, only: [:create]
+  resources :following_items, only: [:create, :destroy]
 
   # resources :map, only: [:index ]
   get '/map', to: 'maps#map'
