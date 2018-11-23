@@ -31,8 +31,6 @@
 <!-- PAGE HEADER END------------------------------- -->
 
 
-
-
 <!-- LIST  ------------------------------- -->
 
 <div class="container">
@@ -42,10 +40,7 @@
 
               <p>All news events within Sift:</p>
               <%  @events.each_with_index do | event, i | %>
-
               <br>
-
-                <!-- ---- [ EVENT CARD ]--------------------------------------------------- START ----- -->
 
                 <div class="a-card-event-box"
                 style="background-image:
@@ -53,24 +48,58 @@
                   rgba(150,10,115,0.8) 0%,
                   rgba(255,77,0,0.4) 50%),
                 url(<%= event.image_url %>);">
-                <h3>#<%= (i + 1) %></h3>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.location %>  &nbsp &nbsp</span>
-                    <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
-                  <p></p>
-                    <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.name %> &nbsp</span></h2>
-                  <p></p>
-                  <p></p>
-                  <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
-                  <%= link_to 'See Event', event_path(event),
-                        class: 'btn btn-default'%>
+
+                    <div class="event-header">
+                      <div class="event-index">
+                        <h3>#<%= (i + 1) %></h3>
+                      </div>
+
+                      <div class="event-num-articles text-right">
+                         <h4><%= event.articles.count %> articles</h4>
+                      </div>
+                    </div>
+
+                    <div class="event-icon-boxes">
+                      <div class="event-location">
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        <span><%= event.location %></span>
+                      </div>
+                      <div class="event-date">
+                        <span><%= event.articles.first.date_time_published.strftime("%A, %b %d") %></span>
+                      </div>
+                    </div>
+
+                    <div class="event-topic">
+
+                        <h2>
+                          <span class="blocked">
+                            &nbsp # &nbsp
+                          </span>
+                          <span class="blocked"><%= event.topic.name %>
+
+                          </span>
+                        </h2>
+                    </div>
+
+                    <div class="event-title">
+                        <h2>
+                          <span class="blocked">
+                            &nbsp # &nbsp
+                          </span>
+                          <span class="blocked">&nbsp <%= event.name %>
+                            &nbsp
+                          </span>
+                        </h2>
+                    </div>
+
+                    <div class="event-summary-container">
+                      <p class="event-summary">Summary: <%= event.description %></p>
+                    </div>
+
+                    <div class="event-footer">
+                      <%= link_to 'See Event', event_path(event), class: 'btn btn-default'%>
+                    </div>
+
                 </div>
 
 
@@ -78,6 +107,7 @@
 
 
               <% end %>
+      }
 
     </div> <!-- col end -->
   </div> <!-- row end -->

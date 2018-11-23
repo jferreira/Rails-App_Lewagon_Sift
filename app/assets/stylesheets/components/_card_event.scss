@@ -36,3 +36,41 @@
   // border: 1px solid #fff;
 
 }
+
+.event-header {
+  display: flex;
+  padding: 0px 25px;
+ }
+
+.event-icon-boxes {
+  display: flex;
+  width: 40%;
+  padding: 20px;
+
+}
+
+ .event-index {
+  flex: 0 0 50%;
+ }
+ .event-location, .event-date {
+    flex: 0 0 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+ }
+
+ .event-num-articles  {
+  flex: 0 0 50%;
+ }
+
+.event-summary-container, .event-footer {
+  padding: 0px 20px;
+ }
+
+ .event-title, .event-topic {
+  padding: 5px 20px;
+ }
+
+ .event-summary {
+  padding: 15px 0px;
+ }
