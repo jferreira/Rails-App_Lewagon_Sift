@@ -93,3 +93,38 @@ h3 {
 
   padding: 24px;
 }
+
+.article-title {
+  width: 70%;
+}
+
+.article-description {
+  color: #AFAFAF;
+}
+
+.article-card-footer {
+  display: flex;
+  color: #D5D8DB;
+}
+
+.article-date {
+  flex: 0 0 10%;
+  border: 1px solid #D5D8DB;
+  padding: 0px 10px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.article-hour {
+  flex: 0 0 10%;
+  border: 1px solid #D5D8DB;
+  padding: 0px 10px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.article-read-minutes {
+  flex: 0 0 80%;
+  padding: 10px;
+}
+

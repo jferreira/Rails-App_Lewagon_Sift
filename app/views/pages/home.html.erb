@@ -147,16 +147,43 @@
                   url(<%= article.image_url %>);">
                   </div>
 
+
                   <div class="s-card-publisher">
                     <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
                     <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
                   </div>
                   <div class="s-card-body s-card-text" >
-                    <h3><%= article.title %></h3>
-                    <p><%= article.description%></p>
-                    <p><%= article.date_time_published%></p>
-                    <p>reading time</p>
-                    <p><%= link_to "show article", article_path(article) %></p>
+                    <h3 class="article-title"><%= article.title %></h3>
+                    <h5 class="article-description"><%= article.description%></h5>
+
+                      <% day_num = article.date_time_published.strftime("%l").to_i %>
+                          <% case day_num
+                             when 1 %><% date_sufix = 'st' %>
+                          <% when 2 %><% date_sufix = 'nd' %>
+                          <% when 3 %><% date_sufix = 'rd' %>
+                          <% else %><% date_sufix = 'th' %>
+                          <% end %>
+
+                    <div class="article-card-footer">
+                        <div class="article-date text-center">
+                          <i class="far fa-calendar"></i>
+                           <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
+                        </div>
+                        <div class="article-hour text-center">
+                          <i class="far fa-clock"></i>
+                          <%= article.date_time_published.strftime("%l")%>.00
+                        </div>
+
+                        <div class="article-read-minutes text-center">
+                          <%=
+                          (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute'
+
+                           %>
+                        </div>
+                    </div>
+
+                      <h5><%= link_to "show article", article_path(article) %></h5>
+
                   </div>
                 </div>
 
