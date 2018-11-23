@@ -9,8 +9,8 @@ import { popUpFollowed } from '../components/popup_html_notifyer';
 popUpFollowed();
 
 // // // ANIMATE SCORE
-// import { animate_score }  from '../components/animation_user_score';
-// animate_score();
+import { animate_score }  from '../components/animation_user_score';
+animate_score();
 
 // // USER - SUGGEST URL - POPUP
 import { userSuggestsUrl } from '../components/popup_article_suggestion';
