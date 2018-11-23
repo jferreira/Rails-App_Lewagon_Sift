@@ -51,18 +51,27 @@
 
             <!-- [ NEW SEARCH ] -----------------------------------  END --------------------------------------- -->
 
+            <style>
 
-            <!-- [ OLD SEARCH ] -----------------------------------  START --------------------------------------- -->
+            .form-group-landing {
+              display: flex;
+              padding: 20px;
+            }
 
-            <div class="form-group">
+            </style>
 
-              <%= text_field_tag :query, nil, placeholder: "Search: Topics, Events, Locations", class: 'form-control'%>
-<!--               <%= link_to "", topics_path, class: "fas fa-arrow-right btn btn-green" %> -->
-              <%= submit_tag "Search", class: "fas fa-arrow-right btn btn-default" %>
+            <div class="form-group form-group-landing">
+
+
+              <%= text_field_tag :query, nil, placeholder: "Search: Topics, Events, Locations", class: 'form-control input-search'%>
+
+              <%= button_tag(type: "submit", class: "btn btn-search") do %>
+                  Search <i class="fas fa-arrow-right"></i>
+              <% end %>
 
             </div>
 
-            <!-- [ OLD SEARCH ] -----------------------------------  END --------------------------------------- -->
+            <!-- [ NEW SEARCH ]  -----------------------------------  END --------------------------------------- -->
 
             <!-- ---- HEADER CARD END ----- -->
 
