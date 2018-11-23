@@ -1,145 +1,135 @@
 <!-- [ ARTICLE SHOW ]--------------------------------------------------- -->
 <!-- [ PAGE HEADER ]-------------------------------- START -------------- -->
 
-<div class="header">
+<div class="container bootstrap-clear">
+  <div class="row">
 
-    <div class="banner-half"
-    style="background-image:
+    <div class="header">
+
+      <div class="banner-half"
+      style="background-image:
       linear-gradient(-225deg,
-      rgba(150,10,115,0.8) 0%,
-      rgba(255,77,0,0.4) 50%),
-    url(<%= @event.image_url %>);">
-
-        <div class="row">
+        rgba(150,10,115,0.8) 0%,
+        rgba(255,77,0,0.4) 50%),
+        url(<%= @event.image_url %>);">
 
 
-          <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
-          <!-- [ SIDE BAR ] -->
-
-          <div class="col-xs-2">
-
-            <div class="top-box">
-            </div>
-
-            <div class="middle-box">
-              <p class="text-right">
-                <button id="user-suggests-url" class="blocked">
-                &nbsp + &nbsp
-                </button>
-              </p>
-            </div>
-
-            <div class="bottom-box">
-            </div>
-
-            </div>
-
-          <!-- [ SIDE BAR ] -->
-          <!-- [ HEADER ][ COL-1 - LEFT ] ------------- END ---------------- -->
 
 
-          <!-- [ HEADER ][ COL-2 - MIDDLE ] ----------- START ------------------ -->
-          <!-- [ TITLE BAR ] -->
+        <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
+        <!-- [ SIDE BAR ] -->
 
-          <div class="col-xs-10">
+        <div id="head-side-bar" class="col-xs-3">
 
-            <!-- ---- EVENT HEADER TITLES CARD ----- -->
+          <div id="head-box-middle">
 
-              <p><span class="blocked-tag article-location">
-                &nbsp <%= @article.location %>  &nbsp</span></p>
-              <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
-              <p></p>
+            <button id="user-suggests-url">
+              +
+            </button>
 
-
-              <h2>
-                <!--[      TOPIC      ]----------------------------------------------------------------->
-                 <!--[ TOPIC BOOKMARK ]-->
-
-                <!-- ADD -->
-                <span id="follow-topic" class="blocked add-topic-title">
-                  <%= render 'following_items/form',
-                    following_item: @following_item,
-                    follower_type: 'Topic',
-                    follower_id: @topic.id
-                  %>
-                </span>
-
-                <!-- DESTROY -->
-
-
-                <!--[ TOPIC TITLE ]-->
-                <span class="blocked topic-title">
-                  &nbsp <%= @article.event.topic.name %> &nbsp
-                </span>
-
-                <!-- HTML NOTIFICATION -->
-                <!-- <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
-
-              </h2>
-
-              <h2>
-                <!--[      EVENT      ]----------------------------------------------------------------->
-                <!--[ EVENT BOOKMARK  ]-->
-
-                <span id="follow-event" class="blocked add-event-title">
-
-                    <%= render 'following_items/form',
-                      following_item: @following_item,
-                      follower_type: 'Event',
-                      follower_id: @event.id
-                    %>
-
-                </span>
-
-                <!-- [ EVENT TITLE ] -->
-                <span class="blocked event-title">
-                  &nbsp <%= @article.event.name %> &nbsp
-                </span>
-
-                <!-- HTML NOTIFICATION -->
-                <!-- <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span> -->
-
-              </h2>
-
-              <p class="event-description">Description: <%= @article.event.description %></p>
-
-                <!-- [ NEXT EVENT ] -------- START -------------->
-
-                <span><%=
-                  link_to "[ Previous E ]",
-                  article_path(@prev_event.articles.last),
-                  class: "btn btn-default" %>
-                </span>
-
-                <span><%=
-                  link_to "[ Next E ]",
-                  article_path(@next_event.articles.first),
-                  class: "btn btn-default" %>
-                </span>
-
-                <!-- [ NEXT EVENT ] -------- END -------------->
-
-                <!-- NEXT EVENT SHOW -->
-                <!-- <span><#%= link_to "[ Previous E-S ]", event_path(@prev_event), class: "btn btn-default" %></span> -->
-                <!-- <span><#<%  %>%= link_to "[ Next E-S ]", event_path(@next_event), class: "btn btn-default" %></span> -->
-
-
-            <!-- ---- HEADER CARD END ----- -->
           </div>
-          <!-- [ HEADER ][ COL-2 - MIDDLE ] ------------- END ------------- -->
-
-          <!-- [ HEADER ][ COL-3 - RIGHT ] -------------------------------- -->
-          <!-- [ -- ] -->
-          <div class="col-0">
-          </div>
-          <!-- [ HEADER ][ COL-3 - RIGHT ] ------------- END -------------- -->
 
         </div>
-        <!-- row end -->
+
+        <!-- [ SIDE BAR ] -->
+        <!-- [ HEADER ][ COL-1 - LEFT ] ------------- END ---------------- -->
+
+
+        <!-- [ HEADER ][ COL-2 - MIDDLE ] ----------- START ------------------ -->
+        <!-- [ TITLE BAR ] -->
+
+        <div id="head-main" class="col-xs-9">
+
+          <!-- ---- EVENT HEADER TITLES CARD ----- -->
+
+          <p><span class="blocked-tag article-location">
+            &nbsp <%= @article.location %>  &nbsp</span></p>
+            <p><span class="blocked-tag article-time">&nbsp <%= @article.date_time_published %>  &nbsp</span></p>
+            <p></p>
+
+
+            <h2>
+              <!--[      TOPIC      ]----------------------------------------------------------------->
+              <!--[ TOPIC BOOKMARK ]-->
+
+              <!-- ADD -->
+              <span id="follow-topic" class="blocked add-topic-title">
+                <%= render 'following_items/form',
+                following_item: @following_item,
+                follower_type: 'Topic',
+                follower_id: @topic.id
+                %>
+              </span>
+
+              <!-- DESTROY -->
+
+
+              <!--[ TOPIC TITLE ]-->
+              <span class="blocked topic-title">
+                &nbsp <%= @article.event.topic.name %> &nbsp
+              </span>
+
+              <!-- HTML NOTIFICATION -->
+              <!-- <span class="list-notification-topic"><i class="fas fa-check"></i> Item Added</span> -->
+
+            </h2>
+
+            <h2>
+              <!--[      EVENT      ]----------------------------------------------------------------->
+              <!--[ EVENT BOOKMARK  ]-->
+
+              <span id="follow-event"
+              class="blocked add-event-title">
+
+              <%= render 'following_items/form',
+              following_item: @following_item,
+              follower_type: 'Event',
+              follower_id: @event.id
+              %>
+
+            </span>
+
+            <!-- [ EVENT TITLE ] -->
+            <span class="blocked event-title">
+              &nbsp <%= @article.event.name %> &nbsp
+            </span>
+
+            <!-- HTML NOTIFICATION -->
+            <!-- <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span> -->
+
+          </h2>
+
+          <p class="event-description">Description: <%= @article.event.description %></p>
+
+          <!-- [ NEXT EVENT ] -------- START -------------->
+
+          <span><%=
+          link_to "Previous Event",
+          article_path(@prev_event.articles.last),
+          class: "btn btn-outline-white" %>
+        </span>
+
+        <span><%=
+        link_to "Next Event",
+        article_path(@next_event.articles.first),
+        class: "btn btn-outline-white" %>
+      </span>
+
+      <!-- [ NEXT EVENT ] -------- END -------------->
+
+
+      <!-- ---- HEADER CARD END ----- -->
+    </div>
+    <!-- [ HEADER ][ COL-2 - MIDDLE ] ------------- END ------------- -->
+
   </div>
-  <!-- banner-half end -->
+  <!-- row end -->
+</div>
+<!-- banner-half end -->
 </div>
 <!-- header end -->
+
+</div>
 
 <!-- [ PAGE HEADER ]-------------------------------- END -------------- -->
 
@@ -148,166 +138,178 @@
 
 <!-- [ PAGE BODY ]-------------------------------- START -------------- -->
 
-<div class="container">
-<div class="row">
+<div class="container bootstrap-clear">
+  <div class="row">
 
-  <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
-  <!-- [ ARTICLE ACTION BAR ] -->
-  <div class="col-xs-3">
+    <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
+    <!-- [ ARTICLE ACTION BAR ] -->
+    <div class="col-xs-3" id="article-side-bar" >
 
-    <!-- USER SCORES ------------------------------------------ -->
-  <br>
-  <div class="text-center" style= "width: 24px">
+      <div id="body-box-middle">
+
+
+
+        <!-- USER SCORES ------------------------------------------ -->
+        <br>
+        <div id="article-side-items">
 
           <% if current_user.nil? %>
 
-                <%= render 'articles/shared/new_session_btn', icon: 'up' %>
+          <%= render 'articles/shared/new_session_btn', icon: 'up' %>
 
 
-                <%= render 'articles/shared/user_score_section',
-                average_score: @average_score
-                %>
+          <div class="txt-clear">
+            <%= @average_score.present? ? @average_score.round(1) : 0 %>
+          </div>
 
 
-                <%= render 'articles/shared/new_session_btn', icon: 'down' %>
+          <%= render 'articles/shared/new_session_btn', icon: 'down' %>
 
           <% else %>
 
-              <% if current_user.can_user_vote(@article.id) %>
+          <% if current_user.can_user_vote(@article.id) %>
 
-                  <%= render 'articles/shared/new_score',
-                      article: @article,
-                      user_score: @user_score,
-                      class_name: 'submit-score-btn up',
-                      value: 1,
-                      icon: 'up'
-                  %>
-                    <%= render 'articles/shared/user_score_section',
-                    average_score: @average_score
-                    %>
-
-                  <%= render 'articles/shared/new_score',
-                      article: @article,
-                      user_score: @user_score,
-                      class_name: 'submit-score-btn down',
-                      value: -1,
-                      icon: 'down'
-                  %>
-
-              <% else %>
-
-            <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
-
-                <%= render 'articles/shared/user_score_section',
-                average_score: @average_score
-                %>
-
-            <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
-
-            <% end %>
-
-        <% end %>
-
-  </div>
-
-  <br>
-
-  <% if !current_user.nil? %>
-
-      <% saved_article = current_user.article_saved?(@article.id) %>
-
-      <!-- SAVE -->
-      <% if saved_article.nil? %>
-
-        <!-- <div id="js-save-article"> -->
-
-          <%= render 'articles/shared/article_save',
+          <%= render 'articles/shared/new_score',
           article: @article,
-          save_article: @save_article,
-          text: 'save'
+          user_score: @user_score,
+          class_name: 'submit-score-btn up btn-clear',
+          value: 1,
+          icon: 'up'
           %>
 
-        <!-- </div> -->
 
-      <!-- UNSAVE -->
-      <% else %>
 
-        <div id="js-unsave-article">
+          <div class="txt-clear">
+            <%= @average_score.present? ? @average_score.round(1) : 0 %>
+          </div>
 
-            <%= link_to "unsave",
-            article_save_article_path(@article, saved_article),
-            class: 'btn btn-default remove-saved-article',
-            method: :delete
+
+
+          <%= render 'articles/shared/new_score',
+          article: @article,
+          user_score: @user_score,
+          class_name: 'submit-score-btn down btn-clear',
+          value: -1,
+          icon: 'down'
+          %>
+
+          <% else %>
+
+          <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
+
+          <div class="txt-clear">
+            <%= @average_score.present? ? @average_score.round(1) : 0 %>
+          </div>
+
+          <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
+
+          <% end %>
+
+          <% end %>
+
+
+
+          <br>
+
+          <% if !current_user.nil? %>
+
+          <% saved_article = current_user.article_saved?(@article.id) %>
+
+          <!-- SAVE -->
+          <% if saved_article.nil? %>
+
+          <!-- <div id="js-save-article"> -->
+
+            <%= render 'articles/shared/article_save',
+            article: @article,
+            save_article: @save_article,
+            text: 'save'
             %>
+
+            <!-- </div> -->
+
+            <!-- UNSAVE -->
+            <% else %>
+
+            <div id="js-unsave-article">
+
+              <%= link_to "unsave",
+              article_save_article_path(@article, saved_article),
+              class: 'btn btn-clear remove-saved-article',
+                method: :delete
+                %>
+
+              </div>
+
+              <% end %>
+
+              <% end %>
+
+              <br>
+
+              <div>
+                <span>
+                 <p class="tweet btn btn-clear">
+                  &nbsp&nbsp&nbsp
+                  <i class="fab fa-twitter"></i>
+                  &nbsp&nbsp&nbsp
+                </p>
+              </span>
+            </div>
+            <div>
+              <span>
+               <p class="btn btn-clear">
+                &nbsp&nbsp&nbsp&nbsp
+                <i class="fab fa-facebook-f"></i>
+                &nbsp&nbsp&nbsp&nbsp
+              </p>
+            </span>
+          </div>
 
         </div>
 
-      <% end %>
 
-  <% end %>
 
-  <br>
+      </div>
 
-  <div>
-      <span>
-       <p class="tweet btn btn-default">
-          &nbsp&nbsp&nbsp
-            <i class="fab fa-twitter"></i>
-          &nbsp&nbsp&nbsp
-        </p>
-      </span>
-  </div>
-  <div>
-      <span>
-       <p class="btn btn-default">
-          &nbsp&nbsp&nbsp&nbsp
-            <i class="fab fa-facebook-f"></i>
-          &nbsp&nbsp&nbsp&nbsp
-        </p>
-      </span>
-  </div>
+    </div>
+
+    <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] -------------------------------- -->
+    <!-- [ ARTICLE ] -->
+    <div id="article-body" class="col-xs-9" >
+
+      <%= render 'articles/shared/article_show',
+      article: @article,
+      next_in_event: @next_in_event,
+      prev_in_event: @next_in_event
+      %>
 
 
 
 
-  </div>
+      <!-- [ MAIN BODY ][ COL-3 - RIGHT ] -------------------------------- -->
+      <!-- [ RELATED ARTICLES ] -->
+      <div class="col-xs-9">
 
-  <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] -------------------------------- -->
-  <!-- [ ARTICLE ] -->
-  <div class="col-xs-6">
+        <br>
+        <h3>Related Articles:</h3>
+        <br>
+        <p><strong>Topic:</strong></p>
+        <p><%= @article.event.topic.name %></p>
+        <p><strong>Event:</strong></p>
+        <p><%= @article.event.name %></p>
 
-    <!-- NEXT ARTICLE IN EVENT -->
-    <span><%= link_to "[ Previous A ]", article_path(@prev_in_event), class: "btn btn-default" %></span>
-    <span><%= link_to "[ Next A ]", article_path(@next_in_event), class: "btn btn-default" %></span>
+        <% @related_articles.each_with_index do | article, i| %>
 
-    <%= render 'articles/shared/article_show',
-      article: @article
-    %>
-  </div>
-
-  <!-- [ MAIN BODY ][ COL-3 - RIGHT ] -------------------------------- -->
-  <!-- [ RELATED ARTICLES ] -->
-  <div class="col-xs-3">
-
-    <br>
-    <h3>Related Articles:</h3>
-    <br>
-    <p><strong>Topic:</strong></p>
-    <p><%= @article.event.topic.name %></p>
-    <p><strong>Event:</strong></p>
-    <p><%= @article.event.name %></p>
-
-    <% @related_articles.each_with_index do | article, i| %>
-
-    <!-- ---- [ ARTICLE CARD ]----- -->
+        <!-- ---- [ ARTICLE CARD ]----- -->
 
         <div class="s-card-article">
           <div class="s-image-article"
           style="background-image:
-            linear-gradient(-225deg,
+          linear-gradient(-225deg,
             rgba(161,90,187,0.6) 0%,
             rgba(45,23,54,0.8) 50%),
-          url(<%= article.image_url %>);">
+            url(<%= article.image_url %>);">
             <h3>
               #<%= (i + 1) %>
             </h3>
@@ -325,35 +327,36 @@
             <p><%= article.date_time_published%></p>
             <p><% time_read = article.body_text.reading_time :format => :approx %></p>
 
-          <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
+            <h4><%= time_read.include?('seconds') ? '1 minute' : time_read %> read</h4>
 
             <% day_num = article.date_time_published.mday %>
-                <% case day_num
-                   when 1 %><% date_sufix = 'st' %>
-                <% when 2 %><% date_sufix = 'nd' %>
-                <% when 3 %><% date_sufix = 'rd' %>
-                <% else %><% date_sufix = 'th' %>
-                <% end %>
-            <p><%= article.date_time_published.mday %><%= date_sufix %></p>
-            <p><%= article.date_time_published.strftime("%H") %>.00</p>
-            <% time_read = article.body_text.reading_time :format => :approx %>
-              <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
-          <br>
-          <p><%= link_to "See Article", article_path(article) %></p>
+            <% case day_num
+             when 1 %><% date_sufix = 'st' %>
+             <% when 2 %><% date_sufix = 'nd' %>
+             <% when 3 %><% date_sufix = 'rd' %>
+             <% else %><% date_sufix = 'th' %>
+             <% end %>
+             <p><%= article.date_time_published.mday %><%= date_sufix %></p>
+             <p><%= article.date_time_published.strftime("%H") %>.00</p>
+             <% time_read = article.body_text.reading_time :format => :approx %>
+             <!-- Below: If time is only seconds display '1 minute' otherwise display actual time -->
+             <br>
+             <p><%= link_to "See Article", article_path(article) %></p>
 
-          </div>
-        </div>
+           </div>
+         </div>
 
          <br>
 
-    <!-- ----[ ARTICLE CARD END ]----- -->
+         <!-- ----[ ARTICLE CARD END ]----- -->
 
-    <% end %>
-  </div>
-  <!-- COL END -->
-</div>
-<!-- ROW END -->
-</div>
-<!-- CONTAINER END -->
+         <% end %>
+       </div>
+       <!-- COL END -->
 
-<!-- [ PAGE BODY ]-------------------------------- END -------------- -->
+     </div>
+     <!-- ROW END -->
+   </div>
+   <!-- CONTAINER END -->
+
+   <!-- [ PAGE BODY ]-------------------------------- END -------------- -->
