@@ -33,6 +33,7 @@ h3 {
 
 
 .s-card-header-text h3 {
+  text-decoration: none ;
   margin: 0;
   padding: 0;
   font-family: ZillaSlab;
@@ -79,7 +80,7 @@ h3 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-
+  color: white;
   padding: 8px;
 }
 
@@ -127,4 +128,19 @@ h3 {
   flex: 0 0 80%;
   padding: 10px;
 }
+
+.s-card-article:hover {
+  text-decoration: none !important;
+  color: white;
+}
+
+.s-card-header-text {
+  color: white;
+}
+
+.s-card-article:hover .s-card-publisher .s-card-header-text {
+  text-decoration: none !important;
+  color: white;
+}
+
 
