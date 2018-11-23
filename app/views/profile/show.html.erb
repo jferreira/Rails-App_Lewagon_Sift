@@ -6,21 +6,30 @@
 <% else %>
 <div class="banner-half" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= current_user.photo %> );">
 <% end %>
-    <p>Profile</p>
+
 
     <div class="banner-content">
 
+        <h4 class="text-center">Profile</h4>
+
       <% if current_user.photo.nil? %>
+      <div class="profile-img-container text-center">
         <img src='https://cdn.dribbble.com/users/43342/screenshots/5383946/ezgif.com-optimize_2_.gif'
         class="img-rnd-large"/>
+      </div>
+
       <% else %>
+            <div class="profile-img-container text-center">
         <img src= <%= current_user.photo %> class="img-rnd-large"/>
+        </div>
       <% end %>
 
-      <%= link_to 'Edit', edit_profile_path(current_user), class: 'btn' %>
+      <div class="edit-container text-center" style="padding: 20px;">
+      <%= link_to 'Edit', edit_profile_path(current_user), class: 'btn btn-default' %>
+      </div>
 
-      <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-      <p><%= current_user.email %></p>
+    <p class="user-name text-center"><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p class="user-email text-center" style="width: 100%;" ><%= current_user.email %></p>
 
     </div>
   </div>
