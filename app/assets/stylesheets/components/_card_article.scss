@@ -65,8 +65,8 @@ h3 {
 
 .s-card-publisher {
   position: relative;
-  background: rgba(45,23,54,0.5);
-  height: 96px;
+  background: $sift-purple;
+  // height: 96px;
   width: 100%;
 
   padding: 24px;
@@ -125,7 +125,7 @@ h3 {
   justify-content: space-around;
 }
 .article-read-minutes {
-  flex: 0 0 80%;
+  // flex: 0 0 80%;
   padding: 10px;
 }
 
