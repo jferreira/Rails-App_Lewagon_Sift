@@ -10,8 +10,6 @@
 
     <div class="banner-content">
 
-        <h4 class="text-center">Profile</h4>
-
       <% if current_user.photo.nil? %>
       <div class="profile-img-container text-center">
         <img src='https://cdn.dribbble.com/users/43342/screenshots/5383946/ezgif.com-optimize_2_.gif'
@@ -19,17 +17,19 @@
       </div>
 
       <% else %>
-            <div class="profile-img-container text-center">
-        <img src= <%= current_user.photo %> class="img-rnd-large"/>
+        <div class="profile-img-container text-center">
+          <img src= <%= current_user.photo %> class="img-rnd-large"/>
         </div>
       <% end %>
+
+      <h2 class="user-name text-center blocked">&nbsp&nbsp&nbsp <%= current_user.first_name %>&nbsp<%= current_user.last_name %> &nbsp&nbsp&nbsp
+      </h2>
+      <br>
+      <p class="user-email text-center" style="width: 100%;" ><%= current_user.email %></p>
 
       <div class="edit-container text-center" style="padding: 20px;">
       <%= link_to 'Edit', edit_profile_path(current_user), class: 'btn btn-outline-white' %>
       </div>
-
-    <p class="user-name text-center"><%= current_user.first_name %> <%= current_user.last_name %></p>
-    <p class="user-email text-center" style="width: 100%;" ><%= current_user.email %></p>
 
     </div>
   </div>
@@ -47,10 +47,6 @@
     <!-- SAVED ARTICLES SECTION --------------------------------------------------------------------------------------------------------------------------------------------- -->
     <div id="saved-articles" class="tab-pane fade in active">
 
-
-      <br>
-      <h3>Your Saved Articles:</h3>
-      <br>
 
           <% @articles.each_with_index do |article, i| %>
 
@@ -128,9 +124,8 @@
     <!-- FOLLOWED ITEMS SECTION ------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <div id="followd-lists" class="tab-pane fade">
-    <br>
-      <h3>Followed Topic and Events</h3>
-    <br>
+
+
       <% current_user.return_unique_items.each_with_index do | following_item, i | %>
 
           <% item_type = following_item.follower_type %>
