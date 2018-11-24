@@ -267,7 +267,7 @@
     <!-- [ ARTICLE ] -->
     <div id="article-body" class="col-xs-9" >
 
-      <%= render 'articles/shared/article_show',
+      <%= render 'articles/shared/article_content',
       article: @article,
       next_in_event: @next_in_event,
       prev_in_event: @next_in_event
@@ -283,10 +283,6 @@
         <br>
         <h3>Related Articles:</h3>
         <br>
-        <p><strong>Topic:</strong></p>
-        <p><%= @article.event.topic.name %></p>
-        <p><strong>Event:</strong></p>
-        <p><%= @article.event.name %></p>
 
         <% @related_articles.each_with_index do | article, i| %>
 
@@ -296,8 +292,8 @@
           <div class="s-image-article"
           style="background-image:
           linear-gradient(-225deg,
-            rgba(161,90,187,0.6) 0%,
-            rgba(45,23,54,0.8) 50%),
+            rgba(161,90,187,0.8) 0%,
+            rgba(45,23,54,0.2) 50%),
             url(<%= article.image_url %>);">
             <h3>
               #<%= (i + 1) %>
