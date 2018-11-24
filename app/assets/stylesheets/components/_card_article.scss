@@ -144,3 +144,17 @@ h3 {
 }
 
 
+// IMAGE HEADER BOX
+
+.article-text-header {
+  display: flex;
+  padding: 0px 25px;
+ }
+
+.article-index-header {
+  flex: 0 0 50%;
+}
+
+.article-reading-time-header {
+  flex: 0 0 50%;
+}
