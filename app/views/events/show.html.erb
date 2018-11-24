@@ -129,6 +129,8 @@
     </div> -->
 
     <br>
+
+
     <% @event.articles.each_with_index do |article, i| %>
 
       <div id="votes-event-list" class='offset-xs-0 col-xs-2 offset-md-0 col-md-2'>
@@ -192,7 +194,7 @@
       <!-- END id="event-card-on-events" -->
 
 
-      <!-- [ EVENT CARD ] [ COL 2 ]----------------------------------------- -->
+      <!-- [ EVENT ARTICLES CARD ] [ COL 2 ]----------------------------------------- -->
 
       <div id="events-event-list" class='offset-xs-0 col-xs-10 offset-md-0 col-md-10'>
 
@@ -208,7 +210,6 @@
                       url(<%= article.image_url %>);">
 
                     <div class="article-text-header">
-
                       <div class="article-index-header">
                         <h3>#<%= (i + 1) %></h3>
                       </div>

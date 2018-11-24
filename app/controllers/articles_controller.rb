@@ -13,7 +13,9 @@ class ArticlesController < ApplicationController
     @average_score = @article.average_score
 
     @following_item = FollowingItem.new
+
     @event = Event.find_by(id: @article.event_id)
+
     @topic = Topic.find_by(id: @event.topic_id)
     @user_score = UserScore.new
 
