@@ -156,13 +156,13 @@
                       rgba(45,23,54,0.2) 50%),
                       url(<%= article.image_url %>);">
 
-                    <div class="event-header">
+                    <div class="article-text-header">
 
-                      <div class="event-index">
+                      <div class="article-index-header">
                         <h3>#<%= (i + 1) %></h3>
                       </div>
 
-                      <div class="event-num-articles text-right">
+                      <div class="article-reading-time-header text-right">
                          <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
                       </div>
 
