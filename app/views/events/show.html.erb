@@ -1,284 +1,292 @@
+<!-- [ EVENTS SHOW ]--------------------------------------------------- -->
+<!-- [ PAGE HEADER ]-------------------------------- START -------------- -->
 
-<!-- [ EVENT SHOW  :ID ] --------------------------------------- -->
-<!-- [ HEADER ] ------------------- START ---------------------- -->
+<div class="container bootstrap-clear">
+  <div class="row">
 
-<div class="header">
+<!--------------------------------------------------------------------- -->
 
-    <div class="banner-half"
-    style="background-image:
+    <div class="header">
+
+      <div class="banner-half"
+      style="background-image:
       linear-gradient(-225deg,
-      rgba(150,10,115,0.8) 0%,
-      rgba(255,77,0,0.4) 50%),
-    url(<%= @event.image_url %>);">
+        rgba(150,10,115,0.8) 0%,
+        rgba(255,77,0,0.4) 50%),
+        url(<%= @event.image_url %>);">
 
-        <div class="row">
+        <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
+        <!-- [ SIDE BAR ] -->
 
-          <!-- MAIN COL -->
-          <div class="col-xs-9">
+        <div id="head-side-bar" class="col-xs-3">
+          <div id="head-box-middle">
+            <button id="user-suggests-url">
+              +
+            </button>
+          </div>
+        </div>
 
-            <!-- ---- [ HEADER TITLES CARD ] ------ START --------- -->
-
-              <!-- LOCATION TAG -->
-              <p><span class="blocked-tag">&nbsp <%= @event.location %>  &nbsp</span></p>
-              <!-- TIME TAG -->
-              <p><span class="blocked-tag">&nbsp <%= @event.articles.first.date_time_published %>  &nbsp</span></p>
-              <p></p>
-
-              <!-- TOPIC HEADER -->
-
-              <h2>
-
-                <span class="blocked add-topic-title">
-                  <%= render 'following_items/form',
-                    following_item: @following_item,
-                    follower_type: 'Topic',
-                    follower_id: @topic.id
-                  %>
-                </span>
-
-                <span class="blocked topic-title">&nbsp <%= @event.topic.name %> &nbsp </span>
-                <span class="list-notification-topic"><i class="fas fa-check"></i>  Item Added</span>
-
-              </h2>
+        <!-- [ SIDE BAR ] -->
+        <!-- [ HEADER ][ COL-1 - LEFT ] ------------- END ---------------- -->
 
 
-            <!-- ---- [ HEADER TITLES CARD ] ------ END --------- -->
+        <!-- [ HEADER ][ COL-2 - MIDDLE ] ----------- START ------------------ -->
+        <!-- [ TITLE BAR ] -->
 
-              <h2>
+        <div id="head-main" class="col-xs-9">
 
-              <span class="blocked add-event-title">
-                  <%= render 'following_items/form',
-                    # article: @article,
-                    following_item: @following_item,
-                    follower_type: 'Event',
-                    follower_id: @event.id
-                  %>
+          <!-- ---- EVENT HEADER TITLES CARD ----- -->
+
+          <p><span class="article-location">
+            &nbsp <%= @event.location %>  &nbsp</span></p>
+            <p></p>
+
+
+            <h2>
+              <!--[      TOPIC      ]----------------------------------------------------------------->
+              <!--[ TOPIC BOOKMARK ]-->
+
+              <!-- ADD -->
+              <span id="follow-topic" class="blocked add-topic-title">
+                <%= render 'following_items/form',
+                following_item: @following_item,
+                follower_type: 'Topic',
+                follower_id: @topic.id
+                %>
               </span>
 
-              <span class="blocked event-title">&nbsp <%= @event.name %> &nbsp </span>
-              <span class="list-notification-event"><i class="fas fa-check"></i>  Item Added</span>
+              <!-- DESTROY -->
 
-              </h2>
+              <!--[ TOPIC TITLE ]-->
+              <span class="blocked topic-title">
+                &nbsp <%= @event.topic.name %> &nbsp
+              </span>
 
-              <p>Description: <%= @event.articles.count %> Articles: <%= @event.description %></p>
+            </h2>
 
-                <!-- [ NEXT EVENT ] -------- START -------------->
+            <h2>
+              <!--[      EVENT      ]----------------------------------------------------------------->
+              <!--[ EVENT BOOKMARK  ]-->
 
-                <span><%=
-                  link_to "Previous Event",
-                  event_path(@prev_event),
-                  class: "btn btn-outline-purple" %>
-                </span>
+            <span id="follow-event"
+              class="blocked add-event-title">
 
-                <span><%=
-                  link_to "Next Event",
-                  event_path(@next_event),
-                  class: "btn btn-outline-purple" %>
-                </span>
+              <%= render 'following_items/form',
+              following_item: @following_item,
+              follower_type: 'Event',
+              follower_id: @event.id
+              %>
 
-                <!-- [ NEXT EVENT ] -------- END -------------->
+            </span>
 
-            <!-- ---- HEADER CARD END ----- -->
+            <!-- [ EVENT TITLE ] -->
+            <span class="blocked event-title">
+              &nbsp <%= @event.name %> &nbsp
+            </span>
 
-          </div>
-          <!-- col three end -->
+          </h2>
 
-        </div>
-        <!-- row end -->
+          <p class="event-description"><%= @event.description %></p>
+
+          <!-- [ NEXT EVENT ] -------- START -------------->
+
+          <span><%=
+            link_to "Previous Event",
+            event_path(@prev_event),
+            class: "btn btn-outline-purple" %>
+          </span>
+
+          <span><%=
+            link_to "Next Event",
+            event_path(@next_event),
+            class: "btn btn-outline-purple" %>
+          </span>
+
+      <!-- [ NEXT EVENT ] ------------- END -------------->
+
+
+      <!-- ---- HEADER CARD END ----- -->
+    </div>
+    <!-- [ HEADER ][ COL-2 - MIDDLE ] ------------- END ------------- -->
+
+  </div>
+  <!-- row end -->
 
   </div>
   <!-- banner-half end -->
-
 </div>
 <!-- header end -->
 
-<!-- [ HEADER ] ----------------------- [ END ] ------------------ -->
+</div>
+
+<!-- [ PAGE HEADER ]-------------------------------- END -------------- -->
+<!--------------------------------------------------------------------- -->
 
 
-<!-- [ BODY ] ----------------------- [ START ] ------------------ -->
 
-<div class="container">
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- [ PAGE BODY ]-------------------------------------- [ START ] --------- -->
+
+<div class="container bootstrap-clear">
+
+  <!-- <div class="row"> -->
+    <!--
+    <div class="user-scores-container">
+
+    <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
+      <input value="1" type="hidden" name="user_score[score]" id="user_score_score">
+      <button name="button" type="submit">
+                <i class="fas fa-chevron-up"></i>
+      </button>
+    </form>
+
+      <#% if @raw_scores.present?  %>
+          <p class="avg-score"><#%= @raw_scores %></p>
+        <#% else %>
+          <p class="avg-score">0</p>
+      <#% end %>
+
+    <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
+      <input value="-1" type="hidden" name="user_score[score]" id="user_score_score">
+      <button name="button" type="submit">
+                <i class="fas fa-chevron-down"></i>
+      </button>
+    </form>
+  </div>
+  -->
+  <!-- </div> -->
 
   <div class="row">
 
-    <p>All the articles from this event: <%= @event.name %> :</p>
-    <br>
-
-<!--     <p><strong>Article Filter:</strong></p>
-
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filtered: User Score
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Filtered by: User Weighting</button>
-          <div class="dropdown-divider"></div>
-        <button class="dropdown-item" type="button">Filtered by: Time</button>
-          <div class="dropdown-divider"></div>
-        <button class="dropdown-item" type="button">Filtered by: Publisher Distance</button>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Order: Ascending
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Order: Ascending</button>
-        <button class="dropdown-item" type="button">Order: Descending</button>
-      </div>
-    </div> -->
-
-    <br>
     <% @event.articles.each_with_index do |article, i| %>
 
-      <div id="votes-event-list" class='offset-xs-0 col-xs-2 offset-md-0 col-md-2'>
+      <!-- [ MAIN BODY ][ COL-1 - LEFT ] ------------------- START ----------- -->
+      <!-- [ ARTICLE ACTION BAR ] -->
 
-      <!-- [ EVENT CARD ] [ COL 1 ]----------------------------------------- -->
-      <!-- USER SCORES ------------------------------------------ -->
+      <div id="article-side-bar" class="col-xs-3">
+        <div id="body-box-middle">
+
+          <!-- [ USER SCORES ] ---------------------------- START ------------ -->
+
+          <div id="article-side-items">
+
+            <div style= "width: 24px">
+                <span>
+                 <p class="btn btn-clear">
+                    &nbsp&nbsp&nbsp&nbsp
+                      <i class="fas fa-angle-up"></i>
+                    &nbsp&nbsp&nbsp&nbsp
+                  </p>
+                </span>
+                <span>
+                   <p class="btn txt-clear">
+                    &nbsp&nbsp&nbsp&nbsp
+                      <% if article.average_score %>
+                        <%= article.average_score %>
+                      <% else %>
+                        0
+                      <% end %>
+                    &nbsp&nbsp&nbsp&nbsp
+                  </p>
+                </span>
+                <span>
+                 <p class="btn btn-clear">
+                    &nbsp&nbsp&nbsp&nbsp
+                      <i class="fas fa-angle-down"></i>
+                    &nbsp&nbsp&nbsp&nbsp
+                  </p>
+                </span>
+            </div>
 
 
-        <div style= "width: 24px">
-            <span>
-             <p class="btn btn-clear">
-                &nbsp&nbsp&nbsp&nbsp
-                  <i class="fas fa-angle-up"></i>
-                &nbsp&nbsp&nbsp&nbsp
-              </p>
-            </span>
-            <span>
-               <p class="btn txt-clear">
-                &nbsp&nbsp&nbsp&nbsp
-                  <% if article.average_score %>
-                    <%= article.average_score %>
-                  <% else %>
-                    0
-                  <% end %>
-                &nbsp&nbsp&nbsp&nbsp
-              </p>
-            </span>
-            <span>
-             <p class="btn btn-clear">
-                &nbsp&nbsp&nbsp&nbsp
-                  <i class="fas fa-angle-down"></i>
-                &nbsp&nbsp&nbsp&nbsp
-              </p>
-            </span>
+          </div>
+          <!-- [ USER SCORES ] ----------------------------- END ------------- -->
+
         </div>
-
-<!--       <div class="user-scores-container">
-
-          <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
-            <input value="1" type="hidden" name="user_score[score]" id="user_score_score">
-            <button name="button" type="submit">
-                      <i class="fas fa-chevron-up"></i>
-            </button>
-          </form>
-
-            <#% if @raw_scores.present?  %>
-                <p class="avg-score"><#%= @raw_scores %></p>
-              <#% else %>
-                <p class="avg-score">0</p>
-            <#% end %>
-
-          <form class="new_user_score" id="new_user_score" action="/articles/2/user_scores" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aKTTC1RtNbxgUwkhK6PuRfuE8/zcQ67uJsBer/N8WqVnX48xygT4bfbhM+ymC9vhCnyqDwwGPSBKk417lunZ8Q==">
-            <input value="-1" type="hidden" name="user_score[score]" id="user_score_score">
-            <button name="button" type="submit">
-                      <i class="fas fa-chevron-down"></i>
-            </button>
-          </form>
-
-      </div> -->
       </div>
-      <!-- END id="event-card-on-events" -->
+
+      <!-- [ MAIN BODY ][ COL-1 - LEFT ] ------------------ END -------------- -->
+
+      <!-- ------------------------------------------------------------------- -->
+
+      <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] --------------- START ------------- -->
+      <!-- [ ARTICLE CARD ] -->
+
+    <div id="article-body" class="col-xs-9">
+
+    <%= link_to article_path(article), class: 's-card-article' do %>
+
+      <div class="s-image-article"
+        style="background-image:
+        linear-gradient(-225deg,
+        rgba(161,90,187,0.8) 0%,
+        rgba(45,23,54,0.2) 50%),
+        url(<%= article.image_url %>);">
 
 
-      <!-- [ EVENT CARD ] [ COL 2 ]----------------------------------------- -->
+        <div class="article-text-header">
+          <div class="article-index-header">
+            <h3>#<%= (i + 1) %></h3>
+          </div>
 
-      <div id="events-event-list" class='offset-xs-0 col-xs-10 offset-md-0 col-md-10'>
+          <div class="article-reading-time-header text-right">
+             <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
+          </div>
 
-                <!-- ---- [ ARTICLE CARD ]  ----- -->
+        </div>
+      </div>
 
-                <%= link_to article_path(article), class: 's-card-article' do %>
+      <div class="s-card-publisher">
+          <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+          <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+      </div>
 
-                    <div class="s-image-article"
-                      style="background-image:
-                      linear-gradient(-225deg,
-                      rgba(161,90,187,0.8) 0%,
-                      rgba(45,23,54,0.2) 50%),
-                      url(<%= article.image_url %>);">
+      <div class="s-card-body s-card-text" >
+        <h3 class="article-title"><%= article.title %></h3>
+        <h5 class="article-description"><%= article.description%></h5>
 
-                    <div class="article-text-header">
+          <% day_num = article.date_time_published.strftime("%l").to_i %>
+              <% case day_num
+                 when 1 %><% date_sufix = 'st' %>
+              <% when 2 %><% date_sufix = 'nd' %>
+              <% when 3 %><% date_sufix = 'rd' %>
+              <% else %><% date_sufix = 'th' %>
+              <% end %>
 
-                      <div class="article-index-header">
-                        <h3>#<%= (i + 1) %></h3>
-                      </div>
+        <div class="article-card-footer">
 
-                      <div class="article-reading-time-header text-right">
-                         <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
-                      </div>
+            <div class="article-date txt-outline-grey">
+              <i class="far fa-calendar"></i>
+               <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
+            </div>
 
-                    </div>
+            <div class="article-hour text-center txt-outline-grey">
+              <i class="far fa-clock"></i>
+              <%= article.date_time_published.strftime("%l")%>.00
+            </div>
 
+        </div>
+     </div><!-- class="s-card-body s-card-text" END -->
 
+      <% end %>
 
-                    </div>
-
-                    <div class="s-card-publisher">
-                        <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-                        <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
-                    </div>
-
-                    <div class="s-card-body s-card-text" >
-                      <h3 class="article-title"><%= article.title %></h3>
-                      <h5 class="article-description"><%= article.description%></h5>
-
-                        <% day_num = article.date_time_published.strftime("%l").to_i %>
-                            <% case day_num
-                               when 1 %><% date_sufix = 'st' %>
-                            <% when 2 %><% date_sufix = 'nd' %>
-                            <% when 3 %><% date_sufix = 'rd' %>
-                            <% else %><% date_sufix = 'th' %>
-                            <% end %>
-
-                      <div class="article-card-footer">
-
-                          <div class="article-date txt-outline-grey">
-                            <i class="far fa-calendar"></i>
-                             <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
-                          </div>
-
-                          <div class="article-hour text-center txt-outline-grey">
-                            <i class="far fa-clock"></i>
-                            <%= article.date_time_published.strftime("%l")%>.00
-                          </div>
-
-                      </div>
-
-                  </div>
+      <!-- [ ARTICLE CARD ] -->
+      <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] --------------- END ------------- -->
 
 
+    </div> <!-- id="article-body" class="col-xs-9"------------------ END -->
 
-                <!-- ---- [ ARTICLE CARD ]  ----- -->
+<!--------------------------------------------------------------------- -->
 
+   </div><!-- ROW END -->
 
-         <% end %>
+  <% end %>
 
-      <div>
-    <!-- COL END -->
-  </div>
-<!-- ROW END -->
-
-<br>
-
-</div>
-<!-- CONTAINER END -->
-<% end %>
-<!-- [ BODY ] ----------------------- [ START ] ------------------ -->
+</div><!-- CONTAINER END -->
 
 
-
-
-
-
-
-
+<!-- [ PAGE BODY ]------------------------------------ [ END ] ------------- -->
+<!-- ----------------------------------------------------------------------- -->
