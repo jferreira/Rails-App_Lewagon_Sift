@@ -97,13 +97,13 @@
 
           <span><%=
           link_to "Previous Event",
-            article_path(@prev_event.articles.last),
+            event_path(@prev_event),
             class: "btn btn-outline-purple" %>
           </span>
 
         <span><%=
         link_to "Next Event",
-          article_path(@next_event.articles.first),
+          event_path(@next_event),
           class: "btn btn-outline-purple" %>
         </span>
 
