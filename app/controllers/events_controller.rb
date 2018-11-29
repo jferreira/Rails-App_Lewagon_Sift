@@ -7,20 +7,16 @@ skip_before_action :authenticate_user!, :only => [:index, :show]
   end
 
   def show
-
     @event = Event.find(params[:id])
     @events = Event.all
 
     @topic = Topic.find_by(id: @event.topic_id)
+    @topic_events = @topic.events
+
+    @next_event = Event.adjacent(@topic_events, @event.id, :+)
+    @prev_event = Event.adjacent(@topic_events, @event.id, :-)
+
     @following_item = FollowingItem.new
-
-    # TOPIC -------------------------------------------------
-    topic_events = @topic.events
-
-    # NEXT EVENT IN TOPIC
-    @next_event = Event.adjacent(topic_events, @event.id, :+)
-    @prev_event = Event.adjacent(topic_events, @event.id, :-)
-
   end
 
 end

@@ -63,9 +63,13 @@
               <!-- DESTROY -->
 
               <!--[ TOPIC TITLE ]-->
-              <span class="blocked topic-title">
-                &nbsp <%= @article.event.topic.name %> &nbsp
-              </span>
+              <%= link_to(@article.event.topic) do %>
+
+                <span class="blocked topic-title">
+                  &nbsp <%= @article.event.topic.name %> &nbsp
+                </span>
+
+              <% end %>
 
             </h2>
 

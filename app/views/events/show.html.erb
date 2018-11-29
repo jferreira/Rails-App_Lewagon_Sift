@@ -130,7 +130,7 @@
 <!-- ----------------------------------------------------------------------- -->
 <!-- [ PAGE BODY ]-------------------------------------- [ START ] --------- -->
 
-<div class="container bootstrap-clear">
+<div id="events-page-body" class="container bootstrap-clear">
 
   <!-- <div class="row"> -->
     <!--
@@ -159,21 +159,26 @@
   -->
   <!-- </div> -->
 
-  <div class="row">
 
-    <% @event.articles.each_with_index do |article, i| %>
+
+<% @event.articles.each_with_index do |article, i| %>
+
+  <div id="bootstrap-row" class="row">
+    <div id="flex-row" class="event-article-row">
 
       <!-- [ MAIN BODY ][ COL-1 - LEFT ] ------------------- START ----------- -->
       <!-- [ ARTICLE ACTION BAR ] -->
 
-      <div id="article-side-bar" class="col-xs-3">
-        <div id="body-box-middle">
+      <div class="col-xs-3 event-article-side-bar">
+
+        <div class="event-body-box-middle">
 
           <!-- [ USER SCORES ] ---------------------------- START ------------ -->
 
-          <div id="article-side-items">
+          <div class="event-article-side-items">
 
-            <div style= "width: 24px">
+<!--             <div style= "width: 24px"> -->
+              <div class="user-score-box">
                 <span>
                  <p class="btn btn-clear">
                     &nbsp&nbsp&nbsp&nbsp
@@ -215,7 +220,7 @@
       <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] --------------- START ------------- -->
       <!-- [ ARTICLE CARD ] -->
 
-    <div id="article-body" class="col-xs-9">
+    <div class="col-xs-9 event-article-body">
 
     <%= link_to article_path(article), class: 's-card-article' do %>
 
@@ -281,7 +286,8 @@
 
 <!--------------------------------------------------------------------- -->
 
-   </div><!-- ROW END -->
+    </div><!-- ARTICLE ROW END -->
+   </div><!-- BOOTSTRAP ROW END -->
 
   <% end %>
 
