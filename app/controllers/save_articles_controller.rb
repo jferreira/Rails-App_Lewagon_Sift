@@ -20,6 +20,7 @@ class SaveArticlesController < ApplicationController
       # flash[:notice] = "Article removed from your list"
       redirect_to article_path(@article)
     end
+
   end
 
   private
