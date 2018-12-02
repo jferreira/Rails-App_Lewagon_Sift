@@ -1,9 +1,9 @@
-<!-- [ ARTICLE SHOW ]--------------------------------------------------- -->
+<!-- [ ARTICLE SHOW ]---------------------------------------------------- -->
+
 <!-- [ PAGE HEADER ]-------------------------------- START -------------- -->
 
 <div class="container bootstrap-clear">
   <div class="row">
-
     <div class="header">
 
       <div class="banner-half"
@@ -12,8 +12,6 @@
         rgba(150,10,115,0.8) 0%,
         rgba(255,77,0,0.4) 50%),
         url(<%= @article.image_url %>);">
-
-
 
 
         <!-- [ HEADER ][ COL-1 - LEFT ] ---------- START ------------------- -->
@@ -65,9 +63,9 @@
               <!--[ TOPIC TITLE ]-->
               <%= link_to(@article.event.topic) do %>
 
-                <span class="blocked topic-title">
-                  &nbsp <%= @article.event.topic.name %> &nbsp
-                </span>
+              <span class="blocked topic-title">
+                &nbsp <%= @article.event.topic.name %> &nbsp
+              </span>
 
               <% end %>
 
@@ -77,7 +75,7 @@
               <!--[      EVENT      ]----------------------------------------------------------------->
               <!--[ EVENT BOOKMARK  ]-->
 
-            <span id="follow-event"
+              <span id="follow-event"
               class="blocked add-event-title">
 
               <%= render 'following_items/form',
@@ -101,15 +99,15 @@
 
           <span><%=
           link_to "Previous Event",
-            event_path(@prev_event),
-            class: "btn btn-outline-purple" %>
-          </span>
+          event_path(@prev_event),
+          class: "btn btn-outline-purple" %>
+        </span>
 
         <span><%=
         link_to "Next Event",
-          event_path(@next_event),
-          class: "btn btn-outline-purple" %>
-        </span>
+        event_path(@next_event),
+        class: "btn btn-outline-purple" %>
+      </span>
 
       <!-- [ NEXT EVENT ] -------- END -------------->
 
@@ -118,41 +116,37 @@
     </div>
     <!-- [ HEADER ][ COL-2 - MIDDLE ] ------------- END ------------- -->
 
+    </div>
+    <!-- row end -->
+    </div>
+  <!-- banner-half end -->
   </div>
-  <!-- row end -->
-</div>
-<!-- banner-half end -->
-</div>
 <!-- header end -->
-
 </div>
 
 <!-- [ PAGE HEADER ]-------------------------------- END -------------- -->
 
-
-
+<!--------------------------------------------------------------------- -->
 
 <!-- [ PAGE BODY ]-------------------------------- START -------------- -->
 
 <div class="container bootstrap-clear">
+
   <div class="row">
 
-    <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
-    <!-- [ ARTICLE ACTION BAR ] -->
-    <div class="col-xs-3" id="article-side-bar" >
+    <div class="article-aside-purple-background">
 
-      <div id="body-box-middle">
+      <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
+      <!-- [ ARTICLE ACTION BAR ] -->
+      <div class="col-xs-3" id="article-side-bar" >
 
+        <div id="body-box-middle">
 
+          <!-- USER SCORES ------------------------------------------ -->
+          <br>
+          <div id="article-side-items">
 
-        <!-- USER SCORES ------------------------------------------ -->
-        <br>
-        <div id="article-side-items">
-
-
-
-
-          <% if current_user.nil? %>
+            <% if current_user.nil? %>
 
             <%= render 'articles/shared/new_session_btn', icon: 'up' %>
             <div class="article-score text-center txt-clear">
@@ -160,8 +154,9 @@
             </div>
             <%= render 'articles/shared/new_session_btn', icon: 'down' %>
 
-          <% else %>
-          <% if current_user.can_user_vote(@article.id) %>
+            <% else %>
+
+            <% if current_user.can_user_vote(@article.id) %>
 
             <%= render 'articles/shared/new_score',
             article: @article,
@@ -170,9 +165,9 @@
             value: 1,
             icon: 'up'
             %>
-              <div class="article-score txt-clear text-center">
-                <%= @average_score.present? ? @average_score.round(1) : 0 %>
-              </div>
+            <div class="article-score txt-clear text-center">
+              <%= @average_score.present? ? @average_score.round(1) : 0 %>
+            </div>
 
             <%= render 'articles/shared/new_score',
             article: @article,
@@ -182,93 +177,89 @@
             icon: 'down'
             %>
 
-          <% else %>
+            <% else %>
 
-
-
-
-          <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
-
+            <%= render 'articles/shared/frozen_score_btn', icon: 'up' %>
             <div class="article-score txt-clear">
               <%= @average_score.present? ? @average_score.round(1) : 0 %>
             </div>
+            <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
 
-          <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
+            <% end %>
 
-          <% end %>
-
-          <% end %>
-
-
-<!-- END OF VOTING -->
+            <% end %>
 
 
-          <br>
+            <!-- END OF VOTING -->
 
-          <% if !current_user.nil? %>
+
+            <br>
+
+            <% if !current_user.nil? %>
             <% saved_article = current_user.article_saved?(@article.id) %>
 
-          <!-- SAVE -->
-          <% if saved_article.nil? %>
+            <!-- SAVE -->
+            <% if saved_article.nil? %>
 
-          <!-- <div id="js-save-article"> -->
+            <!-- <div id="js-save-article"> -->
 
-            <%= render 'articles/shared/article_save',
-            article: @article,
-            save_article: @save_article,
-            text: 'save'
-            %>
+              <%= render 'articles/shared/article_save',
+              article: @article,
+              save_article: @save_article,
+              text: 'save'
+              %>
 
-            <!-- </div> -->
+              <!-- </div> -->
 
-            <!-- UNSAVE -->
-            <% else %>
+              <!-- UNSAVE -->
+              <% else %>
 
-            <div id="js-unsave-article">
+              <div id="js-unsave-article">
 
-              <%= link_to "unsave",
-              article_save_article_path(@article, saved_article),
-              class: 'btn btn-clear remove-saved-article',
-                method: :delete
-                %>
+                <%= link_to "unsave",
+                article_save_article_path(@article, saved_article),
+                class: 'btn btn-clear remove-saved-article',
+                  method: :delete
+                  %>
 
+                </div>
+
+                <% end %>
+
+                <% end %>
+
+                <br>
+
+                <div>
+                  <span>
+                   <p class="tweet btn btn-clear">
+                    &nbsp&nbsp&nbsp
+                    <i class="fab fa-twitter"></i>
+                    &nbsp&nbsp&nbsp
+                  </p>
+                </span>
               </div>
-
-              <% end %>
-
-              <% end %>
-
-              <br>
-
               <div>
                 <span>
-                 <p class="tweet btn btn-clear">
-                  &nbsp&nbsp&nbsp
-                  <i class="fab fa-twitter"></i>
-                  &nbsp&nbsp&nbsp
+                 <p class="btn btn-clear">
+                  &nbsp&nbsp&nbsp&nbsp
+                  <i class="fab fa-facebook-f"></i>
+                  &nbsp&nbsp&nbsp&nbsp
                 </p>
               </span>
             </div>
-            <div>
-              <span>
-               <p class="btn btn-clear">
-                &nbsp&nbsp&nbsp&nbsp
-                <i class="fab fa-facebook-f"></i>
-                &nbsp&nbsp&nbsp&nbsp
-              </p>
-            </span>
+
           </div>
 
         </div>
-
-
+        <!-- article-aside-purple-background END-->
 
       </div>
-
-    </div>
+      <!-- ROW END -->
 
     <!-- [ MAIN BODY ][ COL-2 - MIDDLE ] -------------------------------- -->
     <!-- [ ARTICLE ] -->
+
     <div id="article-body" class="col-xs-9" >
 
       <%= render 'articles/shared/article_content',
@@ -282,7 +273,8 @@
 
       <!-- [ MAIN BODY ][ COL-3 - RIGHT ] -------------------------------- -->
       <!-- [ RELATED ARTICLES ] -->
-      <div class="col-xs-9">
+
+      <div class="col-xs-9 article-side-bar-background">
 
         <br>
         <h3>Related Articles:</h3>
@@ -290,81 +282,85 @@
 
 
         <% @related_articles.each_with_index do | article, i| %>
-<br>
-<h4>Related: <%= i + 1 %> </h4>
-<br>
-                <!-- ---- [ ARTICLE CARD ]  ----- -->
 
-                <%= link_to article_path(article), class: 's-card-article' do %>
+        <br>
+        <h4>Related: <%= i + 1 %> </h4>
+        <br>
+        <!-- ---- [ ARTICLE CARD ]  ----- -->
 
-                    <div class="s-image-article"
-                      style="background-image:
-                      linear-gradient(-225deg,
-                      rgba(161,90,187,0.8) 0%,
-                      rgba(45,23,54,0.2) 50%),
-                      url(<%= article.image_url %>);">
+        <%= link_to article_path(article), class: 's-card-article' do %>
 
-                    <div class="article-text-header">
+        <div class="s-image-article"
+        style="background-image:
+        linear-gradient(-225deg,
+          rgba(161,90,187,0.8) 0%,
+          rgba(45,23,54,0.2) 50%),
+          url(<%= article.image_url %>);">
 
-                      <div class="article-index-header">
-                        <h3>#<%= (i + 1) %></h3>
-                      </div>
+          <div class="article-text-header">
 
-                      <div class="article-reading-time-header text-right">
-                         <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
-                      </div>
+            <div class="article-index-header">
+              <h3>#<%= (i + 1) %></h3>
+            </div>
 
-                    </div>
+            <div class="article-reading-time-header text-right">
+             <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
+           </div>
 
+         </div>
 
-
-                    </div>
-
-                    <div class="s-card-publisher">
-                        <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-                        <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
-                    </div>
-
-                    <div class="s-card-body s-card-text" >
-                      <h3 class="article-title"><%= article.title %></h3>
-                      <h5 class="article-description"><%= article.description%></h5>
-
-                        <% day_num = article.date_time_published.strftime("%l").to_i %>
-                            <% case day_num
-                               when 1 %><% date_sufix = 'st' %>
-                            <% when 2 %><% date_sufix = 'nd' %>
-                            <% when 3 %><% date_sufix = 'rd' %>
-                            <% else %><% date_sufix = 'th' %>
-                            <% end %>
-
-                      <div class="article-card-footer">
-
-                          <div class="article-date txt-outline-grey">
-                            <i class="far fa-calendar"></i>
-                             <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
-                          </div>
-
-                          <div class="article-hour text-center txt-outline-grey">
-                            <i class="far fa-clock"></i>
-                            <%= article.date_time_published.strftime("%l")%>.00
-                          </div>
-
-                      </div>
-
-                  </div>
-
-                  <% end %>
-
-                <!-- ---- [ ARTICLE CARD ]  ----- -->
-
-
-         <% end %>
        </div>
-       <!-- COL END -->
 
-     </div>
-     <!-- ROW END -->
-   </div>
-   <!-- CONTAINER END -->
+       <div class="s-card-publisher">
+        <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+        <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+      </div>
 
-   <!-- [ PAGE BODY ]-------------------------------- END -------------- -->
+      <div class="s-card-body s-card-text" >
+        <h3 class="article-title"><%= article.title %></h3>
+        <h5 class="article-description"><%= article.description%></h5>
+
+        <% day_num = article.date_time_published.strftime("%l").to_i %>
+        <% case day_num
+         when 1 %><% date_sufix = 'st' %>
+         <% when 2 %><% date_sufix = 'nd' %>
+         <% when 3 %><% date_sufix = 'rd' %>
+         <% else %><% date_sufix = 'th' %>
+         <% end %>
+
+         <div class="article-card-footer">
+
+          <div class="article-date txt-outline-grey">
+            <i class="far fa-calendar"></i>
+            <%= article.date_time_published.strftime("%e")%><%= date_sufix %>
+          </div>
+
+          <div class="article-hour text-center txt-outline-grey">
+            <i class="far fa-clock"></i>
+            <%= article.date_time_published.strftime("%l")%>.00
+          </div>
+
+        </div>
+
+      </div>
+
+      <% end %>
+
+      <!-- ---- [ ARTICLE CARD ]  ----- -->
+
+      <% end %>
+    </div>
+
+    <!-- COL END -->
+    </div>
+
+    </div>
+    <!-- PURPLE ROW END -->
+
+  </div>
+  <!-- ROW END -->
+
+  <!-- CONTAINER END -->
+</div>
+
+<!-- [ PAGE BODY ]-------------------------------- END -------------- -->

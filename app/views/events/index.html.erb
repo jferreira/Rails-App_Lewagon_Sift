@@ -59,15 +59,23 @@
                       </div>
                     </div>
 
-                    <div class="event-icon-boxes">
-                      <div class="event-location">
+                    <!-- <div class="event-icon-boxes"> -->
+
+                      <div class="event-location btn-outline-white">
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        <span><%= event.location %></span>
+                        <span>
+                          <%= event.location %>
+                        </span>
                       </div>
-                      <div class="event-date">
-                        <span><%= event.articles.first.date_time_published.strftime("%A, %b %d") %></span>
+
+                      <div class="event-date btn-outline-white">
+                        <i class="fas fa-clock"></i>
+                        <span>
+                          <%= event.articles.first.date_time_published.strftime("%A, %b %d") %>
+                        </span>
                       </div>
-                    </div>
+
+                    <!-- </div> -->
 
                     <div class="event-topic">
 
