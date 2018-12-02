@@ -58,9 +58,11 @@
               <!-- DESTROY -->
 
               <!--[ TOPIC TITLE ]-->
-              <span class="blocked topic-title">
-                &nbsp <%= @event.topic.name %> &nbsp
-              </span>
+              <%= link_to(@event.topic) do %>
+                <span class="blocked topic-title">
+                  &nbsp <%= @event.topic.name %> &nbsp
+                </span>
+              <% end %>
 
             </h2>
 
@@ -76,13 +78,14 @@
               follower_type: 'Event',
               follower_id: @event.id
               %>
-
             </span>
 
             <!-- [ EVENT TITLE ] -->
-            <span class="blocked event-title">
-              &nbsp <%= @event.name %> &nbsp
-            </span>
+            <%= link_to(@event) do %>
+              <span class="blocked event-title">
+                &nbsp <%= @event.name %> &nbsp
+              </span>
+            <% end %>
 
           </h2>
 

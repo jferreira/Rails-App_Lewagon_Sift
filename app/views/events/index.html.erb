@@ -49,44 +49,44 @@
                   rgba(255,77,0,0.4) 50%),
                 url(<%= event.image_url %>);">
 
-                    <div class="event-header">
-                      <div class="event-index">
-                        <h3>#<%= (i + 1) %></h3>
+                    <div class="event-topic">
+
+                      <div class="event-header">
+                        <div class="event-num-articles text-right">
+                           <h4><%= event.articles.count %> articles</h4>
+                        </div>
+<!--                         <div class="event-index">
+                          <h3>#<#%= (i + 1) %></h3>
+                        </div> -->
                       </div>
 
-                      <div class="event-num-articles text-right">
-                         <h4><%= event.articles.count %> articles</h4>
-                      </div>
-                    </div>
-
-                    <!-- <div class="event-icon-boxes"> -->
-
-                      <div class="event-location btn-outline-white">
-                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                      <div class="event-location btn btn-default">
                         <span>
                           <%= event.location %>
                         </span>
                       </div>
 
-                      <div class="event-date btn-outline-white">
-                        <i class="fas fa-clock"></i>
+                      <div class="event-date btn btn-default">
                         <span>
                           <%= event.articles.first.date_time_published.strftime("%A, %b %d") %>
                         </span>
                       </div>
-
-                    <!-- </div> -->
-
-                    <div class="event-topic">
-
+                      <br>
+                      <br>
+                      <div>
                         <h2>
-                          <span class="blocked">
-                            &nbsp # &nbsp
-                          </span>
-                          <span class="blocked">&nbsp <%= event.topic.name %>
- &nbsp
-                          </span>
+                          <%= link_to(event.topic) do %>
+                            <span class="blocked">
+                              &nbsp # &nbsp
+                            </span>
+                          <% end %>
+                          <%= link_to(event.topic) do %>
+                            <span class="blocked">
+                              &nbsp <%= event.topic.name %> &nbsp
+                            </span>
+                          <% end %>
                         </h2>
+                      </div>
                     </div>
 
                     <div class="event-title">
@@ -94,9 +94,11 @@
                           <span class="blocked">
                             &nbsp # &nbsp
                           </span>
-                          <span class="blocked">&nbsp <%= event.name %>
-                            &nbsp
-                          </span>
+                          <%= link_to(event) do %>
+                            <span class="blocked">
+                              &nbsp <%= event.name %> &nbsp
+                            </span>
+                          <% end %>
                         </h2>
                     </div>
 

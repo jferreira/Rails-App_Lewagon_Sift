@@ -336,10 +336,6 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
     EVENT_NAMES[topic_key].each_with_index do |event, event_idx|
     topic_name = TOPIC_NAMES[topic_idx]
 
-      event_articles_raw = File.read(File.expand_path("db/event_articles_#{(event_idx + 1)}.json"))
-      event_articles_parsed = JSON.parse(event_articles_raw)
-      event_articles_file = event_articles_parsed["articles"]["results"]
-
       event_key = topic_name.to_sym
 
       # EVENT DESCRIPTION
@@ -412,11 +408,15 @@ TOPIC_NAMES.each_with_index do |topic_name, topic_idx|
       puts ""
       puts "-------------------------------------------"
 
+      event_articles_raw = File.read(File.expand_path("db/event_articles_#{(event_idx + 1)}.json"))
+      event_articles_parsed = JSON.parse(event_articles_raw)
+      event_articles_file = event_articles_parsed["articles"]["results"]
+
       event_articles_file.each do |article_publisher|
 
           # SOURCE
           publisher = article_publisher["source"]
-          # binding.pry
+
           # DETAILS
           publisher_name = publisher["title"]
             publisher_description = publisher["title"]
