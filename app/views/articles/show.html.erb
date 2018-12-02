@@ -62,11 +62,9 @@
 
               <!--[ TOPIC TITLE ]-->
               <%= link_to(@article.event.topic) do %>
-
-              <span class="blocked topic-title">
-                &nbsp <%= @article.event.topic.name %> &nbsp
-              </span>
-
+                <span class="blocked topic-title">
+                  &nbsp <%= @article.event.topic.name %> &nbsp
+                </span>
               <% end %>
 
             </h2>
@@ -87,9 +85,11 @@
             </span>
 
             <!-- [ EVENT TITLE ] -->
-            <span class="blocked event-title">
-              &nbsp <%= @article.event.name %> &nbsp
-            </span>
+            <%= link_to(@article.event) do %>
+              <span class="blocked event-title">
+                &nbsp <%= @article.event.name %> &nbsp
+              </span>
+            <% end %>
 
           </h2>
 
