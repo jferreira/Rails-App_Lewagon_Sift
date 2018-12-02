@@ -57,13 +57,18 @@
 
 // BODY ----------------------------------------------
 
+// LEFT
+
+.article-aside-purple-background{
+    background: $sift-purple;
+}
+
 #article-side-bar {
 
   display: block;
   padding-top: 48px;
   padding-right: 48px;
   padding-left: 48px;
-  padding-bottom: 50%;
   background: $sift-purple;
 
 }
@@ -78,6 +83,7 @@
   text-align: right;
 }
 
+// RIGHT
 
 #article-body {
   display: block;
