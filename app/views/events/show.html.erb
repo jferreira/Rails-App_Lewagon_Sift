@@ -83,7 +83,7 @@
             <!-- [ EVENT TITLE ] -->
             <%= link_to(@event) do %>
               <span class="blocked event-title">
-                &nbsp <%= @event.name %> &nbsp
+                <%= @event.name %>
               </span>
             <% end %>
 
@@ -234,22 +234,23 @@
         rgba(45,23,54,0.2) 50%),
         url(<%= article.image_url %>);">
 
-
         <div class="article-text-header">
           <div class="article-index-header">
-            <h3>#<%= (i + 1) %></h3>
+            <h3>
+              #<%= (i + 1) %>
+            </h3>
           </div>
-
           <div class="article-reading-time-header text-right">
-             <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %></h4>
+             <h4><%= (article.body_text.reading_time :format => :approx).include?('seconds') ===false ? (article.body_text.reading_time :format => :approx) : '1 minute' %>
+             </h4>
           </div>
-
         </div>
+
       </div>
 
       <div class="s-card-publisher">
-          <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
-          <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
+        <h3 class="s-card-header-text"><%= article.publisher.name %></h3>
+        <img class="s-image-publisher" src= <%= article.publisher.image_url %> >
       </div>
 
       <div class="s-card-body s-card-text" >

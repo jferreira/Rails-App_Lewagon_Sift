@@ -38,7 +38,13 @@
               <p><span class="blocked-tag">&nbsp <%= @topic.events.first.articles.first.date_time_published %>  &nbsp</span></p>
               <p></p>
 
-              <h2><span class="blocked topic-title">&nbsp <%= @topic.name %> &nbsp </span></h2>
+              <h2>
+                <%= link_to(@topic) do %>
+                  <span class="blocked topic-title">
+                    &nbsp <%= @topic.name %> &nbsp
+                  </span>
+                <% end %>
+              </h2>
               <p>Description:<%= @topic.events.first.description %></p>
                            <p> With <%= @topic.events.count %> Events</p>
 
@@ -90,10 +96,19 @@
                     <span class="blocked-sml">&nbsp &nbsp <%#= event.events.first.date_time %>  &nbsp &nbsp</span>
                   <p></p>
                     <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span></h2>
+                      <%= link_to(event.topic) do %>
+                        <span class="blocked">&nbsp <%= event.topic.name %> &nbsp</span>
+                      <% end %>
+                    </h2>
                   <p></p>
                     <h2><span class="blocked">&nbsp # &nbsp</span>
-                      <span class="blocked">&nbsp <%= event.name %> &nbsp</span></h2>
+                      <%= link_to(event) do %>
+                        <span class="blocked">
+                          &nbsp <%= event.name %> &nbsp
+                        </span>
+                      <% end %>
+                    </h2>
+
                   <p></p>
                   <p></p>
                   <p>Summary: { <%= event.articles.count %> articles }, between { 3rd Jan 2018 } and { 24th Dec 2018 } The story of: <%= event.description %></p>
