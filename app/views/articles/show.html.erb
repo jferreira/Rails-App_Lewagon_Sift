@@ -128,9 +128,7 @@
 
 <div class="container bootstrap-clear">
 
-  <div class="row">
-
-    <div class="article-aside-purple-background">
+  <div class="row article-aside-purple-background">
 
       <!-- [ MAIN BODY ][ COL-1 - LEFT ] -------------------------------- -->
       <!-- [ ARTICLE ACTION BAR ] -->
@@ -139,6 +137,7 @@
         <div id="body-box-middle">
 
           <!-- [ USER SCORES  ] -------------------- START -------------- -->
+
           <br>
           <div id="article-side-items">
 
@@ -173,6 +172,13 @@
                 <%= render 'articles/shared/frozen_score_btn', icon: 'down' %>
               <% end %>
             <% end %>
+
+            <br>
+            <div class="btn btn-clear">
+              <i class="fas fa-eye"></i><p><%= @article.count_views %></p>
+            </div>
+            <br>
+
             <br>
             <% if !current_user.nil? %>
               <% saved_article = current_user.article_saved?(@article.id) %>
@@ -243,7 +249,7 @@
         <!-- [ MAIN BODY ][ COL-3 - RIGHT ] -------------------------------- -->
         <!-- [ RELATED ARTICLES ] -->
 
-        <div class="col-xs-9 article-side-bar-background">
+        <div class="col-xs-12 article-side-bar-background">
 
           <br>
           <h3>Related Articles:</h3>
